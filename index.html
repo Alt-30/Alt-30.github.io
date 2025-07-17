@@ -679,6 +679,83 @@
             transform: translateY(-2px);
         }
 
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: white;
+            margin: 2% auto;
+            padding: 0;
+            border-radius: 1rem;
+            width: 90%;
+            max-width: 1000px;
+            height: 90vh;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 1rem 1rem 0 0;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .modal-close {
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: white;
+            transition: var(--transition);
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            opacity: 0.7;
+            transform: scale(1.1);
+        }
+
+        .modal-body {
+            padding: 0;
+            height: calc(90vh - 80px);
+        }
+
+        .modal-body iframe {
+            border-radius: 0 0 1rem 1rem;
+            height: 100%;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-menu {
@@ -731,6 +808,25 @@
             .services-grid,
             .portfolio-grid {
                 grid-template-columns: 1fr;
+            }
+
+            /* Mobile responsiveness for modal */
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+                height: 85vh;
+            }
+            
+            .modal-header {
+                padding: 1rem 1.5rem;
+            }
+            
+            .modal-header h3 {
+                font-size: 1.25rem;
+            }
+            
+            .modal-body {
+                height: calc(85vh - 70px);
             }
         }
 
@@ -889,7 +985,10 @@
                             <span class="portfolio-tag">Analytics</span>
                             <span class="portfolio-tag">Community</span>
                         </div>
-                        <a href="#contact" class="btn btn-accent">View Demo</a>
+                        <button onclick="openChatbotModal()" class="btn btn-accent">
+                            <i class="fas fa-comments"></i>
+                            Try Chatbot
+                        </button>
                     </div>
                 </div>
 
@@ -1022,6 +1121,25 @@
         </div>
     </footer>
 
+    <!-- Chatbot Modal -->
+    <div id="chatbotModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Garden Nerd Chatbot</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <iframe 
+                    src="https://garden-nerd-chatbot.streamlit.app/?embed_options=show_padding,light_theme"
+                    width="100%" 
+                    height="600px" 
+                    frameborder="0"
+                    allow="camera; microphone">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Mobile menu toggle
         const mobileToggle = document.getElementById('mobileToggle');
@@ -1087,6 +1205,39 @@
             card.addEventListener('mouseleave', () => {
                 card.style.transform = 'translateY(0) scale(1)';
             });
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('chatbotModal');
+        const modalClose = document.querySelector('.modal-close');
+
+        // Function to open modal
+        function openChatbotModal() {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        // Function to close modal
+        function closeChatbotModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close modal when clicking the X
+        modalClose.addEventListener('click', closeChatbotModal);
+
+        // Close modal when clicking outside of it
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeChatbotModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.style.display === 'block') {
+                closeChatbotModal();
+            }
         });
     </script>
 </body>
