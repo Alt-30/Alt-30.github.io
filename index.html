@@ -856,6 +856,7 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#process">Process</a></li>
+                <li><a href="chatbot.html">Chatbot</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <button class="mobile-toggle" id="mobileToggle">
@@ -985,10 +986,10 @@
                             <span class="portfolio-tag">Analytics</span>
                             <span class="portfolio-tag">Community</span>
                         </div>
-                        <button onclick="openChatbotModal()" class="btn btn-accent">
+                        <a href="chatbot.html" class="btn btn-accent">
                             <i class="fas fa-comments"></i>
                             Try Chatbot
-                        </button>
+                        </a>
                     </div>
                 </div>
 
@@ -1105,6 +1106,7 @@
                 <div class="footer-section">
                     <h3>Company</h3>
                     <p><a href="#portfolio">Portfolio</a></p>
+                    <p><a href="chatbot.html">Chatbot Demo</a></p>
                     <p><a href="#process">Process</a></p>
                     <p><a href="#contact">Contact</a></p>
                 </div>
@@ -1120,36 +1122,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Chatbot Modal -->
-    <div id="chatbotModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Garden Nerd Chatbot</h3>
-                <span class="modal-close">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div id="iframe-container">
-                    <iframe 
-                        id="chatbot-iframe"
-                        src="https://garden-nerd-chatbot.streamlit.app/"
-                        width="100%" 
-                        height="600px" 
-                        frameborder="0"
-                        allow="camera; microphone"
-                        sandbox="allow-same-origin allow-scripts allow-forms">
-                    </iframe>
-                </div>
-                <div id="fallback-message" style="display: none; text-align: center; padding: 2rem;">
-                    <p>Having trouble loading the chatbot in the modal?</p>
-                    <a href="https://garden-nerd-chatbot.streamlit.app/" target="_blank" rel="noopener noreferrer" class="btn btn-accent">
-                        <i class="fas fa-external-link-alt"></i>
-                        Open in New Tab
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script>
         // Mobile menu toggle
@@ -1216,64 +1188,6 @@
             card.addEventListener('mouseleave', () => {
                 card.style.transform = 'translateY(0) scale(1)';
             });
-        });
-
-        // Modal functionality
-        const modal = document.getElementById('chatbotModal');
-        const modalClose = document.querySelector('.modal-close');
-        const chatbotIframe = document.getElementById('chatbot-iframe');
-        const fallbackMessage = document.getElementById('fallback-message');
-
-        // Function to open modal
-        function openChatbotModal() {
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-            
-            // Set a timeout to show fallback if iframe doesn't load
-            setTimeout(() => {
-                // Check if iframe loaded successfully
-                try {
-                    if (chatbotIframe.contentDocument || chatbotIframe.contentWindow.document) {
-                        // Iframe loaded successfully
-                    }
-                } catch (e) {
-                    // Iframe failed to load, show fallback
-                    document.getElementById('iframe-container').style.display = 'none';
-                    fallbackMessage.style.display = 'block';
-                }
-            }, 5000);
-        }
-
-        // Handle iframe load errors
-        chatbotIframe.addEventListener('error', () => {
-            document.getElementById('iframe-container').style.display = 'none';
-            fallbackMessage.style.display = 'block';
-        });
-
-        // Function to close modal
-        function closeChatbotModal() {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restore scrolling
-            // Reset the modal content
-            document.getElementById('iframe-container').style.display = 'block';
-            fallbackMessage.style.display = 'none';
-        }
-
-        // Close modal when clicking the X
-        modalClose.addEventListener('click', closeChatbotModal);
-
-        // Close modal when clicking outside of it
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeChatbotModal();
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.style.display === 'block') {
-                closeChatbotModal();
-            }
         });
     </script>
 </body>
