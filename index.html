@@ -1129,13 +1129,24 @@
                 <span class="modal-close">&times;</span>
             </div>
             <div class="modal-body">
-                <iframe 
-                    src="https://garden-nerd-chatbot.streamlit.app/?embed_options=show_padding,light_theme"
-                    width="100%" 
-                    height="600px" 
-                    frameborder="0"
-                    allow="camera; microphone">
-                </iframe>
+                <div id="iframe-container">
+                    <iframe 
+                        id="chatbot-iframe"
+                        src="https://garden-nerd-chatbot.streamlit.app/"
+                        width="100%" 
+                        height="600px" 
+                        frameborder="0"
+                        allow="camera; microphone"
+                        sandbox="allow-same-origin allow-scripts allow-forms">
+                    </iframe>
+                </div>
+                <div id="fallback-message" style="display: none; text-align: center; padding: 2rem;">
+                    <p>Having trouble loading the chatbot in the modal?</p>
+                    <a href="https://garden-nerd-chatbot.streamlit.app/" target="_blank" rel="noopener noreferrer" class="btn btn-accent">
+                        <i class="fas fa-external-link-alt"></i>
+                        Open in New Tab
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -1210,17 +1221,42 @@
         // Modal functionality
         const modal = document.getElementById('chatbotModal');
         const modalClose = document.querySelector('.modal-close');
+        const chatbotIframe = document.getElementById('chatbot-iframe');
+        const fallbackMessage = document.getElementById('fallback-message');
 
         // Function to open modal
         function openChatbotModal() {
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            
+            // Set a timeout to show fallback if iframe doesn't load
+            setTimeout(() => {
+                // Check if iframe loaded successfully
+                try {
+                    if (chatbotIframe.contentDocument || chatbotIframe.contentWindow.document) {
+                        // Iframe loaded successfully
+                    }
+                } catch (e) {
+                    // Iframe failed to load, show fallback
+                    document.getElementById('iframe-container').style.display = 'none';
+                    fallbackMessage.style.display = 'block';
+                }
+            }, 5000);
         }
+
+        // Handle iframe load errors
+        chatbotIframe.addEventListener('error', () => {
+            document.getElementById('iframe-container').style.display = 'none';
+            fallbackMessage.style.display = 'block';
+        });
 
         // Function to close modal
         function closeChatbotModal() {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto'; // Restore scrolling
+            // Reset the modal content
+            document.getElementById('iframe-container').style.display = 'block';
+            fallbackMessage.style.display = 'none';
         }
 
         // Close modal when clicking the X
