@@ -540,6 +540,100 @@
             font-weight: 500;
         }
 
+        /* Chatbot Section */
+        .chatbot-section {
+            padding: 5rem 0;
+            background: var(--bg);
+        }
+
+        .chatbot-embed {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .embed-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .embed-info h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .embed-info p {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .iframe-container {
+            position: relative;
+            height: 600px;
+            background: var(--bg-alt);
+        }
+
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .loading-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            color: var(--text-light);
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--border);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--text-light);
+            max-width: 400px;
+            padding: 2rem;
+        }
+
+        .error-container i {
+            font-size: 3rem;
+            color: var(--warning);
+            margin-bottom: 1rem;
+        }
+
+        .error-container h3 {
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
         /* Process Section */
         .process {
             padding: 5rem 0;
@@ -855,8 +949,8 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#chatbot">Chatbot</a></li>
                 <li><a href="#process">Process</a></li>
-                <li><a href="chatbot.html">Chatbot</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <button class="mobile-toggle" id="mobileToggle">
@@ -986,7 +1080,7 @@
                             <span class="portfolio-tag">Analytics</span>
                             <span class="portfolio-tag">Community</span>
                         </div>
-                        <a href="chatbot.html" class="btn btn-accent">
+                        <a href="#chatbot" class="btn btn-accent">
                             <i class="fas fa-comments"></i>
                             Try Chatbot
                         </a>
@@ -1024,6 +1118,50 @@
                             <span class="portfolio-tag">Automation</span>
                         </div>
                         <a href="#contact" class="btn btn-accent">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot Section -->
+    <section id="chatbot" class="chatbot-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2><i class="fas fa-seedling"></i> Garden Nerd Chatbot</h2>
+                <p>Experience our AI-powered desert gardening assistant in action</p>
+            </div>
+            
+            <div class="chatbot-embed reveal">
+                <div class="embed-header">
+                    <div class="embed-info">
+                        <h3>Live Demo</h3>
+                        <p>Ask about plant care, watering schedules, pest management, and seasonal gardening tips for Arizona climates.</p>
+                    </div>
+                    <a href="https://garden-nerd-chatbot.streamlit.app/" target="_blank" class="btn btn-outline">
+                        <i class="fas fa-external-link-alt"></i>
+                        Full Screen
+                    </a>
+                </div>
+                
+                <div class="iframe-container">
+                    <div class="loading-spinner" id="chatbotLoading">
+                        <div class="spinner"></div>
+                        <p>Loading Garden Nerd Assistant...</p>
+                    </div>
+                    
+                    <iframe 
+                        id="gardenChatbot"
+                        src="https://garden-nerd-chatbot.streamlit.app/?embed=true&embed_options=light_theme&embed_options=show_padding"
+                        title="Garden Nerd Chatbot"
+                        onload="hideChatbotLoading()"
+                        onerror="showChatbotError()">
+                    </iframe>
+
+                    <div class="error-container" id="chatbotError" style="display: none;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Unable to Load Chatbot</h3>
+                        <p>Please try the full version using the button above.</p>
                     </div>
                 </div>
             </div>
@@ -1106,7 +1244,7 @@
                 <div class="footer-section">
                     <h3>Company</h3>
                     <p><a href="#portfolio">Portfolio</a></p>
-                    <p><a href="chatbot.html">Chatbot Demo</a></p>
+                    <p><a href="#chatbot">Chatbot Demo</a></p>
                     <p><a href="#process">Process</a></p>
                     <p><a href="#contact">Contact</a></p>
                 </div>
@@ -1189,6 +1327,34 @@
                 card.style.transform = 'translateY(0) scale(1)';
             });
         });
+
+        // Chatbot loading functions
+        function hideChatbotLoading() {
+            const loadingSpinner = document.getElementById('chatbotLoading');
+            if (loadingSpinner) {
+                loadingSpinner.style.display = 'none';
+            }
+        }
+
+        function showChatbotError() {
+            const loadingSpinner = document.getElementById('chatbotLoading');
+            const errorContainer = document.getElementById('chatbotError');
+            
+            if (loadingSpinner) {
+                loadingSpinner.style.display = 'none';
+            }
+            if (errorContainer) {
+                errorContainer.style.display = 'block';
+            }
+        }
+
+        // Fallback timeout for chatbot loading
+        setTimeout(() => {
+            const loadingSpinner = document.getElementById('chatbotLoading');
+            if (loadingSpinner && loadingSpinner.style.display !== 'none') {
+                showChatbotError();
+            }
+        }, 15000); // Show error after 15 seconds if still loading
     </script>
 </body>
 </html>
