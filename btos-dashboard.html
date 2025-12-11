@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Business Trends Dashboard | Alt-30 Showcase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --bg: #ffffff;
+            --bg-alt: #f8fafc;
+            --bg-dark: #0f172a;
+            --border: #e2e8f0;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg-alt);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 6rem 0 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            opacity: 0.9;
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 2rem 0 4rem;
+        }
+
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* Dashboard Sections */
+        .dashboard-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title i {
+            color: var(--primary);
+        }
+
+        .chart-wrapper {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            min-height: 350px;
+        }
+
+        .chart-wrapper iframe {
+            width: 100%;
+            border: none;
+        }
+
+        /* Map Section */
+        .map-section .chart-wrapper {
+            min-height: 750px;
+        }
+
+        /* Grids */
+        .trends-grid,
+        .outlook-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .outlook-grid .chart-wrapper {
+            min-height: 380px;
+        }
+
+        /* Table Section */
+        .table-section .chart-wrapper {
+            min-height: 2500px;
+        }
+
+        /* Info Card */
+        .info-banner {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 1rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .info-banner-text h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .info-banner-text p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            background: white;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-1px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .trends-grid,
+            .outlook-grid {
+                gap: 1.25rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .trends-grid,
+            .outlook-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chart-wrapper {
+                min-height: 300px;
+                padding: 1rem;
+            }
+
+            .map-section .chart-wrapper {
+                min-height: 450px;
+            }
+
+            .outlook-grid .chart-wrapper {
+                min-height: 320px;
+            }
+
+            .table-section .chart-wrapper {
+                min-height: 2000px;
+            }
+
+            .info-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-meta {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <i class="fas fa-chart-line"></i>
+                Alt-30 Showcase
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">All Projects</a></li>
+                <li><a href="az-municipal-finance.html">AZ Finance</a></li>
+                <li><a href="garden-nerd.html">Garden Nerd</a></li>
+                <li><a href="https://alt30.com" target="_blank">Main Site</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="header-content">
+            <div class="breadcrumb">
+                <a href="index.html">Showcase</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Business Trends Dashboard</span>
+            </div>
+            <h1><i class="fas fa-building"></i> US Business Trends & Outlook Survey</h1>
+            <p>Real-time insights into business performance, demand, pricing, and employment across the United States using Census Bureau BTOS data.</p>
+            <div class="header-meta">
+                <div class="meta-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Datawrapper Visualizations</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-database"></i>
+                    <span>Census Bureau BTOS</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Updated Monthly</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="info-banner">
+                <div class="info-banner-text">
+                    <h3>About This Dashboard</h3>
+                    <p>Interactive visualizations of the Census Bureau's Business Trends and Outlook Survey, tracking sentiment across all 50 states.</p>
+                </div>
+                <a href="https://www.census.gov/data/experimental-data-products/business-trends-and-outlook-survey.html" target="_blank" class="btn">
+                    <i class="fas fa-external-link-alt"></i>
+                    View Census Source
+                </a>
+            </div>
+
+            <!-- Geographic Overview -->
+            <div class="dashboard-section map-section">
+                <h2 class="section-title"><i class="fas fa-map-marked-alt"></i> Geographic Overview</h2>
+                <div class="chart-wrapper">
+                    <iframe title="Business Performance Index by State" 
+                            aria-label="Choropleth map" 
+                            id="datawrapper-chart-cv7Yv" 
+                            src="https://datawrapper.dwcdn.net/cv7Yv/2/" 
+                            scrolling="no" 
+                            frameborder="0" 
+                            height="700" 
+                            data-external="1"></iframe>
+                </div>
+            </div>
+
+            <!-- Trend Analysis -->
+            <div class="dashboard-section">
+                <h2 class="section-title"><i class="fas fa-chart-line"></i> Current vs Future Trends</h2>
+                <div class="trends-grid">
+                    <div class="chart-wrapper">
+                        <iframe title="Current vs Future Performance Trends" 
+                                aria-label="Line chart" 
+                                id="datawrapper-chart-ki7Bc" 
+                                src="https://datawrapper.dwcdn.net/ki7Bc/3/" 
+                                scrolling="no" 
+                                frameborder="0" 
+                                height="300" 
+                                data-external="1"></iframe>
+                    </div>
+                    
+                    <div class="chart-wrapper">
+                        <iframe title="Current vs Future Demand Trends" 
+                                aria-label="Line chart" 
+                                id="datawrapper-chart-jXZal" 
+                                src="https://datawrapper.dwcdn.net/jXZal/2/" 
+                                scrolling="no" 
+                                frameborder="0" 
+                                height="300" 
+                                data-external="1"></iframe>
+                    </div>
+                    
+                    <div class="chart-wrapper">
+                        <iframe title="Current vs Future Input/Output Price Trends" 
+                                aria-label="Line chart" 
+                                id="datawrapper-chart-r1H4e" 
+                                src="https://datawrapper.dwcdn.net/r1H4e/2/" 
+                                scrolling="no" 
+                                frameborder="0" 
+                                height="300" 
+                                data-external="1"></iframe>
+                    </div>
+                    
+                    <div class="chart-wrapper">
+                        <iframe title="Current vs Future Employment Trends" 
+                                aria-label="Line chart" 
+                                id="datawrapper-chart-0ic2H" 
+                                src="https://datawrapper.dwcdn.net/0ic2H/3/" 
+                                scrolling="no" 
+                                frameborder="0" 
+                                height="300" 
+                                data-external="1"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6-Month Outlook Comparison -->
+            <div class="dashboard-section">
+                <h2 class="section-title"><i class="fas fa-binoculars"></i> Current vs 6-Month Outlook</h2>
+                <div class="outlook-grid">
+                    <div class="chart-wrapper">
+                        <iframe title="Performance - Current vs 6-Month Outlook" 
+                                aria-label="Split Bars" 
+                                id="datawrapper-chart-NYQJP" 
+                                src="https://datawrapper.dwcdn.net/NYQJP/2/" 
+                                scrolling="no" 
+                                frameborder="0" 
+                                height="240" 
+                                data-external="1"></iframe>
+                    </div>
+                    
+                    <div class="chart-wrapper">
+                        <iframe title="Demand - Current vs 6-Month Outlook" 
+                                aria-label="Split Bars" 
+                                id="datawrapper-chart-Q20kN" 
+                                src="https://datawrapper.dwcdn.net/Q20kN/2/" 
+                                scrolling="no" 
+                                frameborder="0" 
+                                height="240" 
+                                data-external="1"></iframe>
+                    </div>
+                    
+                    <div class="chart-wrapper">
+                        <iframe title="Input &amp; Output Prices - Current vs 6-Month Outlook" 
+                                aria-label="Split Bars" 
+                                id="datawrapper-chart-El23W" 
+                                src="https://datawrapper.dwcdn.net/El23W/2/" 
+                                scrolling="no" 
+                                frameborder="0" 
+                                height="350" 
+                                data-external="1"></iframe>
+                    </div>
+                    
+                    <div class="chart-wrapper">
+                        <iframe title="Employment - Current vs 6-Month Outlook" 
+                                aria-label="Split Bars" 
+                                id="datawrapper-chart-ECQIP" 
+                                src="https://datawrapper.dwcdn.net/ECQIP/2/" 
+                                scrolling="no" 
+                                frameborder="0" 
+                                height="350" 
+                                data-external="1"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Raw Data Table -->
+            <div class="dashboard-section table-section">
+                <h2 class="section-title"><i class="fas fa-table"></i> Raw Data</h2>
+                <div class="chart-wrapper">
+                    <iframe title="Raw Data" 
+                            aria-label="Table" 
+                            id="datawrapper-chart-Ost4d" 
+                            src="https://datawrapper.dwcdn.net/Ost4d/1/" 
+                            scrolling="no" 
+                            frameborder="0" 
+                            height="2447" 
+                            data-external="1"></iframe>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-chart-line"></i>
+                Alt-30 Consulting
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Back to Showcase</a>
+                <a href="https://alt30.com" target="_blank">Main Website</a>
+                <a href="mailto:ai@alt30.com">Contact</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

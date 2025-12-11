@@ -3,29 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alt-30 | AI Solutions & Data Portals</title>
+    <title>Alt-30 | Analytics Showcase</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            /* Modern tech color palette */
-            --primary: #6366f1; /* Indigo */
+            --primary: #6366f1;
             --primary-dark: #4f46e5;
-            --secondary: #8b5cf6; /* Purple */
-            --accent: #06b6d4; /* Cyan */
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
             --accent-light: #67e8f9;
-            --success: #10b981; /* Emerald */
-            --warning: #f59e0b; /* Amber */
-            --text: #1e293b; /* Slate 800 */
-            --text-light: #64748b; /* Slate 500 */
+            --success: #10b981;
+            --text: #1e293b;
+            --text-light: #64748b;
             --bg: #ffffff;
-            --bg-alt: #f8fafc; /* Slate 50 */
-            --bg-dark: #0f172a; /* Slate 900 */
-            --border: #e2e8f0; /* Slate 200 */
-            
-            /* Animations */
+            --bg-alt: #f8fafc;
+            --bg-dark: #0f172a;
+            --border: #e2e8f0;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         * {
@@ -43,67 +38,13 @@
             line-height: 1.6;
             color: var(--text);
             background: var(--bg);
-            overflow-x: hidden;
         }
 
-        /* Typography */
         h1, h2, h3, h4 {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 600;
             line-height: 1.2;
         }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.6); }
-        }
-
-        .animate-fade-up {
-            animation: fadeInUp 0.8s ease forwards;
-            opacity: 0;
-        }
-
-        .animate-fade-left {
-            animation: fadeInLeft 0.8s ease forwards;
-            opacity: 0;
-        }
-
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-        .delay-4 { animation-delay: 0.8s; }
 
         /* Header */
         header {
@@ -115,7 +56,6 @@
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
-            transition: var(--transition);
         }
 
         nav {
@@ -158,26 +98,10 @@
             text-decoration: none;
             font-weight: 500;
             transition: var(--transition);
-            position: relative;
         }
 
         .nav-menu a:hover {
             color: var(--primary);
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: var(--transition);
-        }
-
-        .nav-menu a:hover::after {
-            width: 100%;
         }
 
         .mobile-toggle {
@@ -189,60 +113,14 @@
             cursor: pointer;
         }
 
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 0.5rem;
-            font-weight: 500;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .btn-accent {
-            background: var(--accent);
-            color: white;
-        }
-
-        .btn-accent:hover {
-            background: #0891b2;
-        }
-
-        .btn-lg {
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-        }
-
         /* Hero Section */
         .hero {
-            min-height: 100vh;
+            min-height: 60vh;
             display: flex;
             align-items: center;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
+            padding-top: 80px;
             position: relative;
             overflow: hidden;
         }
@@ -261,118 +139,44 @@
         .hero-content {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 5%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            padding: 4rem 5%;
+            text-align: center;
             position: relative;
             z-index: 1;
         }
 
-        .hero-text h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #ffffff, #e0e7ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
         }
 
-        .hero-text p {
+        .hero p {
             font-size: 1.25rem;
-            margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .hero-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .floating-cards {
-            position: relative;
-            width: 100%;
-            height: 400px;
-        }
-
-        .floating-card {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            min-width: 200px;
-        }
-
-        .floating-card:nth-child(1) {
-            top: 0;
-            left: 0;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .floating-card:nth-child(2) {
-            top: 100px;
-            right: 0;
-            animation: float 6s ease-in-out infinite 2s;
-        }
-
-        .floating-card:nth-child(3) {
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: float 6s ease-in-out infinite 4s;
-        }
-
-        .floating-card h4 {
-            color: white;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .floating-card p {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-        }
-
-        .floating-card i {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--accent-light), var(--success));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 5rem 0;
-            background: var(--bg);
-        }
-
+        /* Container */
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 5%;
         }
 
+        /* Projects Section */
+        .projects {
+            padding: 5rem 0;
+            background: var(--bg-alt);
+        }
+
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .section-header h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(2rem, 4vw, 2.5rem);
             margin-bottom: 1rem;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
@@ -381,980 +185,373 @@
         }
 
         .section-header p {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             color: var(--text-light);
             max-width: 600px;
             margin: 0 auto;
         }
 
-        .services-grid {
+        .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
         }
 
-        .service-card {
+        .project-card {
             background: white;
-            border-radius: 1.5rem;
-            padding: 2.5rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 4rem;
-            height: 4rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 1rem;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--text);
-        }
-
-        .service-card p {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .service-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .service-features li {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-light);
-        }
-
-        .service-features li i {
-            color: var(--success);
-            font-size: 0.875rem;
-        }
-
-        /* Portfolio Section */
-        .portfolio {
-            padding: 5rem 0;
-            background: var(--bg-alt);
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 3rem;
-        }
-
-        .portfolio-item {
-            background: white;
-            border-radius: 1.5rem;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             transition: var(--transition);
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
-        .portfolio-item:hover {
+        .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
         }
 
-        .portfolio-image {
-            height: 250px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        .project-image {
+            height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 4rem;
             color: white;
-            font-size: 3rem;
             position: relative;
-            overflow: hidden;
         }
 
-        .portfolio-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
+        .project-image.finance {
+            background: linear-gradient(135deg, #10b981, #059669);
         }
 
-        .portfolio-content {
-            padding: 2rem;
+        .project-image.garden {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
         }
 
-        .portfolio-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        .project-image.coming-soon {
+            background: linear-gradient(135deg, #64748b, #475569);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
             color: var(--text);
         }
 
-        .portfolio-content p {
+        .project-content p {
             color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
         }
 
-        .portfolio-tags {
+        .project-tags {
             display: flex;
             gap: 0.5rem;
-            margin-bottom: 1.5rem;
             flex-wrap: wrap;
         }
 
-        .portfolio-tag {
+        .tag {
             background: var(--bg-alt);
             color: var(--text-light);
             padding: 0.25rem 0.75rem;
             border-radius: 2rem;
-            font-size: 0.875rem;
+            font-size: 0.8rem;
             font-weight: 500;
         }
 
-        /* Chatbot Section */
-        .chatbot-section {
+        .tag.primary {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+        }
+
+        /* About Section */
+        .about {
             padding: 5rem 0;
             background: var(--bg);
         }
 
-        .chatbot-embed {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 1.5rem;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        }
-
-        .embed-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-        }
-
-        .embed-info h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.5rem;
-        }
-
-        .embed-info p {
-            opacity: 0.9;
-            font-size: 1rem;
-        }
-
-        .iframe-container {
-            position: relative;
-            height: 800px;
-            background: var(--bg-alt);
-        }
-
-        .iframe-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .loading-spinner {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-            color: var(--text-light);
-        }
-
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid var(--border);
-            border-top: 4px solid var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .error-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: var(--text-light);
-            max-width: 400px;
-            padding: 2rem;
-        }
-
-        .error-container i {
-            font-size: 3rem;
-            color: var(--warning);
-            margin-bottom: 1rem;
-        }
-
-        .error-container h3 {
-            margin-bottom: 1rem;
-            color: var(--text);
-        }
-
-        /* Process Section */
-        .process {
-            padding: 5rem 0;
-            background: var(--bg);
-        }
-
-        .process-steps {
+        .about-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .process-step {
-            text-align: center;
-            position: relative;
-        }
-
-        .process-step::after {
-            content: '';
-            position: absolute;
-            top: 2rem;
-            right: -1rem;
-            width: 2rem;
-            height: 2px;
-            background: var(--border);
-            z-index: -1;
-        }
-
-        .process-step:last-child::after {
-            display: none;
-        }
-
-        .process-number {
-            display: inline-flex;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: center;
-            justify-content: center;
-            width: 4rem;
-            height: 4rem;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
-        .process-step h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--text);
-        }
-
-        .process-step p {
+        .about-text p {
             color: var(--text-light);
-            line-height: 1.7;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
         }
 
-        /* CTA Section */
-        .cta {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, var(--bg-dark), #1e1b4b);
-            color: white;
-            text-align: center;
+        .capabilities {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
         }
 
-        .cta h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 1.5rem;
+        .capability {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: var(--bg-alt);
+            border-radius: 0.5rem;
         }
 
-        .cta p {
+        .capability i {
+            color: var(--primary);
             font-size: 1.25rem;
-            margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        }
+
+        .capability span {
+            font-weight: 500;
+            font-size: 0.9rem;
         }
 
         /* Footer */
         footer {
             background: var(--bg-dark);
             color: white;
-            padding: 3rem 0 1rem;
+            padding: 3rem 0 1.5rem;
         }
 
         .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
-        .footer-section h3 {
-            margin-bottom: 1rem;
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
             color: white;
         }
 
-        .footer-section p,
-        .footer-section a {
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
             color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             transition: var(--transition);
         }
 
-        .footer-section a:hover {
-            color: var(--accent);
+        .footer-links a:hover {
+            color: white;
         }
 
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
+            margin-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
         }
 
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 2.5rem;
-            height: 2.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-content {
-            position: relative;
-            background-color: white;
-            margin: 2% auto;
-            padding: 0;
-            border-radius: 1rem;
-            width: 90%;
-            max-width: 1000px;
-            height: 90vh;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            animation: modalSlideIn 0.3s ease;
-        }
-
-        @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 2rem;
-            border-bottom: 1px solid var(--border);
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border-radius: 1rem 1rem 0 0;
-        }
-
-        .modal-header h3 {
-            margin: 0;
-            font-size: 1.5rem;
-        }
-
-        .modal-close {
-            font-size: 2rem;
-            font-weight: bold;
-            cursor: pointer;
-            color: white;
-            transition: var(--transition);
-            line-height: 1;
-        }
-
-        .modal-close:hover {
-            opacity: 0.7;
-            transform: scale(1.1);
-        }
-
-        .modal-body {
-            padding: 0;
-            height: calc(90vh - 80px);
-        }
-
-        .modal-body iframe {
-            border-radius: 0 0 1rem 1rem;
-            height: 100%;
-        }
-
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
             .nav-menu {
-                position: fixed;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
-                transition: var(--transition);
-            }
-
-            .nav-menu.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
+                display: none;
             }
 
             .mobile-toggle {
                 display: block;
             }
 
-            .hero-content {
+            .projects-grid {
                 grid-template-columns: 1fr;
-                text-align: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
-            .hero-visual {
-                order: -1;
-            }
-
-            .floating-cards {
-                height: 300px;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .process-step::after {
-                display: none;
-            }
-
-            .services-grid,
-            .portfolio-grid {
+            .capabilities {
                 grid-template-columns: 1fr;
             }
 
-            /* Mobile responsiveness for modal */
-            .modal-content {
-                width: 95%;
-                margin: 5% auto;
-                height: 85vh;
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
             }
-            
-            .modal-header {
-                padding: 1rem 1.5rem;
-            }
-            
-            .modal-header h3 {
-                font-size: 1.25rem;
-            }
-            
-            .modal-body {
-                height: calc(85vh - 70px);
-            }
-        }
-
-        /* Scroll animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <nav>
-            <a href="#" class="logo">
-                <i class="fas fa-robot"></i>
-                Alt-30
+            <a href="index.html" class="logo">
+                <i class="fas fa-chart-line"></i>
+                Alt-30 Showcase
             </a>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#chatbot">Chatbot</a></li>
-                <li><a href="#process">Process</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <ul class="nav-menu">
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="https://alt30.com" target="_blank">Main Site</a></li>
             </ul>
-            <button class="mobile-toggle" id="mobileToggle">
+            <button class="mobile-toggle">
                 <i class="fas fa-bars"></i>
             </button>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero">
         <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="animate-fade-up">Alt-30: Custom AI Solutions & Data Portals</h1>
-                <p class="animate-fade-up delay-1">
-                    Transform your business with intelligent chatbots, interactive data portals, and AI-powered analytics. 
-                    We build custom solutions that turn complex data into actionable insights.
-                </p>
-                <div class="hero-buttons animate-fade-up delay-2">
-                    <a href="#services" class="btn btn-lg">
-                        <i class="fas fa-rocket"></i>
-                        Explore Services
-                    </a>
-                    <a href="#portfolio" class="btn btn-outline btn-lg">
-                        <i class="fas fa-eye"></i>
-                        View Portfolio
-                    </a>
-                </div>
-            </div>
-            <div class="hero-visual animate-fade-up delay-3">
-                <div class="floating-cards">
-                    <div class="floating-card">
-                        <i class="fas fa-comments"></i>
-                        <h4>Smart Chatbots</h4>
-                        <p>AI-powered conversations that understand your business</p>
-                    </div>
-                    <div class="floating-card">
-                        <i class="fas fa-chart-bar"></i>
-                        <h4>Data Portals</h4>
-                        <p>Interactive dashboards for real-time insights</p>
-                    </div>
-                    <div class="floating-card">
-                        <i class="fas fa-brain"></i>
-                        <h4>AI Analytics</h4>
-                        <p>Machine learning models that predict and optimize</p>
-                    </div>
-                </div>
-            </div>
+            <h1>Analytics Showcase</h1>
+            <p>Explore interactive data visualizations, dashboards, and AI-powered tools built by Alt-30. From municipal finance analysis to intelligent chatbots, see what's possible with modern data analytics.</p>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
+    <section id="projects" class="projects">
         <div class="container">
-            <div class="section-header reveal">
-                <h2>Our Services</h2>
-                <p>Cutting-edge AI solutions tailored for business and government needs</p>
-            </div>
-            
-            <div class="services-grid">
-                <div class="service-card reveal">
-                    <div class="service-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3>Custom Chatbots</h3>
-                    <p>Intelligent conversational AI that understands your domain expertise, handles complex queries, and provides 24/7 customer support with natural language processing.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Domain-specific knowledge base</li>
-                        <li><i class="fas fa-check"></i> Natural language understanding</li>
-                        <li><i class="fas fa-check"></i> Multi-platform integration</li>
-                        <li><i class="fas fa-check"></i> Analytics & optimization</li>
-                    </ul>
-                    <a href="#contact" class="btn">Get Started</a>
-                </div>
-
-                <div class="service-card reveal">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-network"></i>
-                    </div>
-                    <h3>Data Analytics Portals</h3>
-                    <p>Interactive dashboards and data visualization platforms that transform complex datasets into actionable business intelligence for informed decision-making.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Real-time data visualization</li>
-                        <li><i class="fas fa-check"></i> Custom KPI tracking</li>
-                        <li><i class="fas fa-check"></i> Interactive filtering & drilling</li>
-                        <li><i class="fas fa-check"></i> Mobile-responsive design</li>
-                    </ul>
-                    <a href="#contact" class="btn">Learn More</a>
-                </div>
-
-                <div class="service-card reveal">
-                    <div class="service-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>AI Integration</h3>
-                    <p>Seamlessly integrate artificial intelligence into your existing workflows and systems to automate processes, enhance productivity, and unlock new capabilities.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Process automation</li>
-                        <li><i class="fas fa-check"></i> Predictive analytics</li>
-                        <li><i class="fas fa-check"></i> API development & integration</li>
-                        <li><i class="fas fa-check"></i> Training & support</li>
-                    </ul>
-                    <a href="#contact" class="btn">Discover</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <div class="section-header reveal">
+            <div class="section-header">
                 <h2>Featured Projects</h2>
-                <p>Real-world applications of our AI and data analytics solutions</p>
+                <p>Interactive tools and dashboards demonstrating our data analytics capabilities</p>
             </div>
 
-            <div class="portfolio-grid">
-                <div class="portfolio-item reveal">
-                    <div class="portfolio-image">
+            <div class="projects-grid">
+                <a href="az-municipal-finance.html" class="project-card">
+                    <div class="project-image finance">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>AZ Municipal Finance Dashboard</h3>
+                        <p>Interactive R Shiny application for comparing Arizona municipal government finances. Analyze revenue, expenditures, and fiscal health across cities and towns.</p>
+                        <div class="project-tags">
+                            <span class="tag primary">R Shiny</span>
+                            <span class="tag">Government Data</span>
+                            <span class="tag">Interactive</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="garden-nerd.html" class="project-card">
+                    <div class="project-image garden">
                         <i class="fas fa-seedling"></i>
                     </div>
-                    <div class="portfolio-content">
+                    <div class="project-content">
                         <h3>Garden Nerd Chatbot</h3>
-                        <p>AI-powered gardening assistant with role-based analytics, natural language processing, and comprehensive plant care guidance for desert climates.</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">Streamlit</span>
-                            <span class="portfolio-tag">Claude AI</span>
-                            <span class="portfolio-tag">Analytics</span>
-                            <span class="portfolio-tag">Community</span>
+                        <p>AI-powered gardening assistant built with Claude. Get personalized plant care advice, watering schedules, and pest management tips for desert climates.</p>
+                        <div class="project-tags">
+                            <span class="tag primary">AI Chatbot</span>
+                            <span class="tag">Streamlit</span>
+                            <span class="tag">Claude AI</span>
                         </div>
-                        <a href="#chatbot" class="btn btn-accent">
-                            <i class="fas fa-comments"></i>
-                            Try Chatbot
-                        </a>
                     </div>
-                </div>
+                </a>
 
-                <div class="portfolio-item reveal">
-                    <div class="portfolio-image">
+                <a href="btos-dashboard.html" class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #2c3e50, #34495e);">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>US Business Trends Dashboard</h3>
+                        <p>Interactive visualizations of the Census Bureau's Business Trends and Outlook Survey. Track performance, demand, pricing, and employment sentiment nationwide.</p>
+                        <div class="project-tags">
+                            <span class="tag primary">Datawrapper</span>
+                            <span class="tag">Census Data</span>
+                            <span class="tag">Economic Indicators</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About This Showcase</h2>
+                    <p>This repository serves as a living portfolio of data analytics and visualization projects developed by Alt-30 Consulting. Each project demonstrates different aspects of modern data science, from interactive dashboards to AI-powered applications.</p>
+                    <p>Our work spans public sector analytics, municipal finance, policy research, and custom AI solutions. We specialize in making complex data accessible and actionable.</p>
+                </div>
+                <div class="capabilities">
+                    <div class="capability">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Data Visualization</span>
+                    </div>
+                    <div class="capability">
+                        <i class="fas fa-robot"></i>
+                        <span>AI Integration</span>
+                    </div>
+                    <div class="capability">
+                        <i class="fas fa-database"></i>
+                        <span>Data Engineering</span>
+                    </div>
+                    <div class="capability">
+                        <i class="fas fa-code"></i>
+                        <span>R Shiny Apps</span>
+                    </div>
+                    <div class="capability">
                         <i class="fas fa-university"></i>
+                        <span>Government Analytics</span>
                     </div>
-                    <div class="portfolio-content">
-                        <h3>Government Data Portal</h3>
-                        <p>Interactive dashboard for unemployment insurance analytics, enabling state-by-state comparisons and policy impact analysis.</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">R Shiny</span>
-                            <span class="portfolio-tag">Government</span>
-                            <span class="portfolio-tag">Public Policy</span>
-                            <span class="portfolio-tag">Interactive</span>
-                        </div>
-                        <a href="#contact" class="btn btn-accent">Learn More</a>
-                    </div>
-                </div>
-
-                <div class="portfolio-item reveal">
-                    <div class="portfolio-image">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Business Intelligence Suite</h3>
-                        <p>Comprehensive analytics platform with predictive modeling, automated reporting, and real-time KPI monitoring for enterprise clients.</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">Python</span>
-                            <span class="portfolio-tag">Machine Learning</span>
-                            <span class="portfolio-tag">Enterprise</span>
-                            <span class="portfolio-tag">Automation</span>
-                        </div>
-                        <a href="#contact" class="btn btn-accent">Explore</a>
+                    <div class="capability">
+                        <i class="fas fa-search-dollar"></i>
+                        <span>Policy Research</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Chatbot Section -->
-    <section id="chatbot" class="chatbot-section">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2><i class="fas fa-seedling"></i> Garden Nerd Chatbot</h2>
-                <p>Experience our AI-powered desert gardening assistant in action</p>
-            </div>
-            
-            <div class="chatbot-embed reveal">
-                <div class="embed-header">
-                    <div class="embed-info">
-                        <h3>Live Demo</h3>
-                        <p>Ask about plant care, watering schedules, pest management, and seasonal gardening tips for Arizona climates.</p>
-                    </div>
-                    <a href="https://garden-nerd-chatbot.streamlit.app/" target="_blank" class="btn btn-outline">
-                        <i class="fas fa-external-link-alt"></i>
-                        Full Screen
-                    </a>
-                </div>
-                
-                <div class="iframe-container">
-                    <div class="loading-spinner" id="chatbotLoading">
-                        <div class="spinner"></div>
-                        <p>Loading Garden Nerd Assistant...</p>
-                    </div>
-                    
-                    <iframe 
-                        id="gardenChatbot"
-                        src="https://garden-nerd-chatbot.streamlit.app/?embed=true"
-                        title="Garden Nerd Chatbot"
-                        onload="hideChatbotLoading()"
-                        onerror="showChatbotError()">
-                    </iframe>
-
-                    <div class="error-container" id="chatbotError" style="display: none;">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <h3>Unable to Load Chatbot</h3>
-                        <p>Please try the full version using the button above.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section id="process" class="process">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2>Our Development Process</h2>
-                <p>From concept to deployment, we follow a proven methodology</p>
-            </div>
-
-            <div class="process-steps">
-                <div class="process-step reveal">
-                    <div class="process-number">1</div>
-                    <h3>Discovery & Planning</h3>
-                    <p>We analyze your requirements, understand your data landscape, and design a solution that fits your specific needs and objectives.</p>
-                </div>
-
-                <div class="process-step reveal">
-                    <div class="process-number">2</div>
-                    <h3>Design & Prototype</h3>
-                    <p>Create interactive mockups and prototypes to validate the user experience and ensure the solution meets your expectations.</p>
-                </div>
-
-                <div class="process-step reveal">
-                    <div class="process-number">3</div>
-                    <h3>Development & Testing</h3>
-                    <p>Build your custom solution using modern technologies, with rigorous testing to ensure reliability, security, and performance.</p>
-                </div>
-
-                <div class="process-step reveal">
-                    <div class="process-number">4</div>
-                    <h3>Deployment & Support</h3>
-                    <p>Launch your solution with comprehensive training and ongoing support to ensure success and continuous improvement.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section id="contact" class="cta">
-        <div class="container">
-            <h2 class="reveal">Ready to Transform Your Data?</h2>
-            <p class="reveal">Let's discuss how our AI solutions can help your organization achieve its goals.</p>
-            <div class="reveal">
-                <a href="mailto:ai@alt30.com" class="btn btn-lg btn-accent">
-                    <i class="fas fa-envelope"></i>
-                    Get In Touch
-                </a>
-                <a href="tel:+1234567890" class="btn btn-outline btn-lg">
-                    <i class="fas fa-phone"></i>
-                    Schedule Call
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Alt-30</h3>
-                    <p>Transforming businesses with intelligent AI and data analytics solutions.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
+                <div class="footer-logo">
+                    <i class="fas fa-chart-line"></i>
+                    Alt-30 Consulting
                 </div>
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <p><a href="#services">Custom Chatbots</a></p>
-                    <p><a href="#services">Data Analytics Portals</a></p>
-                    <p><a href="#services">AI Integration</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>Company</h3>
-                    <p><a href="#portfolio">Portfolio</a></p>
-                    <p><a href="#chatbot">Chatbot Demo</a></p>
-                    <p><a href="#process">Process</a></p>
-                    <p><a href="#contact">Contact</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>Mesa, AZ</p>
-                    <p>ai@alt30.com</p>
-                    <p>+1 (234) 567-8900</p>
+                <div class="footer-links">
+                    <a href="https://alt30.com" target="_blank">Main Website</a>
+                    <a href="mailto:ai@alt30.com">Contact</a>
+                    <a href="https://github.com/Alt-30" target="_blank">GitHub</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Alt-30. All rights reserved.</p>
+                <p>&copy; 2025 Alt-30 Consulting. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const mobileToggle = document.getElementById('mobileToggle');
-        const navMenu = document.getElementById('navMenu');
-
-        mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            const icon = mobileToggle.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
-
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Header background on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = 'none';
-            }
-        });
-
-        // Add some interactive effects
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Chatbot loading functions
-        function hideChatbotLoading() {
-            const loadingSpinner = document.getElementById('chatbotLoading');
-            if (loadingSpinner) {
-                loadingSpinner.style.display = 'none';
-            }
-        }
-
-        function showChatbotError() {
-            const loadingSpinner = document.getElementById('chatbotLoading');
-            const errorContainer = document.getElementById('chatbotError');
-            
-            if (loadingSpinner) {
-                loadingSpinner.style.display = 'none';
-            }
-            if (errorContainer) {
-                errorContainer.style.display = 'block';
-            }
-        }
-
-        // Fallback timeout for chatbot loading
-        setTimeout(() => {
-            const loadingSpinner = document.getElementById('chatbotLoading');
-            if (loadingSpinner && loadingSpinner.style.display !== 'none') {
-                showChatbotError();
-            }
-        }, 15000); // Show error after 15 seconds if still loading
     </script>
 </body>
 </html>

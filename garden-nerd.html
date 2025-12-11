@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garden Nerd Chatbot | Alt-30 Showcase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #f59e0b;
+            --primary-dark: #d97706;
+            --secondary: #6366f1;
+            --accent: #10b981;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --bg: #ffffff;
+            --bg-alt: #f8fafc;
+            --bg-dark: #0f172a;
+            --border: #e2e8f0;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--secondary), #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            padding: 6rem 0 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="leaves" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="3" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23leaves)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            opacity: 0.9;
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 2rem 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* App Container */
+        .app-container {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+        }
+
+        .app-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background: var(--bg-alt);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .app-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .app-title i {
+            color: var(--primary);
+            font-size: 1.25rem;
+        }
+
+        .app-title span {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .app-actions {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .btn-outline:hover {
+            background: var(--bg-alt);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .iframe-wrapper {
+            position: relative;
+            height: 800px;
+            background: var(--bg-alt);
+        }
+
+        .iframe-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-alt);
+            gap: 1rem;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--border);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Info Section */
+        .info-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .info-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-card h3 i {
+            color: var(--primary);
+        }
+
+        .info-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .feature-list li i {
+            color: var(--primary);
+            margin-top: 0.25rem;
+        }
+
+        .topic-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .topic-tag {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--primary-dark);
+            padding: 0.35rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .tech-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: var(--bg-alt);
+            border-radius: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .tech-item i {
+            color: var(--primary);
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Sample Questions */
+        .sample-questions {
+            margin-top: 1.5rem;
+        }
+
+        .question-item {
+            background: var(--bg-alt);
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text);
+            border-left: 3px solid var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .info-section {
+                grid-template-columns: 1fr;
+            }
+
+            .iframe-wrapper {
+                height: 600px;
+            }
+
+            .app-toolbar {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .header-meta {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <i class="fas fa-chart-line"></i>
+                Alt-30 Showcase
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">All Projects</a></li>
+                <li><a href="az-municipal-finance.html">AZ Finance</a></li>
+                <li><a href="https://alt30.com" target="_blank">Main Site</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="header-content">
+            <div class="breadcrumb">
+                <a href="index.html">Showcase</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Garden Nerd Chatbot</span>
+            </div>
+            <h1><i class="fas fa-seedling"></i> Garden Nerd Chatbot</h1>
+            <p>AI-powered gardening assistant specializing in desert climate plant care. Get personalized advice on watering schedules, pest management, and seasonal planting tips for Arizona gardens.</p>
+            <div class="header-meta">
+                <div class="meta-item">
+                    <i class="fas fa-robot"></i>
+                    <span>Powered by Claude AI</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-sun"></i>
+                    <span>Desert Climate Focus</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-comments"></i>
+                    <span>Natural Language Chat</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="app-container">
+                <div class="app-toolbar">
+                    <div class="app-title">
+                        <i class="fas fa-leaf"></i>
+                        <span>Live Chat Demo</span>
+                    </div>
+                    <div class="app-actions">
+                        <button class="btn btn-outline" onclick="reloadApp()">
+                            <i class="fas fa-redo"></i>
+                            Reload
+                        </button>
+                        <a href="https://garden-nerd-chatbot.streamlit.app/" target="_blank" class="btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            Open Full Screen
+                        </a>
+                    </div>
+                </div>
+                <div class="iframe-wrapper">
+                    <div class="loading-overlay" id="loadingOverlay">
+                        <div class="spinner"></div>
+                        <p class="loading-text">Loading Garden Nerd Assistant...</p>
+                    </div>
+                    <iframe 
+                        id="chatbotApp"
+                        src="https://garden-nerd-chatbot.streamlit.app/?embed=true"
+                        title="Garden Nerd Chatbot"
+                        onload="hideLoading()">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-card">
+                    <h3><i class="fas fa-info-circle"></i> About Garden Nerd</h3>
+                    <p>Garden Nerd is an AI-powered chatbot designed to help gardeners in the Arizona desert climate. Whether you're a beginner or experienced gardener, get instant answers to your plant care questions.</p>
+                    
+                    <h3 style="margin-top: 1.5rem;"><i class="fas fa-list-check"></i> What You Can Ask</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Watering schedules for specific plants</li>
+                        <li><i class="fas fa-check"></i> Best plants for Arizona climate zones</li>
+                        <li><i class="fas fa-check"></i> Pest identification and management</li>
+                        <li><i class="fas fa-check"></i> Seasonal planting calendars</li>
+                        <li><i class="fas fa-check"></i> Soil preparation and amendments</li>
+                        <li><i class="fas fa-check"></i> Heat stress prevention tips</li>
+                    </ul>
+
+                    <div class="topic-tags">
+                        <span class="topic-tag">Desert Gardening</span>
+                        <span class="topic-tag">Vegetables</span>
+                        <span class="topic-tag">Citrus Trees</span>
+                        <span class="topic-tag">Succulents</span>
+                        <span class="topic-tag">Native Plants</span>
+                        <span class="topic-tag">Irrigation</span>
+                    </div>
+
+                    <div class="sample-questions">
+                        <h3 style="margin-bottom: 1rem;"><i class="fas fa-question-circle"></i> Try Asking</h3>
+                        <div class="question-item">"When should I plant tomatoes in Phoenix?"</div>
+                        <div class="question-item">"How often should I water my citrus tree in summer?"</div>
+                        <div class="question-item">"What vegetables grow well in Zone 9b?"</div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3><i class="fas fa-microchip"></i> Technology Stack</h3>
+                    <div class="tech-stack">
+                        <div class="tech-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python / Streamlit</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-brain"></i>
+                            <span>Claude AI (Anthropic)</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-cloud"></i>
+                            <span>Streamlit Cloud</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-database"></i>
+                            <span>Custom Knowledge Base</span>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top: 1.5rem;"><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+                    <p>Be specific about your location within Arizona for the most accurate advice. Mention your USDA hardiness zone if you know it.</p>
+                    <p style="margin-top: 0.5rem;">Include details about your current setup (container vs. in-ground, sun exposure, soil type) for personalized recommendations.</p>
+
+                    <h3 style="margin-top: 1.5rem;"><i class="fas fa-question-circle"></i> Need Help?</h3>
+                    <p>If the chatbot doesn't load properly, try opening it in full screen mode.</p>
+                    <a href="mailto:ai@alt30.com" class="btn" style="margin-top: 0.75rem; width: 100%; justify-content: center;">
+                        <i class="fas fa-envelope"></i>
+                        Contact Support
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-chart-line"></i>
+                    Alt-30 Consulting
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Back to Showcase</a>
+                    <a href="https://alt30.com" target="_blank">Main Website</a>
+                    <a href="mailto:ai@alt30.com">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function hideLoading() {
+            const overlay = document.getElementById('loadingOverlay');
+            if (overlay) {
+                overlay.style.display = 'none';
+            }
+        }
+
+        function reloadApp() {
+            const iframe = document.getElementById('chatbotApp');
+            const overlay = document.getElementById('loadingOverlay');
+            
+            if (overlay) {
+                overlay.style.display = 'flex';
+            }
+            
+            if (iframe) {
+                iframe.src = iframe.src;
+            }
+        }
+
+        // Fallback timeout
+        setTimeout(() => {
+            const overlay = document.getElementById('loadingOverlay');
+            if (overlay && overlay.style.display !== 'none') {
+                overlay.innerHTML = `
+                    <i class="fas fa-exclamation-triangle" style="font-size: 2rem; color: #f59e0b;"></i>
+                    <p class="loading-text">Taking longer than expected...</p>
+                    <a href="https://garden-nerd-chatbot.streamlit.app/" target="_blank" class="btn">
+                        <i class="fas fa-external-link-alt"></i>
+                        Open in New Tab
+                    </a>
+                `;
+            }
+        }, 15000);
+    </script>
+</body>
+</html>
