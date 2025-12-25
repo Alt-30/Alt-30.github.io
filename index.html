@@ -4,31 +4,37 @@
     <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore interactive data visualizations, dashboards, and AI-powered tools by Alt-30 Consulting. Municipal finance analysis, chatbots, economic indicators, and more.">
-    <meta name="keywords" content="data analytics, data visualization, R Shiny, AI chatbots, municipal finance, business analytics, Alt-30">
+    <meta name="description" content="Explore cutting-edge data visualizations, interactive dashboards, and AI-powered analytics tools by Alt-30 Consulting. Transform your data into actionable insights.">
+    <meta name="keywords" content="data analytics, data visualization, R Shiny, AI chatbots, municipal finance, business analytics, dashboards, interactive visualizations, Alt-30">
     <meta name="author" content="Alt-30 Consulting">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#6366f1">
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Alt-30 Analytics Showcase">
-    <meta property="og:description" content="Interactive data visualizations and AI-powered analytics tools">
+    <meta property="og:title" content="Alt-30 Analytics Showcase | Data Visualization & AI Tools">
+    <meta property="og:description" content="Transform data into insights with interactive dashboards, AI-powered tools, and advanced analytics">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://alt-30.github.io">
+    <meta property="og:image" content="https://alt-30.github.io/assets/og-image.png">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Alt-30 Analytics Showcase">
-    <meta name="twitter:description" content="Interactive data visualizations and AI-powered analytics tools">
+    <meta name="twitter:description" content="Transform data into insights with interactive dashboards and AI-powered tools">
+    <meta name="twitter:image" content="https://alt-30.github.io/assets/twitter-card.png">
 
-    <title>Alt-30 | Analytics Showcase</title>
+    <title>Alt-30 | Analytics Showcase - Data Visualization & AI Tools</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>📊</text></svg>">
 
-    <!-- Google Fonts -->
+    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -37,18 +43,35 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Particle Background Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
     <!-- Header & Navigation -->
     <header role="banner">
         <nav role="navigation" aria-label="Main navigation">
             <a href="index.html" class="logo" aria-label="Alt-30 Showcase Home">
                 <i class="fas fa-chart-line" aria-hidden="true"></i>
-                <span>Alt-30 Showcase</span>
+                <div class="logo-text">
+                    <span>Alt-30</span>
+                    <span class="logo-subtitle">Analytics Showcase</span>
+                </div>
             </a>
-            <ul class="nav-menu">
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="https://alt30.com" target="_blank" rel="noopener noreferrer">Main Site</a></li>
-            </ul>
+            <div class="nav-items">
+                <ul class="nav-menu">
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#tech-stack">Tech Stack</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="https://alt30.com" target="_blank" rel="noopener noreferrer">Main Site</a></li>
+                </ul>
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+            </div>
             <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
                 <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
@@ -58,8 +81,34 @@
     <!-- Hero Section -->
     <section class="hero" role="banner">
         <div class="hero-content">
-            <h1>Analytics Showcase</h1>
-            <p>Explore interactive data visualizations, dashboards, and AI-powered tools built by Alt-30. From municipal finance analysis to intelligent chatbots, see what's possible with modern data analytics.</p>
+            <div class="hero-badge">
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <span>Data-Driven Excellence</span>
+            </div>
+            <h1>Transform Data Into Impact</h1>
+            <p class="hero-subtitle">Advanced Analytics • AI-Powered Insights • Interactive Dashboards</p>
+            <p>Explore our portfolio of cutting-edge data visualizations, interactive dashboards, and AI-powered analytics tools. From municipal finance analysis to intelligent chatbots, we turn complex data into actionable insights.</p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">
+                    <span>Explore Projects</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="https://alt30.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                    <span>Learn More</span>
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section" role="region" aria-label="Our Impact">
+        <div class="stats-container">
+            <!-- Stats will be dynamically generated by JavaScript -->
         </div>
     </section>
 
@@ -67,8 +116,9 @@
     <section id="projects" class="projects" role="region" aria-labelledby="projects-heading">
         <div class="container">
             <header class="section-header">
+                <span class="section-badge">Portfolio</span>
                 <h2 id="projects-heading">Featured Projects</h2>
-                <p>Interactive tools and dashboards demonstrating our data analytics capabilities</p>
+                <p>Interactive tools and dashboards showcasing the power of modern data analytics</p>
             </header>
 
             <!-- Project Filters -->
@@ -89,14 +139,30 @@
         </div>
     </section>
 
+    <!-- Tech Stack Section -->
+    <section id="tech-stack" class="tech-stack" role="region" aria-labelledby="tech-heading">
+        <div class="container">
+            <header class="section-header">
+                <span class="section-badge">Technology</span>
+                <h2 id="tech-heading">Our Tech Stack</h2>
+                <p>Leveraging the best tools and technologies to deliver exceptional results</p>
+            </header>
+
+            <div class="tech-grid">
+                <!-- Tech stack will be dynamically generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section id="about" class="about" role="region" aria-labelledby="about-heading">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
                     <h2 id="about-heading">About This Showcase</h2>
-                    <p>This repository serves as a living portfolio of data analytics and visualization projects developed by Alt-30 Consulting. Each project demonstrates different aspects of modern data science, from interactive dashboards to AI-powered applications.</p>
-                    <p>Our work spans public sector analytics, municipal finance, policy research, and custom AI solutions. We specialize in making complex data accessible and actionable.</p>
+                    <p>This repository serves as a living portfolio of data analytics and visualization projects developed by Alt-30 Consulting. Each project demonstrates different aspects of modern data science, from interactive dashboards to AI-powered applications that solve real-world challenges.</p>
+                    <p>Our work spans public sector analytics, municipal finance, economic research, policy analysis, and custom AI solutions. We specialize in transforming complex data into accessible, actionable insights that drive decision-making and create value.</p>
+                    <p>Whether you're exploring government finances, analyzing economic trends, or seeking personalized AI assistance, our tools are built with precision, powered by cutting-edge technology, and designed for impact.</p>
                 </div>
                 <div class="capabilities" role="list" aria-label="Our capabilities">
                     <div class="capability" role="listitem">
@@ -113,7 +179,7 @@
                     </div>
                     <div class="capability" role="listitem">
                         <i class="fas fa-code" aria-hidden="true"></i>
-                        <span>R Shiny Apps</span>
+                        <span>R Shiny Development</span>
                     </div>
                     <div class="capability" role="listitem">
                         <i class="fas fa-university" aria-hidden="true"></i>
@@ -122,6 +188,14 @@
                     <div class="capability" role="listitem">
                         <i class="fas fa-search-dollar" aria-hidden="true"></i>
                         <span>Policy Research</span>
+                    </div>
+                    <div class="capability" role="listitem">
+                        <i class="fas fa-brain" aria-hidden="true"></i>
+                        <span>Machine Learning</span>
+                    </div>
+                    <div class="capability" role="listitem">
+                        <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                        <span>Strategic Insights</span>
                     </div>
                 </div>
             </div>
@@ -143,16 +217,20 @@
                     </a>
                     <a href="mailto:ai@alt30.com">
                         <i class="fas fa-envelope" aria-hidden="true"></i>
-                        Contact
+                        Contact Us
                     </a>
                     <a href="https://github.com/Alt-30" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-github" aria-hidden="true"></i>
                         GitHub
                     </a>
+                    <a href="https://www.linkedin.com/company/alt-30" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
+                        LinkedIn
+                    </a>
                 </nav>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <span id="current-year">2025</span> Alt-30 Consulting. All rights reserved.</p>
+                <p>&copy; <span id="current-year">2025</span> Alt-30 Consulting. All rights reserved. | Crafted with data-driven precision.</p>
             </div>
         </div>
     </footer>
@@ -160,7 +238,7 @@
     <!-- JavaScript -->
     <script src="assets/js/main.js"></script>
     <script>
-        // Update copyright year
+        // Update copyright year dynamically
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
