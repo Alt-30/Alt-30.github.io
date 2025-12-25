@@ -200,7 +200,10 @@ function initializeParticles() {
     // Create particles
     function createParticles() {
         particles = [];
-        const particleCount = Math.min(100, Math.floor(canvas.width / 10));
+        // Reduce particles on mobile for better performance
+        const isMobile = window.innerWidth <= 768;
+        const maxParticles = isMobile ? 30 : 100;
+        const particleCount = Math.min(maxParticles, Math.floor(canvas.width / (isMobile ? 20 : 10)));
         for (let i = 0; i < particleCount; i++) {
             particles.push(new Particle());
         }
@@ -215,17 +218,20 @@ function initializeParticles() {
             particle.draw();
         });
 
-        // Draw connections
+        // Draw connections (reduce on mobile for performance)
+        const isMobile = window.innerWidth <= 768;
+        const connectionDistance = isMobile ? 80 : 120;
+
         particles.forEach((p1, i) => {
             particles.slice(i + 1).forEach(p2 => {
                 const dx = p1.x - p2.x;
                 const dy = p1.y - p2.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
 
-                if (distance < 120) {
+                if (distance < connectionDistance) {
                     const theme = document.documentElement.getAttribute('data-theme');
                     const color = theme === 'dark' ? '255, 255, 255' : '99, 102, 241';
-                    const opacity = (1 - distance / 120) * 0.2;
+                    const opacity = (1 - distance / connectionDistance) * 0.2;
 
                     ctx.strokeStyle = `rgba(${color}, ${opacity})`;
                     ctx.lineWidth = 1;
@@ -500,8 +506,11 @@ function initializeTechStack() {
 // ====================================
 
 function initializeScrollAnimations() {
-    // Parallax effect for hero
+    // Parallax effect for hero (disabled on mobile for performance)
     window.addEventListener('scroll', () => {
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) return; // Skip parallax on mobile
+
         const scrolled = window.pageYOffset;
         const hero = document.querySelector('.hero');
         if (hero) {
@@ -688,6 +697,23 @@ window.addEventListener('resize', debounce(() => {
         initializeParticles();
     }
 }, 250));
+
+// Pause particles when page is hidden (save battery on mobile)
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        // Page is hidden, could pause heavy animations
+        const canvas = document.getElementById('particles-canvas');
+        if (canvas) {
+            canvas.style.opacity = '0';
+        }
+    } else {
+        // Page is visible again
+        const canvas = document.getElementById('particles-canvas');
+        if (canvas) {
+            canvas.style.opacity = '0.4';
+        }
+    }
+});
 
 // Lazy load images if any
 if ('loading' in HTMLImageElement.prototype) {
