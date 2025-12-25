@@ -298,12 +298,40 @@ function initializeNavigation() {
         }
     });
 
-    // Scroll effect
+    // Auto-hide header on scroll (mobile only)
+    let lastScrollTop = 0;
+    let isScrolling;
+
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
+        const isMobile = window.innerWidth <= 768;
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScroll > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
+        }
+
+        // Auto-hide on mobile only
+        if (isMobile) {
+            window.clearTimeout(isScrolling);
+
+            if (currentScroll > lastScrollTop && currentScroll > 100) {
+                header.classList.add('header-hidden'); // Scrolling down
+            } else {
+                header.classList.remove('header-hidden'); // Scrolling up
+            }
+
+            // Show header after scroll stops
+            isScrolling = setTimeout(() => {
+                if (currentScroll > 100) {
+                    header.classList.remove('header-hidden');
+                }
+            }, 150);
+
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        } else {
+            header.classList.remove('header-hidden'); // Always show on desktop
         }
     });
 }
