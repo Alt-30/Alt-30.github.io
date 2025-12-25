@@ -1,520 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore interactive data visualizations, dashboards, and AI-powered tools by Alt-30 Consulting. Municipal finance analysis, chatbots, economic indicators, and more.">
+    <meta name="keywords" content="data analytics, data visualization, R Shiny, AI chatbots, municipal finance, business analytics, Alt-30">
+    <meta name="author" content="Alt-30 Consulting">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Alt-30 Analytics Showcase">
+    <meta property="og:description" content="Interactive data visualizations and AI-powered analytics tools">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alt-30.github.io">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Alt-30 Analytics Showcase">
+    <meta name="twitter:description" content="Interactive data visualizations and AI-powered analytics tools">
+
     <title>Alt-30 | Analytics Showcase</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>📊</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #8b5cf6;
-            --accent: #06b6d4;
-            --accent-light: #67e8f9;
-            --success: #10b981;
-            --text: #1e293b;
-            --text-light: #64748b;
-            --bg: #ffffff;
-            --bg-alt: #f8fafc;
-            --bg-dark: #0f172a;
-            --border: #e2e8f0;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--bg);
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 600;
-            line-height: 1.2;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 1.25rem;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .logo i {
-            font-size: 1.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-menu a {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .nav-menu a:hover {
-            color: var(--primary);
-        }
-
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--text);
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding-top: 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 4rem 5%;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto;
-            opacity: 0.9;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 5%;
-        }
-
-        /* Projects Section */
-        .projects {
-            padding: 5rem 0;
-            background: var(--bg-alt);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-size: clamp(2rem, 4vw, 2.5rem);
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .section-header p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: var(--transition);
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-        }
-
-        .project-image {
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
-            position: relative;
-        }
-
-        .project-image.finance {
-            background: linear-gradient(135deg, #10b981, #059669);
-        }
-
-        .project-image.garden {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-        }
-
-        .project-image.coming-soon {
-            background: linear-gradient(135deg, #64748b, #475569);
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-content h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            color: var(--text);
-        }
-
-        .project-content p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            background: var(--bg-alt);
-            color: var(--text-light);
-            padding: 0.25rem 0.75rem;
-            border-radius: 2rem;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .tag.primary {
-            background: rgba(99, 102, 241, 0.1);
-            color: var(--primary);
-        }
-
-        /* About Section */
-        .about {
-            padding: 5rem 0;
-            background: var(--bg);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .about-text p {
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            font-size: 1.05rem;
-        }
-
-        .capabilities {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .capability {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem;
-            background: var(--bg-alt);
-            border-radius: 0.5rem;
-        }
-
-        .capability i {
-            color: var(--primary);
-            font-size: 1.25rem;
-        }
-
-        .capability span {
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--bg-dark);
-            color: white;
-            padding: 3rem 0 1.5rem;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 1.25rem;
-            color: white;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .mobile-toggle {
-                display: block;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .capabilities {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    </style>
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html" class="logo">
-                <i class="fas fa-chart-line"></i>
-                Alt-30 Showcase
+    <!-- Header & Navigation -->
+    <header role="banner">
+        <nav role="navigation" aria-label="Main navigation">
+            <a href="index.html" class="logo" aria-label="Alt-30 Showcase Home">
+                <i class="fas fa-chart-line" aria-hidden="true"></i>
+                <span>Alt-30 Showcase</span>
             </a>
             <ul class="nav-menu">
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="https://alt30.com" target="_blank">Main Site</a></li>
+                <li><a href="https://alt30.com" target="_blank" rel="noopener noreferrer">Main Site</a></li>
             </ul>
-            <button class="mobile-toggle">
-                <i class="fas fa-bars"></i>
+            <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
         </nav>
     </header>
 
-    <section class="hero">
+    <!-- Hero Section -->
+    <section class="hero" role="banner">
         <div class="hero-content">
             <h1>Analytics Showcase</h1>
             <p>Explore interactive data visualizations, dashboards, and AI-powered tools built by Alt-30. From municipal finance analysis to intelligent chatbots, see what's possible with modern data analytics.</p>
         </div>
     </section>
 
-    <section id="projects" class="projects">
+    <!-- Projects Section -->
+    <section id="projects" class="projects" role="region" aria-labelledby="projects-heading">
         <div class="container">
-            <div class="section-header">
-                <h2>Featured Projects</h2>
+            <header class="section-header">
+                <h2 id="projects-heading">Featured Projects</h2>
                 <p>Interactive tools and dashboards demonstrating our data analytics capabilities</p>
+            </header>
+
+            <!-- Project Filters -->
+            <div class="project-filters" role="group" aria-label="Filter projects by category">
+                <!-- Filters will be dynamically generated by JavaScript -->
             </div>
 
-            <div class="projects-grid">
-                <a href="az-municipal-finance.html" class="project-card">
-                    <div class="project-image finance">
-                        <i class="fas fa-landmark"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>AZ Municipal Finance Dashboard</h3>
-                        <p>Interactive R Shiny application for comparing Arizona municipal government finances. Analyze revenue, expenditures, and fiscal health across cities and towns.</p>
-                        <div class="project-tags">
-                            <span class="tag primary">R Shiny</span>
-                            <span class="tag">Government Data</span>
-                            <span class="tag">Interactive</span>
-                        </div>
-                    </div>
-                </a>
+            <!-- Projects Grid -->
+            <div class="projects-grid" role="list">
+                <!-- Projects will be dynamically generated by JavaScript -->
+            </div>
 
-                <a href="garden-nerd.html" class="project-card">
-                    <div class="project-image garden">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Garden Nerd Chatbot</h3>
-                        <p>AI-powered gardening assistant built with Claude. Get personalized plant care advice, watering schedules, and pest management tips for desert climates.</p>
-                        <div class="project-tags">
-                            <span class="tag primary">AI Chatbot</span>
-                            <span class="tag">Streamlit</span>
-                            <span class="tag">Claude AI</span>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="btos-dashboard.html" class="project-card">
-                    <div class="project-image" style="background: linear-gradient(135deg, #2c3e50, #34495e);">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>US Business Trends Dashboard</h3>
-                        <p>Interactive visualizations of the Census Bureau's Business Trends and Outlook Survey. Track performance, demand, pricing, and employment sentiment nationwide.</p>
-                        <div class="project-tags">
-                            <span class="tag primary">Datawrapper</span>
-                            <span class="tag">Census Data</span>
-                            <span class="tag">Economic Indicators</span>
-                        </div>
-                    </div>
-                </a>
+            <!-- No Projects Message -->
+            <div class="no-projects" role="status" aria-live="polite">
+                <i class="fas fa-search" aria-hidden="true"></i>
+                <p>No projects found in this category.</p>
             </div>
         </div>
     </section>
 
-    <section id="about" class="about">
+    <!-- About Section -->
+    <section id="about" class="about" role="region" aria-labelledby="about-heading">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>About This Showcase</h2>
+                    <h2 id="about-heading">About This Showcase</h2>
                     <p>This repository serves as a living portfolio of data analytics and visualization projects developed by Alt-30 Consulting. Each project demonstrates different aspects of modern data science, from interactive dashboards to AI-powered applications.</p>
                     <p>Our work spans public sector analytics, municipal finance, policy research, and custom AI solutions. We specialize in making complex data accessible and actionable.</p>
                 </div>
-                <div class="capabilities">
-                    <div class="capability">
-                        <i class="fas fa-chart-pie"></i>
+                <div class="capabilities" role="list" aria-label="Our capabilities">
+                    <div class="capability" role="listitem">
+                        <i class="fas fa-chart-pie" aria-hidden="true"></i>
                         <span>Data Visualization</span>
                     </div>
-                    <div class="capability">
-                        <i class="fas fa-robot"></i>
+                    <div class="capability" role="listitem">
+                        <i class="fas fa-robot" aria-hidden="true"></i>
                         <span>AI Integration</span>
                     </div>
-                    <div class="capability">
-                        <i class="fas fa-database"></i>
+                    <div class="capability" role="listitem">
+                        <i class="fas fa-database" aria-hidden="true"></i>
                         <span>Data Engineering</span>
                     </div>
-                    <div class="capability">
-                        <i class="fas fa-code"></i>
+                    <div class="capability" role="listitem">
+                        <i class="fas fa-code" aria-hidden="true"></i>
                         <span>R Shiny Apps</span>
                     </div>
-                    <div class="capability">
-                        <i class="fas fa-university"></i>
+                    <div class="capability" role="listitem">
+                        <i class="fas fa-university" aria-hidden="true"></i>
                         <span>Government Analytics</span>
                     </div>
-                    <div class="capability">
-                        <i class="fas fa-search-dollar"></i>
+                    <div class="capability" role="listitem">
+                        <i class="fas fa-search-dollar" aria-hidden="true"></i>
                         <span>Policy Research</span>
                     </div>
                 </div>
@@ -522,36 +128,40 @@
         </div>
     </section>
 
-    <footer>
+    <!-- Footer -->
+    <footer role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <i class="fas fa-chart-line"></i>
-                    Alt-30 Consulting
+                    <i class="fas fa-chart-line" aria-hidden="true"></i>
+                    <span>Alt-30 Consulting</span>
                 </div>
-                <div class="footer-links">
-                    <a href="https://alt30.com" target="_blank">Main Website</a>
-                    <a href="mailto:ai@alt30.com">Contact</a>
-                    <a href="https://github.com/Alt-30" target="_blank">GitHub</a>
-                </div>
+                <nav class="footer-links" aria-label="Footer navigation">
+                    <a href="https://alt30.com" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-globe" aria-hidden="true"></i>
+                        Main Website
+                    </a>
+                    <a href="mailto:ai@alt30.com">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        Contact
+                    </a>
+                    <a href="https://github.com/Alt-30" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                        GitHub
+                    </a>
+                </nav>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Alt-30 Consulting. All rights reserved.</p>
+                <p>&copy; <span id="current-year">2025</span> Alt-30 Consulting. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
     <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
+        // Update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
