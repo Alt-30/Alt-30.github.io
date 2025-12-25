@@ -171,12 +171,16 @@ header {
     -webkit-backdrop-filter: blur(var(--blur-amount));
     border-bottom: 1px solid var(--glass-border);
     z-index: 1000;
-    transition: all var(--transition-base);
+    transition: transform 0.3s ease, box-shadow var(--transition-base);
 }
 
 header.scrolled {
     box-shadow: var(--shadow-lg);
     background: var(--glass-bg);
+}
+
+header.header-hidden {
+    transform: translateY(-100%);
 }
 
 nav {
@@ -1126,36 +1130,50 @@ footer {
 }
 
 @media (max-width: 768px) {
-    /* Navigation */
+    /* Compact header for mobile */
+    header {
+        background: var(--bg-primary);
+        border-bottom: 1px solid var(--border-color);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
     nav {
-        padding: 0.75rem 4%;
+        padding: 0.5rem 4%;
+        min-height: 50px;
     }
 
     .logo {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
     }
 
     .logo i {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .logo-subtitle {
-        font-size: 0.55rem;
+        font-size: 0.5rem;
+    }
+
+    .mobile-toggle {
+        display: block;
+        padding: 0.5rem;
+        font-size: 1.2rem;
     }
 
     .nav-items {
         position: fixed;
-        top: 60px;
+        top: 50px;
         right: -100%;
         width: 85%;
         max-width: 320px;
-        height: calc(100vh - 60px);
-        background: var(--glass-bg);
-        backdrop-filter: blur(var(--blur-amount));
-        -webkit-backdrop-filter: blur(var(--blur-amount));
+        height: calc(100vh - 50px);
+        background: var(--bg-primary);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
         flex-direction: column;
         padding: 2rem 1.5rem;
-        box-shadow: var(--shadow-2xl);
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
         transition: right var(--transition-base);
         border-left: 1px solid var(--border-color);
         align-items: flex-start;
@@ -1193,16 +1211,10 @@ footer {
         font-size: 1rem;
     }
 
-    .mobile-toggle {
-        display: block;
-        padding: 0.6rem;
-        font-size: 1.25rem;
-    }
-
-    /* Hero Section */
+    /* Hero - adjust for smaller header */
     .hero {
         min-height: 85vh;
-        padding-top: 60px;
+        padding-top: 50px;
     }
 
     .hero-content {
@@ -1441,7 +1453,13 @@ footer {
 @media (max-width: 480px) {
     /* Extra small mobile devices */
     nav {
-        padding: 0.75rem 3%;
+        padding: 0.4rem 3%;
+        min-height: 48px;
+    }
+
+    .nav-items {
+        top: 48px;
+        height: calc(100vh - 48px);
     }
 
     .logo {
@@ -1463,6 +1481,7 @@ footer {
     /* Hero */
     .hero {
         min-height: 90vh;
+        padding-top: 48px;
     }
 
     .hero-content {
