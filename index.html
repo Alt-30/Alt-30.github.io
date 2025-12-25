@@ -12,7 +12,7 @@
     <meta name="keywords" content="data analytics, data visualization, R Shiny, AI chatbots, municipal finance, business analytics, dashboards, interactive visualizations, Alt-30">
     <meta name="author" content="Alt-30 Consulting">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#6366f1">
+    <meta name="theme-color" content="#0a0a0f">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Alt-30 Analytics Showcase | Data Visualization & AI Tools">
@@ -38,28 +38,1427 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-    <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* ============================================
+           ALT-30 SHOWCASE - BREATHTAKING EDITION
+           A stunning data visualization portfolio
+           ============================================ */
+
+        :root {
+            /* Cyberpunk-inspired color palette */
+            --primary: #00f0ff;
+            --primary-glow: rgba(0, 240, 255, 0.5);
+            --secondary: #bf00ff;
+            --secondary-glow: rgba(191, 0, 255, 0.5);
+            --accent: #00ff88;
+            --accent-glow: rgba(0, 255, 136, 0.5);
+            --warning: #ffaa00;
+            --danger: #ff0055;
+
+            /* Dark theme base */
+            --bg-deepspace: #0a0a0f;
+            --bg-dark: #0f0f1a;
+            --bg-card: #12121f;
+            --bg-elevated: #1a1a2e;
+            --bg-glass: rgba(18, 18, 31, 0.8);
+
+            /* Text colors */
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #606070;
+
+            /* Borders and effects */
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(0, 240, 255, 0.3);
+
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, #00f0ff 0%, #bf00ff 100%);
+            --gradient-secondary: linear-gradient(135deg, #bf00ff 0%, #ff0055 100%);
+            --gradient-accent: linear-gradient(135deg, #00ff88 0%, #00f0ff 100%);
+            --gradient-dark: linear-gradient(180deg, #0a0a0f 0%, #12121f 100%);
+
+            /* Transitions */
+            --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* ============================================
+           BASE STYLES
+           ============================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-deepspace);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* ============================================
+           LOADING SCREEN
+           ============================================ */
+
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--bg-deepspace);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .loader-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .loader-ring {
+            width: 80px;
+            height: 80px;
+            border: 3px solid var(--border-subtle);
+            border-top-color: var(--primary);
+            border-right-color: var(--secondary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            box-shadow: 0 0 30px var(--primary-glow), inset 0 0 30px var(--primary-glow);
+        }
+
+        .loader-text {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--primary);
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* ============================================
+           ANIMATED BACKGROUND - DATA MESH
+           ============================================ */
+
+        #data-mesh-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+
+        /* ============================================
+           HEADER & NAVIGATION
+           ============================================ */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            z-index: 1000;
+            transition: transform 0.3s ease, box-shadow var(--transition-base);
+        }
+
+        header.scrolled {
+            box-shadow: 0 0 40px rgba(0, 240, 255, 0.1);
+            border-bottom-color: var(--border-glow);
+        }
+
+        header.header-hidden {
+            transform: translateY(-100%);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            transition: transform var(--transition-base);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: 0 0 20px var(--primary-glow);
+            animation: logoGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% { box-shadow: 0 0 20px var(--primary-glow); }
+            50% { box-shadow: 0 0 30px var(--primary-glow), 0 0 50px var(--secondary-glow); }
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-text span:first-child {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo-subtitle {
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .nav-items {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all var(--transition-base);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width var(--transition-base);
+            box-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 0.5rem;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .mobile-toggle:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            box-shadow: 0 0 20px var(--primary-glow);
+        }
+
+        /* ============================================
+           HERO SECTION - DRAMATIC ENTRANCE
+           ============================================ */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0 60px;
+            z-index: 1;
+            background: var(--bg-deepspace);
+        }
+
+        .hero-glow {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .hero-glow.primary {
+            top: -200px;
+            right: -200px;
+            background: var(--primary);
+        }
+
+        .hero-glow.secondary {
+            bottom: -200px;
+            left: -200px;
+            background: var(--secondary);
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glow);
+            padding: 0.5rem 1.5rem;
+            border-radius: 3rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            animation: fadeInDown 0.8s ease-out;
+            box-shadow: 0 0 30px var(--primary-glow);
+        }
+
+        .hero-badge i {
+            color: var(--warning);
+            animation: starPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes starPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .hero-badge span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+            line-height: 1.1;
+        }
+
+        .hero-title .line1 {
+            display: block;
+            color: var(--text-primary);
+        }
+
+        .hero-title .line2 {
+            display: block;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 80px var(--primary-glow);
+        }
+
+        .hero-subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-subtitle .divider {
+            color: var(--primary);
+            opacity: 0.5;
+        }
+
+        .hero-description {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        /* Terminal-style typing effect */
+        .terminal-line {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+
+        .terminal-line .prompt {
+            color: var(--accent);
+        }
+
+        .terminal-line .command {
+            color: var(--primary);
+        }
+
+        .terminal-line .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.2em;
+            background: var(--primary);
+            margin-left: 2px;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--bg-deepspace);
+            box-shadow: 0 0 30px var(--primary-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px var(--primary-glow);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-subtle);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 30px var(--primary-glow);
+            transform: translateY(-3px);
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator span {
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        .scroll-indicator i {
+            color: var(--primary);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================
+           STATS SECTION - GLOWING METRICS
+           ============================================ */
+
+        .stats-section {
+            padding: 5rem 0;
+            position: relative;
+            z-index: 2;
+            background: var(--bg-dark);
+        }
+
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-card);
+            border-radius: 1rem;
+            border: 1px solid var(--border-subtle);
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform var(--transition-base);
+        }
+
+        .stat-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 240, 255, 0.15);
+            border-color: var(--border-glow);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-primary);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* ============================================
+           PROJECTS SECTION - SHOWCASE GRID
+           ============================================ */
+
+        .projects {
+            padding: 8rem 0;
+            position: relative;
+            z-index: 2;
+            background: var(--bg-deepspace);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-card);
+            color: var(--primary);
+            padding: 0.5rem 1.25rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 0 20px var(--primary-glow);
+        }
+
+        .section-header h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-header p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Project Filters */
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 3rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            box-shadow: 0 0 20px var(--primary-glow);
+        }
+
+        .filter-btn.active {
+            background: var(--gradient-primary);
+            border-color: transparent;
+            color: var(--bg-deepspace);
+            box-shadow: 0 0 30px var(--primary-glow);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 1.25rem;
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+            transition: all var(--transition-base);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform var(--transition-base);
+            z-index: 10;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 240, 255, 0.2);
+            border-color: var(--border-glow);
+        }
+
+        .project-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .project-card:hover .project-image::before {
+            transform: translateX(100%);
+        }
+
+        .project-image i {
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+            transition: transform var(--transition-base);
+        }
+
+        .project-card:hover .project-image i {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .project-image.finance {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .project-image.ai {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+
+        .project-image.economics {
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+        }
+
+        .project-image.dataviz {
+            background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+        }
+
+        .project-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            background: var(--bg-elevated);
+        }
+
+        .project-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .project-status {
+            font-size: 0.7rem;
+            background: var(--accent);
+            color: var(--bg-deepspace);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .project-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            line-height: 1.7;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: var(--bg-card);
+            color: var(--text-muted);
+            padding: 0.4rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid var(--border-subtle);
+            transition: all var(--transition-fast);
+        }
+
+        .tag:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .tag.primary {
+            background: var(--gradient-primary);
+            color: var(--bg-deepspace);
+            border: none;
+            font-weight: 600;
+        }
+
+        .no-projects {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-muted);
+            display: none;
+        }
+
+        .no-projects.show {
+            display: block;
+        }
+
+        .no-projects i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.3;
+        }
+
+        /* ============================================
+           TECH STACK SECTION
+           ============================================ */
+
+        .tech-stack {
+            padding: 6rem 0;
+            background: var(--bg-dark);
+            position: relative;
+            z-index: 2;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tech-item {
+            background: var(--bg-card);
+            padding: 2rem 1rem;
+            border-radius: 1rem;
+            text-align: center;
+            border: 1px solid var(--border-subtle);
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--primary-glow);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all var(--transition-slow);
+            opacity: 0;
+        }
+
+        .tech-item:hover::before {
+            width: 200%;
+            height: 200%;
+            opacity: 0.1;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 40px rgba(0, 240, 255, 0.15);
+            border-color: var(--border-glow);
+        }
+
+        .tech-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tech-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ============================================
+           ABOUT SECTION
+           ============================================ */
+
+        .about {
+            padding: 8rem 0;
+            position: relative;
+            z-index: 2;
+            background: var(--bg-deepspace);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-text h2 span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .capabilities {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .capability {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: var(--bg-card);
+            border-radius: 0.75rem;
+            border: 1px solid var(--border-subtle);
+            transition: all var(--transition-base);
+        }
+
+        .capability:hover {
+            border-color: var(--border-glow);
+            box-shadow: 0 0 30px var(--primary-glow);
+            transform: translateX(5px);
+        }
+
+        .capability i {
+            font-size: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .capability span {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+
+        footer {
+            background: var(--bg-dark);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border-subtle);
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .footer-logo i {
+            font-size: 2rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            transition: all var(--transition-base);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+
+        @media (max-width: 1024px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                background: var(--bg-deepspace);
+            }
+
+            nav {
+                padding: 0.75rem 4%;
+            }
+
+            .logo {
+                font-size: 1.25rem;
+            }
+
+            .logo-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+
+            .logo-subtitle {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-items {
+                position: fixed;
+                top: 60px;
+                right: -100%;
+                width: 85%;
+                max-width: 320px;
+                height: calc(100vh - 60px);
+                background: var(--bg-dark);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: -4px 0 40px rgba(0, 0, 0, 0.5);
+                transition: right var(--transition-base);
+                border-left: 1px solid var(--border-subtle);
+            }
+
+            .nav-items.active {
+                right: 0;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
+                width: 100%;
+            }
+
+            .nav-menu a {
+                font-size: 1.1rem;
+                padding: 0.75rem 0;
+                width: 100%;
+                border-bottom: 1px solid var(--border-subtle);
+            }
+
+            .hero {
+                min-height: 90vh;
+                padding-top: 80px;
+            }
+
+            .hero-title {
+                font-size: clamp(2.5rem, 10vw, 4rem);
+            }
+
+            .hero-glow {
+                width: 400px;
+                height: 400px;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .terminal-line {
+                font-size: 0.8rem;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .stat-item {
+                padding: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .projects, .tech-stack, .about {
+                padding: 4rem 0;
+            }
+
+            .section-header {
+                margin-bottom: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: clamp(2rem, 8vw, 2.5rem);
+            }
+
+            .section-header p {
+                font-size: 1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .project-image {
+                height: 160px;
+                font-size: 3rem;
+            }
+
+            .project-content {
+                padding: 1.5rem;
+            }
+
+            .project-content h3 {
+                font-size: 1.2rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+
+            .tech-item {
+                padding: 1.5rem 0.75rem;
+            }
+
+            .tech-icon {
+                font-size: 2.5rem;
+            }
+
+            .capabilities {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.85rem;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero-subtitle .divider {
+                display: none;
+            }
+
+            .filter-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* ============================================
+           UTILITIES
+           ============================================ */
+
+        .visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
 </head>
 <body>
     <!-- Loading Screen -->
     <div class="loading-screen">
-        <div class="loader"></div>
+        <div class="loader-container">
+            <div class="loader-ring"></div>
+            <span class="loader-text">INITIALIZING SHOWCASE</span>
+        </div>
     </div>
 
-    <!-- Particle Background Canvas -->
-    <canvas id="particles-canvas"></canvas>
+    <!-- Animated Background -->
+    <canvas id="data-mesh-canvas"></canvas>
+    <div class="grid-overlay"></div>
 
     <!-- Header & Navigation -->
     <header role="banner">
         <nav role="navigation" aria-label="Main navigation">
             <a href="index.html" class="logo" aria-label="Alt-30 Showcase Home">
-                <i class="fas fa-chart-line" aria-hidden="true"></i>
+                <div class="logo-icon">
+                    <i class="fas fa-chart-network" aria-hidden="true"></i>
+                </div>
                 <div class="logo-text">
                     <span>Alt-30</span>
                     <span class="logo-subtitle">Analytics Showcase</span>
@@ -72,9 +1471,6 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="https://alt30.com" target="_blank" rel="noopener noreferrer">Main Site</a></li>
                 </ul>
-                <button class="theme-toggle" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon" aria-hidden="true"></i>
-                </button>
             </div>
             <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
                 <i class="fas fa-bars" aria-hidden="true"></i>
@@ -84,25 +1480,50 @@
 
     <!-- Hero Section -->
     <section class="hero" role="banner">
+        <div class="hero-glow primary"></div>
+        <div class="hero-glow secondary"></div>
+
         <div class="hero-content">
             <div class="hero-badge">
-                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-bolt" aria-hidden="true"></i>
                 <span>Data-Driven Excellence</span>
             </div>
-            <h1>Transform Data Into Impact</h1>
-            <p class="hero-subtitle">Advanced Analytics • AI-Powered Insights • Interactive Dashboards</p>
-            <p>Explore our portfolio of cutting-edge data visualizations, interactive dashboards, and AI-powered analytics tools. From municipal finance analysis to intelligent chatbots, we turn complex data into actionable insights.</p>
+
+            <h1 class="hero-title">
+                <span class="line1">Transform Data Into</span>
+                <span class="line2">Actionable Impact</span>
+            </h1>
+
+            <div class="terminal-line">
+                <span class="prompt">$</span>
+                <span class="command">explore --dashboards --ai --visualizations</span>
+                <span class="cursor"></span>
+            </div>
+
+            <p class="hero-subtitle">
+                <span>Interactive Dashboards</span>
+                <span class="divider">//</span>
+                <span>AI-Powered Insights</span>
+                <span class="divider">//</span>
+                <span>Advanced Analytics</span>
+            </p>
+
+            <p class="hero-description">
+                Explore our portfolio of cutting-edge data visualizations, intelligent chatbots, and analytical tools. From municipal finance to AI assistants, we turn complex data into clarity.
+            </p>
+
             <div class="hero-cta">
                 <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i>
                     <span>Explore Projects</span>
-                    <i class="fas fa-arrow-right"></i>
                 </a>
                 <a href="https://alt30.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                    <span>Learn More</span>
                     <i class="fas fa-external-link-alt"></i>
+                    <span>Visit Alt-30</span>
                 </a>
             </div>
         </div>
+
         <div class="scroll-indicator">
             <span>Scroll</span>
             <i class="fas fa-chevron-down"></i>
@@ -111,8 +1532,8 @@
 
     <!-- Stats Section -->
     <section class="stats-section" role="region" aria-label="Our Impact">
-        <div class="stats-container">
-            <!-- Stats will be dynamically generated by JavaScript -->
+        <div class="stats-container" id="stats-container">
+            <!-- Stats dynamically generated -->
         </div>
     </section>
 
@@ -120,19 +1541,22 @@
     <section id="projects" class="projects" role="region" aria-labelledby="projects-heading">
         <div class="container">
             <header class="section-header">
-                <span class="section-badge">Portfolio</span>
-                <h2 id="projects-heading">Featured Projects</h2>
+                <span class="section-badge">
+                    <i class="fas fa-cube"></i>
+                    Portfolio
+                </span>
+                <h2 id="projects-heading">Featured <span>Projects</span></h2>
                 <p>Interactive tools and dashboards showcasing the power of modern data analytics</p>
             </header>
 
             <!-- Project Filters -->
             <div class="project-filters" role="group" aria-label="Filter projects by category">
-                <!-- Filters will be dynamically generated by JavaScript -->
+                <!-- Filters dynamically generated -->
             </div>
 
             <!-- Projects Grid -->
             <div class="projects-grid" role="list">
-                <!-- Projects will be dynamically generated by JavaScript -->
+                <!-- Projects dynamically generated -->
             </div>
 
             <!-- No Projects Message -->
@@ -147,13 +1571,16 @@
     <section id="tech-stack" class="tech-stack" role="region" aria-labelledby="tech-heading">
         <div class="container">
             <header class="section-header">
-                <span class="section-badge">Technology</span>
-                <h2 id="tech-heading">Our Tech Stack</h2>
-                <p>Leveraging the best tools and technologies to deliver exceptional results</p>
+                <span class="section-badge">
+                    <i class="fas fa-microchip"></i>
+                    Technology
+                </span>
+                <h2 id="tech-heading">Our <span>Tech Stack</span></h2>
+                <p>Leveraging the best tools to deliver exceptional results</p>
             </header>
 
-            <div class="tech-grid">
-                <!-- Tech stack will be dynamically generated by JavaScript -->
+            <div class="tech-grid" id="tech-grid">
+                <!-- Tech stack dynamically generated -->
             </div>
         </div>
     </section>
@@ -163,44 +1590,13 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2 id="about-heading">About This Showcase</h2>
-                    <p>This repository serves as a living portfolio of data analytics and visualization projects developed by Alt-30 Consulting. Each project demonstrates different aspects of modern data science, from interactive dashboards to AI-powered applications that solve real-world challenges.</p>
-                    <p>Our work spans public sector analytics, municipal finance, economic research, policy analysis, and custom AI solutions. We specialize in transforming complex data into accessible, actionable insights that drive decision-making and create value.</p>
-                    <p>Whether you're exploring government finances, analyzing economic trends, or seeking personalized AI assistance, our tools are built with precision, powered by cutting-edge technology, and designed for impact.</p>
+                    <h2 id="about-heading">About This <span>Showcase</span></h2>
+                    <p>This repository serves as a living portfolio of data analytics and visualization projects developed by Alt-30 Consulting. Each project demonstrates different aspects of modern data science, from interactive dashboards to AI-powered applications.</p>
+                    <p>Our work spans public sector analytics, municipal finance, economic research, and custom AI solutions. We specialize in transforming complex data into accessible, actionable insights that drive decision-making and create value.</p>
+                    <p>Whether you're exploring government finances, analyzing economic trends, or seeking AI assistance, our tools are built with precision, powered by cutting-edge technology, and designed for impact.</p>
                 </div>
-                <div class="capabilities" role="list" aria-label="Our capabilities">
-                    <div class="capability" role="listitem">
-                        <i class="fas fa-chart-pie" aria-hidden="true"></i>
-                        <span>Data Visualization</span>
-                    </div>
-                    <div class="capability" role="listitem">
-                        <i class="fas fa-robot" aria-hidden="true"></i>
-                        <span>AI Integration</span>
-                    </div>
-                    <div class="capability" role="listitem">
-                        <i class="fas fa-database" aria-hidden="true"></i>
-                        <span>Data Engineering</span>
-                    </div>
-                    <div class="capability" role="listitem">
-                        <i class="fas fa-code" aria-hidden="true"></i>
-                        <span>R Shiny Development</span>
-                    </div>
-                    <div class="capability" role="listitem">
-                        <i class="fas fa-university" aria-hidden="true"></i>
-                        <span>Government Analytics</span>
-                    </div>
-                    <div class="capability" role="listitem">
-                        <i class="fas fa-search-dollar" aria-hidden="true"></i>
-                        <span>Policy Research</span>
-                    </div>
-                    <div class="capability" role="listitem">
-                        <i class="fas fa-brain" aria-hidden="true"></i>
-                        <span>Machine Learning</span>
-                    </div>
-                    <div class="capability" role="listitem">
-                        <i class="fas fa-lightbulb" aria-hidden="true"></i>
-                        <span>Strategic Insights</span>
-                    </div>
+                <div class="capabilities" role="list" aria-label="Our capabilities" id="capabilities-grid">
+                    <!-- Capabilities dynamically generated -->
                 </div>
             </div>
         </div>
@@ -239,11 +1635,495 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="assets/js/main.js"></script>
     <script>
-        // Update copyright year dynamically
-        document.getElementById('current-year').textContent = new Date().getFullYear();
+        /**
+         * ============================================
+         * ALT-30 SHOWCASE - BREATHTAKING EDITION
+         * Advanced JavaScript for immersive experience
+         * ============================================
+         */
+
+        // ============================================
+        // DATA CONFIGURATION
+        // ============================================
+
+        const projects = [
+            {
+                title: "AZ Municipal Finance Dashboard",
+                description: "Interactive R Shiny application for comparing Arizona municipal government finances. Analyze revenue, expenditures, and fiscal health across cities and towns with real-time visualizations.",
+                icon: "fas fa-landmark",
+                category: "finance",
+                tags: ["R Shiny", "Government Data", "Interactive"],
+                link: "az-municipal-finance.html",
+                featured: true,
+                status: "Live"
+            },
+            {
+                title: "Garden Nerd Chatbot",
+                description: "AI-powered gardening assistant built with Claude. Get personalized plant care advice, watering schedules, and pest management tips specifically tailored for desert climates.",
+                icon: "fas fa-seedling",
+                category: "ai",
+                tags: ["AI Chatbot", "Streamlit", "Claude AI"],
+                link: "garden-nerd.html",
+                featured: true,
+                status: "Live"
+            },
+            {
+                title: "US Business Trends Dashboard",
+                description: "Interactive visualizations of the Census Bureau's Business Trends and Outlook Survey. Track performance, demand, pricing, and employment sentiment nationwide.",
+                icon: "fas fa-building",
+                category: "economics",
+                tags: ["Datawrapper", "Census Data", "Economic Indicators"],
+                link: "btos-dashboard.html",
+                featured: true,
+                status: "Live"
+            }
+        ];
+
+        const categories = {
+            all: { name: "All Projects", icon: "fas fa-th" },
+            finance: { name: "Finance", icon: "fas fa-landmark" },
+            ai: { name: "AI & Chatbots", icon: "fas fa-robot" },
+            economics: { name: "Economics", icon: "fas fa-chart-line" },
+            dataviz: { name: "Data Viz", icon: "fas fa-chart-bar" }
+        };
+
+        const techStack = [
+            { name: "R / Shiny", icon: "fas fa-code" },
+            { name: "Python", icon: "fab fa-python" },
+            { name: "Tableau", icon: "fas fa-chart-bar" },
+            { name: "SQL", icon: "fas fa-database" },
+            { name: "Claude AI", icon: "fas fa-brain" },
+            { name: "Streamlit", icon: "fas fa-stream" },
+            { name: "JavaScript", icon: "fab fa-js" },
+            { name: "React", icon: "fab fa-react" },
+            { name: "D3.js", icon: "fas fa-chart-area" },
+            { name: "Excel", icon: "fas fa-file-excel" },
+            { name: "Git", icon: "fab fa-git-alt" },
+            { name: "AWS", icon: "fab fa-aws" }
+        ];
+
+        const stats = [
+            { icon: "fas fa-project-diagram", number: 15, label: "Projects Delivered", suffix: "+" },
+            { icon: "fas fa-users", number: 50, label: "Clients Served", suffix: "+" },
+            { icon: "fas fa-database", number: 10, label: "Data Sources", suffix: "M+" },
+            { icon: "fas fa-award", number: 100, label: "Client Satisfaction", suffix: "%" }
+        ];
+
+        const capabilities = [
+            { icon: "fas fa-chart-pie", name: "Data Visualization" },
+            { icon: "fas fa-robot", name: "AI Integration" },
+            { icon: "fas fa-database", name: "Data Engineering" },
+            { icon: "fas fa-code", name: "R Shiny Development" },
+            { icon: "fas fa-university", name: "Government Analytics" },
+            { icon: "fas fa-search-dollar", name: "Policy Research" },
+            { icon: "fas fa-brain", name: "Machine Learning" },
+            { icon: "fas fa-lightbulb", name: "Strategic Insights" }
+        ];
+
+        let currentFilter = 'all';
+
+        // ============================================
+        // DOM READY
+        // ============================================
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.querySelector('.loading-screen')?.classList.add('hidden');
+            }, 800);
+
+            initializeDataMesh();
+            initializeNavigation();
+            initializeStats();
+            initializeProjects();
+            initializeTechStack();
+            initializeCapabilities();
+            initializeScrollAnimations();
+            initializeSmoothScroll();
+
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+
+        // ============================================
+        // DATA MESH BACKGROUND
+        // ============================================
+
+        function initializeDataMesh() {
+            const canvas = document.getElementById('data-mesh-canvas');
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+            let nodes = [];
+            let animationFrame;
+            let mouseX = 0;
+            let mouseY = 0;
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight * 3;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', debounce(resizeCanvas, 250));
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            class Node {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2 + 1;
+                    this.baseSpeedX = (Math.random() - 0.5) * 0.5;
+                    this.baseSpeedY = (Math.random() - 0.5) * 0.5;
+                    this.speedX = this.baseSpeedX;
+                    this.speedY = this.baseSpeedY;
+                    this.opacity = Math.random() * 0.5 + 0.2;
+                    this.pulsePhase = Math.random() * Math.PI * 2;
+                }
+
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    this.pulsePhase += 0.02;
+
+                    if (this.x > canvas.width) this.x = 0;
+                    if (this.x < 0) this.x = canvas.width;
+                    if (this.y > canvas.height) this.y = 0;
+                    if (this.y < 0) this.y = canvas.height;
+                }
+
+                draw() {
+                    const pulse = Math.sin(this.pulsePhase) * 0.3 + 0.7;
+                    const size = this.size * pulse;
+
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(0, 240, 255, ${this.opacity * pulse})`;
+                    ctx.fill();
+
+                    // Glow effect
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, size * 2, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(0, 240, 255, ${this.opacity * 0.1})`;
+                    ctx.fill();
+                }
+            }
+
+            function createNodes() {
+                nodes = [];
+                const isMobile = window.innerWidth <= 768;
+                const nodeCount = isMobile ? 40 : 80;
+                for (let i = 0; i < nodeCount; i++) {
+                    nodes.push(new Node());
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                nodes.forEach(node => {
+                    node.update();
+                    node.draw();
+                });
+
+                // Draw connections
+                const isMobile = window.innerWidth <= 768;
+                const connectionDistance = isMobile ? 100 : 150;
+
+                nodes.forEach((node1, i) => {
+                    nodes.slice(i + 1).forEach(node2 => {
+                        const dx = node1.x - node2.x;
+                        const dy = node1.y - node2.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < connectionDistance) {
+                            const opacity = (1 - distance / connectionDistance) * 0.3;
+                            ctx.strokeStyle = `rgba(0, 240, 255, ${opacity})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.beginPath();
+                            ctx.moveTo(node1.x, node1.y);
+                            ctx.lineTo(node2.x, node2.y);
+                            ctx.stroke();
+                        }
+                    });
+                });
+
+                animationFrame = requestAnimationFrame(animate);
+            }
+
+            createNodes();
+            animate();
+        }
+
+        // ============================================
+        // NAVIGATION
+        // ============================================
+
+        function initializeNavigation() {
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const navItems = document.querySelector('.nav-items');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            const header = document.querySelector('header');
+
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', () => {
+                    navItems.classList.toggle('active');
+                    const icon = mobileToggle.querySelector('i');
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navItems.classList.contains('active')) {
+                        navItems.classList.remove('active');
+                        mobileToggle.querySelector('i').classList.add('fa-bars');
+                        mobileToggle.querySelector('i').classList.remove('fa-times');
+                    }
+                });
+            });
+
+            let lastScrollTop = 0;
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                header.classList.toggle('scrolled', currentScroll > 50);
+
+                if (window.innerWidth <= 768) {
+                    if (currentScroll > lastScrollTop && currentScroll > 100) {
+                        header.classList.add('header-hidden');
+                    } else {
+                        header.classList.remove('header-hidden');
+                    }
+                    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+                }
+            });
+        }
+
+        // ============================================
+        // STATS
+        // ============================================
+
+        function initializeStats() {
+            const container = document.getElementById('stats-container');
+            if (!container) return;
+
+            container.innerHTML = stats.map((stat, i) => `
+                <div class="stat-item" style="transition-delay: ${i * 0.1}s">
+                    <div class="stat-icon"><i class="${stat.icon}"></i></div>
+                    <div class="stat-number" data-target="${stat.number}" data-suffix="${stat.suffix}">0</div>
+                    <div class="stat-label">${stat.label}</div>
+                </div>
+            `).join('');
+
+            observeAndAnimate('.stat-item', (el) => {
+                const counter = el.querySelector('.stat-number');
+                if (counter && counter.textContent === '0') {
+                    animateCounter(counter);
+                }
+            });
+        }
+
+        function animateCounter(element) {
+            const target = parseInt(element.dataset.target);
+            const suffix = element.dataset.suffix || '';
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+
+            const update = () => {
+                current += step;
+                if (current < target) {
+                    element.textContent = Math.floor(current) + suffix;
+                    requestAnimationFrame(update);
+                } else {
+                    element.textContent = target + suffix;
+                }
+            };
+            update();
+        }
+
+        // ============================================
+        // PROJECTS
+        // ============================================
+
+        function initializeProjects() {
+            renderFilters();
+            renderProjects();
+        }
+
+        function renderFilters() {
+            const container = document.querySelector('.project-filters');
+            if (!container) return;
+
+            const usedCategories = new Set(['all']);
+            projects.forEach(p => usedCategories.add(p.category));
+
+            container.innerHTML = Array.from(usedCategories).map(key => {
+                const cat = categories[key];
+                return cat ? `
+                    <button class="filter-btn ${key === 'all' ? 'active' : ''}" data-category="${key}">
+                        <i class="${cat.icon}"></i> ${cat.name}
+                    </button>
+                ` : '';
+            }).join('');
+
+            container.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => filterProjects(btn.dataset.category));
+            });
+        }
+
+        function renderProjects(filter = 'all') {
+            const grid = document.querySelector('.projects-grid');
+            if (!grid) return;
+
+            const filtered = filter === 'all' ? projects : projects.filter(p => p.category === filter);
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                document.querySelector('.no-projects')?.classList.add('show');
+                return;
+            }
+
+            document.querySelector('.no-projects')?.classList.remove('show');
+
+            grid.innerHTML = filtered.map((project, i) => `
+                <a href="${project.link}" class="project-card" style="transition-delay: ${i * 0.1}s">
+                    <div class="project-image ${project.category}">
+                        <i class="${project.icon}"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>
+                            <span>${project.title}</span>
+                            ${project.status ? `<span class="project-status">${project.status}</span>` : ''}
+                        </h3>
+                        <p>${project.description}</p>
+                        <div class="project-tags">
+                            ${project.tags.map((tag, ti) => `<span class="tag ${ti === 0 ? 'primary' : ''}">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                </a>
+            `).join('');
+
+            observeAndAnimate('.project-card');
+        }
+
+        function filterProjects(category) {
+            currentFilter = category;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.category === category);
+            });
+            renderProjects(category);
+        }
+
+        // ============================================
+        // TECH STACK
+        // ============================================
+
+        function initializeTechStack() {
+            const grid = document.getElementById('tech-grid');
+            if (!grid) return;
+
+            grid.innerHTML = techStack.map((tech, i) => `
+                <div class="tech-item" style="transition-delay: ${i * 0.05}s">
+                    <div class="tech-icon"><i class="${tech.icon}"></i></div>
+                    <div class="tech-name">${tech.name}</div>
+                </div>
+            `).join('');
+
+            observeAndAnimate('.tech-item');
+        }
+
+        // ============================================
+        // CAPABILITIES
+        // ============================================
+
+        function initializeCapabilities() {
+            const grid = document.getElementById('capabilities-grid');
+            if (!grid) return;
+
+            grid.innerHTML = capabilities.map((cap, i) => `
+                <div class="capability" style="transition-delay: ${i * 0.1}s">
+                    <i class="${cap.icon}"></i>
+                    <span>${cap.name}</span>
+                </div>
+            `).join('');
+
+            observeAndAnimate('.capability');
+        }
+
+        // ============================================
+        // ANIMATIONS
+        // ============================================
+
+        function initializeScrollAnimations() {
+            observeAndAnimate('.section-header');
+        }
+
+        function observeAndAnimate(selector, callback) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        if (callback) callback(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+            document.querySelectorAll(selector).forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        }
+
+        // ============================================
+        // SMOOTH SCROLL
+        // ============================================
+
+        function initializeSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // ============================================
+        // UTILITIES
+        // ============================================
+
+        function debounce(func, wait) {
+            let timeout;
+            return function(...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func(...args), wait);
+            };
+        }
+
+        // Pause animations when page is hidden
+        document.addEventListener('visibilitychange', () => {
+            const canvas = document.getElementById('data-mesh-canvas');
+            if (canvas) {
+                canvas.style.opacity = document.hidden ? '0' : '1';
+            }
+        });
+
+        console.log('%c ALT-30 ANALYTICS SHOWCASE ', 'background: linear-gradient(135deg, #00f0ff, #bf00ff); color: #0a0a0f; padding: 12px 24px; font-size: 16px; font-weight: bold; border-radius: 4px;');
+        console.log('%c Built with passion for data visualization ', 'color: #00f0ff; font-size: 12px;');
     </script>
 </body>
 </html>
