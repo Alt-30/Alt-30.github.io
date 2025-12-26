@@ -870,6 +870,7 @@
             overflow: hidden;
         }
 
+        /* Shimmer effect on hover */
         .project-image::before {
             content: '';
             position: absolute;
@@ -877,9 +878,10 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
             transform: translateX(-100%);
             transition: transform 0.6s;
+            z-index: 3;
         }
 
         .project-card:hover .project-image::before {
@@ -888,7 +890,7 @@
 
         .project-image i {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
             transition: transform var(--transition-base);
         }
@@ -897,20 +899,181 @@
             transform: scale(1.15) rotate(5deg);
         }
 
+        /* ===== FINANCE CARD - Animated Bar Chart ===== */
         .project-image.finance {
-            background: linear-gradient(135deg, #10b981, #059669);
+            background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
         }
 
+        .project-image.finance::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background:
+                /* Grid lines */
+                repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(255,255,255,0.1) 24px, rgba(255,255,255,0.1) 25px),
+                repeating-linear-gradient(90deg, transparent, transparent 29px, rgba(255,255,255,0.05) 29px, rgba(255,255,255,0.05) 30px),
+                /* Bar chart bars */
+                linear-gradient(0deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.3) 100%) no-repeat 15% 100% / 8% 45%,
+                linear-gradient(0deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.4) 100%) no-repeat 28% 100% / 8% 70%,
+                linear-gradient(0deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.35) 100%) no-repeat 41% 100% / 8% 55%,
+                linear-gradient(0deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.45) 100%) no-repeat 54% 100% / 8% 85%,
+                linear-gradient(0deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.3) 100%) no-repeat 67% 100% / 8% 40%,
+                linear-gradient(0deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.5) 100%) no-repeat 80% 100% / 8% 65%;
+            z-index: 1;
+            animation: barsGrow 2s ease-out forwards;
+        }
+
+        @keyframes barsGrow {
+            0% {
+                clip-path: inset(100% 0 0 0);
+            }
+            100% {
+                clip-path: inset(0 0 0 0);
+            }
+        }
+
+        /* ===== AI CARD - Neural Network / Chat Pattern ===== */
         .project-image.ai {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
         }
 
+        .project-image.ai::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                /* Neural nodes */
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.4) 4px, transparent 4px),
+                radial-gradient(circle at 80% 25%, rgba(255,255,255,0.4) 4px, transparent 4px),
+                radial-gradient(circle at 35% 70%, rgba(255,255,255,0.4) 4px, transparent 4px),
+                radial-gradient(circle at 70% 75%, rgba(255,255,255,0.4) 4px, transparent 4px),
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.5) 6px, transparent 6px),
+                radial-gradient(circle at 15% 60%, rgba(255,255,255,0.3) 3px, transparent 3px),
+                radial-gradient(circle at 85% 55%, rgba(255,255,255,0.3) 3px, transparent 3px),
+                /* Connection lines */
+                linear-gradient(45deg, transparent 48%, rgba(255,255,255,0.2) 49%, rgba(255,255,255,0.2) 51%, transparent 52%) no-repeat 0% 0% / 50% 60%,
+                linear-gradient(-30deg, transparent 48%, rgba(255,255,255,0.15) 49%, rgba(255,255,255,0.15) 51%, transparent 52%) no-repeat 30% 20% / 60% 70%,
+                linear-gradient(60deg, transparent 48%, rgba(255,255,255,0.15) 49%, rgba(255,255,255,0.15) 51%, transparent 52%) no-repeat 40% 40% / 50% 50%,
+                /* Chat bubble hint */
+                radial-gradient(ellipse 40px 30px at 75% 20%, rgba(255,255,255,0.15) 100%, transparent 100%),
+                radial-gradient(ellipse 35px 25px at 25% 80%, rgba(255,255,255,0.12) 100%, transparent 100%);
+            z-index: 1;
+            animation: nodesFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes nodesFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* ===== ECONOMICS CARD - Trend Line Chart ===== */
         .project-image.economics {
-            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 50%, #4338ca 100%);
         }
 
+        .project-image.economics::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                /* Grid */
+                repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.08) 39px, rgba(255,255,255,0.08) 40px),
+                repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.08) 39px, rgba(255,255,255,0.08) 40px),
+                /* Data points */
+                radial-gradient(circle at 10% 70%, rgba(255,255,255,0.6) 4px, transparent 4px),
+                radial-gradient(circle at 25% 55%, rgba(255,255,255,0.6) 4px, transparent 4px),
+                radial-gradient(circle at 40% 60%, rgba(255,255,255,0.6) 4px, transparent 4px),
+                radial-gradient(circle at 55% 40%, rgba(255,255,255,0.6) 4px, transparent 4px),
+                radial-gradient(circle at 70% 35%, rgba(255,255,255,0.6) 4px, transparent 4px),
+                radial-gradient(circle at 85% 25%, rgba(255,255,255,0.6) 4px, transparent 4px);
+            z-index: 1;
+        }
+
+        /* Trend line using SVG in background */
+        .project-image.economics .trend-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .project-image.economics .trend-line::before {
+            content: '';
+            position: absolute;
+            top: 25%;
+            left: 5%;
+            width: 90%;
+            height: 50%;
+            background:
+                linear-gradient(to right,
+                    transparent 0%,
+                    transparent 9%, rgba(255,255,255,0.3) 10%, transparent 11%,
+                    transparent 24%, rgba(255,255,255,0.3) 25%, transparent 26%,
+                    transparent 39%, rgba(255,255,255,0.3) 40%, transparent 41%,
+                    transparent 54%, rgba(255,255,255,0.3) 55%, transparent 56%,
+                    transparent 69%, rgba(255,255,255,0.3) 70%, transparent 71%,
+                    transparent 84%, rgba(255,255,255,0.3) 85%, transparent 86%,
+                    transparent 100%
+                );
+            clip-path: polygon(0% 80%, 15% 60%, 30% 70%, 45% 45%, 60% 50%, 75% 25%, 90% 15%, 90% 100%, 0% 100%);
+            animation: trendPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes trendPulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        /* ===== DATAVIZ CARD - Abstract Data Pattern ===== */
         .project-image.dataviz {
-            background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+            background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 50%, #5b21b6 100%);
+        }
+
+        .project-image.dataviz::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                /* Pie/donut segments hint */
+                conic-gradient(from 0deg at 25% 50%,
+                    rgba(255,255,255,0.3) 0deg, rgba(255,255,255,0.3) 90deg,
+                    rgba(255,255,255,0.15) 90deg, rgba(255,255,255,0.15) 180deg,
+                    rgba(255,255,255,0.25) 180deg, rgba(255,255,255,0.25) 270deg,
+                    rgba(255,255,255,0.1) 270deg, rgba(255,255,255,0.1) 360deg
+                ),
+                /* Scatter plot dots */
+                radial-gradient(circle at 60% 30%, rgba(255,255,255,0.4) 3px, transparent 3px),
+                radial-gradient(circle at 70% 45%, rgba(255,255,255,0.4) 3px, transparent 3px),
+                radial-gradient(circle at 80% 35%, rgba(255,255,255,0.4) 3px, transparent 3px),
+                radial-gradient(circle at 65% 55%, rgba(255,255,255,0.4) 3px, transparent 3px),
+                radial-gradient(circle at 75% 60%, rgba(255,255,255,0.4) 3px, transparent 3px),
+                radial-gradient(circle at 85% 50%, rgba(255,255,255,0.4) 3px, transparent 3px),
+                radial-gradient(circle at 72% 70%, rgba(255,255,255,0.4) 3px, transparent 3px);
+            z-index: 1;
+            animation: dataSpin 20s linear infinite;
+        }
+
+        @keyframes dataSpin {
+            0% {
+                background-position: 0% 0%, 60% 30%, 70% 45%, 80% 35%, 65% 55%, 75% 60%, 85% 50%, 72% 70%;
+            }
+            100% {
+                background-position: 360deg 0%, 60% 30%, 70% 45%, 80% 35%, 65% 55%, 75% 60%, 85% 50%, 72% 70%;
+            }
         }
 
         .project-content {
