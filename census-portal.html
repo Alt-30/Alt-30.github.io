@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Census Data Explorer | Alt-30 Showcase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5A7A9A;
+            --primary-dark: #4A6A8A;
+            --secondary: #7A5C7A;
+            --accent: #C9A55C;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --bg: #ffffff;
+            --bg-alt: #f8fafc;
+            --bg-dark: #121820;
+            --border: #e2e8f0;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #5A7A9A 0%, #4A6A8A 50%, #3A5A7A 100%);
+            color: white;
+            padding: 6rem 0 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        /* Map pattern overlay */
+        .page-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 15% 25%, rgba(255,255,255,0.08) 2px, transparent 2px),
+                radial-gradient(circle at 85% 35%, rgba(255,255,255,0.06) 3px, transparent 3px),
+                radial-gradient(circle at 45% 75%, rgba(255,255,255,0.08) 2px, transparent 2px),
+                radial-gradient(circle at 75% 85%, rgba(255,255,255,0.06) 2px, transparent 2px);
+            animation: floatDots 20s ease-in-out infinite;
+        }
+
+        @keyframes floatDots {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            opacity: 0.9;
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 2rem 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* App Container */
+        .app-container {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+        }
+
+        .app-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background: var(--bg-alt);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .app-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .app-title i {
+            color: var(--primary);
+            font-size: 1.25rem;
+        }
+
+        .app-title span {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .app-actions {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .btn-outline:hover {
+            background: var(--bg-alt);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .iframe-wrapper {
+            position: relative;
+            height: 850px;
+            background: var(--bg-alt);
+        }
+
+        .iframe-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-alt);
+            gap: 1rem;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--border);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Info Section */
+        .info-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .info-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-card h3 i {
+            color: var(--primary);
+        }
+
+        .info-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .feature-list li i {
+            color: var(--primary);
+            margin-top: 0.25rem;
+        }
+
+        .data-sources {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .data-source {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: var(--bg-alt);
+            border-radius: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .data-source i {
+            color: var(--primary);
+        }
+
+        /* Geography Badge */
+        .geo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+
+        .geo-badge i {
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .info-section {
+                grid-template-columns: 1fr;
+            }
+
+            .iframe-wrapper {
+                height: 600px;
+            }
+
+            .app-toolbar {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .header-meta {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <i class="fas fa-chart-line"></i>
+                Alt-30 Showcase
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">All Projects</a></li>
+                <li><a href="stats-analysis.html">Stats Suite</a></li>
+                <li><a href="https://alt30.com" target="_blank">Main Site</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="header-content">
+            <div class="breadcrumb">
+                <a href="index.html">Showcase</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Census Data Explorer</span>
+            </div>
+            <h1><i class="fas fa-map-marked-alt"></i> Census Data Explorer</h1>
+            <p>Explore U.S. Census data across geographic levels—from cities to the nation. Pull measures from the American Community Survey and other Census products, visualized with interactive maps, charts, and downloadable tables.</p>
+            <div class="header-meta">
+                <div class="meta-item">
+                    <i class="fas fa-code"></i>
+                    <span>Built with R Shiny</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-database"></i>
+                    <span>U.S. Census Bureau</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-globe-americas"></i>
+                    <span>Multi-Year Data</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="app-container">
+                <div class="app-toolbar">
+                    <div class="app-title">
+                        <i class="fas fa-map"></i>
+                        <span>Interactive Census Explorer</span>
+                    </div>
+                    <div class="app-actions">
+                        <button class="btn btn-outline" onclick="reloadApp()">
+                            <i class="fas fa-redo"></i>
+                            Reload
+                        </button>
+                        <a href="https://alt30.shinyapps.io/Census_Portal/" target="_blank" class="btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            Open Full Screen
+                        </a>
+                    </div>
+                </div>
+                <div class="iframe-wrapper">
+                    <div class="loading-overlay" id="loadingOverlay">
+                        <div class="spinner"></div>
+                        <p class="loading-text">Loading Census Data Explorer...</p>
+                    </div>
+                    <iframe
+                        id="shinyApp"
+                        src="https://alt30.shinyapps.io/Census_Portal/"
+                        title="Census Data Explorer"
+                        onload="hideLoading()">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-card">
+                    <h3><i class="fas fa-info-circle"></i> About This App</h3>
+                    <p>The Census Data Explorer provides easy access to U.S. Census Bureau data products. Select variables, geographic levels, and time periods to explore demographic, economic, housing, and social data across the nation.</p>
+
+                    <h3 style="margin-top: 1.5rem;"><i class="fas fa-list-check"></i> Features</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Pull data from American Community Survey (ACS) 1-year and 5-year estimates</li>
+                        <li><i class="fas fa-check"></i> Explore multiple geographic levels: nation, state, county, city/place</li>
+                        <li><i class="fas fa-check"></i> Compare data across multiple years</li>
+                        <li><i class="fas fa-check"></i> Interactive choropleth maps for geographic visualization</li>
+                        <li><i class="fas fa-check"></i> Dynamic charts and graphs for trend analysis</li>
+                        <li><i class="fas fa-check"></i> Exportable data tables for further analysis</li>
+                        <li><i class="fas fa-check"></i> Hundreds of demographic and socioeconomic variables</li>
+                    </ul>
+
+                    <div class="geo-badge">
+                        <i class="fas fa-layer-group"></i>
+                        <span>City to National Level: Drill down or zoom out across geographic boundaries</span>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3><i class="fas fa-database"></i> Data Sources</h3>
+                    <div class="data-sources">
+                        <div class="data-source">
+                            <i class="fas fa-file-alt"></i>
+                            <span>American Community Survey (ACS)</span>
+                        </div>
+                        <div class="data-source">
+                            <i class="fas fa-users"></i>
+                            <span>Decennial Census</span>
+                        </div>
+                        <div class="data-source">
+                            <i class="fas fa-map"></i>
+                            <span>TIGER/Line Shapefiles</span>
+                        </div>
+                        <div class="data-source">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Population Estimates Program</span>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top: 1.5rem;"><i class="fas fa-question-circle"></i> Need Help?</h3>
+                    <p>The app includes guidance on selecting variables and interpreting Census data. For additional support, contact us.</p>
+                    <a href="mailto:ai@alt30.com" class="btn" style="margin-top: 0.75rem; width: 100%; justify-content: center;">
+                        <i class="fas fa-envelope"></i>
+                        Contact Support
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-chart-line"></i>
+                    Alt-30 Consulting
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Back to Showcase</a>
+                    <a href="https://alt30.com" target="_blank">Main Website</a>
+                    <a href="mailto:ai@alt30.com">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function hideLoading() {
+            const overlay = document.getElementById('loadingOverlay');
+            if (overlay) {
+                overlay.style.display = 'none';
+            }
+        }
+
+        function reloadApp() {
+            const iframe = document.getElementById('shinyApp');
+            const overlay = document.getElementById('loadingOverlay');
+
+            if (overlay) {
+                overlay.style.display = 'flex';
+            }
+
+            if (iframe) {
+                iframe.src = iframe.src;
+            }
+        }
+
+        // Fallback timeout
+        setTimeout(() => {
+            const overlay = document.getElementById('loadingOverlay');
+            if (overlay && overlay.style.display !== 'none') {
+                overlay.innerHTML = `
+                    <i class="fas fa-exclamation-triangle" style="font-size: 2rem; color: #d4915d;"></i>
+                    <p class="loading-text">Taking longer than expected...</p>
+                    <a href="https://alt30.shinyapps.io/Census_Portal/" target="_blank" class="btn">
+                        <i class="fas fa-external-link-alt"></i>
+                        Open in New Tab
+                    </a>
+                `;
+            }
+        }, 20000);
+    </script>
+</body>
+</html>
