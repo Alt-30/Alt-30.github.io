@@ -1161,12 +1161,194 @@
         }
 
         /* ============================================
+           RESEARCH REPORTS SECTION
+           ============================================ */
+
+        .reports {
+            padding: 8rem 0;
+            position: relative;
+            z-index: 2;
+            background: var(--bg-dark);
+            isolation: isolate;
+        }
+
+        .reports-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2rem;
+        }
+
+        .report-card {
+            background: var(--bg-card);
+            border-radius: 1.25rem;
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+            transition: all var(--transition-base);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .report-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-secondary);
+            transform: scaleX(0);
+            transition: transform var(--transition-base);
+            z-index: 10;
+        }
+
+        .report-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .report-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(107, 140, 174, 0.15);
+            border-color: var(--border-glow);
+        }
+
+        .report-header {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #6B8CAE 0%, #5A7A9A 50%, #4A6A8A 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .report-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                /* Document lines pattern */
+                repeating-linear-gradient(0deg, transparent, transparent 14px, rgba(255,255,255,0.08) 14px, rgba(255,255,255,0.08) 15px),
+                /* Corner fold effect */
+                linear-gradient(135deg, transparent 0%, transparent 70%, rgba(255,255,255,0.15) 85%, transparent 100%);
+            z-index: 1;
+        }
+
+        .report-header i {
+            font-size: 4.5rem;
+            color: white;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+            transition: transform var(--transition-base);
+        }
+
+        .report-card:hover .report-header i {
+            transform: scale(1.1) translateY(-5px);
+        }
+
+        .report-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            background: var(--bg-elevated);
+        }
+
+        .report-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+
+        .report-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .report-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .report-meta-item i {
+            color: var(--secondary);
+        }
+
+        .report-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            line-height: 1.7;
+        }
+
+        .report-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .report-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .report-btn {
+            flex: 1;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .report-btn-primary {
+            background: var(--gradient-secondary);
+            color: white;
+            box-shadow: 0 0 20px var(--secondary-glow);
+        }
+
+        .report-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 25px var(--secondary-glow);
+        }
+
+        .report-btn-secondary {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .report-btn-secondary:hover {
+            border-color: var(--secondary);
+            color: var(--secondary);
+            box-shadow: 0 0 20px var(--secondary-glow);
+        }
+
+        /* ============================================
            TECH STACK SECTION
            ============================================ */
 
         .tech-stack {
             padding: 6rem 0;
-            background: var(--bg-dark);
+            background: var(--bg-deepspace);
             position: relative;
             z-index: 2;
             isolation: isolate;
@@ -1496,7 +1678,7 @@
                 font-size: 2.5rem;
             }
 
-            .projects, .tech-stack, .about {
+            .projects, .reports, .tech-stack, .about {
                 padding: 4rem 0;
             }
 
@@ -1512,7 +1694,7 @@
                 font-size: 1rem;
             }
 
-            .projects-grid {
+            .projects-grid, .reports-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
@@ -1531,6 +1713,31 @@
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 0.5rem;
+            }
+
+            .report-header {
+                height: 150px;
+            }
+
+            .report-header i {
+                font-size: 3.5rem;
+            }
+
+            .report-content {
+                padding: 1.5rem;
+            }
+
+            .report-content h3 {
+                font-size: 1.2rem;
+            }
+
+            .report-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .report-actions {
+                flex-direction: column;
             }
 
             .tech-grid {
@@ -1636,6 +1843,7 @@
             <div class="nav-items">
                 <ul class="nav-menu">
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#reports">Reports</a></li>
                     <li><a href="#tech-stack">Tech Stack</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="https://www.alt-30.com" target="_blank" rel="noopener noreferrer">Main Site</a></li>
@@ -1732,6 +1940,25 @@
             <div class="no-projects" role="status" aria-live="polite">
                 <i class="fas fa-search" aria-hidden="true"></i>
                 <p>No projects found in this category.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Reports Section -->
+    <section id="reports" class="reports" role="region" aria-labelledby="reports-heading">
+        <div class="container">
+            <header class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-file-alt"></i>
+                    Research
+                </span>
+                <h2 id="reports-heading">In-Depth <span>Research Reports</span></h2>
+                <p>Comprehensive analytical reports providing deep dives into complex topics</p>
+            </header>
+
+            <!-- Reports Grid -->
+            <div class="reports-grid" role="list">
+                <!-- Reports dynamically generated -->
             </div>
         </div>
     </section>
@@ -1920,6 +2147,19 @@
             { icon: "fas fa-lightbulb", name: "Strategic Insights" }
         ];
 
+        const reports = [
+            {
+                title: "Arizona Municipal Finance Report",
+                description: "Comprehensive analysis of Arizona municipal government finances, examining revenue structures, expenditure patterns, and fiscal health indicators across cities and towns. This in-depth report provides detailed insights into local government financial management and trends.",
+                icon: "fas fa-file-pdf",
+                category: "Municipal Finance",
+                tags: ["Municipal Finance", "Arizona", "Government Analytics", "Fiscal Analysis"],
+                file: "AZ Municipal Finance Report.pdf",
+                date: "2025",
+                pages: "Multi-page"
+            }
+        ];
+
         let currentFilter = 'all';
 
         // ============================================
@@ -1935,6 +2175,7 @@
             initializeNavigation();
             initializeStats();
             initializeProjects();
+            initializeReports();
             initializeTechStack();
             initializeCapabilities();
             initializeScrollAnimations();
@@ -2215,6 +2456,56 @@
                 btn.classList.toggle('active', btn.dataset.category === category);
             });
             renderProjects(category);
+        }
+
+        // ============================================
+        // REPORTS
+        // ============================================
+
+        function initializeReports() {
+            const grid = document.querySelector('.reports-grid');
+            if (!grid) return;
+
+            grid.innerHTML = reports.map((report, i) => `
+                <div class="report-card" style="transition-delay: ${i * 0.1}s">
+                    <div class="report-header">
+                        <i class="${report.icon}"></i>
+                    </div>
+                    <div class="report-content">
+                        <h3>${report.title}</h3>
+                        <div class="report-meta">
+                            <div class="report-meta-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>${report.date}</span>
+                            </div>
+                            <div class="report-meta-item">
+                                <i class="fas fa-file-alt"></i>
+                                <span>${report.pages}</span>
+                            </div>
+                            <div class="report-meta-item">
+                                <i class="fas fa-folder"></i>
+                                <span>${report.category}</span>
+                            </div>
+                        </div>
+                        <p>${report.description}</p>
+                        <div class="report-tags">
+                            ${report.tags.map((tag, ti) => `<span class="tag ${ti === 0 ? 'primary' : ''}">${tag}</span>`).join('')}
+                        </div>
+                        <div class="report-actions">
+                            <a href="${report.file}" class="report-btn report-btn-primary" target="_blank">
+                                <i class="fas fa-eye"></i>
+                                <span>View Report</span>
+                            </a>
+                            <a href="${report.file}" class="report-btn report-btn-secondary" download>
+                                <i class="fas fa-download"></i>
+                                <span>Download</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            observeAndAnimate('.report-card');
         }
 
         // ============================================
