@@ -4,30 +4,30 @@
     <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="description" content="Explore cutting-edge data visualizations, interactive dashboards, and AI-powered analytics tools by Alt-30 Consulting. Transform your data into actionable insights.">
+    <meta name="description" content="Alt-30 Consulting is an independent economic intelligence firm delivering rigorous, locally-grounded analysis for high-stakes decisions involving local economies and municipal finance.">
     <meta name="format-detection" content="telephone=no">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="keywords" content="data analytics, data visualization, R Shiny, AI chatbots, municipal finance, business analytics, dashboards, interactive visualizations, Alt-30">
+    <meta name="keywords" content="municipal finance, economic intelligence, federal dependency risk, fiscal benchmarking, grant readiness, bond preparation, economic impact study, local government finance, PoliMetrics, Alt-30">
     <meta name="author" content="Alt-30 Consulting">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0C1015">
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Alt-30 Analytics Showcase | Data Visualization & AI Tools">
-    <meta property="og:description" content="Transform data into insights with interactive dashboards, AI-powered tools, and advanced analytics">
+    <meta property="og:title" content="Alt-30 Consulting | Economic Intelligence for Local Markets">
+    <meta property="og:description" content="Independent economic intelligence firm delivering rigorous analysis for municipal finance, real estate, and policy decisions.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://alt-30.github.io">
     <meta property="og:image" content="https://alt-30.github.io/assets/og-image.png">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Alt-30 Analytics Showcase">
-    <meta name="twitter:description" content="Transform data into insights with interactive dashboards and AI-powered tools">
+    <meta name="twitter:title" content="Alt-30 Consulting | Economic Intelligence">
+    <meta name="twitter:description" content="Independent economic intelligence firm delivering rigorous analysis for local economies and municipal finance.
     <meta name="twitter:image" content="https://alt-30.github.io/assets/twitter-card.png">
 
-    <title>Alt-30 | Analytics Showcase - Data Visualization & AI Tools</title>
+    <title>Alt-30 | Economic Intelligence & Municipal Finance Analysis</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>📊</text></svg>">
@@ -377,7 +377,7 @@
            ============================================ */
 
         .hero {
-            min-height: 100vh;
+            min-height: 125vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -596,7 +596,7 @@
         /* Scroll Indicator */
         .scroll-indicator {
             position: absolute;
-            bottom: 2rem;
+            bottom: -5rem;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -1813,6 +1813,259 @@
             white-space: nowrap;
             border-width: 0;
         }
+
+        /* ============================================
+           OUTCOMES SECTION — HOW WE HELP
+           ============================================ */
+
+        .outcomes {
+            padding: 8rem 0;
+            position: relative;
+            z-index: 2;
+            background: var(--bg-dark);
+            isolation: isolate;
+        }
+
+        .outcomes-intro {
+            max-width: 750px;
+            margin-bottom: 4rem;
+        }
+
+        .outcomes-intro h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .outcomes-intro h2 span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .outcomes-intro > p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .outcome-card {
+            padding: 2rem;
+            background: var(--bg-card);
+            border-radius: 1rem;
+            border: 1px solid var(--border-subtle);
+            transition: all var(--transition-base);
+        }
+
+        .outcome-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-glow);
+            box-shadow: 0 10px 40px rgba(201, 165, 92, 0.1);
+        }
+
+        .outcome-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .outcome-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--bg-elevated);
+            border-radius: 10px;
+            border: 1px solid var(--border-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .outcome-icon i {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 1.1rem;
+        }
+
+        .outcome-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1;
+            opacity: 0.12;
+        }
+
+        .outcome-card h3 {
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .outcome-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           SERVICES SECTION — WHAT WE DELIVER
+           ============================================ */
+
+        .services-section {
+            padding: 8rem 0;
+            position: relative;
+            z-index: 2;
+            background: var(--bg-deepspace);
+            isolation: isolate;
+        }
+
+        .services-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 6rem;
+            align-items: start;
+        }
+
+        .services-intro {
+            position: sticky;
+            top: 120px;
+        }
+
+        .services-intro h2 {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            margin-top: 1.5rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.25;
+            color: var(--text-primary);
+        }
+
+        .services-intro h2 span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .services-intro > p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        .services-cta-box {
+            padding: 1.75rem;
+            background: var(--bg-card);
+            border-radius: 1rem;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 0 40px var(--primary-glow);
+        }
+
+        .services-cta-box .cta-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .services-cta-box h4 {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 1.25rem;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        .services-grid {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-subtle);
+            transition: all var(--transition-base);
+        }
+
+        .service-card:first-child {
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .service-card:hover {
+            padding-left: 0.75rem;
+        }
+
+        .service-card:hover .service-label {
+            color: var(--primary);
+        }
+
+        .service-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-muted);
+            margin-bottom: 0.6rem;
+            transition: color var(--transition-base);
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 0.6rem;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        /* Responsive — new sections */
+        @media (max-width: 1100px) {
+            .outcomes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services-layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .services-intro {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .outcomes, .services-section {
+                padding: 4rem 0;
+            }
+
+            .outcomes-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .outcome-number {
+                font-size: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1820,7 +2073,7 @@
     <div class="loading-screen">
         <div class="loader-container">
             <div class="loader-ring"></div>
-            <span class="loader-text">INITIALIZING SHOWCASE</span>
+            <span class="loader-text">LOADING INTELLIGENCE</span>
         </div>
     </div>
 
@@ -1837,16 +2090,17 @@
                 </div>
                 <div class="logo-text">
                     <span>Alt-30</span>
-                    <span class="logo-subtitle">Analytics Showcase</span>
+                    <span class="logo-subtitle">Economic Intelligence</span>
                 </div>
             </a>
             <div class="nav-items">
                 <ul class="nav-menu">
-                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#outcomes">How We Help</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Tools</a></li>
                     <li><a href="#reports">Reports</a></li>
-                    <li><a href="#tech-stack">Tech Stack</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="https://www.alt-30.com" target="_blank" rel="noopener noreferrer">Main Site</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
             <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -1862,48 +2116,48 @@
 
         <div class="hero-content">
             <div class="hero-badge">
-                <i class="fas fa-bolt" aria-hidden="true"></i>
-                <span>Data-Driven Excellence</span>
+                <i class="fas fa-landmark" aria-hidden="true"></i>
+                <span>Tailored Economic Research</span>
             </div>
 
             <h1 class="hero-title">
-                <span class="line1">Transform Data Into</span>
-                <span class="line2">Actionable Impact</span>
+                <span class="line1">Economic intelligence</span>
+                <span class="line2">for every decision that depends on it.</span>
             </h1>
 
             <div class="terminal-line">
-                <span class="prompt">$</span>
-                <span class="command">explore --dashboards --ai --visualizations</span>
+                <span class="prompt"></span>
+                <span class="command">Demographic Analysis -- Economic Forecasting -- Performance Reporting</span>
                 <span class="cursor"></span>
             </div>
 
             <p class="hero-subtitle">
-                <span>Interactive Dashboards</span>
+                <span>Municipal Leaders</span>
                 <span class="divider">//</span>
-                <span>AI-Powered Insights</span>
+                <span>Developers &amp; Site Selectors</span>
                 <span class="divider">//</span>
-                <span>Advanced Analytics</span>
+                <span>Researchers</span>
             </p>
 
             <p class="hero-description">
-                Explore our portfolio of cutting-edge data visualizations, intelligent chatbots, and analytical tools. From municipal finance to AI assistants, we turn complex data into clarity.
+                Alt-30 delivers independent fiscal analysis, benchmarking, and economic research for municipal leaders, developers, businesses, and researchers that is grounded in the most comprehensive local government data infrastructure we know of.
             </p>
 
             <div class="hero-cta">
                 <a href="#projects" class="btn btn-primary">
-                    <i class="fas fa-rocket"></i>
-                    <span>Explore Projects</span>
+                    <i class="fas fa-chart-line"></i>
+                    <span>Explore Our Work</span>
                 </a>
-                <a href="https://www.alt-30.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                    <i class="fas fa-external-link-alt"></i>
-                    <span>Visit Alt-30</span>
+                <a href="contact.html" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i>
+                    <span>Get in Touch</span>
                 </a>
             </div>
-        </div>
 
-        <div class="scroll-indicator">
-            <span>Scroll</span>
-            <i class="fas fa-chevron-down"></i>
+            <div class="scroll-indicator">
+                <span>Scroll</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
         </div>
     </section>
 
@@ -1911,6 +2165,104 @@
     <section class="stats-section" role="region" aria-label="Our Impact">
         <div class="stats-container" id="stats-container">
             <!-- Stats dynamically generated -->
+        </div>
+    </section>
+
+    <!-- How We Help Section -->
+    <section id="outcomes" class="outcomes" role="region" aria-labelledby="outcomes-heading">
+        <div class="container">
+            <div class="outcomes-intro">
+                <span class="section-badge"><i class="fas fa-bullseye"></i> How We Help</span>
+                <h2 id="outcomes-heading">Four outcomes. <span>One firm.</span></h2>
+                <p>Most municipalities don't have the budget for a dedicated economist. Alt-30 fills that gap by delivering institutional-grade analysis for cities and towns that need it most.</p>
+            </div>
+            <div class="outcomes-grid">
+                <div class="outcome-card">
+                    <div class="outcome-header">
+                        <div class="outcome-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <span class="outcome-number">01</span>
+                    </div>
+                    <h3>Anticipate risk</h3>
+                    <p>Understand your federal funding exposure before it becomes a budget crisis. Our Federal Dependency Risk Assessment maps your revenue structure against shifting federal priorities giving you time to plan.</p>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-header">
+                        <div class="outcome-icon"><i class="fas fa-balance-scale"></i></div>
+                        <span class="outcome-number">02</span>
+                    </div>
+                    <h3>Know where you stand</h3>
+                    <p>How does your city compare? Fiscal benchmarking across hundreds of municipalities shows where you're strong, where you're exposed, and what peer cities are doing differently.</p>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-header">
+                        <div class="outcome-icon"><i class="fas fa-file-contract"></i></div>
+                        <span class="outcome-number">03</span>
+                    </div>
+                    <h3>Make the case</h3>
+                    <p>Economic narratives and impact analysis built to withstand scrutiny. Whether pursuing a bond, applying for a grant, or presenting to council, Alt-30 produces the evidence that moves decision-makers.</p>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-header">
+                        <div class="outcome-icon"><i class="fas fa-chess"></i></div>
+                        <span class="outcome-number">04</span>
+                    </div>
+                    <h3>Plan with confidence</h3>
+                    <p>Scenario analysis and forecasting grounded in real economic data. When state appropriations shift or your tax base evolves, Alt-30 models what comes next so you're never caught off guard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section" role="region" aria-labelledby="services-heading">
+        <div class="container">
+            <div class="services-layout">
+                <div class="services-intro">
+                    <span class="section-badge"><i class="fas fa-cube"></i> What We Deliver</span>
+                    <h2 id="services-heading">Fixed scope. <span>Defined timelines.</span> Built for municipal decision-makers.</h2>
+                    <p>Every Alt-30 engagement is a discrete deliverable that is scoped clearly, completed on schedule, and designed to hold up wherever you need it most.</p>
+                    <div class="services-cta-box">
+                        <p class="cta-label">Get Started</p>
+                        <h4>Not sure which service fits your situation?</h4>
+                        <a href="contact.html" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i>
+                            <span>Talk to us</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-label">Impact</div>
+                        <h3>Economic &amp; Fiscal Impact Studies</h3>
+                        <p>We quantify the economic and fiscal effects of development projects, investments, and policy decisions covering output, wages, and job creation, alongside the tax revenue implications for state, county, and local governments across construction and operations phases.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-label">Market</div>
+                        <h3>Market Studies</h3>
+                        <p>We evaluate supply, demand, timing, pricing, and demographics to assess site suitability and real estate feasibility. We cover all market segments including retail, office, industrial, hotel, rental housing, and for-sale residential with scenario modeling to test investment outcomes.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-label">Research</div>
+                        <h3>Economic Research and Forecasting</h3>
+                        <p>Rigorous economic analysis at the national and local level with forecasting for GDP, consumer spending, inflation, population, personal income, employment, retail sales, and residential and commercial construction activity.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-label">Strategy</div>
+                        <h3>Economic Development Strategies</h3>
+                        <p>We help communities identify the right mix of land uses to optimize tax revenue and plan for sustainable growth by projecting residential, commercial, and industrial land demand grounded in real population and employment trends.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-label">Housing</div>
+                        <h3>Housing Studies</h3>
+                        <p>We conduct market studies for LIHTC, Tax Exempt Bond, and HUD applications following housing authority methodology guidelines and delivering the demand analysis developers and lenders need for financing decisions and regulatory approvals.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-label">Policy</div>
+                        <h3>Public Finance &amp; Policy Development</h3>
+                        <p>We analyze the fiscal impact of economic activity on government budgets and taxes, assess legislative and regulatory proposals, and provide the evidence base for long-term revenue projections and public resource decisions.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1923,7 +2275,7 @@
                     Portfolio
                 </span>
                 <h2 id="projects-heading">Featured <span>Projects</span></h2>
-                <p>Interactive tools and dashboards showcasing the power of modern data analytics</p>
+                <p>Interactive tools and dashboards built on our proprietary longitudinal municipal finance database</p>
             </header>
 
             <!-- Project Filters -->
@@ -1953,7 +2305,7 @@
                     Research
                 </span>
                 <h2 id="reports-heading">In-Depth <span>Research Reports</span></h2>
-                <p>Comprehensive analytical reports providing deep dives into complex topics</p>
+                <p>Evidence-based analysis on fiscal policy, federal funding trends, and local government finance published through PoliMetrics</p>
             </header>
 
             <!-- Reports Grid -->
@@ -1972,7 +2324,7 @@
                     Technology
                 </span>
                 <h2 id="tech-heading">Our <span>Tech Stack</span></h2>
-                <p>Leveraging the best tools to deliver exceptional results</p>
+                <p>The analytical infrastructure behind every engagement — Census, FRED, state appropriations data, and more</p>
             </header>
 
             <div class="tech-grid" id="tech-grid">
@@ -1986,10 +2338,10 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2 id="about-heading">About This <span>Showcase</span></h2>
-                    <p>This repository serves as a living portfolio of data analytics and visualization projects developed by Alt-30 Consulting. Each project demonstrates different aspects of modern data science, from interactive dashboards to AI-powered applications.</p>
-                    <p>Our work spans public sector analytics, municipal finance, economic research, and custom AI solutions. We specialize in transforming complex data into accessible, actionable insights that drive decision-making and create value.</p>
-                    <p>Whether you're exploring government finances, analyzing economic trends, or seeking AI assistance, our tools are built with precision, powered by cutting-edge technology, and designed for impact.</p>
+                    <h2 id="about-heading">About <span>Alt-30</span></h2>
+                    <p>Alt-30 Consulting is an independent economic intelligence firm. We produce discrete, high-quality research engagements each built around a specific decision a client is trying to make involving a local economy or municipal budget.</p>
+                    <p>What sets us apart: we built, from scratch, a proprietary longitudinal municipal finance database covering 500+ cities and towns nationwide, integrated with Census, FRED, and state appropriations data. That infrastructure, combined with doctoral-level economics expertise and deep public sector experience, separates our analysis from off-the-shelf consulting.</p>
+                    <p>Every deliverable is independently produced with no vendor relationships or conflicts of interest. Our work is backed by <strong>PoliMetrics</strong>, our independent research platform publishing evidence-based analysis on fiscal policy, federal funding trends, and local government finance across the US.</p>
                 </div>
                 <div class="capabilities" role="list" aria-label="Our capabilities" id="capabilities-grid">
                     <!-- Capabilities dynamically generated -->
@@ -2026,7 +2378,7 @@
                 </nav>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <span id="current-year">2025</span> Alt-30 Consulting. All rights reserved. | Crafted with data-driven precision.</p>
+                <p>&copy; <span id="current-year">2025</span> Alt-30 Consulting. All rights reserved. | Turning municipal data into economic intelligence.</p>
             </div>
         </div>
     </footer>
@@ -2130,21 +2482,21 @@
         ];
 
         const stats = [
-            { icon: "fas fa-project-diagram", number: 15, label: "Projects Delivered", suffix: "+" },
-            { icon: "fas fa-users", number: 50, label: "Clients Served", suffix: "+" },
-            { icon: "fas fa-database", number: 10, label: "Data Sources", suffix: "M+" },
-            { icon: "fas fa-award", number: 100, label: "Client Satisfaction", suffix: "%" }
+            { icon: "fas fa-city", number: 500, label: "Cities & Towns in Database", suffix: "+" },
+            { icon: "fas fa-database", number: 20, label: "Integrated Data Systems", suffix: "+" },
+            { icon: "fas fa-file-contract", number: 15, label: "Core Research Products", suffix: "+" },
+            { icon: "fas fa-shield-alt", number: 100, label: "Independent — No Vendor Conflicts", suffix: "%" }
         ];
 
         const capabilities = [
-            { icon: "fas fa-chart-pie", name: "Data Visualization" },
-            { icon: "fas fa-robot", name: "AI Integration" },
-            { icon: "fas fa-database", name: "Data Engineering" },
-            { icon: "fas fa-code", name: "R Shiny Development" },
-            { icon: "fas fa-university", name: "Government Analytics" },
-            { icon: "fas fa-search-dollar", name: "Policy Research" },
-            { icon: "fas fa-brain", name: "Machine Learning" },
-            { icon: "fas fa-lightbulb", name: "Strategic Insights" }
+            { icon: "fas fa-chart-bar", name: "Economic & Fiscal Impact Studies" },
+            { icon: "fas fa-building", name: "Market Studies" },
+            { icon: "fas fa-chart-line", name: "Economic Research & Forecasting" },
+            { icon: "fas fa-map-marked-alt", name: "Economic Development Strategies" },
+            { icon: "fas fa-home", name: "Housing Studies" },
+            { icon: "fas fa-landmark", name: "Public Finance & Policy Development" },
+            { icon: "fas fa-database", name: "Proprietary Municipal Database" },
+            { icon: "fas fa-shield-alt", name: "Independent — No Conflicts" }
         ];
 
         const reports = [
