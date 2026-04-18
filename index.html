@@ -2066,6 +2066,288 @@
                 font-size: 1.5rem;
             }
         }
+
+        /* ============================================
+           LIVE TOOL / BENCHMARKS EMBED SECTION
+           ============================================ */
+
+        .live-tool {
+            padding: 8rem 0;
+            position: relative;
+            z-index: 2;
+            background: var(--bg-deepspace);
+            isolation: isolate;
+        }
+
+        .live-tool::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70%;
+            height: 60%;
+            background: radial-gradient(ellipse at center, rgba(107, 140, 174, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .live-tool .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .live-tool-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .live-tool-header .header-left {
+            max-width: 680px;
+        }
+
+        .live-tool-header h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+        }
+
+        .live-tool-header h2 span {
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .live-tool-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .live-tool-open-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            color: var(--secondary);
+            border: 1px solid rgba(107, 140, 174, 0.4);
+            border-radius: 0.65rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            transition: all var(--transition-base);
+            flex-shrink: 0;
+        }
+
+        .live-tool-open-btn:hover {
+            background: rgba(107, 140, 174, 0.1);
+            border-color: var(--secondary);
+            box-shadow: 0 0 25px var(--secondary-glow);
+            transform: translateY(-2px);
+        }
+
+        .live-tool-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .tool-meta-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 2rem;
+            padding: 0.4rem 1rem;
+            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-muted);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+
+        .tool-meta-pill i {
+            color: var(--secondary);
+            font-size: 0.75rem;
+        }
+
+        .shiny-frame {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 1.25rem;
+            overflow: hidden;
+            box-shadow:
+                0 0 0 1px var(--border-glow),
+                0 30px 80px rgba(0, 0, 0, 0.5),
+                0 0 60px rgba(107, 140, 174, 0.06);
+            position: relative;
+        }
+
+        .shiny-frame-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.85rem 1.25rem;
+            background: var(--bg-elevated);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .frame-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .frame-dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: var(--border-subtle);
+            transition: background var(--transition-fast);
+        }
+
+        .shiny-frame:hover .frame-dot:nth-child(1) { background: #C76B6B; }
+        .shiny-frame:hover .frame-dot:nth-child(2) { background: #D4915D; }
+        .shiny-frame:hover .frame-dot:nth-child(3) { background: var(--accent); }
+
+        .frame-url {
+            flex: 1;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 0.4rem;
+            padding: 0.35rem 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            letter-spacing: 0.03em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .frame-url i {
+            color: var(--accent);
+            margin-right: 0.4rem;
+            font-size: 0.65rem;
+        }
+
+        .frame-external-link {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            transition: color var(--transition-fast);
+            padding: 0.25rem;
+        }
+
+        .frame-external-link:hover {
+            color: var(--secondary);
+        }
+
+        .shiny-frame-loading {
+            position: absolute;
+            inset: 0;
+            background: var(--bg-card);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.25rem;
+            z-index: 5;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .shiny-frame-loading.loaded {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .shiny-loader-ring {
+            width: 48px;
+            height: 48px;
+            border: 2px solid var(--border-subtle);
+            border-top-color: var(--secondary);
+            border-radius: 50%;
+            animation: spin 0.9s linear infinite;
+        }
+
+        .shiny-frame-loading p {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .shiny-iframe-wrapper {
+            position: relative;
+            width: 100%;
+            height: 810px;
+        }
+
+        .shiny-iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #fff;
+        }
+
+        .shiny-mobile-fallback {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 3rem 2rem;
+            text-align: center;
+            background: var(--bg-card);
+            border-radius: 1rem;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .shiny-mobile-fallback i {
+            font-size: 3rem;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .shiny-mobile-fallback h3 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .shiny-mobile-fallback p {
+            color: var(--text-secondary);
+            max-width: 360px;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .live-tool {
+                padding: 4rem 0;
+            }
+
+            .live-tool-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .shiny-frame {
+                display: none;
+            }
+
+            .shiny-mobile-fallback {
+                display: flex;
+            }
+        }
     </style>
 </head>
 <body>
@@ -2263,6 +2545,103 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Municipal Benchmarks Live Tool -->
+    <section id="benchmarks" class="live-tool" role="region" aria-labelledby="benchmarks-heading">
+        <div class="container">
+
+            <div class="live-tool-header">
+                <div class="header-left">
+                    <span class="section-badge">
+                        <i class="fas fa-signal"></i>
+                        Live Tool
+                    </span>
+                    <h2 id="benchmarks-heading">Municipal Finance <span>Benchmarks</span></h2>
+                    <p>
+                        Score any city against similarly-sized peers on 10 indicators of fiscal health — including
+                        operating ratio, cash reserves, revenue per capita, and capital investment share.
+                        Covers municipalities nationwide with data spanning fiscal years 1967–2023.
+                    </p>
+                </div>
+                <a href="https://polimetrics.shinyapps.io/Municipal_Benchmarks/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="live-tool-open-btn"
+                   aria-label="Open Municipal Benchmarks in a new tab">
+                    <i class="fas fa-external-link-alt"></i>
+                    Open full screen
+                </a>
+            </div>
+
+            <div class="live-tool-meta" role="list" aria-label="Tool details">
+                <span class="tool-meta-pill" role="listitem">
+                    <i class="fas fa-map-marker-alt"></i>Nationwide
+                </span>
+                <span class="tool-meta-pill" role="listitem">
+                    <i class="fas fa-calendar-alt"></i>FY 1967–2023
+                </span>
+                <span class="tool-meta-pill" role="listitem">
+                    <i class="fas fa-users"></i>Peer-Band Benchmarking
+                </span>
+                <span class="tool-meta-pill" role="listitem">
+                    <i class="fas fa-file-download"></i>One-Page Fiscal Report
+                </span>
+                <span class="tool-meta-pill" role="listitem">
+                    <i class="fas fa-code-branch"></i>Built with R Shiny
+                </span>
+            </div>
+
+            <div class="shiny-frame" role="application" aria-label="Municipal Benchmarks interactive application">
+                <div class="shiny-frame-bar">
+                    <div class="frame-dots" aria-hidden="true">
+                        <div class="frame-dot"></div>
+                        <div class="frame-dot"></div>
+                        <div class="frame-dot"></div>
+                    </div>
+                    <div class="frame-url">
+                        <i class="fas fa-lock"></i>polimetrics.shinyapps.io/Municipal_Benchmarks/
+                    </div>
+                    <a href="https://polimetrics.shinyapps.io/Municipal_Benchmarks/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="frame-external-link"
+                       title="Open in new tab"
+                       aria-label="Open in new tab">
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <div class="shiny-iframe-wrapper">
+                    <div class="shiny-frame-loading" id="shiny-loading" aria-live="polite" aria-label="Loading application">
+                        <div class="shiny-loader-ring" aria-hidden="true"></div>
+                        <p>Loading application…</p>
+                    </div>
+                    <iframe
+                        src="https://polimetrics.shinyapps.io/Municipal_Benchmarks/"
+                        class="shiny-iframe"
+                        title="Alt-30 Municipal Finance Benchmarks — interactive fiscal health scorecard"
+                        loading="lazy"
+                        onload="document.getElementById('shiny-loading').classList.add('loaded')"
+                        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
+                    ></iframe>
+                </div>
+            </div>
+
+            <div class="shiny-mobile-fallback" role="complementary" aria-label="Mobile access option">
+                <i class="fas fa-chart-bar" aria-hidden="true"></i>
+                <h3>Municipal Finance Benchmarks</h3>
+                <p>This interactive tool is best experienced on a desktop or tablet. Tap below to open it directly in your browser.</p>
+                <a href="https://polimetrics.shinyapps.io/Municipal_Benchmarks/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-secondary">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>Open the App</span>
+                </a>
+            </div>
+
         </div>
     </section>
 
