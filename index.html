@@ -1,3350 +1,1067 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="description" content="Alt-30 Consulting is an independent economic intelligence firm delivering rigorous, locally-grounded analysis for high-stakes decisions involving local economies and municipal finance.">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="keywords" content="municipal finance, economic intelligence, federal dependency risk, fiscal benchmarking, grant readiness, bond preparation, economic impact study, local government finance, PoliMetrics, Alt-30">
-    <meta name="author" content="Alt-30 Consulting">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#0C1015">
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Alt-30 Consulting | Economic Intelligence for Local Markets">
-    <meta property="og:description" content="Independent economic intelligence firm delivering rigorous analysis for municipal finance, real estate, and policy decisions.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://alt-30.github.io">
-    <meta property="og:image" content="https://alt-30.github.io/assets/og-image.png">
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Alt-30 Consulting | Economic Intelligence">
-    <meta name="twitter:description" content="Independent economic intelligence firm delivering rigorous analysis for local economies and municipal finance.
-    <meta name="twitter:image" content="https://alt-30.github.io/assets/twitter-card.png">
-
-    <title>Alt-30 | Economic Intelligence & Municipal Finance Analysis</title>
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>📊</text></svg>">
-
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
-    <style>
-        /* ============================================
-           ALT-30 SHOWCASE - BREATHTAKING EDITION
-           A stunning data visualization portfolio
-           ============================================ */
-
-        :root {
-            /* Sophisticated color palette - Classic & Professional */
-            --primary: #C9A55C;
-            --primary-glow: rgba(201, 165, 92, 0.4);
-            --secondary: #6B8CAE;
-            --secondary-glow: rgba(107, 140, 174, 0.4);
-            --accent: #7EA88F;
-            --accent-glow: rgba(126, 168, 143, 0.4);
-            --warning: #D4915D;
-            --danger: #C76B6B;
-
-            /* Refined dark theme base */
-            --bg-deepspace: #0C1015;
-            --bg-dark: #121820;
-            --bg-card: #1A222D;
-            --bg-elevated: #232D3B;
-            --bg-glass: rgba(26, 34, 45, 0.85);
-
-            /* Text colors - warmer whites */
-            --text-primary: #F5F5F3;
-            --text-secondary: #A8B0BC;
-            --text-muted: #6B7280;
-
-            /* Borders and effects */
-            --border-subtle: rgba(255, 255, 255, 0.06);
-            --border-glow: rgba(201, 165, 92, 0.25);
-
-            /* Gradients - elegant transitions */
-            --gradient-primary: linear-gradient(135deg, #C9A55C 0%, #A8894A 100%);
-            --gradient-secondary: linear-gradient(135deg, #6B8CAE 0%, #5A7A9A 100%);
-            --gradient-accent: linear-gradient(135deg, #7EA88F 0%, #6B9A7C 100%);
-            --gradient-dark: linear-gradient(180deg, #0C1015 0%, #1A222D 100%);
-
-            /* Transitions */
-            --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-bounce: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        /* ============================================
-           BASE STYLES
-           ============================================ */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--bg-deepspace);
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 600;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 5%;
-        }
-
-        /* ============================================
-           LOADING SCREEN
-           ============================================ */
-
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: var(--bg-deepspace);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-
-        .loading-screen.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-
-        .loader-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .loader-ring {
-            width: 80px;
-            height: 80px;
-            border: 3px solid var(--border-subtle);
-            border-top-color: var(--primary);
-            border-right-color: var(--secondary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            box-shadow: 0 0 30px var(--primary-glow), inset 0 0 30px var(--primary-glow);
-        }
-
-        .loader-text {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--primary);
-            font-size: 0.9rem;
-            letter-spacing: 0.2em;
-            animation: pulse 1.5s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        /* ============================================
-           ANIMATED BACKGROUND - DATA MESH
-           ============================================ */
-
-        #data-mesh-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .grid-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-            background-image:
-                linear-gradient(rgba(201, 165, 92, 0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(201, 165, 92, 0.04) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: gridMove 20s linear infinite;
-        }
-
-        @keyframes gridMove {
-            0% { background-position: 0 0; }
-            100% { background-position: 50px 50px; }
-        }
-
-        /* ============================================
-           HEADER & NAVIGATION
-           ============================================ */
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(12, 16, 21, 0.92);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-subtle);
-            z-index: 1000;
-            transition: transform 0.3s ease, box-shadow var(--transition-base);
-        }
-
-        header.scrolled {
-            box-shadow: 0 0 40px rgba(201, 165, 92, 0.08);
-            border-bottom-color: var(--border-glow);
-        }
-
-        header.header-hidden {
-            transform: translateY(-100%);
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            transition: transform var(--transition-base);
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--gradient-primary);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            box-shadow: 0 0 20px var(--primary-glow);
-            animation: logoGlow 3s ease-in-out infinite;
-        }
-
-        @keyframes logoGlow {
-            0%, 100% { box-shadow: 0 0 20px var(--primary-glow); }
-            50% { box-shadow: 0 0 30px var(--primary-glow), 0 0 50px var(--secondary-glow); }
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.1;
-        }
-
-        .logo-text span:first-child {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .logo-subtitle {
-            font-size: 0.65rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-        }
-
-        .nav-items {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-menu a {
-            color: var(--text-secondary);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: all var(--transition-base);
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-primary);
-            transition: width var(--transition-base);
-            box-shadow: 0 0 10px var(--primary-glow);
-        }
-
-        .nav-menu a:hover {
-            color: var(--primary);
-        }
-
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-toggle {
-            display: none;
-            background: transparent;
-            border: 1px solid var(--border-subtle);
-            border-radius: 8px;
-            padding: 0.5rem;
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            cursor: pointer;
-            transition: all var(--transition-base);
-        }
-
-        .mobile-toggle:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            box-shadow: 0 0 20px var(--primary-glow);
-        }
-
-        /* ============================================
-           HERO SECTION - DRAMATIC ENTRANCE
-           ============================================ */
-
-        .hero {
-            min-height: 125vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            padding: 100px 0 60px;
-            z-index: 1;
-            background: var(--bg-deepspace);
-        }
-
-        .hero-glow {
-            position: absolute;
-            width: 800px;
-            height: 800px;
-            border-radius: 50%;
-            filter: blur(150px);
-            opacity: 0.3;
-            pointer-events: none;
-        }
-
-        .hero-glow.primary {
-            top: -200px;
-            right: -200px;
-            background: var(--primary);
-        }
-
-        .hero-glow.secondary {
-            bottom: -200px;
-            left: -200px;
-            background: var(--secondary);
-        }
-
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 5%;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: var(--bg-glass);
-            border: 1px solid var(--border-glow);
-            padding: 0.5rem 1.5rem;
-            border-radius: 3rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 2rem;
-            animation: fadeInDown 0.8s ease-out;
-            box-shadow: 0 0 30px var(--primary-glow);
-        }
-
-        .hero-badge i {
-            color: var(--warning);
-            animation: starPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes starPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-
-        .hero-badge span {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero-title {
-            font-size: clamp(3rem, 8vw, 6rem);
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-            line-height: 1.1;
-        }
-
-        .hero-title .line1 {
-            display: block;
-            color: var(--text-primary);
-        }
-
-        .hero-title .line2 {
-            display: block;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 80px var(--primary-glow);
-        }
-
-        .hero-subtitle {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: clamp(1rem, 2.5vw, 1.25rem);
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .hero-subtitle .divider {
-            color: var(--primary);
-            opacity: 0.5;
-        }
-
-        .hero-description {
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-            animation: fadeInUp 0.8s ease-out 0.6s both;
-        }
-
-        /* Terminal-style typing effect */
-        .terminal-line {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease-out 0.5s both;
-        }
-
-        .terminal-line .prompt {
-            color: var(--accent);
-        }
-
-        .terminal-line .command {
-            color: var(--primary);
-        }
-
-        .terminal-line .cursor {
-            display: inline-block;
-            width: 10px;
-            height: 1.2em;
-            background: var(--primary);
-            margin-left: 2px;
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease-out 0.8s both;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 0.75rem;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all var(--transition-base);
-            border: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary {
-            background: var(--gradient-primary);
-            color: var(--bg-deepspace);
-            box-shadow: 0 0 30px var(--primary-glow);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 40px var(--primary-glow);
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid var(--border-subtle);
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--primary);
-            box-shadow: 0 0 30px var(--primary-glow);
-            transform: translateY(-3px);
-        }
-
-        /* Scroll Indicator */
-        .scroll-indicator {
-            position: absolute;
-            bottom: -5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-muted);
-            animation: bounce 2s infinite;
-        }
-
-        .scroll-indicator span {
-            font-size: 0.75rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-        }
-
-        .scroll-indicator i {
-            color: var(--primary);
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ============================================
-           STATS SECTION - GLOWING METRICS
-           ============================================ */
-
-        .stats-section {
-            padding: 5rem 0;
-            position: relative;
-            z-index: 2;
-            background: var(--bg-dark);
-            isolation: isolate;
-        }
-
-        .stats-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 5%;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem;
-            background: var(--bg-card);
-            border-radius: 1rem;
-            border: 1px solid var(--border-subtle);
-            transition: all var(--transition-base);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--gradient-primary);
-            transform: scaleX(0);
-            transition: transform var(--transition-base);
-        }
-
-        .stat-item:hover::before {
-            transform: scaleX(1);
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(201, 165, 92, 0.12);
-            border-color: var(--border-glow);
-        }
-
-        .stat-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            font-family: 'Space Grotesk', sans-serif;
-            color: var(--text-primary);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        /* ============================================
-           PROJECTS SECTION - SHOWCASE GRID
-           ============================================ */
-
-        .projects {
-            padding: 8rem 0;
-            position: relative;
-            z-index: 2;
-            background: var(--bg-deepspace);
-            isolation: isolate;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-            position: relative;
-            z-index: auto;
-        }
-
-        .section-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--bg-card);
-            color: var(--primary);
-            padding: 0.5rem 1.25rem;
-            border-radius: 2rem;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 1.5rem;
-            border: 1px solid var(--border-glow);
-            box-shadow: 0 0 20px var(--primary-glow);
-        }
-
-        .section-header h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1rem;
-        }
-
-        .section-header h2 span {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .section-header p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Project Filters */
-        .project-filters {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 0.75rem 1.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 3rem;
-            color: var(--text-secondary);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all var(--transition-base);
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .filter-btn:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            box-shadow: 0 0 20px var(--primary-glow);
-        }
-
-        .filter-btn.active {
-            background: var(--gradient-primary);
-            border-color: transparent;
-            color: var(--bg-deepspace);
-            box-shadow: 0 0 30px var(--primary-glow);
-        }
-
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border-radius: 1.25rem;
-            overflow: hidden;
-            border: 1px solid var(--border-subtle);
-            transition: all var(--transition-base);
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient-primary);
-            transform: scaleX(0);
-            transition: transform var(--transition-base);
-            z-index: 10;
-        }
-
-        .project-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 60px rgba(201, 165, 92, 0.15);
-            border-color: var(--border-glow);
-        }
-
-        .project-image {
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Shimmer effect on hover */
-        .project-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
-            transform: translateX(-100%);
-            transition: transform 0.6s;
-            z-index: 3;
-        }
-
-        .project-card:hover .project-image::before {
-            transform: translateX(100%);
-        }
-
-        .project-image i {
-            position: relative;
-            z-index: 2;
-            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
-            transition: transform var(--transition-base);
-        }
-
-        .project-card:hover .project-image i {
-            transform: scale(1.15) rotate(5deg);
-        }
-
-        /* ===== FINANCE CARD - Animated Bar Chart ===== */
-        .project-image.finance {
-            background: linear-gradient(135deg, #4A7C6F 0%, #3D6B5E 50%, #2F5A4D 100%);
-        }
-
-        .project-image.finance::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 100%;
-            background:
-                /* Grid lines */
-                repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(255,255,255,0.1) 24px, rgba(255,255,255,0.1) 25px),
-                repeating-linear-gradient(90deg, transparent, transparent 29px, rgba(255,255,255,0.05) 29px, rgba(255,255,255,0.05) 30px),
-                /* Bar chart bars */
-                linear-gradient(0deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.3) 100%) no-repeat 15% 100% / 8% 45%,
-                linear-gradient(0deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.4) 100%) no-repeat 28% 100% / 8% 70%,
-                linear-gradient(0deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.35) 100%) no-repeat 41% 100% / 8% 55%,
-                linear-gradient(0deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.45) 100%) no-repeat 54% 100% / 8% 85%,
-                linear-gradient(0deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.3) 100%) no-repeat 67% 100% / 8% 40%,
-                linear-gradient(0deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.5) 100%) no-repeat 80% 100% / 8% 65%;
-            z-index: 1;
-            animation: barsGrow 2s ease-out forwards;
-        }
-
-        @keyframes barsGrow {
-            0% {
-                clip-path: inset(100% 0 0 0);
-            }
-            100% {
-                clip-path: inset(0 0 0 0);
-            }
-        }
-
-        /* ===== AI CARD - Neural Network / Chat Pattern ===== */
-        .project-image.ai {
-            background: linear-gradient(135deg, #B08D57 0%, #9A7A4A 50%, #846A3E 100%);
-        }
-
-        .project-image.ai::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                /* Neural nodes */
-                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.4) 4px, transparent 4px),
-                radial-gradient(circle at 80% 25%, rgba(255,255,255,0.4) 4px, transparent 4px),
-                radial-gradient(circle at 35% 70%, rgba(255,255,255,0.4) 4px, transparent 4px),
-                radial-gradient(circle at 70% 75%, rgba(255,255,255,0.4) 4px, transparent 4px),
-                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.5) 6px, transparent 6px),
-                radial-gradient(circle at 15% 60%, rgba(255,255,255,0.3) 3px, transparent 3px),
-                radial-gradient(circle at 85% 55%, rgba(255,255,255,0.3) 3px, transparent 3px),
-                /* Connection lines */
-                linear-gradient(45deg, transparent 48%, rgba(255,255,255,0.2) 49%, rgba(255,255,255,0.2) 51%, transparent 52%) no-repeat 0% 0% / 50% 60%,
-                linear-gradient(-30deg, transparent 48%, rgba(255,255,255,0.15) 49%, rgba(255,255,255,0.15) 51%, transparent 52%) no-repeat 30% 20% / 60% 70%,
-                linear-gradient(60deg, transparent 48%, rgba(255,255,255,0.15) 49%, rgba(255,255,255,0.15) 51%, transparent 52%) no-repeat 40% 40% / 50% 50%,
-                /* Chat bubble hint */
-                radial-gradient(ellipse 40px 30px at 75% 20%, rgba(255,255,255,0.15) 100%, transparent 100%),
-                radial-gradient(ellipse 35px 25px at 25% 80%, rgba(255,255,255,0.12) 100%, transparent 100%);
-            z-index: 1;
-            animation: nodesFloat 4s ease-in-out infinite;
-        }
-
-        @keyframes nodesFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
-
-        /* ===== ECONOMICS CARD - Trend Line Chart ===== */
-        .project-image.economics {
-            background: linear-gradient(135deg, #5A7A9A 0%, #4A6A8A 50%, #3A5A7A 100%);
-        }
-
-        .project-image.economics::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                /* Grid */
-                repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.08) 39px, rgba(255,255,255,0.08) 40px),
-                repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.08) 39px, rgba(255,255,255,0.08) 40px),
-                /* Data points */
-                radial-gradient(circle at 10% 70%, rgba(255,255,255,0.6) 4px, transparent 4px),
-                radial-gradient(circle at 25% 55%, rgba(255,255,255,0.6) 4px, transparent 4px),
-                radial-gradient(circle at 40% 60%, rgba(255,255,255,0.6) 4px, transparent 4px),
-                radial-gradient(circle at 55% 40%, rgba(255,255,255,0.6) 4px, transparent 4px),
-                radial-gradient(circle at 70% 35%, rgba(255,255,255,0.6) 4px, transparent 4px),
-                radial-gradient(circle at 85% 25%, rgba(255,255,255,0.6) 4px, transparent 4px);
-            z-index: 1;
-        }
-
-        /* Trend line using SVG in background */
-        .project-image.economics .trend-line {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .project-image.economics .trend-line::before {
-            content: '';
-            position: absolute;
-            top: 25%;
-            left: 5%;
-            width: 90%;
-            height: 50%;
-            background:
-                linear-gradient(to right,
-                    transparent 0%,
-                    transparent 9%, rgba(255,255,255,0.3) 10%, transparent 11%,
-                    transparent 24%, rgba(255,255,255,0.3) 25%, transparent 26%,
-                    transparent 39%, rgba(255,255,255,0.3) 40%, transparent 41%,
-                    transparent 54%, rgba(255,255,255,0.3) 55%, transparent 56%,
-                    transparent 69%, rgba(255,255,255,0.3) 70%, transparent 71%,
-                    transparent 84%, rgba(255,255,255,0.3) 85%, transparent 86%,
-                    transparent 100%
-                );
-            clip-path: polygon(0% 80%, 15% 60%, 30% 70%, 45% 45%, 60% 50%, 75% 25%, 90% 15%, 90% 100%, 0% 100%);
-            animation: trendPulse 3s ease-in-out infinite;
-        }
-
-        @keyframes trendPulse {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 1; }
-        }
-
-        /* ===== DATAVIZ CARD - Abstract Data Pattern ===== */
-        .project-image.dataviz {
-            background: linear-gradient(135deg, #7A5C7A 0%, #6A4C6A 50%, #5A3C5A 100%);
-        }
-
-        .project-image.dataviz::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                /* Pie/donut segments hint */
-                conic-gradient(from 0deg at 25% 50%,
-                    rgba(255,255,255,0.3) 0deg, rgba(255,255,255,0.3) 90deg,
-                    rgba(255,255,255,0.15) 90deg, rgba(255,255,255,0.15) 180deg,
-                    rgba(255,255,255,0.25) 180deg, rgba(255,255,255,0.25) 270deg,
-                    rgba(255,255,255,0.1) 270deg, rgba(255,255,255,0.1) 360deg
-                ),
-                /* Scatter plot dots */
-                radial-gradient(circle at 60% 30%, rgba(255,255,255,0.4) 3px, transparent 3px),
-                radial-gradient(circle at 70% 45%, rgba(255,255,255,0.4) 3px, transparent 3px),
-                radial-gradient(circle at 80% 35%, rgba(255,255,255,0.4) 3px, transparent 3px),
-                radial-gradient(circle at 65% 55%, rgba(255,255,255,0.4) 3px, transparent 3px),
-                radial-gradient(circle at 75% 60%, rgba(255,255,255,0.4) 3px, transparent 3px),
-                radial-gradient(circle at 85% 50%, rgba(255,255,255,0.4) 3px, transparent 3px),
-                radial-gradient(circle at 72% 70%, rgba(255,255,255,0.4) 3px, transparent 3px);
-            z-index: 1;
-            animation: dataSpin 20s linear infinite;
-        }
-
-        @keyframes dataSpin {
-            0% {
-                background-position: 0% 0%, 60% 30%, 70% 45%, 80% 35%, 65% 55%, 75% 60%, 85% 50%, 72% 70%;
-            }
-            100% {
-                background-position: 360deg 0%, 60% 30%, 70% 45%, 80% 35%, 65% 55%, 75% 60%, 85% 50%, 72% 70%;
-            }
-        }
-
-        .project-content {
-            padding: 2rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            background: var(--bg-elevated);
-        }
-
-        .project-content h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-        }
-
-        .project-status {
-            font-size: 0.7rem;
-            background: var(--accent);
-            color: var(--bg-deepspace);
-            padding: 0.25rem 0.75rem;
-            border-radius: 1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        .project-content p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-            line-height: 1.7;
-        }
-
-        .project-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            background: var(--bg-card);
-            color: var(--text-muted);
-            padding: 0.4rem 1rem;
-            border-radius: 2rem;
-            font-size: 0.8rem;
-            font-weight: 500;
-            border: 1px solid var(--border-subtle);
-            transition: all var(--transition-fast);
-        }
-
-        .tag:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .tag.primary {
-            background: var(--gradient-primary);
-            color: var(--bg-deepspace);
-            border: none;
-            font-weight: 600;
-        }
-
-        .no-projects {
-            text-align: center;
-            padding: 4rem 2rem;
-            color: var(--text-muted);
-            display: none;
-        }
-
-        .no-projects.show {
-            display: block;
-        }
-
-        .no-projects i {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            opacity: 0.3;
-        }
-
-        /* ============================================
-           RESEARCH REPORTS SECTION
-           ============================================ */
-
-        .reports {
-            padding: 8rem 0;
-            position: relative;
-            z-index: 2;
-            background: var(--bg-dark);
-            isolation: isolate;
-        }
-
-        .reports-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-            gap: 2rem;
-        }
-
-        .report-card {
-            background: var(--bg-card);
-            border-radius: 1.25rem;
-            overflow: hidden;
-            border: 1px solid var(--border-subtle);
-            transition: all var(--transition-base);
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-
-        .report-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient-secondary);
-            transform: scaleX(0);
-            transition: transform var(--transition-base);
-            z-index: 10;
-        }
-
-        .report-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .report-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 60px rgba(107, 140, 174, 0.15);
-            border-color: var(--border-glow);
-        }
-
-        .report-header {
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #6B8CAE 0%, #5A7A9A 50%, #4A6A8A 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .report-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                /* Document lines pattern */
-                repeating-linear-gradient(0deg, transparent, transparent 14px, rgba(255,255,255,0.08) 14px, rgba(255,255,255,0.08) 15px),
-                /* Corner fold effect */
-                linear-gradient(135deg, transparent 0%, transparent 70%, rgba(255,255,255,0.15) 85%, transparent 100%);
-            z-index: 1;
-        }
-
-        .report-header i {
-            font-size: 4.5rem;
-            color: white;
-            position: relative;
-            z-index: 2;
-            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
-            transition: transform var(--transition-base);
-        }
-
-        .report-card:hover .report-header i {
-            transform: scale(1.1) translateY(-5px);
-        }
-
-        .report-content {
-            padding: 2rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            background: var(--bg-elevated);
-        }
-
-        .report-content h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-            line-height: 1.3;
-        }
-
-        .report-meta {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .report-meta-item {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .report-meta-item i {
-            color: var(--secondary);
-        }
-
-        .report-content p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-            line-height: 1.7;
-        }
-
-        .report-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-        }
-
-        .report-actions {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .report-btn {
-            flex: 1;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all var(--transition-base);
-            border: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            text-decoration: none;
-        }
-
-        .report-btn-primary {
-            background: var(--gradient-secondary);
-            color: white;
-            box-shadow: 0 0 20px var(--secondary-glow);
-        }
-
-        .report-btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 25px var(--secondary-glow);
-        }
-
-        .report-btn-secondary {
-            background: transparent;
-            color: var(--text-secondary);
-            border: 1px solid var(--border-subtle);
-        }
-
-        .report-btn-secondary:hover {
-            border-color: var(--secondary);
-            color: var(--secondary);
-            box-shadow: 0 0 20px var(--secondary-glow);
-        }
-
-        /* ============================================
-           TECH STACK SECTION
-           ============================================ */
-
-        .tech-stack {
-            padding: 6rem 0;
-            background: var(--bg-deepspace);
-            position: relative;
-            z-index: 2;
-            isolation: isolate;
-        }
-
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .tech-item {
-            background: var(--bg-card);
-            padding: 2rem 1rem;
-            border-radius: 1rem;
-            text-align: center;
-            border: 1px solid var(--border-subtle);
-            transition: all var(--transition-base);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tech-item::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: var(--primary-glow);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: all var(--transition-slow);
-            opacity: 0;
-        }
-
-        .tech-item:hover::before {
-            width: 200%;
-            height: 200%;
-            opacity: 0.1;
-        }
-
-        .tech-item:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 40px rgba(201, 165, 92, 0.12);
-            border-color: var(--border-glow);
-        }
-
-        .tech-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            position: relative;
-            z-index: 1;
-        }
-
-        .tech-name {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--text-primary);
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ============================================
-           ABOUT SECTION
-           ============================================ */
-
-        .about {
-            padding: 8rem 0;
-            position: relative;
-            z-index: 2;
-            background: var(--bg-deepspace);
-            isolation: isolate;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .about-text h2 span {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .about-text p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .capabilities {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .capability {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.25rem;
-            background: var(--bg-card);
-            border-radius: 0.75rem;
-            border: 1px solid var(--border-subtle);
-            transition: all var(--transition-base);
-        }
-
-        .capability:hover {
-            border-color: var(--border-glow);
-            box-shadow: 0 0 30px var(--primary-glow);
-            transform: translateX(5px);
-        }
-
-        .capability i {
-            font-size: 1.5rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .capability span {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--text-primary);
-        }
-
-        /* ============================================
-           FOOTER
-           ============================================ */
-
-        footer {
-            background: var(--bg-dark);
-            padding: 4rem 0 2rem;
-            border-top: 1px solid var(--border-subtle);
-            position: relative;
-            z-index: 2;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-        }
-
-        .footer-logo i {
-            font-size: 2rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--text-secondary);
-            transition: all var(--transition-base);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 500;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-subtle);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        /* ============================================
-           RESPONSIVE DESIGN
-           ============================================ */
-
-        @media (max-width: 1024px) {
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .projects-grid {
-                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            }
-        }
-
-        @media (max-width: 768px) {
-            header {
-                background: var(--bg-deepspace);
-            }
-
-            nav {
-                padding: 0.75rem 4%;
-            }
-
-            .logo {
-                font-size: 1.25rem;
-            }
-
-            .logo-icon {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
-            }
-
-            .logo-subtitle {
-                display: none;
-            }
-
-            .mobile-toggle {
-                display: block;
-            }
-
-            .nav-items {
-                position: fixed;
-                top: 60px;
-                right: -100%;
-                width: 85%;
-                max-width: 320px;
-                height: calc(100vh - 60px);
-                background: var(--bg-dark);
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: -4px 0 40px rgba(0, 0, 0, 0.5);
-                transition: right var(--transition-base);
-                border-left: 1px solid var(--border-subtle);
-            }
-
-            .nav-items.active {
-                right: 0;
-            }
-
-            .nav-menu {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1.5rem;
-                width: 100%;
-            }
-
-            .nav-menu a {
-                font-size: 1.1rem;
-                padding: 0.75rem 0;
-                width: 100%;
-                border-bottom: 1px solid var(--border-subtle);
-            }
-
-            .hero {
-                min-height: 90vh;
-                padding-top: 80px;
-            }
-
-            .hero-title {
-                font-size: clamp(2.5rem, 10vw, 4rem);
-            }
-
-            .hero-glow {
-                width: 400px;
-                height: 400px;
-            }
-
-            .hero-cta {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .terminal-line {
-                font-size: 0.8rem;
-            }
-
-            .stats-container {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .stat-item {
-                padding: 1.5rem;
-            }
-
-            .stat-number {
-                font-size: 2.5rem;
-            }
-
-            .projects, .reports, .tech-stack, .about {
-                padding: 4rem 0;
-            }
-
-            .section-header {
-                margin-bottom: 2.5rem;
-            }
-
-            .section-header h2 {
-                font-size: clamp(2rem, 8vw, 2.5rem);
-            }
-
-            .section-header p {
-                font-size: 1rem;
-            }
-
-            .projects-grid, .reports-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .project-image {
-                height: 160px;
-                font-size: 3rem;
-            }
-
-            .project-content {
-                padding: 1.5rem;
-            }
-
-            .project-content h3 {
-                font-size: 1.2rem;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
-            }
-
-            .report-header {
-                height: 150px;
-            }
-
-            .report-header i {
-                font-size: 3.5rem;
-            }
-
-            .report-content {
-                padding: 1.5rem;
-            }
-
-            .report-content h3 {
-                font-size: 1.2rem;
-            }
-
-            .report-meta {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .report-actions {
-                flex-direction: column;
-            }
-
-            .tech-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1rem;
-            }
-
-            .tech-item {
-                padding: 1.5rem 0.75rem;
-            }
-
-            .tech-icon {
-                font-size: 2.5rem;
-            }
-
-            .capabilities {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 0.85rem;
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .hero-subtitle .divider {
-                display: none;
-            }
-
-            .filter-btn {
-                padding: 0.6rem 1rem;
-                font-size: 0.85rem;
-            }
-
-            .tech-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* ============================================
-           UTILITIES
-           ============================================ */
-
-        .visible {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
-        }
-
-        /* ============================================
-           OUTCOMES SECTION — HOW WE HELP
-           ============================================ */
-
-        .outcomes {
-            padding: 8rem 0;
-            position: relative;
-            z-index: 2;
-            background: var(--bg-dark);
-            isolation: isolate;
-        }
-
-        .outcomes-intro {
-            max-width: 750px;
-            margin-bottom: 4rem;
-        }
-
-        .outcomes-intro h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-top: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .outcomes-intro h2 span {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .outcomes-intro > p {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .outcomes-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-        }
-
-        .outcome-card {
-            padding: 2rem;
-            background: var(--bg-card);
-            border-radius: 1rem;
-            border: 1px solid var(--border-subtle);
-            transition: all var(--transition-base);
-        }
-
-        .outcome-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--border-glow);
-            box-shadow: 0 10px 40px rgba(201, 165, 92, 0.1);
-        }
-
-        .outcome-header {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            margin-bottom: 1.5rem;
-        }
-
-        .outcome-icon {
-            width: 44px;
-            height: 44px;
-            background: var(--bg-elevated);
-            border-radius: 10px;
-            border: 1px solid var(--border-glow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .outcome-icon i {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-size: 1.1rem;
-        }
-
-        .outcome-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            line-height: 1;
-            opacity: 0.12;
-        }
-
-        .outcome-card h3 {
-            font-size: 1.15rem;
-            color: var(--text-primary);
-            margin-bottom: 0.75rem;
-        }
-
-        .outcome-card p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.7;
-        }
-
-        /* ============================================
-           SERVICES SECTION — WHAT WE DELIVER
-           ============================================ */
-
-        .services-section {
-            padding: 8rem 0;
-            position: relative;
-            z-index: 2;
-            background: var(--bg-deepspace);
-            isolation: isolate;
-        }
-
-        .services-layout {
-            display: grid;
-            grid-template-columns: 1fr 1.6fr;
-            gap: 6rem;
-            align-items: start;
-        }
-
-        .services-intro {
-            position: sticky;
-            top: 120px;
-        }
-
-        .services-intro h2 {
-            font-size: clamp(1.75rem, 3vw, 2.5rem);
-            margin-top: 1.5rem;
-            margin-bottom: 1.25rem;
-            line-height: 1.25;
-            color: var(--text-primary);
-        }
-
-        .services-intro h2 span {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .services-intro > p {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
-        }
-
-        .services-cta-box {
-            padding: 1.75rem;
-            background: var(--bg-card);
-            border-radius: 1rem;
-            border: 1px solid var(--border-glow);
-            box-shadow: 0 0 40px var(--primary-glow);
-        }
-
-        .services-cta-box .cta-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: var(--primary);
-            margin-bottom: 0.75rem;
-        }
-
-        .services-cta-box h4 {
-            font-size: 1rem;
-            color: var(--text-primary);
-            margin-bottom: 1.25rem;
-            line-height: 1.4;
-            font-weight: 500;
-        }
-
-        .services-grid {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .service-card {
-            padding: 2rem 0;
-            border-bottom: 1px solid var(--border-subtle);
-            transition: all var(--transition-base);
-        }
-
-        .service-card:first-child {
-            border-top: 1px solid var(--border-subtle);
-        }
-
-        .service-card:hover {
-            padding-left: 0.75rem;
-        }
-
-        .service-card:hover .service-label {
-            color: var(--primary);
-        }
-
-        .service-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: var(--text-muted);
-            margin-bottom: 0.6rem;
-            transition: color var(--transition-base);
-        }
-
-        .service-card h3 {
-            font-size: 1.2rem;
-            color: var(--text-primary);
-            margin-bottom: 0.6rem;
-        }
-
-        .service-card p {
-            color: var(--text-secondary);
-            font-size: 0.92rem;
-            line-height: 1.7;
-        }
-
-        /* Responsive — new sections */
-        @media (max-width: 1100px) {
-            .outcomes-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .services-layout {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .services-intro {
-                position: static;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .outcomes, .services-section {
-                padding: 4rem 0;
-            }
-
-            .outcomes-grid {
-                grid-template-columns: 1fr;
-                gap: 1.25rem;
-            }
-
-            .outcome-number {
-                font-size: 1.5rem;
-            }
-        }
-
-        /* ============================================
-           LIVE TOOL / BENCHMARKS EMBED SECTION
-           ============================================ */
-
-        .live-tool {
-            padding: 8rem 0;
-            position: relative;
-            z-index: 2;
-            background: var(--bg-deepspace);
-            isolation: isolate;
-        }
-
-        .live-tool::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70%;
-            height: 60%;
-            background: radial-gradient(ellipse at center, rgba(107, 140, 174, 0.12) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .live-tool .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .live-tool-header {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .live-tool-header .header-left {
-            max-width: 680px;
-        }
-
-        .live-tool-header h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1rem;
-        }
-
-        .live-tool-header h2 span {
-            background: var(--gradient-secondary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .live-tool-header p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        .live-tool-open-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            padding: 0.75rem 1.5rem;
-            background: transparent;
-            color: var(--secondary);
-            border: 1px solid rgba(107, 140, 174, 0.4);
-            border-radius: 0.65rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-            white-space: nowrap;
-            transition: all var(--transition-base);
-            flex-shrink: 0;
-        }
-
-        .live-tool-open-btn:hover {
-            background: rgba(107, 140, 174, 0.1);
-            border-color: var(--secondary);
-            box-shadow: 0 0 25px var(--secondary-glow);
-            transform: translateY(-2px);
-        }
-
-        .live-tool-meta {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 2.5rem;
-        }
-
-        .tool-meta-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 2rem;
-            padding: 0.4rem 1rem;
-            font-size: 0.8rem;
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--text-muted);
-            font-weight: 500;
-            letter-spacing: 0.05em;
-        }
-
-        .tool-meta-pill i {
-            color: var(--secondary);
-            font-size: 0.75rem;
-        }
-
-        .shiny-frame {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 1.25rem;
-            overflow: hidden;
-            box-shadow:
-                0 0 0 1px var(--border-glow),
-                0 30px 80px rgba(0, 0, 0, 0.5),
-                0 0 60px rgba(107, 140, 174, 0.06);
-            position: relative;
-        }
-
-        .shiny-frame-bar {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.85rem 1.25rem;
-            background: var(--bg-elevated);
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .frame-dots {
-            display: flex;
-            gap: 6px;
-        }
-
-        .frame-dot {
-            width: 11px;
-            height: 11px;
-            border-radius: 50%;
-            background: var(--border-subtle);
-            transition: background var(--transition-fast);
-        }
-
-        .shiny-frame:hover .frame-dot:nth-child(1) { background: #C76B6B; }
-        .shiny-frame:hover .frame-dot:nth-child(2) { background: #D4915D; }
-        .shiny-frame:hover .frame-dot:nth-child(3) { background: var(--accent); }
-
-        .frame-url {
-            flex: 1;
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 0.4rem;
-            padding: 0.35rem 0.75rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.72rem;
-            color: var(--text-muted);
-            letter-spacing: 0.03em;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .frame-url i {
-            color: var(--accent);
-            margin-right: 0.4rem;
-            font-size: 0.65rem;
-        }
-
-        .frame-external-link {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            transition: color var(--transition-fast);
-            padding: 0.25rem;
-        }
-
-        .frame-external-link:hover {
-            color: var(--secondary);
-        }
-
-        .shiny-frame-loading {
-            position: absolute;
-            inset: 0;
-            background: var(--bg-card);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1.25rem;
-            z-index: 5;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-
-        .shiny-frame-loading.loaded {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-
-        .shiny-loader-ring {
-            width: 48px;
-            height: 48px;
-            border: 2px solid var(--border-subtle);
-            border-top-color: var(--secondary);
-            border-radius: 50%;
-            animation: spin 0.9s linear infinite;
-        }
-
-        .shiny-frame-loading p {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-        }
-
-        .shiny-iframe-wrapper {
-            position: relative;
-            width: 100%;
-            height: 810px;
-        }
-
-        .shiny-iframe {
-            display: block;
-            width: 100%;
-            height: 100%;
-            border: none;
-            background: #fff;
-        }
-
-        .shiny-mobile-fallback {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1.5rem;
-            padding: 3rem 2rem;
-            text-align: center;
-            background: var(--bg-card);
-            border-radius: 1rem;
-            border: 1px solid var(--border-subtle);
-        }
-
-        .shiny-mobile-fallback i {
-            font-size: 3rem;
-            background: var(--gradient-secondary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .shiny-mobile-fallback h3 {
-            font-size: 1.5rem;
-            color: var(--text-primary);
-        }
-
-        .shiny-mobile-fallback p {
-            color: var(--text-secondary);
-            max-width: 360px;
-            font-size: 0.95rem;
-        }
-
-        @media (max-width: 768px) {
-            .live-tool {
-                padding: 4rem 0;
-            }
-
-            .live-tool-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .shiny-frame {
-                display: none;
-            }
-
-            .shiny-mobile-fallback {
-                display: flex;
-            }
-        }
-    </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Alt-30 Consulting — Government Risk Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --obsidian:#0D1216;
+  --obsidian2:#1A2332;
+  --forest:#30332F;
+  --ruby:#59001C;
+  --ruby2:#6E0022;
+  --ruby3:#8C0028;
+  --mist:#C1C1BD;
+  --mist2:#E2E2DE;
+  --rose:#FFE6E6;
+  --rose2:#FFF0F0;
+  --cream:#F5F2EC;
+  --paper:#FAFAF8;
+  --surface:#FFFFFF;
+  --text-head:#0D1216;
+  --text-body:#3A3D3A;
+  --text-dim:#7A7D78;
+  --rule:rgba(13,18,22,0.08);
+  --rule2:rgba(13,18,22,0.05);
+  --ff-display:'Cormorant',Georgia,serif;
+  --ff-sans:'Jost',sans-serif;
+  --ff-mono:'IBM Plex Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--text-body);font-family:var(--ff-sans);font-weight:300;line-height:1.7;overflow-x:hidden;cursor:none}
+
+/* CURSOR */
+#cur{position:fixed;width:7px;height:7px;background:var(--ruby2);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+#cur-ring{position:fixed;width:30px;height:30px;border:1px solid rgba(89,0,28,0.35);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width 0.3s,height 0.3s,border-color 0.3s}
+body:has(a:hover) #cur-ring{width:50px;height:50px;border-color:rgba(110,0,34,0.6)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:72px;transition:background 0.4s,box-shadow 0.4s}
+nav.scrolled{background:rgba(250,250,248,0.96);backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--rule),0 4px 24px rgba(13,18,22,0.06)}
+.nav-wm{font-family:var(--ff-display);font-size:1.25rem;font-weight:500;color:#F8F5F0;letter-spacing:0.04em;text-decoration:none;display:flex;align-items:baseline;gap:0.3rem;transition:color 0.4s}
+.nav-wm em{font-style:normal;color:var(--ruby3)}
+nav.scrolled .nav-wm{color:var(--obsidian)}
+.nav-center{display:flex;gap:2.5rem;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
+.nav-center a{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(248,245,240,0.75);text-decoration:none;transition:color 0.2s;white-space:nowrap}
+nav.scrolled .nav-center a{color:var(--text-dim)}
+.nav-center a:hover{color:var(--ruby2) !important}
+.nav-cta{font-family:var(--ff-mono);font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--surface);background:var(--ruby2);padding:0.65rem 1.75rem;text-decoration:none;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%);transition:background 0.25s;white-space:nowrap}
+.nav-cta:hover{background:var(--ruby3)}
+/* Mobile toggle */
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:transparent;border:none;cursor:pointer;padding:4px;z-index:600}
+.nav-toggle span{display:block;height:1px;background:#F8F5F0;transition:transform 0.3s,opacity 0.3s,background 0.4s}
+nav.scrolled .nav-toggle span{background:var(--obsidian)}
+.nav-toggle.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+/* Mobile drawer */
+.nav-drawer{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(250,250,248,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--rule);z-index:499;padding:1.5rem 2rem 2rem;flex-direction:column;gap:0}
+.nav-drawer.open{display:flex}
+.nav-drawer li{list-style:none;border-bottom:1px solid var(--rule)}
+.nav-drawer li:first-child{border-top:1px solid var(--rule)}
+.nav-drawer a{display:block;font-family:var(--ff-mono);font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;padding:1rem 0;transition:color 0.2s}
+.nav-drawer a:hover{color:var(--ruby2)}
+.nav-drawer .nav-cta{display:inline-block;margin-top:1.5rem;clip-path:none}
+
+/* ══ HERO ══ */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:0 4rem;overflow:hidden;background:var(--obsidian)}
+
+/* Map canvas fills the hero */
+#map-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:1}
+
+/* Dark overlay gradient so text is readable */
+.hero-overlay{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(90deg, rgba(13,18,22,0.92) 0%, rgba(13,18,22,0.75) 45%, rgba(13,18,22,0.3) 100%),
+    linear-gradient(180deg, rgba(13,18,22,0.4) 0%, transparent 30%, transparent 70%, rgba(13,18,22,0.6) 100%);
+}
+
+.hero-inner{position:relative;z-index:2;max-width:840px}
+.hero-kicker{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.24em;text-transform:uppercase;color:rgba(193,193,189,0.7);margin-bottom:2.5rem;display:flex;align-items:center;gap:1.25rem;opacity:0;animation:up 0.9s cubic-bezier(0.16,1,0.3,1) 0.15s forwards}
+.hero-kicker::before{content:'';width:26px;height:1px;background:var(--ruby3);flex-shrink:0}
+.hero-kicker em{color:var(--ruby3);font-style:normal}
+.hero-h1{font-family:var(--ff-display);font-size:clamp(3.2rem,6.5vw,6.4rem);font-weight:300;line-height:1.04;color:#F8F5F0;letter-spacing:-0.02em;margin-bottom:2.5rem;opacity:0;animation:up 1s cubic-bezier(0.16,1,0.3,1) 0.3s forwards}
+.hero-h1 .l2{display:block;padding-left:2.5rem;font-style:italic;font-weight:400;color:var(--mist2)}
+.hero-h1 .l3{display:block;padding-left:5rem;color:var(--ruby3)}
+.hero-sub{font-size:0.97rem;color:rgba(193,193,189,0.78);line-height:1.95;max-width:500px;margin-bottom:3.5rem;opacity:0;animation:up 1s cubic-bezier(0.16,1,0.3,1) 0.5s forwards}
+.hero-btns{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;opacity:0;animation:up 1s cubic-bezier(0.16,1,0.3,1) 0.65s forwards}
+
+/* Risk pills floating bottom right */
+.hero-risk-pills{
+  position:absolute;bottom:4rem;right:4rem;z-index:3;
+  display:flex;flex-direction:column;gap:0.6rem;align-items:flex-end;
+  opacity:0;animation:fadeIn 1.2s ease 1.2s forwards;
+}
+.risk-pill{
+  font-family:var(--ff-mono);font-size:0.55rem;
+  letter-spacing:0.14em;text-transform:uppercase;
+  background:rgba(13,18,22,0.7);
+  border:1px solid rgba(140,0,40,0.35);
+  color:rgba(193,193,189,0.8);
+  padding:0.4rem 1rem;
+  backdrop-filter:blur(8px);
+  display:flex;align-items:center;gap:0.6rem;
+  transition:border-color 0.3s,color 0.3s;
+}
+.risk-pill:hover{border-color:var(--ruby3);color:var(--mist2)}
+.risk-pill-dot{width:5px;height:5px;border-radius:50%;background:var(--ruby3);animation:dotPulse 2s ease-in-out infinite}
+.risk-pill:nth-child(2) .risk-pill-dot{animation-delay:0.4s}
+.risk-pill:nth-child(3) .risk-pill-dot{animation-delay:0.8s}
+.risk-pill:nth-child(4) .risk-pill-dot{animation-delay:1.2s}
+@keyframes dotPulse{0%,100%{opacity:0.4;transform:scale(0.8)}50%{opacity:1;transform:scale(1.2)}}
+
+.hero-scroll{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;opacity:0;animation:fadeIn 1s ease 1.4s forwards}
+.hero-scroll span{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(193,193,189,0.35)}
+.scroll-bar{width:1px;height:42px;background:linear-gradient(var(--ruby3),transparent);animation:scrollAnim 2.2s ease-in-out infinite}
+@keyframes scrollAnim{0%,100%{opacity:0.2;transform:scaleY(0.5);transform-origin:top}50%{opacity:0.7;transform:scaleY(1);transform-origin:top}}
+
+/* Buttons */
+.btn-ruby{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--surface);background:var(--ruby2);padding:1.1rem 2.4rem;text-decoration:none;display:inline-block;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%);transition:background 0.25s}
+.btn-ruby:hover{background:var(--ruby3)}
+.btn-ghost-light{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(193,193,189,0.8);border-bottom:1px solid rgba(193,193,189,0.25);padding-bottom:0.2rem;text-decoration:none;transition:color 0.25s,border-color 0.25s}
+.btn-ghost-light:hover{color:#F8F5F0;border-color:rgba(193,193,189,0.6)}
+.btn-outline-ruby{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ruby2);border:1px solid rgba(89,0,28,0.3);padding:1.1rem 2.4rem;text-decoration:none;display:inline-block;transition:border-color 0.25s,color 0.25s,background 0.25s}
+.btn-outline-ruby:hover{border-color:var(--ruby2);background:rgba(89,0,28,0.04)}
+.btn-link-ruby{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ruby2);border-bottom:1px solid rgba(89,0,28,0.25);padding-bottom:0.2rem;text-decoration:none;transition:color 0.25s,border-color 0.25s}
+.btn-link-ruby:hover{color:var(--ruby3);border-color:var(--ruby2)}
+
+/* TICKER */
+.ticker{border-bottom:1px solid var(--rule);background:var(--obsidian2);padding:0.85rem 0;overflow:hidden}
+.ticker-track{display:flex;width:max-content;animation:tick 36s linear infinite}
+.ti{font-family:var(--ff-mono);font-size:0.56rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(193,193,189,0.4);white-space:nowrap;padding:0 2.5rem;border-right:1px solid rgba(255,255,255,0.05)}
+.ti.hi{color:rgba(140,0,40,0.85)}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+
+
+/* SECTION BASE */
+section{padding:9rem 4rem;position:relative}
+.si{max-width:1180px;margin:0 auto}
+.s-eyebrow{font-family:var(--ff-mono);font-size:0.56rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--ruby2);margin-bottom:1rem;display:flex;align-items:center;gap:1rem}
+.s-eyebrow::before{content:'';width:18px;height:1px;background:var(--ruby2);flex-shrink:0}
+.s-h2{font-family:var(--ff-display);font-size:clamp(2.2rem,4vw,3.8rem);font-weight:300;color:var(--obsidian);line-height:1.1;letter-spacing:-0.01em}
+.s-h2 em{font-style:italic;font-weight:400;color:var(--ruby2)}
+.s-p{font-size:0.92rem;color:var(--text-dim);line-height:1.95;max-width:580px}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(24px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+.rv.on{opacity:1;transform:translateY(0)}
+.d1{transition-delay:0.1s}.d2{transition-delay:0.2s}.d3{transition-delay:0.3s}
+.d4{transition-delay:0.4s}.d5{transition-delay:0.5s}.d6{transition-delay:0.6s}
+
+/* ══ POSITIONING STATEMENT ══ */
+.position-sec{background:var(--paper)}
+.position-layout{display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center;margin-top:5rem}
+.position-pull{
+  font-family:var(--ff-display);font-size:1.7rem;
+  font-weight:300;color:var(--obsidian);line-height:1.6;
+}
+.position-pull em{font-style:italic;color:var(--ruby2)}
+.position-pull p+p{margin-top:1.5rem}
+.position-points{display:flex;flex-direction:column;gap:0}
+.pp{padding:1.6rem 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:start}
+.pp:first-child{border-top:1px solid var(--rule)}
+.pp-icon{font-family:var(--ff-mono);font-size:0.55rem;letter-spacing:0.12em;color:var(--ruby2);padding-top:0.1rem;white-space:nowrap}
+.pp-text{font-size:0.88rem;color:var(--text-dim);line-height:1.8}
+.pp-text strong{display:block;font-family:var(--ff-sans);font-weight:500;color:var(--obsidian);font-size:0.92rem;margin-bottom:0.2rem}
+
+/* ══ PRACTICE AREAS ══ */
+.practice-sec{background:var(--cream)}
+.practice-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem}
+/* Big area cards */
+.practice-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.pa{
+  background:var(--surface);padding:3.5rem 3rem;
+  position:relative;overflow:hidden;transition:background 0.3s;
+}
+.pa:hover{background:var(--rose2)}
+.pa::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ruby2);transform:scaleX(0);transform-origin:left;transition:transform 0.45s cubic-bezier(0.16,1,0.3,1)}
+.pa:hover::before{transform:scaleX(1)}
+.pa-tag{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ruby2);margin-bottom:1.75rem;display:block}
+.pa-title{font-family:var(--ff-display);font-size:1.8rem;font-weight:400;color:var(--obsidian);line-height:1.2;margin-bottom:1rem}
+.pa-body{font-size:0.85rem;color:var(--text-dim);line-height:1.9;margin-bottom:1.75rem}
+.pa-examples{display:flex;flex-wrap:wrap;gap:0.5rem}
+.pa-ex{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.1em;text-transform:uppercase;background:rgba(89,0,28,0.06);color:var(--ruby2);padding:0.3rem 0.75rem;border:1px solid rgba(89,0,28,0.12)}
+/* Full-width bottom card */
+.pa-wide{grid-column:span 2;border-top:1px solid var(--rule)}
+
+/* ══ SERVICES ══ */
+.svc-sec{background:var(--paper)}
+.svc-anchor{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem}
+.svc-motto{
+  font-family:var(--ff-display);font-size:1.5rem;
+  font-weight:300;color:var(--obsidian);line-height:1.6;
+  border-left:2px solid var(--ruby2);padding-left:2rem;
+  margin-top:2rem;
+}
+.svc-motto em{font-style:italic;color:var(--ruby2)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--rule)}
+.card{padding:2.75rem 2.25rem;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);position:relative;overflow:hidden;background:var(--surface);transition:background 0.3s}
+.card:nth-child(3n){border-right:none}
+.card:nth-child(n+4){border-bottom:none}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ruby2);transform:scaleX(0);transform-origin:left;transition:transform 0.45s cubic-bezier(0.16,1,0.3,1)}
+.card:hover{background:var(--rose2)}
+.card:hover::before{transform:scaleX(1)}
+.card-n{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.2em;color:var(--ruby2);margin-bottom:1.75rem;display:block}
+.card-title{font-family:var(--ff-display);font-size:1.3rem;font-weight:500;color:var(--obsidian);margin-bottom:0.9rem;line-height:1.3}
+.card-body{font-size:0.82rem;color:var(--text-dim);line-height:1.85}
+.card-tag{display:inline-block;margin-top:1.75rem;font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ruby2);border:1px solid rgba(89,0,28,0.2);padding:0.28rem 0.8rem}
+
+/* ══ AI RISK CALLOUT ══ */
+.ai-sec{
+  background:var(--obsidian);
+  padding:7rem 4rem;
+  position:relative;overflow:hidden;
+}
+.ai-sec::before{
+  content:'AI';
+  position:absolute;right:-2rem;top:50%;transform:translateY(-50%);
+  font-family:var(--ff-display);font-size:16rem;font-weight:300;font-style:italic;
+  color:rgba(255,255,255,0.02);pointer-events:none;white-space:nowrap;
+}
+.ai-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.ai-left .s-eyebrow{color:var(--ruby3)}
+.ai-left .s-h2{color:#F5F2EC}
+.ai-left .s-h2 em{color:var(--ruby3)}
+.ai-body{font-size:0.95rem;color:rgba(193,193,189,0.65);line-height:1.95;margin-top:1.5rem;max-width:480px}
+.ai-stats{display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,0.04)}
+.ai-stat{background:rgba(255,255,255,0.02);padding:1.75rem 2rem;display:grid;grid-template-columns:80px 1fr;gap:1.5rem;align-items:baseline;transition:background 0.3s}
+.ai-stat:hover{background:rgba(89,0,28,0.12)}
+.ai-stat-val{font-family:var(--ff-display);font-size:2.2rem;font-weight:300;color:var(--ruby3);line-height:1}
+.ai-stat-desc{font-size:0.82rem;color:rgba(193,193,189,0.6);line-height:1.75}
+
+/* ══ ABOUT ══ */
+.about-sec{background:var(--cream);border-top:1px solid var(--rule)}
+.about-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:7rem;align-items:start;margin-top:5rem}
+.about-copy{font-family:var(--ff-display);font-size:1.2rem;font-weight:300;color:var(--text-body);line-height:1.9}
+.about-copy em{font-style:italic;color:var(--obsidian);font-weight:400}
+.about-copy strong{font-style:italic;color:var(--ruby2);font-weight:300}
+.about-copy p+p{margin-top:1.5rem}
+.creds{display:flex;flex-direction:column}
+.cred{padding:1.7rem 0;border-bottom:1px solid var(--rule)}
+.cred:first-child{border-top:1px solid var(--rule)}
+.cred-lbl{font-family:var(--ff-mono);font-size:0.54rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ruby2);margin-bottom:0.55rem}
+.cred-txt{font-size:0.82rem;color:var(--text-dim);line-height:1.8}
+
+/* ══ POLIMETRICS ══ */
+.pm-sec{padding:8rem 4rem;background:var(--forest);position:relative;overflow:hidden}
+.pm-sec::before{content:'POLIMETRICS';position:absolute;right:-1rem;top:50%;transform:translateY(-50%) rotate(90deg);font-family:var(--ff-display);font-size:10rem;font-weight:300;font-style:italic;color:rgba(255,255,255,0.03);white-space:nowrap;pointer-events:none}
+.pm-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.pm-eyebrow{font-family:var(--ff-mono);font-size:0.56rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--ruby3);margin-bottom:1rem;display:flex;align-items:center;gap:1rem}
+.pm-eyebrow::before{content:'';width:18px;height:1px;background:var(--ruby3);flex-shrink:0}
+.pm-title{font-family:var(--ff-display);font-size:clamp(2.2rem,4vw,3.4rem);font-weight:300;color:var(--mist2);line-height:1.15;margin-bottom:1.5rem}
+.pm-title em{font-style:italic;color:var(--mist)}
+.pm-p{font-size:0.92rem;color:rgba(193,193,189,0.55);line-height:1.95;margin-bottom:2.5rem}
+.pm-articles{display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,0.04)}
+.pm-a{background:rgba(255,255,255,0.02);padding:1.5rem 1.75rem;display:grid;grid-template-columns:52px 1fr;gap:1.25rem;align-items:start;transition:background 0.3s;cursor:default}
+.pm-a:hover{background:rgba(89,0,28,0.2)}
+.pm-atype{font-family:var(--ff-mono);font-size:0.5rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ruby3);padding-top:0.1rem}
+.pm-atitle{font-family:var(--ff-display);font-size:1rem;color:rgba(193,193,189,0.75);line-height:1.5}
+
+/* ══ CONTACT ══ */
+.contact-sec{background:var(--paper);padding:9rem 4rem}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:start;margin-top:5rem}
+.contact-left .contact-email{font-family:var(--ff-display);font-size:1.3rem;font-style:italic;font-weight:300;color:var(--ruby2);text-decoration:none;display:inline-flex;align-items:center;gap:0.6rem;border-bottom:1px solid rgba(89,0,28,0.2);padding-bottom:0.25rem;margin-top:2rem;transition:color 0.25s,border-color 0.25s}
+.contact-left .contact-email:hover{color:var(--ruby3);border-color:rgba(89,0,28,0.5)}
+.contact-detail{margin-top:2.5rem;display:flex;flex-direction:column;gap:0}
+.cd{padding:1.25rem 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:baseline}
+.cd:first-child{border-top:1px solid var(--rule)}
+.cd-lbl{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ruby2)}
+.cd-val{font-size:0.85rem;color:var(--text-dim);line-height:1.7}
+/* Form */
+.cf{display:flex;flex-direction:column;gap:1.25rem}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.cf-group{display:flex;flex-direction:column;gap:0.45rem}
+.cf-group label{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-dim)}
+.cf-group input,.cf-group select,.cf-group textarea{
+  font-family:var(--ff-sans);font-size:0.88rem;font-weight:300;
+  background:var(--surface);color:var(--text-body);
+  border:1px solid var(--rule);padding:0.85rem 1rem;
+  outline:none;transition:border-color 0.2s,box-shadow 0.2s;
+  width:100%;
+}
+.cf-group input:focus,.cf-group select:focus,.cf-group textarea:focus{border-color:rgba(89,0,28,0.35);box-shadow:0 0 0 3px rgba(89,0,28,0.06)}
+.cf-group textarea{resize:vertical;min-height:120px}
+.cf-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A7D78' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem}
+.cf-req{color:var(--ruby2)}
+.cf-submit{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--surface);background:var(--ruby2);border:none;padding:1.1rem 2.4rem;cursor:pointer;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%);transition:background 0.25s;display:inline-flex;align-items:center;gap:0.75rem;align-self:flex-start}
+.cf-submit:hover{background:var(--ruby3)}
+.cf-submit:disabled{opacity:0.5;cursor:not-allowed}
+.cf-spinner{display:none;width:14px;height:14px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:cfSpin 0.7s linear infinite}
+@keyframes cfSpin{to{transform:rotate(360deg)}}
+.cf-msg{display:none;align-items:center;gap:0.75rem;font-family:var(--ff-mono);font-size:0.56rem;letter-spacing:0.1em;padding:0.85rem 1rem;border:1px solid}
+.cf-msg.show{display:flex}
+.cf-msg.error{color:var(--ruby2);border-color:rgba(89,0,28,0.25);background:rgba(89,0,28,0.04)}
+.cf-success{display:none;padding:3rem 0}
+.cf-success.show{display:block}
+.cf-success-icon{width:48px;height:48px;border:1px solid rgba(89,0,28,0.25);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem}
+.cf-success-icon svg{width:22px;height:22px;stroke:var(--ruby2);stroke-width:2;fill:none}
+.cf-success h3{font-family:var(--ff-display);font-size:1.6rem;font-weight:300;color:var(--obsidian);margin-bottom:0.75rem}
+.cf-success p{font-size:0.88rem;color:var(--text-dim);line-height:1.8}
+
+/* BAND DIVIDER */
+.band{height:4px;background:linear-gradient(90deg,transparent,var(--ruby2),transparent);opacity:0.2}
+
+/* FOOTER */
+footer{background:var(--obsidian);padding:2.5rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.foot-wm{font-family:var(--ff-display);font-size:1rem;font-weight:400;color:rgba(193,193,189,0.6);letter-spacing:0.06em}
+.foot-nav{display:flex;gap:2.5rem;list-style:none}
+.foot-nav a{font-family:var(--ff-mono);font-size:0.54rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(193,193,189,0.3);text-decoration:none;transition:color 0.2s}
+.foot-nav a:hover{color:rgba(193,193,189,0.7)}
+.foot-copy{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.1em;color:rgba(193,193,189,0.22)}
+
+/* ══ TOOLS ══ */
+.tools-sec{background:var(--cream)}
+.tools-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem}
+.tool-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.tool-card{
+  background:var(--surface);padding:3rem 2.75rem;
+  position:relative;overflow:hidden;transition:background 0.3s;
+  text-decoration:none;display:block;color:inherit;
+}
+.tool-card:hover{background:var(--rose2)}
+.tool-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ruby2);transform:scaleX(0);transform-origin:left;transition:transform 0.45s cubic-bezier(0.16,1,0.3,1)}
+.tool-card:hover::before{transform:scaleX(1)}
+.tool-tag{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ruby2);margin-bottom:1.5rem;display:block}
+.tool-title{font-family:var(--ff-display);font-size:1.6rem;font-weight:400;color:var(--obsidian);line-height:1.2;margin-bottom:0.9rem}
+.tool-body{font-size:0.85rem;color:var(--text-dim);line-height:1.9;margin-bottom:1.75rem}
+.tool-arrow{font-family:var(--ff-mono);font-size:0.54rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ruby2);display:flex;align-items:center;gap:0.5rem;transition:gap 0.25s}
+.tool-card:hover .tool-arrow{gap:0.9rem}
+
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+@media(max-width:960px){
+  nav{padding:0 1.5rem}
+  .nav-center,.nav-cta{display:none}
+  .nav-toggle{display:flex}
+  .nav-wm{color:var(--obsidian) !important}
+  section{padding:6rem 1.5rem}
+  .hero{padding:0 1.5rem}
+  .hero-h1 .l2{padding-left:1rem}
+  .hero-h1 .l3{padding-left:2rem}
+  .hero-risk-pills{display:none}
+  .position-layout,.practice-intro,.about-layout,.pm-inner,.ai-inner,.svc-anchor,.contact-layout,.tools-intro{grid-template-columns:1fr;gap:3rem}
+  .practice-grid,.tool-grid{grid-template-columns:1fr}
+  .pa-wide{grid-column:span 1}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .card:nth-child(3n){border-right:1px solid var(--rule)}
+  .card:nth-child(2n){border-right:none}
+  footer{flex-direction:column;padding:2rem 1.5rem}
+  .pm-sec,.ai-sec,.contact-sec{padding:6rem 1.5rem}
+  .pm-sec::before,.ai-sec::before{display:none}
+  .cf-row{grid-template-columns:1fr}
+}
+@media(max-width:580px){
+  .svc-grid{grid-template-columns:1fr}
+  .card:nth-child(n){border-right:none;border-bottom:1px solid var(--rule)}
+  .card:last-child{border-bottom:none}
+  .foot-nav{flex-wrap:wrap;gap:1.25rem}
+}
+</style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen">
-        <div class="loader-container">
-            <div class="loader-ring"></div>
-            <span class="loader-text">LOADING INTELLIGENCE</span>
-        </div>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-wm" href="#"><em>Alt</em>-30 Consulting</a>
+  <ul class="nav-center">
+    <li><a href="#positioning">How We Help</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#research">Reports</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">Request a Briefing</a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<!-- Mobile drawer -->
+<ul class="nav-drawer" id="nav-drawer">
+  <li><a href="#positioning">How We Help</a></li>
+  <li><a href="#services">Services</a></li>
+  <li><a href="#tools">Tools</a></li>
+  <li><a href="#research">Reports</a></li>
+  <li><a href="#about">About</a></li>
+  <li><a href="#contact">Contact Us</a></li>
+  <li style="border:none"><a class="nav-cta" href="#contact">Request a Briefing</a></li>
+</ul>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <canvas id="map-canvas"></canvas>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-inner">
+    <div class="hero-kicker">Government Risk Intelligence &nbsp;&mdash;&nbsp; <em>Alt-30 Consulting</em></div>
+    <h1 class="hero-h1">
+      When Policy Changes,
+      <em class="l2">Risk Follows.</em>
+      <span class="l3">Be Prepared.</span>
+    </h1>
+    <p class="hero-sub">Alt-30 Consulting delivers independent, longitudinal analysis of government policy risk for state agencies, legislative offices, and the businesses they govern. We quantify what policy change costs before it arrives.</p>
+    <div class="hero-btns">
+      <a class="btn-ruby" href="#practice">Our Practice Areas</a>
+      <a class="btn-ghost-light" href="#contact">Request a Briefing &rarr;</a>
     </div>
+  </div>
 
-    <!-- Animated Background -->
-    <canvas id="data-mesh-canvas"></canvas>
-    <div class="grid-overlay"></div>
+  <div class="hero-risk-pills">
+    <div class="risk-pill"><div class="risk-pill-dot"></div>UI Trust Fund Solvency</div>
+    <div class="risk-pill"><div class="risk-pill-dot"></div>287g Policy Diffusion</div>
+    <div class="risk-pill"><div class="risk-pill-dot"></div>Tariff Cost Projections</div>
+    <div class="risk-pill"><div class="risk-pill-dot"></div>AI Displacement Risk</div>
+  </div>
 
-    <!-- Header & Navigation -->
-    <header role="banner">
-        <nav role="navigation" aria-label="Main navigation">
-            <a href="index.html" class="logo" aria-label="Alt-30 Showcase Home">
-                <div class="logo-icon">
-                    <i class="fas fa-chart-network" aria-hidden="true"></i>
-                </div>
-                <div class="logo-text">
-                    <span>Alt-30</span>
-                    <span class="logo-subtitle">Economic Intelligence</span>
-                </div>
-            </a>
-            <div class="nav-items">
-                <ul class="nav-menu">
-                    <li><a href="#outcomes">How We Help</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#projects">Tools</a></li>
-                    <li><a href="#reports">Reports</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-bar"></div></div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ti hi">Government Risk Intelligence</span>
+    <span class="ti">UI Trust Fund Solvency</span>
+    <span class="ti hi">287g Policy Diffusion</span>
+    <span class="ti">Tariff Cost Analysis</span>
+    <span class="ti hi">AI Displacement Risk</span>
+    <span class="ti">Longitudinal Data 1967&ndash;Present</span>
+    <span class="ti hi">PhD Economist on Staff</span>
+    <span class="ti">500+ Municipalities</span>
+    <span class="ti hi">No Vendor Conflicts</span>
+    <span class="ti">Be Proactive. Not Reactive.</span>
+    <span class="ti hi">Government Risk Intelligence</span>
+    <span class="ti">UI Trust Fund Solvency</span>
+    <span class="ti hi">287g Policy Diffusion</span>
+    <span class="ti">Tariff Cost Analysis</span>
+    <span class="ti hi">AI Displacement Risk</span>
+    <span class="ti">Longitudinal Data 1967&ndash;Present</span>
+    <span class="ti hi">PhD Economist on Staff</span>
+    <span class="ti">500+ Municipalities</span>
+    <span class="ti hi">No Vendor Conflicts</span>
+    <span class="ti">Be Proactive. Not Reactive.</span>
+  </div>
+</div>
+
+
+
+<!-- POSITIONING -->
+<section class="position-sec" id="positioning">
+  <div class="si">
+    <div class="s-eyebrow rv">Our Philosophy</div>
+    <h2 class="s-h2 rv d1">Fixed scope.<br/><em>No vendor agenda.</em></h2>
+    <div class="position-layout">
+      <div class="position-pull rv d2">
+        <p>Every Alt-30 engagement is a discrete, independently produced research product. We carry no software to sell, no platform to upsell.</p>
+        <p><em>Our only product is analysis.</em></p>
+        <p>Government policy is the single largest source of unpriced risk for both public institutions and private organizations. We exist to price it.</p>
+      </div>
+      <div class="position-points rv d3">
+        <div class="pp">
+          <div class="pp-icon">01</div>
+          <div class="pp-text"><strong>Proactive, Not Reactive</strong>Policy risk that arrives as a surprise is the most expensive kind. We track signals before they become headlines.</div>
+        </div>
+        <div class="pp">
+          <div class="pp-icon">02</div>
+          <div class="pp-text"><strong>Both Sides of the Table</strong>We serve state agencies managing policy and the businesses navigating it. The same government action creates risk on both sides of the equation.</div>
+        </div>
+        <div class="pp">
+          <div class="pp-icon">03</div>
+          <div class="pp-text"><strong>Longitudinal Depth</strong>Anyone can describe a policy. We can show you what similar policies produced in comparable jurisdictions over decades. That is a different kind of answer.</div>
+        </div>
+        <div class="pp">
+          <div class="pp-icon">04</div>
+          <div class="pp-text"><strong>No Conflicts, No Platforms</strong>Independent analysis means we are not selling an implementation. Our findings are our product. Nothing else.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band"></div>
+
+<!-- PRACTICE AREAS -->
+<section class="practice-sec" id="practice">
+  <div class="si">
+    <div class="practice-intro">
+      <div>
+        <div class="s-eyebrow rv">Practice Areas</div>
+        <h2 class="s-h2 rv d1">Four domains.<br/><em>One discipline.</em></h2>
+      </div>
+      <p class="s-p rv d2">Government action creates risk and opportunity simultaneously. We track the specific policy domains where that risk is currently most acute, for both the institutions setting policy and the organizations living under it.</p>
+    </div>
+    <div class="practice-grid">
+      <div class="pa rv">
+        <span class="pa-tag">01 / Practice Area</span>
+        <div class="pa-title">Unemployment Insurance</div>
+        <div class="pa-body">UI trust fund solvency is a structural fiscal risk for state governments and a direct cost driver for employers through FUTA credit reductions and tax rate volatility. We analyze both sides: agency solvency and business exposure.</div>
+        <div class="pa-examples">
+          <span class="pa-ex">Trust Fund Solvency</span>
+          <span class="pa-ex">FUTA Credit Reduction</span>
+          <span class="pa-ex">Overpayment Risk</span>
+          <span class="pa-ex">Reserve Trajectory</span>
+          <span class="pa-ex">Benefit Adequacy</span>
+        </div>
+      </div>
+      <div class="pa rv d1">
+        <span class="pa-tag">02 / Practice Area</span>
+        <div class="pa-title">Immigration Policy</div>
+        <div class="pa-body">287g agreements and broader federal immigration enforcement policy diffuses unevenly across municipalities. We track policy adoption patterns, fiscal impacts on local governments, and labor market disruption at the county level.</div>
+        <div class="pa-examples">
+          <span class="pa-ex">287g Diffusion</span>
+          <span class="pa-ex">Municipal Fiscal Impact</span>
+          <span class="pa-ex">Labor Market Disruption</span>
+          <span class="pa-ex">Policy Spread Modeling</span>
+        </div>
+      </div>
+      <div class="pa rv d2">
+        <span class="pa-tag">03 / Practice Area</span>
+        <div class="pa-title">Trade &amp; Tariff Policy</div>
+        <div class="pa-body">Tariff regimes restructure cost curves across entire industries. We build cost projection models, analyze sector-level exposure, and track downstream effects on municipal revenue and state employment bases.</div>
+        <div class="pa-examples">
+          <span class="pa-ex">Cost Projections</span>
+          <span class="pa-ex">Sector Exposure</span>
+          <span class="pa-ex">Supply Chain Risk</span>
+          <span class="pa-ex">State Revenue Impact</span>
+        </div>
+      </div>
+      <div class="pa rv d3">
+        <span class="pa-tag">04 / Practice Area</span>
+        <div class="pa-title">AI &amp; Labor Displacement</div>
+        <div class="pa-body">Accelerating AI adoption is the most consequential structural labor market shift since offshoring. The question for state UI systems and employers alike is not whether displacement comes — it is whether your institution is positioned for it.</div>
+        <div class="pa-examples">
+          <span class="pa-ex">Displacement Projections</span>
+          <span class="pa-ex">UI Fund Stress Testing</span>
+          <span class="pa-ex">Sector Vulnerability</span>
+          <span class="pa-ex">Workforce Transition</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band"></div>
+
+<!-- SERVICES -->
+<section class="svc-sec" id="services">
+  <div class="si">
+    <div class="svc-anchor">
+      <div>
+        <div class="s-eyebrow rv">What We Deliver</div>
+        <h2 class="s-h2 rv d1">Discrete deliverables.<br/><em>Defensible analysis.</em></h2>
+        <div class="svc-motto rv d2">
+          Fixed scope. No vendor agenda.<br/>
+          <em>Our only product is analysis.</em>
+        </div>
+      </div>
+      <p class="s-p rv d3">Every engagement is a bounded research product with a defined scope, a defined deliverable, and a defined fee. We design for the constraints of government procurement — most entry engagements are structured to qualify for sole-source approval.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="card rv">
+        <span class="card-n">01</span>
+        <div class="card-title">Policy Risk Snapshot</div>
+        <div class="card-body">A one-page briefing on a specific policy risk facing your organization or jurisdiction, drawn from our longitudinal database and peer comparisons. Delivered before a first conversation.</div>
+        <span class="card-tag">Entry Engagement</span>
+      </div>
+      <div class="card rv d1">
+        <span class="card-n">02</span>
+        <div class="card-title">Fiscal Stress Test</div>
+        <div class="card-body">Scenario analysis projecting your reserve trajectory or cost exposure under defined policy scenarios. Includes comparable jurisdiction analysis and federal threshold modeling.</div>
+        <span class="card-tag">Agencies &amp; Budget Offices</span>
+      </div>
+      <div class="card rv d2">
+        <span class="card-n">03</span>
+        <div class="card-title">Leading Indicator Monitor</div>
+        <div class="card-body">Ongoing quarterly tracking of early-warning signals across your jurisdiction or sector. Delivered as a recurring brief with updated data and trajectory analysis.</div>
+        <span class="card-tag">Flagship Service</span>
+      </div>
+      <div class="card rv d3">
+        <span class="card-n">04</span>
+        <div class="card-title">Legislative Briefing Package</div>
+        <div class="card-body">Committee-ready analysis framed around constituent impact, peer state outcomes, and cost-of-inaction scenarios. Designed to withstand a hearing without modification.</div>
+        <span class="card-tag">Legislative Offices</span>
+      </div>
+      <div class="card rv d4">
+        <span class="card-n">05</span>
+        <div class="card-title">Policy Impact Report</div>
+        <div class="card-body">Deep analysis of a specific policy action — a new agreement, rate change, or federal rule — modeling projected costs, behavioral responses, and comparable jurisdiction outcomes.</div>
+        <span class="card-tag">Policy &amp; Planning</span>
+      </div>
+      <div class="card rv d5">
+        <span class="card-n">06</span>
+        <div class="card-title">Sponsored Research</div>
+        <div class="card-body">Independent longitudinal studies co-developed with policy foundations or university partners. Published through PoliMetrics with full methodology disclosure.</div>
+        <span class="card-tag">Foundations &amp; Universities</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI RISK CALLOUT -->
+<section class="ai-sec" id="ai-risk">
+  <div class="ai-inner">
+    <div class="ai-left">
+      <div class="s-eyebrow rv" style="color:var(--ruby3)">Emerging Risk</div>
+      <h2 class="s-h2 rv d1" style="color:#F5F2EC">AI is <em>reshaping</em><br/>the labor market.</h2>
+      <p class="ai-body rv d2">Accelerating AI adoption is the most consequential structural labor market shift in a generation. Jobs at risk from automation translate directly into UI claim pressure, state tax base erosion, and political volatility. How well positioned is your institution?</p>
+      <div style="margin-top:2.5rem" class="rv d3">
+        <a class="btn-ruby" href="#contact">Assess Your Exposure</a>
+      </div>
+    </div>
+    <div class="ai-stats rv d2">
+      <div class="ai-stat">
+        <div class="ai-stat-val">47<em style="font-size:1.2rem">%</em></div>
+        <div class="ai-stat-desc">of U.S. jobs at high risk of automation in the next decade, per Oxford University research</div>
+      </div>
+      <div class="ai-stat">
+        <div class="ai-stat-val">$3.7<em style="font-size:1.2rem">T</em></div>
+        <div class="ai-stat-desc">estimated global wage exposure to generative AI displacement by 2030</div>
+      </div>
+      <div class="ai-stat">
+        <div class="ai-stat-val"><em style="font-size:1.2rem">&lt;</em>1.0</div>
+        <div class="ai-stat-desc">AHCM reserve ratio in most states heading into 2026 — the minimum needed before displacement risk escalates</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-sec" id="about">
+  <div class="si">
+    <div class="s-eyebrow rv">About Alt-30</div>
+    <h2 class="s-h2 rv d1">Independent analysis.<br/><em>No conflicts.</em> No platforms.</h2>
+    <div class="about-layout">
+      <div class="about-copy rv d2">
+        <p>Alt-30 Consulting is an independent government risk intelligence firm built around a single differentiator: <em>we built our own data infrastructure from scratch.</em></p>
+        <p>Our proprietary longitudinal database covers 500+ municipalities and all 50 states from fiscal year 1967 to present, integrated with Census, FRED, DOL, and state appropriations data. That infrastructure lets us show clients what a policy trajectory means before it shows up in a budget shortfall or a political crisis.</p>
+        <p>We carry a PhD economist on every engagement, operate with no vendor relationships, and publish independent research through <em>PoliMetrics</em>, our research platform covering state fiscal policy, labor economics, and federal policy diffusion.</p>
+        <p>We serve both sides of the policy table — <strong>the governments setting policy and the organizations navigating its consequences.</strong></p>
+      </div>
+      <div class="creds rv d3">
+        <div class="cred"><div class="cred-lbl">Longitudinal Depth</div><div class="cred-txt">Fiscal year 1967 to present across 500+ jurisdictions. Pattern recognition requires history. We have it.</div></div>
+        <div class="cred"><div class="cred-lbl">PhD Economist on Staff</div><div class="cred-txt">Government risk and labor economics expertise on every engagement. Not contracted. On staff.</div></div>
+        <div class="cred"><div class="cred-lbl">Both Sides of Policy</div><div class="cred-txt">We serve agencies managing policy and businesses navigating it. The same government action creates risk on both sides.</div></div>
+        <div class="cred"><div class="cred-lbl">No Vendor Conflicts</div><div class="cred-txt">We do not sell software, platforms, or implementation services. Our analysis is not a sales funnel for anything else.</div></div>
+        <div class="cred"><div class="cred-lbl">Deliverables That Travel</div><div class="cred-txt">Every report is designed to be placed in front of a director, committee chair, or CFO without modification.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POLIMETRICS -->
+<section class="pm-sec" id="research">
+  <div class="pm-inner">
+    <div class="rv">
+      <div class="pm-eyebrow">Research Platform</div>
+      <div class="pm-title">Poli<em>Metrics</em></div>
+      <p class="pm-p">Alt-30's independent research publication covering state fiscal policy, federal policy diffusion, labor economics, and government risk. Published for policymakers, legislative staff, institutional researchers, and business leaders navigating policy risk.</p>
+      <a class="btn-ruby" href="#">Read PoliMetrics</a>
+    </div>
+    <div class="pm-articles rv d2">
+      <div class="pm-a"><div class="pm-atype">UI Research</div><div class="pm-atitle">UI Trust Fund Solvency After COVID: Which States Are Still Exposed and Why</div></div>
+      <div class="pm-a"><div class="pm-atype">Immigration</div><div class="pm-atitle">287g Policy Diffusion: Fiscal and Labor Market Impacts on Adopting Municipalities</div></div>
+      <div class="pm-a"><div class="pm-atype">Trade</div><div class="pm-atitle">Tariff Pass-Through: Modeling Downstream Cost Exposure by Sector and State</div></div>
+      <div class="pm-a"><div class="pm-atype">AI Risk</div><div class="pm-atitle">Automation and the UI Trust Fund: Is Your State Positioned for the Next Wave?</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="tools-sec" id="tools">
+  <div class="si">
+    <div class="tools-intro">
+      <div>
+        <div class="s-eyebrow rv">Interactive Tools</div>
+        <h2 class="s-h2 rv d1">Live data.<br/><em>Explore the research.</em></h2>
+      </div>
+      <p class="s-p rv d2">Our public-facing tools put years of longitudinal government data in your hands. Benchmark your municipality, assess UI system performance, or estimate your 287g policy exposure — directly from the data.</p>
+    </div>
+    <div class="tool-grid">
+      <a class="tool-card rv" href="https://polimetrics.shinyapps.io/Municipal_Benchmarks/" target="_blank" rel="noopener">
+        <span class="tool-tag">01 / Municipal Finance</span>
+        <div class="tool-title">Municipal Benchmarks</div>
+        <div class="tool-body">Compare your municipality's fiscal health against 500+ peers across revenue, expenditure, reserves, and debt ratios. Powered by longitudinal Census of Governments data from 1967 to present.</div>
+        <div class="tool-arrow">Launch Tool &rarr;</div>
+      </a>
+      <a class="tool-card rv d1" href="https://alt-30.com/census-portal.html" target="_blank" rel="noopener">
+        <span class="tool-tag">02 / Demographics</span>
+        <div class="tool-title">Census Data Portal</div>
+        <div class="tool-body">Access and visualize Census demographic and economic data by state and county. Filter by population, income, employment, and housing variables to contextualize your policy analysis.</div>
+        <div class="tool-arrow">Launch Tool &rarr;</div>
+      </a>
+      <a class="tool-card rv d2" href="https://alt30.shinyapps.io/state-ui-report-card/" target="_blank" rel="noopener">
+        <span class="tool-tag">03 / Unemployment Insurance</span>
+        <div class="tool-title">State UI Report Card</div>
+        <div class="tool-body">Grade your state's unemployment insurance system on solvency, benefit adequacy, and administrative performance. Updated with current DOL data and includes federal AHCM reserve ratio thresholds.</div>
+        <div class="tool-arrow">Launch Tool &rarr;</div>
+      </a>
+      <a class="tool-card rv d3" href="https://polimetrics.shinyapps.io/287g_Risk_Calculator/" target="_blank" rel="noopener">
+        <span class="tool-tag">04 / Immigration Policy</span>
+        <div class="tool-title">287g Risk Calculator</div>
+        <div class="tool-body">Estimate the fiscal and labor market risk of 287g policy adoption for your county. Models enforcement cost projections, workforce disruption, and municipal revenue exposure based on comparable adopter outcomes.</div>
+        <div class="tool-arrow">Launch Tool &rarr;</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="band"></div>
+
+<!-- CONTACT -->
+<section class="contact-sec" id="contact">
+  <div class="si">
+    <div class="s-eyebrow rv">Contact Us</div>
+    <h2 class="s-h2 rv d1">Policy risk doesn't wait.<br/><em>Neither should you.</em></h2>
+    <div class="contact-layout">
+
+      <!-- Left: info -->
+      <div class="contact-left rv d2">
+        <p class="s-p">We will put together a policy risk snapshot for your jurisdiction or sector before our first conversation. No sales pitch. No platform demo. Just the data and what it suggests.</p>
+        <a class="contact-email" href="mailto:morgan.harman@alt-30.com">morgan.harman@alt-30.com</a>
+        <div class="contact-detail">
+          <div class="cd">
+            <div class="cd-lbl">Response</div>
+            <div class="cd-val">Within one business day</div>
+          </div>
+          <div class="cd">
+            <div class="cd-lbl">Entry Engagement</div>
+            <div class="cd-val">Policy risk snapshot delivered before our first call — no fee, no obligation</div>
+          </div>
+          <div class="cd">
+            <div class="cd-lbl">Procurement</div>
+            <div class="cd-val">Most entry engagements are structured for sole-source approval</div>
+          </div>
+          <div class="cd">
+            <div class="cd-lbl">Location</div>
+            <div class="cd-val">Remote-first. Nationwide.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="rv d3">
+        <div id="cf-fields">
+          <form class="cf" id="contact-form" novalidate>
+            <div class="cf-row">
+              <div class="cf-group">
+                <label for="cf-first">First name <span class="cf-req">*</span></label>
+                <input type="text" id="cf-first" name="firstName" placeholder="Jane" required>
+              </div>
+              <div class="cf-group">
+                <label for="cf-last">Last name <span class="cf-req">*</span></label>
+                <input type="text" id="cf-last" name="lastName" placeholder="Smith" required>
+              </div>
             </div>
-            <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-                <i class="fas fa-bars" aria-hidden="true"></i>
+            <div class="cf-group">
+              <label for="cf-email">Email address <span class="cf-req">*</span></label>
+              <input type="email" id="cf-email" name="email" placeholder="jane@agency.gov" required>
+            </div>
+            <div class="cf-group">
+              <label for="cf-org">Organization / Agency</label>
+              <input type="text" id="cf-org" name="organization" placeholder="State of Arizona">
+            </div>
+            <div class="cf-group">
+              <label for="cf-service">Area of interest</label>
+              <select id="cf-service" name="service">
+                <option value="" disabled selected>Select a practice area…</option>
+                <option value="Unemployment Insurance">Unemployment Insurance</option>
+                <option value="Immigration Policy / 287g">Immigration Policy / 287g</option>
+                <option value="Trade & Tariff Policy">Trade &amp; Tariff Policy</option>
+                <option value="AI & Labor Displacement">AI &amp; Labor Displacement</option>
+                <option value="Municipal Finance Benchmarks">Municipal Finance Benchmarks</option>
+                <option value="Sponsored Research">Sponsored Research</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="cf-group">
+              <label for="cf-message">What decision are you facing?</label>
+              <textarea id="cf-message" name="message" placeholder="Briefly describe the risk or decision you need analyzed…"></textarea>
+            </div>
+            <button type="submit" class="cf-submit" id="cf-submit">
+              <span class="cf-btn-text">Send Message</span>
+              <span class="cf-spinner" id="cf-spinner"></span>
             </button>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" role="banner">
-        <div class="hero-glow primary"></div>
-        <div class="hero-glow secondary"></div>
-
-        <div class="hero-content">
-            <div class="hero-badge">
-                <i class="fas fa-landmark" aria-hidden="true"></i>
-                <span>Hands-on Expertise</span>
+            <div class="cf-msg" id="cf-error" role="alert">
+              <span id="cf-error-text">Something went wrong. Please email us directly.</span>
             </div>
-
-            <h1 class="hero-title">
-                <span class="line1">Defensible Intelligence</[span>
-                <span class="line2">That Moves Decisions Forward</span>
-            </h1>
-
-            <div class="terminal-line">
-                <span class="prompt"></span>
-                <span class="command">Validate Strategy — Navigate Regulation — Enhance Projections</span>
-                <span class="cursor"></span>
-            </div>
-
-            <p class="hero-subtitle">
-                <span></span>
-                <span class="divider"></span>
-                <span></span>
-                <span class="divider"></span>
-                <span></span>
-            </p>
-
-            <p class="hero-description">
-                Alt30 develops advanced modeling and controlled AI systems that turn complex data into decisions that can be defended, funded, and approved.
-            </p>
-
-            <div class="hero-cta">
-                <a href="#projects" class="btn btn-primary">
-                    <i class="fas fa-chart-line"></i>
-                    <span>Explore Our Work</span>
-                </a>
-                <a href="contact.html" class="btn btn-secondary">
-                    <i class="fas fa-envelope"></i>
-                    <span>Get in Touch</span>
-                </a>
-            </div>
-
-            <div class="scroll-indicator">
-                <span>Scroll</span>
-                <i class="fas fa-chevron-down"></i>
-            </div>
+          </form>
         </div>
-    </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section" role="region" aria-label="Our Impact">
-        <div class="stats-container" id="stats-container">
-            <!-- Stats dynamically generated -->
+        <div class="cf-success" id="cf-success">
+          <div class="cf-success-icon">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3>Message received.</h3>
+          <p>Thanks for reaching out. We'll review your note and follow up within one business day — often with a policy risk snapshot already in hand.</p>
         </div>
-    </section>
-
-    <!-- How We Help Section -->
-    <section id="outcomes" class="outcomes" role="region" aria-labelledby="outcomes-heading">
-        <div class="container">
-            <div class="outcomes-intro">
-                <span class="section-badge"><i class="fas fa-bullseye"></i> How We Help</span>
-                <h2 id="outcomes-heading">Four outcomes. <span>One firm.</span></h2>
-                <p>Most don't have the budget for a dedicated economist. Alt-30 fills that gap by delivering institutional-grade analysis for organizaations that need it most.</p>
-            </div>
-            <div class="outcomes-grid">
-                <div class="outcome-card">
-                    <div class="outcome-header">
-                        <div class="outcome-icon"><i class="fas fa-exclamation-triangle"></i></div>
-                        <span class="outcome-number">01</span>
-                    </div>
-                    <h3>Anticipate risk</h3>
-                    <p>Our Dependency Risk Assessment maps your revenue structure against shifting funding priorities so you can act early and not react under pressure.</p>
-                </div>
-                <div class="outcome-card">
-                    <div class="outcome-header">
-                        <div class="outcome-icon"><i class="fas fa-balance-scale"></i></div>
-                        <span class="outcome-number">02</span>
-                    </div>
-                    <h3>Know where you stand</h3>
-                    <p>Alt30 benchmarks your financial position against comparable organiztions highlighting strengths, vulnerabilities, and where others are adapting faster.</p>
-                </div>
-                <div class="outcome-card">
-                    <div class="outcome-header">
-                        <div class="outcome-icon"><i class="fas fa-file-contract"></i></div>
-                        <span class="outcome-number">03</span>
-                    </div>
-                    <h3>Make the case</h3>
-                    <p>Whether you're pursuing a bond, applying for funding, or presenting to council, Alt30 builds economic narratives and impact analysis designed to withstand review and drive decisions.</p>
-                </div>
-                <div class="outcome-card">
-                    <div class="outcome-header">
-                        <div class="outcome-icon"><i class="fas fa-chess"></i></div>
-                        <span class="outcome-number">04</span>
-                    </div>
-                    <h3>Plan with confidence</h3>
-                    <p>From shifting fundamentals to changes in your organizations priorities, Alt30 uses scenario analysis and forecasting grounded in real data to help you plan proactively.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services-section" role="region" aria-labelledby="services-heading">
-        <div class="container">
-            <div class="services-layout">
-                <div class="services-intro">
-                    <span class="section-badge"><i class="fas fa-cube"></i> What We Deliver</span>
-                    <h2 id="services-heading">Fixed scope. <span>Defined timelines.</span> Built for municipal decision-makers.</h2>
-                    <p>Every Alt-30 engagement is a discrete deliverable that is scoped clearly, completed on schedule, and designed to hold up wherever you need it most.</p>
-                    <div class="services-cta-box">
-                        <p class="cta-label">Get Started</p>
-                        <h4>Not sure which service fits your situation?</h4>
-                        <a href="contact.html" class="btn btn-primary">
-                            <i class="fas fa-envelope"></i>
-                            <span>Talk to us</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-label">Impact</div>
-                        <h3>Economic &amp; Fiscal Impact Studies</h3>
-                        <p>We quantify the economic and fiscal effects of development projects, investments, and policy decisions covering output, wages, and job creation, alongside the tax revenue implications for state, county, and local governments across construction and operations phases.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-label">Market</div>
-                        <h3>Market Studies</h3>
-                        <p>We evaluate supply, demand, timing, pricing, and demographics to assess site suitability and real estate feasibility. We cover all market segments including retail, office, industrial, hotel, rental housing, and for-sale residential with scenario modeling to test investment outcomes.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-label">Research</div>
-                        <h3>Economic Research and Forecasting</h3>
-                        <p>Rigorous economic analysis at the national and local level with forecasting for GDP, consumer spending, inflation, population, personal income, employment, retail sales, and residential and commercial construction activity.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-label">Strategy</div>
-                        <h3>Economic Development Strategies</h3>
-                        <p>We help communities identify the right mix of land uses to optimize tax revenue and plan for sustainable growth by projecting residential, commercial, and industrial land demand grounded in real population and employment trends.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-label">Housing</div>
-                        <h3>Housing Studies</h3>
-                        <p>We conduct market studies for LIHTC, Tax Exempt Bond, and HUD applications following housing authority methodology guidelines and delivering the demand analysis developers and lenders need for financing decisions and regulatory approvals.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-label">Policy</div>
-                        <h3>Public Finance &amp; Policy Development</h3>
-                        <p>We analyze the fiscal impact of economic activity on government budgets and taxes, assess legislative and regulatory proposals, and provide the evidence base for long-term revenue projections and public resource decisions.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Municipal Benchmarks Live Tool -->
-    <section id="benchmarks" class="live-tool" role="region" aria-labelledby="benchmarks-heading">
-        <div class="container">
-
-            <div class="live-tool-header">
-                <div class="header-left">
-                    <span class="section-badge">
-                        <i class="fas fa-signal"></i>
-                        Live Tool
-                    </span>
-                    <h2 id="benchmarks-heading">Municipal Finance <span>Benchmarks</span></h2>
-                    <p>
-                        Score any city against similarly-sized peers on 10 indicators of fiscal health — including
-                        operating ratio, cash reserves, revenue per capita, and capital investment share.
-                        Covers municipalities nationwide with data spanning fiscal years 1967–2023.
-                    </p>
-                </div>
-                <a href="https://polimetrics.shinyapps.io/Municipal_Benchmarks/"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="live-tool-open-btn"
-                   aria-label="Open Municipal Benchmarks in a new tab">
-                    <i class="fas fa-external-link-alt"></i>
-                    Open full screen
-                </a>
-            </div>
-
-            <div class="live-tool-meta" role="list" aria-label="Tool details">
-                <span class="tool-meta-pill" role="listitem">
-                    <i class="fas fa-map-marker-alt"></i>Nationwide
-                </span>
-                <span class="tool-meta-pill" role="listitem">
-                    <i class="fas fa-calendar-alt"></i>FY 1967–2023
-                </span>
-                <span class="tool-meta-pill" role="listitem">
-                    <i class="fas fa-users"></i>Peer-Band Benchmarking
-                </span>
-                <span class="tool-meta-pill" role="listitem">
-                    <i class="fas fa-file-download"></i>One-Page Fiscal Report
-                </span>
-                <span class="tool-meta-pill" role="listitem">
-                    <i class="fas fa-code-branch"></i>Built with R Shiny
-                </span>
-            </div>
-
-            <div class="shiny-frame" role="application" aria-label="Municipal Benchmarks interactive application">
-                <div class="shiny-frame-bar">
-                    <div class="frame-dots" aria-hidden="true">
-                        <div class="frame-dot"></div>
-                        <div class="frame-dot"></div>
-                        <div class="frame-dot"></div>
-                    </div>
-                    <div class="frame-url">
-                        <i class="fas fa-lock"></i>polimetrics.shinyapps.io/Municipal_Benchmarks/
-                    </div>
-                    <a href="https://polimetrics.shinyapps.io/Municipal_Benchmarks/"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="frame-external-link"
-                       title="Open in new tab"
-                       aria-label="Open in new tab">
-                        <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-
-                <div class="shiny-iframe-wrapper">
-                    <div class="shiny-frame-loading" id="shiny-loading" aria-live="polite" aria-label="Loading application">
-                        <div class="shiny-loader-ring" aria-hidden="true"></div>
-                        <p>Loading application…</p>
-                    </div>
-                    <iframe
-                        src="https://polimetrics.shinyapps.io/Municipal_Benchmarks/"
-                        class="shiny-iframe"
-                        title="Alt-30 Municipal Finance Benchmarks — interactive fiscal health scorecard"
-                        loading="lazy"
-                        onload="document.getElementById('shiny-loading').classList.add('loaded')"
-                        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
-                    ></iframe>
-                </div>
-            </div>
-
-            <div class="shiny-mobile-fallback" role="complementary" aria-label="Mobile access option">
-                <i class="fas fa-chart-bar" aria-hidden="true"></i>
-                <h3>Municipal Finance Benchmarks</h3>
-                <p>This interactive tool is best experienced on a desktop or tablet. Tap below to open it directly in your browser.</p>
-                <a href="https://polimetrics.shinyapps.io/Municipal_Benchmarks/"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="btn btn-secondary">
-                    <i class="fas fa-external-link-alt"></i>
-                    <span>Open the App</span>
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects" role="region" aria-labelledby="projects-heading">
-        <div class="container">
-            <header class="section-header">
-                <span class="section-badge">
-                    <i class="fas fa-cube"></i>
-                    Portfolio
-                </span>
-                <h2 id="projects-heading">Featured <span>Projects</span></h2>
-                <p>Interactive tools and dashboards built on our proprietary longitudinal municipal finance database</p>
-            </header>
-
-            <!-- Project Filters -->
-            <div class="project-filters" role="group" aria-label="Filter projects by category">
-                <!-- Filters dynamically generated -->
-            </div>
-
-            <!-- Projects Grid -->
-            <div class="projects-grid" role="list">
-                <!-- Projects dynamically generated -->
-            </div>
-
-            <!-- No Projects Message -->
-            <div class="no-projects" role="status" aria-live="polite">
-                <i class="fas fa-search" aria-hidden="true"></i>
-                <p>No projects found in this category.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Research Reports Section -->
-    <section id="reports" class="reports" role="region" aria-labelledby="reports-heading">
-        <div class="container">
-            <header class="section-header">
-                <span class="section-badge">
-                    <i class="fas fa-file-alt"></i>
-                    Research
-                </span>
-                <h2 id="reports-heading">In-Depth <span>Research Reports</span></h2>
-                <p>Evidence-based analysis on fiscal policy, federal funding trends, and local government finance published through PoliMetrics</p>
-            </header>
-
-            <!-- Reports Grid -->
-            <div class="reports-grid" role="list">
-                <!-- Reports dynamically generated -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Tech Stack Section -->
-    <section id="tech-stack" class="tech-stack" role="region" aria-labelledby="tech-heading">
-        <div class="container">
-            <header class="section-header">
-                <span class="section-badge">
-                    <i class="fas fa-microchip"></i>
-                    Technology
-                </span>
-                <h2 id="tech-heading">Our <span>Tech Stack</span></h2>
-                <p>The analytical infrastructure behind every engagement — Census, FRED, state appropriations data, and more</p>
-            </header>
-
-            <div class="tech-grid" id="tech-grid">
-                <!-- Tech stack dynamically generated -->
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about" role="region" aria-labelledby="about-heading">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 id="about-heading">About <span>Alt-30</span></h2>
-                    <p>Alt-30 Consulting is an independent economic intelligence firm. We produce discrete, high-quality research engagements each built around a specific decision a client is trying to make involving a local economy or municipal budget.</p>
-                    <p>What sets us apart: we built, from scratch, a proprietary longitudinal municipal finance database covering 500+ cities and towns nationwide, integrated with Census, FRED, and state appropriations data. That infrastructure, combined with doctoral-level economics expertise and deep public sector experience, separates our analysis from off-the-shelf consulting.</p>
-                    <p>Every deliverable is independently produced with no vendor relationships or conflicts of interest. Our work is backed by <strong>PoliMetrics</strong>, our independent research platform publishing evidence-based analysis on fiscal policy, federal funding trends, and local government finance across the US.</p>
-                </div>
-                <div class="capabilities" role="list" aria-label="Our capabilities" id="capabilities-grid">
-                    <!-- Capabilities dynamically generated -->
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer role="contentinfo">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-chart-line" aria-hidden="true"></i>
-                    <span>Alt-30 Consulting</span>
-                </div>
-                <nav class="footer-links" aria-label="Footer navigation">
-                    <a href="https://www.alt-30.com" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-globe" aria-hidden="true"></i>
-                        Main Website
-                    </a>
-                    <a href="mailto:morgan.harman@alt-30.com">
-                        <i class="fas fa-envelope" aria-hidden="true"></i>
-                        Contact Us
-                    </a>
-                    <a href="https://www.alt-30.com"   target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github" aria-hidden="true"></i>
-                        GitHub
-                    </a>
-                    <a href="https://www.linkedin.com/company/alt-30" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-linkedin" aria-hidden="true"></i>
-                        LinkedIn
-                    </a>
-                </nav>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="current-year">2025</span> Alt-30 Consulting. All rights reserved. | Turning municipal data into economic intelligence.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        /**
-         * ============================================
-         * ALT-30 SHOWCASE - BREATHTAKING EDITION
-         * Advanced JavaScript for immersive experience
-         * ============================================
-         */
-
-        // ============================================
-        // DATA CONFIGURATION
-        // ============================================
-
-        const projects = [
-            {
-                title: "AZ Municipal Finance Dashboard",
-                description: "Interactive R Shiny application for comparing Arizona municipal government finances. Analyze revenue, expenditures, and fiscal health across cities and towns with real-time visualizations.",
-                icon: "fas fa-landmark",
-                category: "finance",
-                tags: ["R Shiny", "Government Data", "Interactive"],
-                link: "az-municipal-finance.html",
-                featured: true,
-                status: "Live"
-            },
-            {
-                title: "Garden Nerd Chatbot",
-                description: "AI-powered gardening assistant built with Claude. Get personalized plant care advice, watering schedules, and pest management tips specifically tailored for desert climates.",
-                icon: "fas fa-seedling",
-                category: "ai",
-                tags: ["AI Chatbot", "Streamlit", "Claude AI"],
-                link: "garden-nerd.html",
-                featured: true,
-                status: "Live"
-            },
-            {
-                title: "US Business Trends Dashboard",
-                description: "Interactive visualizations of the Census Bureau's Business Trends and Outlook Survey. Track performance, demand, pricing, and employment sentiment nationwide.",
-                icon: "fas fa-building",
-                category: "economics",
-                tags: ["Datawrapper", "Census Data", "Economic Indicators"],
-                link: "btos-dashboard.html",
-                featured: true,
-                status: "Live"
-            },
-            {
-                title: "Statistical Analysis Suite",
-                description: "Upload your datasets and perform comprehensive statistical analysis. Features descriptive statistics, inferential tests, causal impact analysis with diff-in-diff and synthetic control models, plus an AI-powered assistant to guide you through the results.",
-                icon: "fas fa-calculator",
-                category: "dataviz",
-                tags: ["R Shiny", "Statistics", "Causal Inference", "AI Assistant"],
-                link: "stats-analysis.html",
-                featured: true,
-                status: "Live"
-            },
-            {
-                title: "Census Data Explorer",
-                description: "Explore U.S. Census data from city to national level. Pull measures from ACS and other surveys across multiple years, visualized with interactive maps, charts, and exportable tables.",
-                icon: "fas fa-map-marked-alt",
-                category: "economics",
-                tags: ["R Shiny", "Census Data", "ACS", "Geographic Analysis"],
-                link: "census-portal.html",
-                featured: true,
-                status: "Live"
-            },
-            {
-                title: "Unemployment Insurance Dashboard",
-                description: "Analyze U.S. unemployment insurance program data across all states. Compare tax rates, trust fund solvency, weeks claimed, benefit levels, and other key program metrics over multiple years.",
-                icon: "fas fa-briefcase",
-                category: "economics",
-                tags: ["R Shiny", "Labor Economics", "UI Program", "State Comparison"],
-                link: "ui-dashboard.html",
-                featured: true,
-                status: "Live"
-            }
-        ];
-
-        const categories = {
-            all: { name: "All Projects", icon: "fas fa-th" },
-            finance: { name: "Finance", icon: "fas fa-landmark" },
-            ai: { name: "AI & Chatbots", icon: "fas fa-robot" },
-            economics: { name: "Economics", icon: "fas fa-chart-line" },
-            dataviz: { name: "Data Viz", icon: "fas fa-chart-bar" }
-        };
-
-        const techStack = [
-            { name: "R / Shiny", icon: "fas fa-code" },
-            { name: "Python", icon: "fab fa-python" },
-            { name: "Tableau", icon: "fas fa-chart-bar" },
-            { name: "SQL", icon: "fas fa-database" },
-            { name: "Claude AI", icon: "fas fa-brain" },
-            { name: "Streamlit", icon: "fas fa-stream" },
-            { name: "JavaScript", icon: "fab fa-js" },
-            { name: "React", icon: "fab fa-react" },
-            { name: "D3.js", icon: "fas fa-chart-area" },
-            { name: "Excel", icon: "fas fa-file-excel" },
-            { name: "Git", icon: "fab fa-git-alt" },
-            { name: "AWS", icon: "fab fa-aws" }
-        ];
-
-        const stats = [
-            { icon: "fas fa-city", number: 500, label: "Cities & Towns in Database", suffix: "+" },
-            { icon: "fas fa-database", number: 20, label: "Integrated Data Systems", suffix: "+" },
-            { icon: "fas fa-file-contract", number: 15, label: "Core Research Products", suffix: "+" },
-            { icon: "fas fa-shield-alt", number: 100, label: "Independent — No Vendor Conflicts", suffix: "%" }
-        ];
-
-        const capabilities = [
-            { icon: "fas fa-chart-bar", name: "Economic & Fiscal Impact Studies" },
-            { icon: "fas fa-building", name: "Market Studies" },
-            { icon: "fas fa-chart-line", name: "Economic Research & Forecasting" },
-            { icon: "fas fa-map-marked-alt", name: "Economic Development Strategies" },
-            { icon: "fas fa-home", name: "Housing Studies" },
-            { icon: "fas fa-landmark", name: "Public Finance & Policy Development" },
-            { icon: "fas fa-database", name: "Proprietary Municipal Database" },
-            { icon: "fas fa-shield-alt", name: "Independent — No Conflicts" }
-        ];
-
-        const reports = [
-            {
-                title: "Arizona Municipal Finance Report",
-                description: "Comprehensive analysis of Arizona municipal government finances, examining revenue structures, expenditure patterns, and fiscal health indicators across cities and towns. This in-depth report provides detailed insights into local government financial management and trends.",
-                icon: "fas fa-file-pdf",
-                category: "Municipal Finance",
-                tags: ["Municipal Finance", "Arizona", "Government Analytics", "Fiscal Analysis"],
-                file: "AZ Municipal Finance Report.pdf",
-                date: "2025",
-                pages: "Multi-page"
-            }
-        ];
-
-        let currentFilter = 'all';
-
-        // ============================================
-        // DOM READY
-        // ============================================
-
-        document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                document.querySelector('.loading-screen')?.classList.add('hidden');
-            }, 800);
-
-            initializeDataMesh();
-            initializeNavigation();
-            initializeStats();
-            initializeProjects();
-            initializeReports();
-            initializeTechStack();
-            initializeCapabilities();
-            initializeScrollAnimations();
-            initializeSmoothScroll();
-
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-        });
-
-        // ============================================
-        // DATA MESH BACKGROUND
-        // ============================================
-
-        function initializeDataMesh() {
-            const canvas = document.getElementById('data-mesh-canvas');
-            if (!canvas) return;
-
-            const ctx = canvas.getContext('2d');
-            let nodes = [];
-            let animationFrame;
-            let mouseX = 0;
-            let mouseY = 0;
-
-            function resizeCanvas() {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight * 3;
-            }
-            resizeCanvas();
-            window.addEventListener('resize', debounce(resizeCanvas, 250));
-
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
-
-            class Node {
-                constructor() {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 2 + 1;
-                    this.baseSpeedX = (Math.random() - 0.5) * 0.5;
-                    this.baseSpeedY = (Math.random() - 0.5) * 0.5;
-                    this.speedX = this.baseSpeedX;
-                    this.speedY = this.baseSpeedY;
-                    this.opacity = Math.random() * 0.5 + 0.2;
-                    this.pulsePhase = Math.random() * Math.PI * 2;
-                }
-
-                update() {
-                    this.x += this.speedX;
-                    this.y += this.speedY;
-                    this.pulsePhase += 0.02;
-
-                    if (this.x > canvas.width) this.x = 0;
-                    if (this.x < 0) this.x = canvas.width;
-                    if (this.y > canvas.height) this.y = 0;
-                    if (this.y < 0) this.y = canvas.height;
-                }
-
-                draw() {
-                    const pulse = Math.sin(this.pulsePhase) * 0.3 + 0.7;
-                    const size = this.size * pulse;
-
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, size, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(201, 165, 92, ${this.opacity * pulse})`;
-                    ctx.fill();
-
-                    // Glow effect
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, size * 2, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(201, 165, 92, ${this.opacity * 0.08})`;
-                    ctx.fill();
-                }
-            }
-
-            function createNodes() {
-                nodes = [];
-                const isMobile = window.innerWidth <= 768;
-                const nodeCount = isMobile ? 40 : 80;
-                for (let i = 0; i < nodeCount; i++) {
-                    nodes.push(new Node());
-                }
-            }
-
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                nodes.forEach(node => {
-                    node.update();
-                    node.draw();
-                });
-
-                // Draw connections
-                const isMobile = window.innerWidth <= 768;
-                const connectionDistance = isMobile ? 100 : 150;
-
-                nodes.forEach((node1, i) => {
-                    nodes.slice(i + 1).forEach(node2 => {
-                        const dx = node1.x - node2.x;
-                        const dy = node1.y - node2.y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-
-                        if (distance < connectionDistance) {
-                            const opacity = (1 - distance / connectionDistance) * 0.25;
-                            ctx.strokeStyle = `rgba(201, 165, 92, ${opacity})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.beginPath();
-                            ctx.moveTo(node1.x, node1.y);
-                            ctx.lineTo(node2.x, node2.y);
-                            ctx.stroke();
-                        }
-                    });
-                });
-
-                animationFrame = requestAnimationFrame(animate);
-            }
-
-            createNodes();
-            animate();
-        }
-
-        // ============================================
-        // NAVIGATION
-        // ============================================
-
-        function initializeNavigation() {
-            const mobileToggle = document.querySelector('.mobile-toggle');
-            const navItems = document.querySelector('.nav-items');
-            const navLinks = document.querySelectorAll('.nav-menu a');
-            const header = document.querySelector('header');
-
-            if (mobileToggle) {
-                mobileToggle.addEventListener('click', () => {
-                    navItems.classList.toggle('active');
-                    const icon = mobileToggle.querySelector('i');
-                    icon.classList.toggle('fa-bars');
-                    icon.classList.toggle('fa-times');
-                });
-            }
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (navItems.classList.contains('active')) {
-                        navItems.classList.remove('active');
-                        mobileToggle.querySelector('i').classList.add('fa-bars');
-                        mobileToggle.querySelector('i').classList.remove('fa-times');
-                    }
-                });
-            });
-
-            let lastScrollTop = 0;
-            window.addEventListener('scroll', () => {
-                const currentScroll = window.pageYOffset;
-                header.classList.toggle('scrolled', currentScroll > 50);
-
-                if (window.innerWidth <= 768) {
-                    if (currentScroll > lastScrollTop && currentScroll > 100) {
-                        header.classList.add('header-hidden');
-                    } else {
-                        header.classList.remove('header-hidden');
-                    }
-                    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-                }
-            });
-        }
-
-        // ============================================
-        // STATS
-        // ============================================
-
-        function initializeStats() {
-            const container = document.getElementById('stats-container');
-            if (!container) return;
-
-            container.innerHTML = stats.map((stat, i) => `
-                <div class="stat-item" style="transition-delay: ${i * 0.1}s">
-                    <div class="stat-icon"><i class="${stat.icon}"></i></div>
-                    <div class="stat-number" data-target="${stat.number}" data-suffix="${stat.suffix}">0</div>
-                    <div class="stat-label">${stat.label}</div>
-                </div>
-            `).join('');
-
-            observeAndAnimate('.stat-item', (el) => {
-                const counter = el.querySelector('.stat-number');
-                if (counter && counter.textContent === '0') {
-                    animateCounter(counter);
-                }
-            });
-        }
-
-        function animateCounter(element) {
-            const target = parseInt(element.dataset.target);
-            const suffix = element.dataset.suffix || '';
-            const duration = 2000;
-            const step = target / (duration / 16);
-            let current = 0;
-
-            const update = () => {
-                current += step;
-                if (current < target) {
-                    element.textContent = Math.floor(current) + suffix;
-                    requestAnimationFrame(update);
-                } else {
-                    element.textContent = target + suffix;
-                }
-            };
-            update();
-        }
-
-        // ============================================
-        // PROJECTS
-        // ============================================
-
-        function initializeProjects() {
-            renderFilters();
-            renderProjects();
-        }
-
-        function renderFilters() {
-            const container = document.querySelector('.project-filters');
-            if (!container) return;
-
-            const usedCategories = new Set(['all']);
-            projects.forEach(p => usedCategories.add(p.category));
-
-            container.innerHTML = Array.from(usedCategories).map(key => {
-                const cat = categories[key];
-                return cat ? `
-                    <button class="filter-btn ${key === 'all' ? 'active' : ''}" data-category="${key}">
-                        <i class="${cat.icon}"></i> ${cat.name}
-                    </button>
-                ` : '';
-            }).join('');
-
-            container.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.addEventListener('click', () => filterProjects(btn.dataset.category));
-            });
-        }
-
-        function renderProjects(filter = 'all') {
-            const grid = document.querySelector('.projects-grid');
-            if (!grid) return;
-
-            const filtered = filter === 'all' ? projects : projects.filter(p => p.category === filter);
-
-            if (filtered.length === 0) {
-                grid.innerHTML = '';
-                document.querySelector('.no-projects')?.classList.add('show');
-                return;
-            }
-
-            document.querySelector('.no-projects')?.classList.remove('show');
-
-            grid.innerHTML = filtered.map((project, i) => `
-                <a href="${project.link}" class="project-card" style="transition-delay: ${i * 0.1}s">
-                    <div class="project-image ${project.category}">
-                        <i class="${project.icon}"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>
-                            <span>${project.title}</span>
-                            ${project.status ? `<span class="project-status">${project.status}</span>` : ''}
-                        </h3>
-                        <p>${project.description}</p>
-                        <div class="project-tags">
-                            ${project.tags.map((tag, ti) => `<span class="tag ${ti === 0 ? 'primary' : ''}">${tag}</span>`).join('')}
-                        </div>
-                    </div>
-                </a>
-            `).join('');
-
-            observeAndAnimate('.project-card');
-        }
-
-        function filterProjects(category) {
-            currentFilter = category;
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.category === category);
-            });
-            renderProjects(category);
-        }
-
-        // ============================================
-        // REPORTS
-        // ============================================
-
-        function initializeReports() {
-            const grid = document.querySelector('.reports-grid');
-            if (!grid) return;
-
-            grid.innerHTML = reports.map((report, i) => `
-                <div class="report-card" style="transition-delay: ${i * 0.1}s">
-                    <div class="report-header">
-                        <i class="${report.icon}"></i>
-                    </div>
-                    <div class="report-content">
-                        <h3>${report.title}</h3>
-                        <div class="report-meta">
-                            <div class="report-meta-item">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span>${report.date}</span>
-                            </div>
-                            <div class="report-meta-item">
-                                <i class="fas fa-file-alt"></i>
-                                <span>${report.pages}</span>
-                            </div>
-                            <div class="report-meta-item">
-                                <i class="fas fa-folder"></i>
-                                <span>${report.category}</span>
-                            </div>
-                        </div>
-                        <p>${report.description}</p>
-                        <div class="report-tags">
-                            ${report.tags.map((tag, ti) => `<span class="tag ${ti === 0 ? 'primary' : ''}">${tag}</span>`).join('')}
-                        </div>
-                        <div class="report-actions">
-                            <a href="${report.file}" class="report-btn report-btn-primary" target="_blank">
-                                <i class="fas fa-eye"></i>
-                                <span>View Report</span>
-                            </a>
-                            <a href="${report.file}" class="report-btn report-btn-secondary" download>
-                                <i class="fas fa-download"></i>
-                                <span>Download</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-
-            observeAndAnimate('.report-card');
-        }
-
-        // ============================================
-        // TECH STACK
-        // ============================================
-
-        function initializeTechStack() {
-            const grid = document.getElementById('tech-grid');
-            if (!grid) return;
-
-            grid.innerHTML = techStack.map((tech, i) => `
-                <div class="tech-item" style="transition-delay: ${i * 0.05}s">
-                    <div class="tech-icon"><i class="${tech.icon}"></i></div>
-                    <div class="tech-name">${tech.name}</div>
-                </div>
-            `).join('');
-
-            observeAndAnimate('.tech-item');
-        }
-
-        // ============================================
-        // CAPABILITIES
-        // ============================================
-
-        function initializeCapabilities() {
-            const grid = document.getElementById('capabilities-grid');
-            if (!grid) return;
-
-            grid.innerHTML = capabilities.map((cap, i) => `
-                <div class="capability" style="transition-delay: ${i * 0.1}s">
-                    <i class="${cap.icon}"></i>
-                    <span>${cap.name}</span>
-                </div>
-            `).join('');
-
-            observeAndAnimate('.capability');
-        }
-
-        // ============================================
-        // ANIMATIONS
-        // ============================================
-
-        function initializeScrollAnimations() {
-            observeAndAnimate('.section-header');
-        }
-
-        function observeAndAnimate(selector, callback) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        if (callback) callback(entry.target);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-            document.querySelectorAll(selector).forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(el);
-            });
-        }
-
-        // ============================================
-        // SMOOTH SCROLL
-        // ============================================
-
-        function initializeSmoothScroll() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    if (href === '#') return;
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        window.scrollTo({
-                            top: target.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-        }
-
-        // ============================================
-        // UTILITIES
-        // ============================================
-
-        function debounce(func, wait) {
-            let timeout;
-            return function(...args) {
-                clearTimeout(timeout);
-                timeout = setTimeout(() => func(...args), wait);
-            };
-        }
-
-        // Pause animations when page is hidden
-        document.addEventListener('visibilitychange', () => {
-            const canvas = document.getElementById('data-mesh-canvas');
-            if (canvas) {
-                canvas.style.opacity = document.hidden ? '0' : '1';
-            }
-        });
-
-        console.log('%c ALT-30 ANALYTICS SHOWCASE ', 'background: linear-gradient(135deg, #00f0ff, #bf00ff); color: #0a0a0f; padding: 12px 24px; font-size: 16px; font-weight: bold; border-radius: 4px;');
-        console.log('%c Built with passion for data visualization ', 'color: #00f0ff; font-size: 12px;');
-    </script>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-wm">Alt-30 Consulting</div>
+  <ul class="foot-nav">
+    <li><a href="#positioning">How We Help</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#research">Reports</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+  </ul>
+  <div class="foot-copy">&copy; 2026 Alt-30 Consulting. All rights reserved.</div>
+</footer>
+
+<script>
+/* ── CONTACT FORM ── */
+(function(){
+  const APPS_SCRIPT_URL='https://script.google.com/macros/s/AKfycbwF1hswKl3gROtjpL53K29DRb92i0aMXeNE6-gEvNq9irBMr8YiFyyBbVUU3CSn2MBc/exec';
+  const form=document.getElementById('contact-form');
+  if(!form)return;
+  const submitBtn=document.getElementById('cf-submit');
+  const btnText=submitBtn.querySelector('.cf-btn-text');
+  const spinner=document.getElementById('cf-spinner');
+  const errorBox=document.getElementById('cf-error');
+  const errorText=document.getElementById('cf-error-text');
+  const fields=document.getElementById('cf-fields');
+  const success=document.getElementById('cf-success');
+
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    errorBox.classList.remove('show','error');
+
+    const firstName=form.firstName.value.trim();
+    const lastName=form.lastName.value.trim();
+    const email=form.email.value.trim();
+
+    if(!firstName||!lastName||!email){
+      errorText.textContent='Please fill in your name and email address.';
+      errorBox.classList.add('show','error');return;
+    }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+      errorText.textContent='Please enter a valid email address.';
+      errorBox.classList.add('show','error');return;
+    }
+
+    submitBtn.disabled=true;
+    btnText.style.display='none';
+    spinner.style.display='block';
+
+    const payload={
+      firstName,lastName,email,
+      organization:form.organization.value.trim(),
+      service:form.service.value,
+      message:form.message.value.trim(),
+      submittedAt:new Date().toISOString()
+    };
+
+    try{
+      await fetch(APPS_SCRIPT_URL,{
+        method:'POST',mode:'no-cors',
+        headers:{'Content-Type':'text/plain'},
+        body:JSON.stringify(payload)
+      });
+      fields.style.display='none';
+      success.classList.add('show');
+    }catch(err){
+      errorText.textContent='Something went wrong. Please email us at morgan.harman@alt-30.com';
+      errorBox.classList.add('show','error');
+      submitBtn.disabled=false;
+      btnText.style.display='';
+      spinner.style.display='none';
+    }
+  });
+})();
+
+/* ── CURSOR ── */
+const cur=document.getElementById('cur');
+const ring=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function loop(){rx+=(mx-rx)*0.11;ry+=(my-ry)*0.11;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
+
+/* ── NAV ── */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+
+/* ── MOBILE NAV ── */
+const toggle=document.getElementById('nav-toggle');
+const drawer=document.getElementById('nav-drawer');
+toggle.addEventListener('click',()=>{
+  const open=drawer.classList.toggle('open');
+  toggle.classList.toggle('open',open);
+});
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  drawer.classList.remove('open');
+  toggle.classList.remove('open');
+}));
+
+/* ── REVEAL ── */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')});
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+/* ══ ANIMATED US MAP ══ */
+(function(){
+  const canvas = document.getElementById('map-canvas');
+  const ctx = canvas.getContext('2d');
+
+  function resize(){
+    const hero = canvas.parentElement;
+    canvas.width = hero.offsetWidth;
+    canvas.height = hero.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Simplified US state centroids [x%, y%] relative to canvas
+  const nodes = [
+    // West
+    {x:8,y:28,r:'WA'},{x:8,y:38,r:'OR'},{x:6,y:52,r:'CA'},{x:14,y:42,r:'ID'},
+    {x:18,y:32,r:'MT'},{x:16,y:55,r:'NV'},{x:20,y:62,r:'AZ'},{x:21,y:48,r:'UT'},
+    {x:24,y:40,r:'WY'},{x:27,y:52,r:'CO'},{x:28,y:64,r:'NM'},
+    // Plains / Midwest
+    {x:32,y:32,r:'ND'},{x:33,y:42,r:'SD'},{x:33,y:52,r:'NE'},{x:34,y:62,r:'KS'},
+    {x:37,y:32,r:'MN'},{x:39,y:42,r:'IA'},{x:39,y:52,r:'MO'},{x:38,y:62,r:'OK'},
+    {x:37,y:71,r:'TX'},{x:43,y:38,r:'WI'},{x:44,y:48,r:'IL'},{x:44,y:58,r:'AR'},
+    {x:44,y:67,r:'LA'},{x:47,y:42,r:'IN'},{x:48,y:52,r:'KY'},{x:49,y:60,r:'TN'},
+    {x:49,y:68,r:'MS'},{x:49,y:34,r:'MI'},{x:51,y:42,r:'OH'},{x:51,y:58,r:'AL'},
+    // Southeast
+    {x:53,y:66,r:'GA'},{x:55,y:74,r:'FL'},{x:53,y:50,r:'WV'},{x:54,y:55,r:'VA'},
+    {x:55,y:62,r:'SC'},{x:55,y:44,r:'PA'},{x:56,y:50,r:'MD'},{x:56,y:57,r:'NC'},
+    // Northeast
+    {x:57,y:36,r:'NY'},{x:59,y:30,r:'VT'},{x:60,y:27,r:'ME'},{x:60,y:34,r:'NH'},
+    {x:61,y:38,r:'MA'},{x:62,y:42,r:'RI'},{x:63,y:40,r:'CT'},{x:63,y:46,r:'NJ'},
+    {x:64,y:44,r:'DE'},
+    // Alaska & Hawaii
+    {x:10,y:82,r:'AK'},{x:22,y:84,r:'HI'},
+  ];
+
+  // Connection pairs (indices)
+  const edges = [
+    [0,1],[1,2],[1,3],[0,3],[3,4],[4,5],[5,6],[5,7],[6,7],[7,8],[8,9],[9,10],
+    [4,11],[11,12],[12,13],[13,14],[11,15],[15,16],[16,17],[17,18],[18,19],
+    [15,20],[20,21],[21,22],[22,23],[20,24],[24,25],[25,26],[26,27],[24,28],
+    [28,29],[29,30],[30,31],[29,32],[32,33],[33,34],[32,35],[35,36],[36,37],
+    [37,38],[35,39],[39,40],[40,41],[41,42],[42,43],[43,44],
+  ];
+
+  // Color palette inspired by the choropleth map
+  const nodeColors = [
+    '#C84B8A','#9B3B9B','#7B2D8C','#E87040','#D45C20',
+    '#8B1A8B','#B84070','#D4609A','#E8A030','#C85030',
+    '#A02870','#7020A0','#5018A0','#3A10B0','#B03878',
+    '#E06028','#C84048','#8828A8','#6018B0','#D87038',
+  ];
+
+  // Pulse animations
+  const pulses = [];
+  function spawnPulse(){
+    const edgeIdx = Math.floor(Math.random()*edges.length);
+    const [a,b] = edges[edgeIdx];
+    pulses.push({a,b,t:0,speed:0.004+Math.random()*0.006,color:nodeColors[Math.floor(Math.random()*nodeColors.length)]});
+  }
+  for(let i=0;i<8;i++) setTimeout(()=>spawnPulse(), i*400);
+
+  let frame=0;
+  function draw(){
+    const W=canvas.width, H=canvas.height;
+    ctx.clearRect(0,0,W,H);
+
+    // Map the node % coordinates to actual pixels
+    function px(n){ return {x:n.x/100*W, y:n.y/100*H} }
+
+    // Draw edges
+    edges.forEach(([a,b])=>{
+      const pa=px(nodes[a]), pb=px(nodes[b]);
+      ctx.beginPath();
+      ctx.moveTo(pa.x,pa.y);
+      ctx.lineTo(pb.x,pb.y);
+      ctx.strokeStyle='rgba(193,193,189,0.07)';
+      ctx.lineWidth=1;
+      ctx.stroke();
+    });
+
+    // Draw pulse animations along edges
+    pulses.forEach((p,i)=>{
+      p.t += p.speed;
+      if(p.t>1){
+        p.t=0;
+        // pick new edge
+        const edgeIdx=Math.floor(Math.random()*edges.length);
+        p.a=edges[edgeIdx][0];p.b=edges[edgeIdx][1];
+        p.color=nodeColors[Math.floor(Math.random()*nodeColors.length)];
+      }
+      const pa=px(nodes[p.a]), pb=px(nodes[p.b]);
+      const px2=pa.x+(pb.x-pa.x)*p.t;
+      const py2=pa.y+(pb.y-pa.y)*p.t;
+
+      // Glowing trail
+      const grad=ctx.createRadialGradient(px2,py2,0,px2,py2,12);
+      grad.addColorStop(0,p.color+'CC');
+      grad.addColorStop(0.4,p.color+'44');
+      grad.addColorStop(1,'transparent');
+      ctx.beginPath();
+      ctx.arc(px2,py2,12,0,Math.PI*2);
+      ctx.fillStyle=grad;
+      ctx.fill();
+
+      // Edge highlight behind pulse
+      ctx.beginPath();
+      ctx.moveTo(pa.x,pa.y);
+      ctx.lineTo(pb.x,pb.y);
+      ctx.strokeStyle=p.color+'30';
+      ctx.lineWidth=2;
+      ctx.stroke();
+    });
+
+    // Spawn new pulses occasionally
+    if(frame%90===0 && pulses.length<20) spawnPulse();
+
+    // Draw nodes
+    nodes.forEach((n,i)=>{
+      const p=px(n);
+      const col=nodeColors[i%nodeColors.length];
+      const pulse=(Math.sin(frame*0.04+i*0.7)*0.5+0.5);
+      const r=3+pulse*2;
+
+      // Outer glow
+      const grd=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,r*4);
+      grd.addColorStop(0,col+'60');
+      grd.addColorStop(1,'transparent');
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,r*4,0,Math.PI*2);
+      ctx.fillStyle=grd;
+      ctx.fill();
+
+      // Node dot
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,r,0,Math.PI*2);
+      ctx.fillStyle=col+'CC';
+      ctx.fill();
+    });
+
+    frame++;
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  // Spawn new pulses periodically
+  setInterval(spawnPulse,1200);
+})();
+</script>
 </body>
 </html>
