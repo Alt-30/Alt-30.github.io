@@ -3,485 +3,146 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Alt-30 Consulting — Government Risk Intelligence</title>
+<title>Alt-30 — Strategic Intelligence for Arizona Government Relations</title>
+<meta name="description" content="Alt-30 arms Arizona government relations firms, legislative caucuses, and political campaigns with bulletproof workforce, tax, and budget data. Strictly non-partisan."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --obsidian:#0D1216;
-  --obsidian2:#1A2332;
-  --forest:#30332F;
-  --ruby:#59001C;
-  --ruby2:#6E0022;
-  --ruby3:#8C0028;
-  --mist:#C1C1BD;
-  --mist2:#E2E2DE;
-  --rose:#FFE6E6;
-  --rose2:#FFF0F0;
-  --cream:#F5F2EC;
-  --paper:#FAFAF8;
-  --surface:#FFFFFF;
-  --text-head:#0D1216;
-  --text-body:#3A3D3A;
-  --text-dim:#7A7D78;
-  --rule:rgba(13,18,22,0.08);
-  --rule2:rgba(13,18,22,0.05);
-  --ff-display:'Cormorant',Georgia,serif;
-  --ff-sans:'Jost',sans-serif;
-  --ff-mono:'IBM Plex Mono',monospace;
-}
-html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--text-body);font-family:var(--ff-sans);font-weight:300;line-height:1.7;overflow-x:hidden;cursor:none}
-
-/* CURSOR */
-#cur{position:fixed;width:7px;height:7px;background:var(--ruby2);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
-#cur-ring{position:fixed;width:30px;height:30px;border:1px solid rgba(89,0,28,0.35);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width 0.3s,height 0.3s,border-color 0.3s}
-body:has(a:hover) #cur-ring{width:50px;height:50px;border-color:rgba(110,0,34,0.6)}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:72px;transition:background 0.4s,box-shadow 0.4s}
-nav.scrolled{background:rgba(250,250,248,0.96);backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--rule),0 4px 24px rgba(13,18,22,0.06)}
-.nav-wm{font-family:var(--ff-display);font-size:1.25rem;font-weight:500;color:#F8F5F0;letter-spacing:0.04em;text-decoration:none;display:flex;align-items:baseline;gap:0.3rem;transition:color 0.4s}
-.nav-wm em{font-style:normal;color:var(--ruby3)}
-nav.scrolled .nav-wm{color:var(--obsidian)}
-.nav-center{display:flex;gap:2.5rem;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
-.nav-center a{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(248,245,240,0.75);text-decoration:none;transition:color 0.2s;white-space:nowrap}
-nav.scrolled .nav-center a{color:var(--text-dim)}
-.nav-center a:hover{color:var(--ruby2) !important}
-.nav-cta{font-family:var(--ff-mono);font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--surface);background:var(--ruby2);padding:0.65rem 1.75rem;text-decoration:none;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%);transition:background 0.25s;white-space:nowrap}
-.nav-cta:hover{background:var(--ruby3)}
-/* Mobile toggle */
-.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:transparent;border:none;cursor:pointer;padding:4px;z-index:600}
-.nav-toggle span{display:block;height:1px;background:#F8F5F0;transition:transform 0.3s,opacity 0.3s,background 0.4s}
-nav.scrolled .nav-toggle span{background:var(--obsidian)}
-.nav-toggle.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
-.nav-toggle.open span:nth-child(2){opacity:0}
-.nav-toggle.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-/* Mobile drawer */
-.nav-drawer{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(250,250,248,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--rule);z-index:499;padding:1.5rem 2rem 2rem;flex-direction:column;gap:0}
-.nav-drawer.open{display:flex}
-.nav-drawer li{list-style:none;border-bottom:1px solid var(--rule)}
-.nav-drawer li:first-child{border-top:1px solid var(--rule)}
-.nav-drawer a{display:block;font-family:var(--ff-mono);font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;padding:1rem 0;transition:color 0.2s}
-.nav-drawer a:hover{color:var(--ruby2)}
-.nav-drawer .nav-cta{display:inline-block;margin-top:1.5rem;clip-path:none}
-
-/* ══ HERO ══ */
-.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:0 4rem;overflow:hidden;background:var(--obsidian)}
-
-/* Map canvas fills the hero */
-#map-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:1}
-
-/* Dark overlay gradient so text is readable */
-.hero-overlay{
-  position:absolute;inset:0;
-  background:
-    linear-gradient(90deg, rgba(13,18,22,0.92) 0%, rgba(13,18,22,0.75) 45%, rgba(13,18,22,0.3) 100%),
-    linear-gradient(180deg, rgba(13,18,22,0.4) 0%, transparent 30%, transparent 70%, rgba(13,18,22,0.6) 100%);
-}
-
-.hero-inner{position:relative;z-index:2;max-width:840px}
-.hero-kicker{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.24em;text-transform:uppercase;color:rgba(193,193,189,0.7);margin-bottom:2.5rem;display:flex;align-items:center;gap:1.25rem;opacity:0;animation:up 0.9s cubic-bezier(0.16,1,0.3,1) 0.15s forwards}
-.hero-kicker::before{content:'';width:26px;height:1px;background:var(--ruby3);flex-shrink:0}
-.hero-kicker em{color:var(--ruby3);font-style:normal}
-.hero-h1{font-family:var(--ff-display);font-size:clamp(3.2rem,6.5vw,6.4rem);font-weight:300;line-height:1.04;color:#F8F5F0;letter-spacing:-0.02em;margin-bottom:2.5rem;opacity:0;animation:up 1s cubic-bezier(0.16,1,0.3,1) 0.3s forwards}
-.hero-h1 .l2{display:block;padding-left:2.5rem;font-style:italic;font-weight:400;color:var(--mist2)}
-.hero-h1 .l3{display:block;padding-left:5rem;color:var(--ruby3)}
-.hero-sub{font-size:0.97rem;color:rgba(193,193,189,0.78);line-height:1.95;max-width:500px;margin-bottom:3.5rem;opacity:0;animation:up 1s cubic-bezier(0.16,1,0.3,1) 0.5s forwards}
-.hero-btns{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;opacity:0;animation:up 1s cubic-bezier(0.16,1,0.3,1) 0.65s forwards}
-
-/* Risk pills floating bottom right */
-.hero-risk-pills{
-  position:absolute;bottom:4rem;right:4rem;z-index:3;
-  display:flex;flex-direction:column;gap:0.6rem;align-items:flex-end;
-  opacity:0;animation:fadeIn 1.2s ease 1.2s forwards;
-}
-.risk-pill{
-  font-family:var(--ff-mono);font-size:0.55rem;
-  letter-spacing:0.14em;text-transform:uppercase;
-  background:rgba(13,18,22,0.7);
-  border:1px solid rgba(140,0,40,0.35);
-  color:rgba(193,193,189,0.8);
-  padding:0.4rem 1rem;
-  backdrop-filter:blur(8px);
-  display:flex;align-items:center;gap:0.6rem;
-  transition:border-color 0.3s,color 0.3s;
-}
-.risk-pill:hover{border-color:var(--ruby3);color:var(--mist2)}
-.risk-pill-dot{width:5px;height:5px;border-radius:50%;background:var(--ruby3);animation:dotPulse 2s ease-in-out infinite}
-.risk-pill:nth-child(2) .risk-pill-dot{animation-delay:0.4s}
-.risk-pill:nth-child(3) .risk-pill-dot{animation-delay:0.8s}
-.risk-pill:nth-child(4) .risk-pill-dot{animation-delay:1.2s}
-@keyframes dotPulse{0%,100%{opacity:0.4;transform:scale(0.8)}50%{opacity:1;transform:scale(1.2)}}
-
-.hero-scroll{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;opacity:0;animation:fadeIn 1s ease 1.4s forwards}
-.hero-scroll span{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(193,193,189,0.35)}
-.scroll-bar{width:1px;height:42px;background:linear-gradient(var(--ruby3),transparent);animation:scrollAnim 2.2s ease-in-out infinite}
-@keyframes scrollAnim{0%,100%{opacity:0.2;transform:scaleY(0.5);transform-origin:top}50%{opacity:0.7;transform:scaleY(1);transform-origin:top}}
-
-/* Buttons */
-.btn-ruby{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--surface);background:var(--ruby2);padding:1.1rem 2.4rem;text-decoration:none;display:inline-block;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%);transition:background 0.25s}
-.btn-ruby:hover{background:var(--ruby3)}
-.btn-ghost-light{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(193,193,189,0.8);border-bottom:1px solid rgba(193,193,189,0.25);padding-bottom:0.2rem;text-decoration:none;transition:color 0.25s,border-color 0.25s}
-.btn-ghost-light:hover{color:#F8F5F0;border-color:rgba(193,193,189,0.6)}
-.btn-outline-ruby{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ruby2);border:1px solid rgba(89,0,28,0.3);padding:1.1rem 2.4rem;text-decoration:none;display:inline-block;transition:border-color 0.25s,color 0.25s,background 0.25s}
-.btn-outline-ruby:hover{border-color:var(--ruby2);background:rgba(89,0,28,0.04)}
-.btn-link-ruby{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ruby2);border-bottom:1px solid rgba(89,0,28,0.25);padding-bottom:0.2rem;text-decoration:none;transition:color 0.25s,border-color 0.25s}
-.btn-link-ruby:hover{color:var(--ruby3);border-color:var(--ruby2)}
-
-/* TICKER */
-.ticker{border-bottom:1px solid var(--rule);background:var(--obsidian2);padding:0.85rem 0;overflow:hidden}
-.ticker-track{display:flex;width:max-content;animation:tick 36s linear infinite}
-.ti{font-family:var(--ff-mono);font-size:0.56rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(193,193,189,0.4);white-space:nowrap;padding:0 2.5rem;border-right:1px solid rgba(255,255,255,0.05)}
-.ti.hi{color:rgba(140,0,40,0.85)}
-@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-
-
-/* SECTION BASE */
-section{padding:9rem 4rem;position:relative}
-.si{max-width:1180px;margin:0 auto}
-.s-eyebrow{font-family:var(--ff-mono);font-size:0.56rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--ruby2);margin-bottom:1rem;display:flex;align-items:center;gap:1rem}
-.s-eyebrow::before{content:'';width:18px;height:1px;background:var(--ruby2);flex-shrink:0}
-.s-h2{font-family:var(--ff-display);font-size:clamp(2.2rem,4vw,3.8rem);font-weight:300;color:var(--obsidian);line-height:1.1;letter-spacing:-0.01em}
-.s-h2 em{font-style:italic;font-weight:400;color:var(--ruby2)}
-.s-p{font-size:0.92rem;color:var(--text-dim);line-height:1.95;max-width:580px}
-
-/* REVEAL */
-.rv{opacity:0;transform:translateY(24px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
-.rv.on{opacity:1;transform:translateY(0)}
-.d1{transition-delay:0.1s}.d2{transition-delay:0.2s}.d3{transition-delay:0.3s}
-.d4{transition-delay:0.4s}.d5{transition-delay:0.5s}.d6{transition-delay:0.6s}
-
-/* ══ POSITIONING STATEMENT ══ */
-.position-sec{background:var(--paper)}
-.position-layout{display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center;margin-top:5rem}
-.position-pull{
-  font-family:var(--ff-display);font-size:1.7rem;
-  font-weight:300;color:var(--obsidian);line-height:1.6;
-}
-.position-pull em{font-style:italic;color:var(--ruby2)}
-.position-pull p+p{margin-top:1.5rem}
-.position-points{display:flex;flex-direction:column;gap:0}
-.pp{padding:1.6rem 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:start}
-.pp:first-child{border-top:1px solid var(--rule)}
-.pp-icon{font-family:var(--ff-mono);font-size:0.55rem;letter-spacing:0.12em;color:var(--ruby2);padding-top:0.1rem;white-space:nowrap}
-.pp-text{font-size:0.88rem;color:var(--text-dim);line-height:1.8}
-.pp-text strong{display:block;font-family:var(--ff-sans);font-weight:500;color:var(--obsidian);font-size:0.92rem;margin-bottom:0.2rem}
-
-/* ══ PRACTICE AREAS ══ */
-.practice-sec{background:var(--cream)}
-.practice-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem}
-/* Big area cards */
-.practice-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
-.pa{
-  background:var(--surface);padding:3.5rem 3rem;
-  position:relative;overflow:hidden;transition:background 0.3s;
-}
-.pa:hover{background:var(--rose2)}
-.pa::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ruby2);transform:scaleX(0);transform-origin:left;transition:transform 0.45s cubic-bezier(0.16,1,0.3,1)}
-.pa:hover::before{transform:scaleX(1)}
-.pa-tag{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ruby2);margin-bottom:1.75rem;display:block}
-.pa-title{font-family:var(--ff-display);font-size:1.8rem;font-weight:400;color:var(--obsidian);line-height:1.2;margin-bottom:1rem}
-.pa-body{font-size:0.85rem;color:var(--text-dim);line-height:1.9;margin-bottom:1.75rem}
-.pa-examples{display:flex;flex-wrap:wrap;gap:0.5rem}
-.pa-ex{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.1em;text-transform:uppercase;background:rgba(89,0,28,0.06);color:var(--ruby2);padding:0.3rem 0.75rem;border:1px solid rgba(89,0,28,0.12)}
-/* Full-width bottom card */
-.pa-wide{grid-column:span 2;border-top:1px solid var(--rule)}
-
-/* ══ SERVICES ══ */
-.svc-sec{background:var(--paper)}
-.svc-anchor{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem}
-.svc-motto{
-  font-family:var(--ff-display);font-size:1.5rem;
-  font-weight:300;color:var(--obsidian);line-height:1.6;
-  border-left:2px solid var(--ruby2);padding-left:2rem;
-  margin-top:2rem;
-}
-.svc-motto em{font-style:italic;color:var(--ruby2)}
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--rule)}
-.card{padding:2.75rem 2.25rem;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);position:relative;overflow:hidden;background:var(--surface);transition:background 0.3s}
-.card:nth-child(3n){border-right:none}
-.card:nth-child(n+4){border-bottom:none}
-.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ruby2);transform:scaleX(0);transform-origin:left;transition:transform 0.45s cubic-bezier(0.16,1,0.3,1)}
-.card:hover{background:var(--rose2)}
-.card:hover::before{transform:scaleX(1)}
-.card-n{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.2em;color:var(--ruby2);margin-bottom:1.75rem;display:block}
-.card-title{font-family:var(--ff-display);font-size:1.3rem;font-weight:500;color:var(--obsidian);margin-bottom:0.9rem;line-height:1.3}
-.card-body{font-size:0.82rem;color:var(--text-dim);line-height:1.85}
-.card-tag{display:inline-block;margin-top:1.75rem;font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ruby2);border:1px solid rgba(89,0,28,0.2);padding:0.28rem 0.8rem}
-
-/* ══ AI RISK CALLOUT ══ */
-.ai-sec{
-  background:var(--obsidian);
-  padding:7rem 4rem;
-  position:relative;overflow:hidden;
-}
-.ai-sec::before{
-  content:'AI';
-  position:absolute;right:-2rem;top:50%;transform:translateY(-50%);
-  font-family:var(--ff-display);font-size:16rem;font-weight:300;font-style:italic;
-  color:rgba(255,255,255,0.02);pointer-events:none;white-space:nowrap;
-}
-.ai-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
-.ai-left .s-eyebrow{color:var(--ruby3)}
-.ai-left .s-h2{color:#F5F2EC}
-.ai-left .s-h2 em{color:var(--ruby3)}
-.ai-body{font-size:0.95rem;color:rgba(193,193,189,0.65);line-height:1.95;margin-top:1.5rem;max-width:480px}
-.ai-stats{display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,0.04)}
-.ai-stat{background:rgba(255,255,255,0.02);padding:1.75rem 2rem;display:grid;grid-template-columns:80px 1fr;gap:1.5rem;align-items:baseline;transition:background 0.3s}
-.ai-stat:hover{background:rgba(89,0,28,0.12)}
-.ai-stat-val{font-family:var(--ff-display);font-size:2.2rem;font-weight:300;color:var(--ruby3);line-height:1}
-.ai-stat-desc{font-size:0.82rem;color:rgba(193,193,189,0.6);line-height:1.75}
-
-/* ══ ABOUT ══ */
-.about-sec{background:var(--cream);border-top:1px solid var(--rule)}
-.about-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:7rem;align-items:start;margin-top:5rem}
-.about-copy{font-family:var(--ff-display);font-size:1.2rem;font-weight:300;color:var(--text-body);line-height:1.9}
-.about-copy em{font-style:italic;color:var(--obsidian);font-weight:400}
-.about-copy strong{font-style:italic;color:var(--ruby2);font-weight:300}
-.about-copy p+p{margin-top:1.5rem}
-.creds{display:flex;flex-direction:column}
-.cred{padding:1.7rem 0;border-bottom:1px solid var(--rule)}
-.cred:first-child{border-top:1px solid var(--rule)}
-.cred-lbl{font-family:var(--ff-mono);font-size:0.54rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ruby2);margin-bottom:0.55rem}
-.cred-txt{font-size:0.82rem;color:var(--text-dim);line-height:1.8}
-
-/* ══ POLIMETRICS ══ */
-.pm-sec{padding:8rem 4rem;background:var(--forest);position:relative;overflow:hidden}
-.pm-sec::before{content:'POLIMETRICS';position:absolute;right:-1rem;top:50%;transform:translateY(-50%) rotate(90deg);font-family:var(--ff-display);font-size:10rem;font-weight:300;font-style:italic;color:rgba(255,255,255,0.03);white-space:nowrap;pointer-events:none}
-.pm-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
-.pm-eyebrow{font-family:var(--ff-mono);font-size:0.56rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--ruby3);margin-bottom:1rem;display:flex;align-items:center;gap:1rem}
-.pm-eyebrow::before{content:'';width:18px;height:1px;background:var(--ruby3);flex-shrink:0}
-.pm-title{font-family:var(--ff-display);font-size:clamp(2.2rem,4vw,3.4rem);font-weight:300;color:var(--mist2);line-height:1.15;margin-bottom:1.5rem}
-.pm-title em{font-style:italic;color:var(--mist)}
-.pm-p{font-size:0.92rem;color:rgba(193,193,189,0.55);line-height:1.95;margin-bottom:2.5rem}
-.pm-articles{display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,0.04)}
-.pm-a{background:rgba(255,255,255,0.02);padding:1.5rem 1.75rem;display:grid;grid-template-columns:52px 1fr;gap:1.25rem;align-items:start;transition:background 0.3s;cursor:default}
-.pm-a:hover{background:rgba(89,0,28,0.2)}
-.pm-atype{font-family:var(--ff-mono);font-size:0.5rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ruby3);padding-top:0.1rem}
-.pm-atitle{font-family:var(--ff-display);font-size:1rem;color:rgba(193,193,189,0.75);line-height:1.5}
-
-/* ══ CONTACT ══ */
-.contact-sec{background:var(--paper);padding:9rem 4rem}
-.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:start;margin-top:5rem}
-.contact-left .contact-email{font-family:var(--ff-display);font-size:1.3rem;font-style:italic;font-weight:300;color:var(--ruby2);text-decoration:none;display:inline-flex;align-items:center;gap:0.6rem;border-bottom:1px solid rgba(89,0,28,0.2);padding-bottom:0.25rem;margin-top:2rem;transition:color 0.25s,border-color 0.25s}
-.contact-left .contact-email:hover{color:var(--ruby3);border-color:rgba(89,0,28,0.5)}
-.contact-detail{margin-top:2.5rem;display:flex;flex-direction:column;gap:0}
-.cd{padding:1.25rem 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:baseline}
-.cd:first-child{border-top:1px solid var(--rule)}
-.cd-lbl{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ruby2)}
-.cd-val{font-size:0.85rem;color:var(--text-dim);line-height:1.7}
-/* Form */
-.cf{display:flex;flex-direction:column;gap:1.25rem}
-.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
-.cf-group{display:flex;flex-direction:column;gap:0.45rem}
-.cf-group label{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-dim)}
-.cf-group input,.cf-group select,.cf-group textarea{
-  font-family:var(--ff-sans);font-size:0.88rem;font-weight:300;
-  background:var(--surface);color:var(--text-body);
-  border:1px solid var(--rule);padding:0.85rem 1rem;
-  outline:none;transition:border-color 0.2s,box-shadow 0.2s;
-  width:100%;
-}
-.cf-group input:focus,.cf-group select:focus,.cf-group textarea:focus{border-color:rgba(89,0,28,0.35);box-shadow:0 0 0 3px rgba(89,0,28,0.06)}
-.cf-group textarea{resize:vertical;min-height:120px}
-.cf-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A7D78' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem}
-.cf-req{color:var(--ruby2)}
-.cf-submit{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--surface);background:var(--ruby2);border:none;padding:1.1rem 2.4rem;cursor:pointer;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%);transition:background 0.25s;display:inline-flex;align-items:center;gap:0.75rem;align-self:flex-start}
-.cf-submit:hover{background:var(--ruby3)}
-.cf-submit:disabled{opacity:0.5;cursor:not-allowed}
-.cf-spinner{display:none;width:14px;height:14px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:cfSpin 0.7s linear infinite}
-@keyframes cfSpin{to{transform:rotate(360deg)}}
-.cf-msg{display:none;align-items:center;gap:0.75rem;font-family:var(--ff-mono);font-size:0.56rem;letter-spacing:0.1em;padding:0.85rem 1rem;border:1px solid}
-.cf-msg.show{display:flex}
-.cf-msg.error{color:var(--ruby2);border-color:rgba(89,0,28,0.25);background:rgba(89,0,28,0.04)}
-.cf-success{display:none;padding:3rem 0}
-.cf-success.show{display:block}
-.cf-success-icon{width:48px;height:48px;border:1px solid rgba(89,0,28,0.25);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem}
-.cf-success-icon svg{width:22px;height:22px;stroke:var(--ruby2);stroke-width:2;fill:none}
-.cf-success h3{font-family:var(--ff-display);font-size:1.6rem;font-weight:300;color:var(--obsidian);margin-bottom:0.75rem}
-.cf-success p{font-size:0.88rem;color:var(--text-dim);line-height:1.8}
-
-/* BAND DIVIDER */
-.band{height:4px;background:linear-gradient(90deg,transparent,var(--ruby2),transparent);opacity:0.2}
-
-/* FOOTER */
-footer{background:var(--obsidian);padding:2.5rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
-.foot-wm{font-family:var(--ff-display);font-size:1rem;font-weight:400;color:rgba(193,193,189,0.6);letter-spacing:0.06em}
-.foot-nav{display:flex;gap:2.5rem;list-style:none}
-.foot-nav a{font-family:var(--ff-mono);font-size:0.54rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(193,193,189,0.3);text-decoration:none;transition:color 0.2s}
-.foot-nav a:hover{color:rgba(193,193,189,0.7)}
-.foot-copy{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.1em;color:rgba(193,193,189,0.22)}
-
-/* ══ TOOLS ══ */
-.tools-sec{background:var(--cream)}
-.tools-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem}
-.tool-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
-.tool-card{
-  background:var(--surface);padding:3rem 2.75rem;
-  position:relative;overflow:hidden;transition:background 0.3s;
-  text-decoration:none;display:block;color:inherit;
-}
-.tool-card:hover{background:var(--rose2)}
-.tool-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ruby2);transform:scaleX(0);transform-origin:left;transition:transform 0.45s cubic-bezier(0.16,1,0.3,1)}
-.tool-card:hover::before{transform:scaleX(1)}
-.tool-tag{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ruby2);margin-bottom:1.5rem;display:block}
-.tool-title{font-family:var(--ff-display);font-size:1.6rem;font-weight:400;color:var(--obsidian);line-height:1.2;margin-bottom:0.9rem}
-.tool-body{font-size:0.85rem;color:var(--text-dim);line-height:1.9;margin-bottom:1.75rem}
-.tool-arrow{font-family:var(--ff-mono);font-size:0.54rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ruby2);display:flex;align-items:center;gap:0.5rem;transition:gap 0.25s}
-.tool-card:hover .tool-arrow{gap:0.9rem}
-
-@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-
-@media(max-width:960px){
-  nav{padding:0 1.5rem}
-  .nav-center,.nav-cta{display:none}
-  .nav-toggle{display:flex}
-  .nav-wm{color:var(--obsidian) !important}
-  section{padding:6rem 1.5rem}
-  .hero{padding:0 1.5rem}
-  .hero-h1 .l2{padding-left:1rem}
-  .hero-h1 .l3{padding-left:2rem}
-  .hero-risk-pills{display:none}
-  .position-layout,.practice-intro,.about-layout,.pm-inner,.ai-inner,.svc-anchor,.contact-layout,.tools-intro{grid-template-columns:1fr;gap:3rem}
-  .practice-grid,.tool-grid{grid-template-columns:1fr}
-  .pa-wide{grid-column:span 1}
-  .svc-grid{grid-template-columns:1fr 1fr}
-  .card:nth-child(3n){border-right:1px solid var(--rule)}
-  .card:nth-child(2n){border-right:none}
-  footer{flex-direction:column;padding:2rem 1.5rem}
-  .pm-sec,.ai-sec,.contact-sec{padding:6rem 1.5rem}
-  .pm-sec::before,.ai-sec::before{display:none}
-  .cf-row{grid-template-columns:1fr}
-}
-@media(max-width:580px){
-  .svc-grid{grid-template-columns:1fr}
-  .card:nth-child(n){border-right:none;border-bottom:1px solid var(--rule)}
-  .card:last-child{border-bottom:none}
-  .foot-nav{flex-wrap:wrap;gap:1.25rem}
-}
-</style>
+<link rel="stylesheet" href="assets/css/alt30.css"/>
 </head>
 <body>
 
-<div id="cur"></div>
-<div id="cur-ring"></div>
-
 <!-- NAV -->
 <nav id="nav">
-  <a class="nav-wm" href="#"><em>Alt</em>-30 Consulting</a>
+  <a class="nav-wm" href="index.html"><em>Alt</em>-30</a>
   <ul class="nav-center">
-    <li><a href="#positioning">How We Help</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#tools">Tools</a></li>
-    <li><a href="#research">Reports</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact Us</a></li>
+    <li><a href="government-relations.html">For GR &amp; Lobbying Firms</a></li>
+    <li><a href="campaigns.html">For Campaigns &amp; Caucuses</a></li>
+    <li><a href="procurement.html">For Procurement &amp; Vendors</a></li>
+    <li><a href="#portals">Intelligence Portals</a></li>
+    <li><a href="#compliance">Non-Partisan</a></li>
   </ul>
-  <a class="nav-cta" href="#contact">Request a Briefing</a>
+  <a class="nav-cta" href="#contact">Request a District Brief</a>
   <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 <!-- Mobile drawer -->
 <ul class="nav-drawer" id="nav-drawer">
-  <li><a href="#positioning">How We Help</a></li>
-  <li><a href="#services">Services</a></li>
-  <li><a href="#tools">Tools</a></li>
-  <li><a href="#research">Reports</a></li>
-  <li><a href="#about">About</a></li>
-  <li><a href="#contact">Contact Us</a></li>
-  <li style="border:none"><a class="nav-cta" href="#contact">Request a Briefing</a></li>
+  <li><a href="government-relations.html">For GR &amp; Lobbying Firms</a></li>
+  <li><a href="campaigns.html">For Campaigns &amp; Caucuses</a></li>
+  <li><a href="procurement.html">For Procurement &amp; Vendors</a></li>
+  <li><a href="#portals">Intelligence Portals</a></li>
+  <li><a href="#compliance">Non-Partisan</a></li>
+  <li style="border:none"><a class="nav-cta" href="#contact">Request a District Brief</a></li>
 </ul>
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <canvas id="map-canvas"></canvas>
-  <div class="hero-overlay"></div>
-
   <div class="hero-inner">
-    <div class="hero-kicker">Government Risk Intelligence &nbsp;&mdash;&nbsp; <em>Alt-30 Consulting</em></div>
+    <div class="hero-kicker">Strategic Intelligence &nbsp;&mdash;&nbsp; <em>Phoenix, Arizona</em></div>
     <h1 class="hero-h1">
-      When Policy Changes,
-      <em class="l2">Risk Follows.</em>
-      <span class="l3">Be Prepared.</span>
+      Influence Is Built
+      <em class="l2">on Evidence.</em>
+      <span class="l3">We Supply It.</span>
     </h1>
-    <p class="hero-sub">Alt-30 Consulting delivers independent, longitudinal analysis of government policy risk for state agencies, legislative offices, and the businesses they govern. We quantify what policy change costs before it arrives.</p>
+    <p class="hero-sub">Alt-30 bridges the gap between raw econometric data and winning policy strategy. We arm government relations firms, legislative caucuses, and political campaigns with the bulletproof workforce, tax, and budget data needed to influence decisions.</p>
     <div class="hero-btns">
-      <a class="btn-ruby" href="#practice">Our Practice Areas</a>
-      <a class="btn-ghost-light" href="#contact">Request a Briefing &rarr;</a>
+      <a class="btn-primary" href="#contact">Request an Arizona District Brief</a>
+      <a class="btn-ghost-light" href="#contact">Partner With Us</a>
     </div>
   </div>
-
-  <div class="hero-risk-pills">
-    <div class="risk-pill"><div class="risk-pill-dot"></div>UI Trust Fund Solvency</div>
-    <div class="risk-pill"><div class="risk-pill-dot"></div>287g Policy Diffusion</div>
-    <div class="risk-pill"><div class="risk-pill-dot"></div>Tariff Cost Projections</div>
-    <div class="risk-pill"><div class="risk-pill-dot"></div>AI Displacement Risk</div>
-  </div>
-
   <div class="hero-scroll"><span>Scroll</span><div class="scroll-bar"></div></div>
 </section>
 
 <!-- TICKER -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span class="ti hi">Government Risk Intelligence</span>
-    <span class="ti">UI Trust Fund Solvency</span>
-    <span class="ti hi">287g Policy Diffusion</span>
-    <span class="ti">Tariff Cost Analysis</span>
-    <span class="ti hi">AI Displacement Risk</span>
+    <span class="ti hi">Proprietary Econometric Models</span>
+    <span class="ti">All 30 Arizona Legislative Districts</span>
+    <span class="ti hi">Strategic Intelligence Portals</span>
+    <span class="ti">15 Counties &middot; 91 Municipalities</span>
+    <span class="ti hi">Institutional Partnerships</span>
+    <span class="ti">Workforce &middot; Tax &middot; Budget Data</span>
+    <span class="ti hi">Strictly Non-Partisan</span>
     <span class="ti">Longitudinal Data 1967&ndash;Present</span>
     <span class="ti hi">PhD Economist on Staff</span>
-    <span class="ti">500+ Municipalities</span>
-    <span class="ti hi">No Vendor Conflicts</span>
-    <span class="ti">Be Proactive. Not Reactive.</span>
-    <span class="ti hi">Government Risk Intelligence</span>
-    <span class="ti">UI Trust Fund Solvency</span>
-    <span class="ti hi">287g Policy Diffusion</span>
-    <span class="ti">Tariff Cost Analysis</span>
-    <span class="ti hi">AI Displacement Risk</span>
+    <span class="ti">Committee-Ready Analysis</span>
+    <span class="ti hi">Proprietary Econometric Models</span>
+    <span class="ti">All 30 Arizona Legislative Districts</span>
+    <span class="ti hi">Strategic Intelligence Portals</span>
+    <span class="ti">15 Counties &middot; 91 Municipalities</span>
+    <span class="ti hi">Institutional Partnerships</span>
+    <span class="ti">Workforce &middot; Tax &middot; Budget Data</span>
+    <span class="ti hi">Strictly Non-Partisan</span>
     <span class="ti">Longitudinal Data 1967&ndash;Present</span>
     <span class="ti hi">PhD Economist on Staff</span>
-    <span class="ti">500+ Municipalities</span>
-    <span class="ti hi">No Vendor Conflicts</span>
-    <span class="ti">Be Proactive. Not Reactive.</span>
+    <span class="ti">Committee-Ready Analysis</span>
   </div>
 </div>
 
+<!-- WHO WE SERVE -->
+<section class="aud-sec" id="who-we-serve">
+  <div class="si">
+    <div class="aud-intro">
+      <div>
+        <div class="s-eyebrow rv">Who We Serve</div>
+        <h2 class="s-h2 rv d1">Built for the people<br/><em>who move Arizona.</em></h2>
+      </div>
+      <p class="s-p rv d2">Every institutional partnership begins with the same question: what decision are you trying to influence? Choose the desk you sit at &mdash; the page that follows was written for your exact job.</p>
+    </div>
+    <div class="aud-grid">
+      <a class="aud-card rv" href="government-relations.html">
+        <span class="aud-tag">01 / Government Relations</span>
+        <div class="aud-title">GR &amp; Lobbying Firms</div>
+        <div class="aud-body">Win more retainers. Back up your influence with bulletproof data. Alt-30 operates as your outsourced data science department &mdash; validating policy arguments before they reach a legislative committee.</div>
+        <div class="aud-arrow">For Lobbying Firms &rarr;</div>
+      </a>
+      <a class="aud-card rv d1" href="campaigns.html">
+        <span class="aud-tag">02 / Political Organizations</span>
+        <div class="aud-title">Campaigns, PACs &amp; Caucuses</div>
+        <div class="aud-body">Own the debate stage. Dominate district economics. Pull up-to-the-minute economic health reports for any of Arizona's 30 legislative districts &mdash; before your opponent knows the numbers exist.</div>
+        <div class="aud-arrow">For Campaigns &amp; Caucuses &rarr;</div>
+      </a>
+      <a class="aud-card rv d2" href="procurement.html">
+        <span class="aud-tag">03 / Corporate &amp; Health IT</span>
+        <div class="aud-title">Procurement &amp; State Vendors</div>
+        <div class="aud-body">De-risk your state bids and protect against tax spikes. We track Arizona budget flows, reporting cycles, and agency spend forecasts so your bid lands when the money is real.</div>
+        <div class="aud-arrow">For Vendors &rarr;</div>
+      </a>
+    </div>
+  </div>
+</section>
 
+<div class="band"></div>
 
 <!-- POSITIONING -->
 <section class="position-sec" id="positioning">
   <div class="si">
-    <div class="s-eyebrow rv">Our Philosophy</div>
-    <h2 class="s-h2 rv d1">Fixed scope.<br/><em>No vendor agenda.</em></h2>
+    <div class="s-eyebrow rv">Why Alt-30</div>
+    <h2 class="s-h2 rv d1">Credibility. Risk mitigation.<br/><em>Competitive advantage.</em></h2>
     <div class="position-layout">
       <div class="position-pull rv d2">
-        <p>Every Alt-30 engagement is a discrete, independently produced research product. We carry no software to sell, no platform to upsell.</p>
-        <p><em>Our only product is analysis.</em></p>
-        <p>Government policy is the single largest source of unpriced risk for both public institutions and private organizations. We exist to price it.</p>
+        <p>Influence professionals do not buy software. They buy the confidence to walk into a committee room, a donor meeting, or a bid defense knowing the numbers behind them will hold.</p>
+        <p><em>Alt-30 exists to underwrite that confidence.</em></p>
+        <p>Our proprietary econometric models turn Arizona's workforce, tax, and budget record into arguments that survive scrutiny &mdash; from either side of the aisle.</p>
       </div>
       <div class="position-points rv d3">
         <div class="pp">
           <div class="pp-icon">01</div>
-          <div class="pp-text"><strong>Proactive, Not Reactive</strong>Policy risk that arrives as a surprise is the most expensive kind. We track signals before they become headlines.</div>
+          <div class="pp-text"><strong>Credibility, On Demand</strong>Every figure we deliver traces to an official filing &mdash; state appropriations, tax records, federal labor data. Your claims arrive pre-audited.</div>
         </div>
         <div class="pp">
           <div class="pp-icon">02</div>
-          <div class="pp-text"><strong>Both Sides of the Table</strong>We serve state agencies managing policy and the businesses navigating it. The same government action creates risk on both sides of the equation.</div>
+          <div class="pp-text"><strong>Risk Mitigation</strong>The most expensive moment in public affairs is being corrected on the record. Our analysis is built to withstand a hostile committee hearing without modification.</div>
         </div>
         <div class="pp">
           <div class="pp-icon">03</div>
-          <div class="pp-text"><strong>Longitudinal Depth</strong>Anyone can describe a policy. We can show you what similar policies produced in comparable jurisdictions over decades. That is a different kind of answer.</div>
+          <div class="pp-text"><strong>Competitive Advantage</strong>Hyper-local Arizona coverage &mdash; every legislative district, county, and municipality &mdash; that national data shops cannot match and in-house staff cannot maintain.</div>
         </div>
         <div class="pp">
           <div class="pp-icon">04</div>
-          <div class="pp-text"><strong>No Conflicts, No Platforms</strong>Independent analysis means we are not selling an implementation. Our findings are our product. Nothing else.</div>
+          <div class="pp-text"><strong>Discretion by Design</strong>Institutional partnerships are confidential. Your strategy, your client list, and your use of our intelligence never leave the engagement.</div>
         </div>
       </div>
     </div>
@@ -490,227 +151,140 @@ footer{background:var(--obsidian);padding:2.5rem 4rem;display:flex;align-items:c
 
 <div class="band"></div>
 
-<!-- PRACTICE AREAS -->
-<section class="practice-sec" id="practice">
-  <div class="si">
-    <div class="practice-intro">
-      <div>
-        <div class="s-eyebrow rv">Practice Areas</div>
-        <h2 class="s-h2 rv d1">Four domains.<br/><em>One discipline.</em></h2>
-      </div>
-      <p class="s-p rv d2">Government action creates risk and opportunity simultaneously. We track the specific policy domains where that risk is currently most acute, for both the institutions setting policy and the organizations living under it.</p>
-    </div>
-    <div class="practice-grid">
-      <div class="pa rv">
-        <span class="pa-tag">01 / Practice Area</span>
-        <div class="pa-title">Unemployment Insurance</div>
-        <div class="pa-body">UI trust fund solvency is a structural fiscal risk for state governments and a direct cost driver for employers through FUTA credit reductions and tax rate volatility. We analyze both sides: agency solvency and business exposure.</div>
-        <div class="pa-examples">
-          <span class="pa-ex">Trust Fund Solvency</span>
-          <span class="pa-ex">FUTA Credit Reduction</span>
-          <span class="pa-ex">Overpayment Risk</span>
-          <span class="pa-ex">Reserve Trajectory</span>
-          <span class="pa-ex">Benefit Adequacy</span>
-        </div>
-      </div>
-      <div class="pa rv d1">
-        <span class="pa-tag">02 / Practice Area</span>
-        <div class="pa-title">Immigration Policy</div>
-        <div class="pa-body">287g agreements and broader federal immigration enforcement policy diffuses unevenly across municipalities. We track policy adoption patterns, fiscal impacts on local governments, and labor market disruption at the county level.</div>
-        <div class="pa-examples">
-          <span class="pa-ex">287g Diffusion</span>
-          <span class="pa-ex">Municipal Fiscal Impact</span>
-          <span class="pa-ex">Labor Market Disruption</span>
-          <span class="pa-ex">Policy Spread Modeling</span>
-        </div>
-      </div>
-      <div class="pa rv d2">
-        <span class="pa-tag">03 / Practice Area</span>
-        <div class="pa-title">Trade &amp; Tariff Policy</div>
-        <div class="pa-body">Tariff regimes restructure cost curves across entire industries. We build cost projection models, analyze sector-level exposure, and track downstream effects on municipal revenue and state employment bases.</div>
-        <div class="pa-examples">
-          <span class="pa-ex">Cost Projections</span>
-          <span class="pa-ex">Sector Exposure</span>
-          <span class="pa-ex">Supply Chain Risk</span>
-          <span class="pa-ex">State Revenue Impact</span>
-        </div>
-      </div>
-      <div class="pa rv d3">
-        <span class="pa-tag">04 / Practice Area</span>
-        <div class="pa-title">AI &amp; Labor Displacement</div>
-        <div class="pa-body">Accelerating AI adoption is the most consequential structural labor market shift since offshoring. The question for state UI systems and employers alike is not whether displacement comes — it is whether your institution is positioned for it.</div>
-        <div class="pa-examples">
-          <span class="pa-ex">Displacement Projections</span>
-          <span class="pa-ex">UI Fund Stress Testing</span>
-          <span class="pa-ex">Sector Vulnerability</span>
-          <span class="pa-ex">Workforce Transition</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="band"></div>
-
-<!-- SERVICES -->
-<section class="svc-sec" id="services">
+<!-- CAPABILITIES -->
+<section class="svc-sec" id="capabilities">
   <div class="si">
     <div class="svc-anchor">
       <div>
-        <div class="s-eyebrow rv">What We Deliver</div>
-        <h2 class="s-h2 rv d1">Discrete deliverables.<br/><em>Defensible analysis.</em></h2>
+        <div class="s-eyebrow rv">Capabilities</div>
+        <h2 class="s-h2 rv d1">Proprietary models.<br/><em>Defensible conclusions.</em></h2>
         <div class="svc-motto rv d2">
-          Fixed scope. No vendor agenda.<br/>
-          <em>Our only product is analysis.</em>
+          The data engine behind<br/>
+          <em>Arizona's winning strategies.</em>
         </div>
       </div>
-      <p class="s-p rv d3">Every engagement is a bounded research product with a defined scope, a defined deliverable, and a defined fee. We design for the constraints of government procurement — most entry engagements are structured to qualify for sole-source approval.</p>
+      <p class="s-p rv d3">Alt-30 maintains proprietary econometric models covering Arizona workforce, taxation, and public budgets &mdash; longitudinal to 1967, current to the latest filing cycle. Partners draw on that engine through briefs, retained intelligence, and dedicated strategic intelligence portals.</p>
     </div>
     <div class="svc-grid">
       <div class="card rv">
         <span class="card-n">01</span>
-        <div class="card-title">Policy Risk Snapshot</div>
-        <div class="card-body">A one-page briefing on a specific policy risk facing your organization or jurisdiction, drawn from our longitudinal database and peer comparisons. Delivered before a first conversation.</div>
+        <div class="card-title">Arizona District Briefs</div>
+        <div class="card-body">Committee-ready economic profiles of any Arizona legislative district: employment, wages, tax burden, and budget exposure &mdash; sourced, footnoted, and formatted for the hearing room.</div>
         <span class="card-tag">Entry Engagement</span>
       </div>
       <div class="card rv d1">
         <span class="card-n">02</span>
-        <div class="card-title">Fiscal Stress Test</div>
-        <div class="card-body">Scenario analysis projecting your reserve trajectory or cost exposure under defined policy scenarios. Includes comparable jurisdiction analysis and federal threshold modeling.</div>
-        <span class="card-tag">Agencies &amp; Budget Offices</span>
+        <div class="card-title">Proprietary Econometric Models</div>
+        <div class="card-body">Workforce, tax-incidence, and budget-flow models built on five decades of Arizona filings. When your argument needs a projection, it comes from a model we can defend line by line.</div>
+        <span class="card-tag">The Engine</span>
       </div>
       <div class="card rv d2">
         <span class="card-n">03</span>
-        <div class="card-title">Leading Indicator Monitor</div>
-        <div class="card-body">Ongoing quarterly tracking of early-warning signals across your jurisdiction or sector. Delivered as a recurring brief with updated data and trajectory analysis.</div>
-        <span class="card-tag">Flagship Service</span>
+        <div class="card-title">Strategic Intelligence Portals</div>
+        <div class="card-body">Dedicated, white-labeled portals that put live district, municipal, and agency intelligence in front of your team &mdash; continuously updated, access-controlled, and briefing-ready.</div>
+        <span class="card-tag">Institutional Partnerships</span>
       </div>
       <div class="card rv d3">
         <span class="card-n">04</span>
-        <div class="card-title">Legislative Briefing Package</div>
-        <div class="card-body">Committee-ready analysis framed around constituent impact, peer state outcomes, and cost-of-inaction scenarios. Designed to withstand a hearing without modification.</div>
-        <span class="card-tag">Legislative Offices</span>
+        <div class="card-title">Legislative Testimony Support</div>
+        <div class="card-body">Rapid-response analysis for committee season: validated exhibits, peer-state comparisons, and cost-of-inaction scenarios delivered on legislative timelines, not academic ones.</div>
+        <span class="card-tag">Session Support</span>
       </div>
       <div class="card rv d4">
         <span class="card-n">05</span>
-        <div class="card-title">Policy Impact Report</div>
-        <div class="card-body">Deep analysis of a specific policy action — a new agreement, rate change, or federal rule — modeling projected costs, behavioral responses, and comparable jurisdiction outcomes.</div>
-        <span class="card-tag">Policy &amp; Planning</span>
+        <div class="card-title">Municipal Tax &amp; Levy Tracking</div>
+        <div class="card-body">Automated monitoring of tax rates, levies, and budget adoptions across Arizona's 91 municipalities &mdash; the hyper-local record your opposition research cannot reconstruct in time.</div>
+        <span class="card-tag">Continuous Monitoring</span>
       </div>
       <div class="card rv d5">
         <span class="card-n">06</span>
-        <div class="card-title">Sponsored Research</div>
-        <div class="card-body">Independent longitudinal studies co-developed with policy foundations or university partners. Published through PoliMetrics with full methodology disclosure.</div>
-        <span class="card-tag">Foundations &amp; Universities</span>
+        <div class="card-title">Agency Spend Forecasting</div>
+        <div class="card-body">Budget-flow analysis of Arizona agencies: appropriation cycles, reporting cadences, and procurement windows &mdash; so bids, asks, and amendments land when the money is real.</div>
+        <span class="card-tag">Fiscal Intelligence</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- AI RISK CALLOUT -->
-<section class="ai-sec" id="ai-risk">
-  <div class="ai-inner">
-    <div class="ai-left">
-      <div class="s-eyebrow rv" style="color:var(--ruby3)">Emerging Risk</div>
-      <h2 class="s-h2 rv d1" style="color:#F5F2EC">AI is <em>reshaping</em><br/>the labor market.</h2>
-      <p class="ai-body rv d2">Accelerating AI adoption is the most consequential structural labor market shift in a generation. Jobs at risk from automation translate directly into UI claim pressure, state tax base erosion, and political volatility. How well positioned is your institution?</p>
-      <div style="margin-top:2.5rem" class="rv d3">
-        <a class="btn-ruby" href="#contact">Assess Your Exposure</a>
+<!-- BIPARTISAN COMPLIANCE -->
+<section class="compliance-sec" id="compliance">
+  <div class="compliance-inner">
+    <div class="s-eyebrow rv">Bipartisan Compliance</div>
+    <h2 class="s-h2 rv d1">Objective by mandate.<br/><em>Non-partisan by design.</em></h2>
+    <div class="compliance-layout">
+      <div class="compliance-copy rv d2">
+        <p>Alt-30 is a strict, objective data provider. Our systems track empirical financial metrics, tax filings, and employment data &mdash; <em>without ideological bias, without advocacy, and without exception.</em></p>
+        <p>We serve firms and organizations across the political spectrum, often on opposite sides of the same question. That is only possible because our models produce the same answer no matter who asks. Any firm can bring Alt-30 into a client meeting without conflict of interest &mdash; and both parties' caucuses can cite the same brief.</p>
       </div>
-    </div>
-    <div class="ai-stats rv d2">
-      <div class="ai-stat">
-        <div class="ai-stat-val">47<em style="font-size:1.2rem">%</em></div>
-        <div class="ai-stat-desc">of U.S. jobs at high risk of automation in the next decade, per Oxford University research</div>
-      </div>
-      <div class="ai-stat">
-        <div class="ai-stat-val">$3.7<em style="font-size:1.2rem">T</em></div>
-        <div class="ai-stat-desc">estimated global wage exposure to generative AI displacement by 2030</div>
-      </div>
-      <div class="ai-stat">
-        <div class="ai-stat-val"><em style="font-size:1.2rem">&lt;</em>1.0</div>
-        <div class="ai-stat-desc">AHCM reserve ratio in most states heading into 2026 — the minimum needed before displacement risk escalates</div>
+      <div class="compliance-points rv d3">
+        <div class="cmp"><div class="cmp-lbl">Empirical Only</div><div class="cmp-txt">Every model input is a verifiable public record: tax filings, appropriations, employment statistics. No polling spin, no narrative inputs.</div></div>
+        <div class="cmp"><div class="cmp-lbl">Both Chambers, Both Parties</div><div class="cmp-txt">Our intelligence is engineered to be citable by either caucus. The numbers do not change with the audience.</div></div>
+        <div class="cmp"><div class="cmp-lbl">No Advocacy Positions</div><div class="cmp-txt">Alt-30 takes no position on legislation, candidates, or ballot measures. We quantify consequences; our partners argue them.</div></div>
+        <div class="cmp"><div class="cmp-lbl">Conflict-Free Engagements</div><div class="cmp-txt">We hold no lobbying registrations, make no political contributions as a firm, and carry no client conflicts into your engagement.</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about-sec" id="about">
-  <div class="si">
-    <div class="s-eyebrow rv">About Alt-30</div>
-    <h2 class="s-h2 rv d1">Independent analysis.<br/><em>No conflicts.</em> No platforms.</h2>
-    <div class="about-layout">
-      <div class="about-copy rv d2">
-        <p>Alt-30 Consulting is an independent government risk intelligence firm built around a single differentiator: <em>we built our own data infrastructure from scratch.</em></p>
-        <p>Our proprietary longitudinal database covers 500+ municipalities and all 50 states from fiscal year 1967 to present, integrated with Census, FRED, DOL, and state appropriations data. That infrastructure lets us show clients what a policy trajectory means before it shows up in a budget shortfall or a political crisis.</p>
-        <p>We carry a PhD economist on every engagement, operate with no vendor relationships, and publish independent research through <em>PoliMetrics</em>, our research platform covering state fiscal policy, labor economics, and federal policy diffusion.</p>
-        <p>We serve both sides of the policy table — <strong>the governments setting policy and the organizations navigating its consequences.</strong></p>
-      </div>
-      <div class="creds rv d3">
-        <div class="cred"><div class="cred-lbl">Longitudinal Depth</div><div class="cred-txt">Fiscal year 1967 to present across 500+ jurisdictions. Pattern recognition requires history. We have it.</div></div>
-        <div class="cred"><div class="cred-lbl">PhD Economist on Staff</div><div class="cred-txt">Government risk and labor economics expertise on every engagement. Not contracted. On staff.</div></div>
-        <div class="cred"><div class="cred-lbl">Both Sides of Policy</div><div class="cred-txt">We serve agencies managing policy and businesses navigating it. The same government action creates risk on both sides.</div></div>
-        <div class="cred"><div class="cred-lbl">No Vendor Conflicts</div><div class="cred-txt">We do not sell software, platforms, or implementation services. Our analysis is not a sales funnel for anything else.</div></div>
-        <div class="cred"><div class="cred-lbl">Deliverables That Travel</div><div class="cred-txt">Every report is designed to be placed in front of a director, committee chair, or CFO without modification.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- POLIMETRICS -->
-<section class="pm-sec" id="research">
-  <div class="pm-inner">
-    <div class="rv">
-      <div class="pm-eyebrow">Research Platform</div>
-      <div class="pm-title">Poli<em>Metrics</em></div>
-      <p class="pm-p">Alt-30's independent research publication covering state fiscal policy, federal policy diffusion, labor economics, and government risk. Published for policymakers, legislative staff, institutional researchers, and business leaders navigating policy risk.</p>
-      <a class="btn-ruby" href="#">Read PoliMetrics</a>
-    </div>
-    <div class="pm-articles rv d2">
-      <div class="pm-a"><div class="pm-atype">UI Research</div><div class="pm-atitle">UI Trust Fund Solvency After COVID: Which States Are Still Exposed and Why</div></div>
-      <div class="pm-a"><div class="pm-atype">Immigration</div><div class="pm-atitle">287g Policy Diffusion: Fiscal and Labor Market Impacts on Adopting Municipalities</div></div>
-      <div class="pm-a"><div class="pm-atype">Trade</div><div class="pm-atitle">Tariff Pass-Through: Modeling Downstream Cost Exposure by Sector and State</div></div>
-      <div class="pm-a"><div class="pm-atype">AI Risk</div><div class="pm-atitle">Automation and the UI Trust Fund: Is Your State Positioned for the Next Wave?</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- TOOLS -->
-<section class="tools-sec" id="tools">
+<!-- INTELLIGENCE PORTALS -->
+<section class="tools-sec" id="portals">
   <div class="si">
     <div class="tools-intro">
       <div>
-        <div class="s-eyebrow rv">Interactive Tools</div>
-        <h2 class="s-h2 rv d1">Live data.<br/><em>Explore the research.</em></h2>
+        <div class="s-eyebrow rv">Strategic Intelligence Portals</div>
+        <h2 class="s-h2 rv d1">The engine,<br/><em>in your hands.</em></h2>
       </div>
-      <p class="s-p rv d2">Our public-facing tools put years of longitudinal government data in your hands. Benchmark your municipality, assess UI system performance, or estimate your 287g policy exposure — directly from the data.</p>
+      <p class="s-p rv d2">A working sample of the proprietary econometric models behind every Alt-30 engagement. Institutional partners receive dedicated, access-controlled portals tailored to their districts, clients, and bids.</p>
     </div>
     <div class="tool-grid">
       <a class="tool-card rv" href="https://polimetrics.shinyapps.io/Municipal_Benchmarks/" target="_blank" rel="noopener">
         <span class="tool-tag">01 / Municipal Finance</span>
         <div class="tool-title">Municipal Benchmarks</div>
-        <div class="tool-body">Compare your municipality's fiscal health against 500+ peers across revenue, expenditure, reserves, and debt ratios. Powered by longitudinal Census of Governments data from 1967 to present.</div>
-        <div class="tool-arrow">Launch Tool &rarr;</div>
+        <div class="tool-body">Compare any Arizona municipality's fiscal position against decades of peers &mdash; revenue, expenditure, reserves, and debt &mdash; drawn from longitudinal Census of Governments records.</div>
+        <div class="tool-arrow">Open Portal &rarr;</div>
       </a>
-      <a class="tool-card rv d1" href="https://alt-30.com/census-portal.html" target="_blank" rel="noopener">
-        <span class="tool-tag">02 / Demographics</span>
+      <a class="tool-card rv d1" href="census-portal.html" target="_blank" rel="noopener">
+        <span class="tool-tag">02 / District Economics</span>
         <div class="tool-title">Census Data Portal</div>
-        <div class="tool-body">Access and visualize Census demographic and economic data by state and county. Filter by population, income, employment, and housing variables to contextualize your policy analysis.</div>
-        <div class="tool-arrow">Launch Tool &rarr;</div>
+        <div class="tool-body">District and county economic profiles on demand: population, income, employment, and housing &mdash; the constituent economics behind every persuasive floor speech.</div>
+        <div class="tool-arrow">Open Portal &rarr;</div>
       </a>
       <a class="tool-card rv d2" href="https://alt30.shinyapps.io/state-ui-report-card/" target="_blank" rel="noopener">
-        <span class="tool-tag">03 / Unemployment Insurance</span>
+        <span class="tool-tag">03 / Workforce</span>
         <div class="tool-title">State UI Report Card</div>
-        <div class="tool-body">Grade your state's unemployment insurance system on solvency, benefit adequacy, and administrative performance. Updated with current DOL data and includes federal AHCM reserve ratio thresholds.</div>
-        <div class="tool-arrow">Launch Tool &rarr;</div>
+        <div class="tool-body">Solvency, benefit adequacy, and administrative performance of state unemployment systems &mdash; the workforce risk picture behind labor and tax policy debates.</div>
+        <div class="tool-arrow">Open Portal &rarr;</div>
       </a>
       <a class="tool-card rv d3" href="https://polimetrics.shinyapps.io/287g_Risk_Calculator/" target="_blank" rel="noopener">
-        <span class="tool-tag">04 / Immigration Policy</span>
-        <div class="tool-title">287g Risk Calculator</div>
-        <div class="tool-body">Estimate the fiscal and labor market risk of 287g policy adoption for your county. Models enforcement cost projections, workforce disruption, and municipal revenue exposure based on comparable adopter outcomes.</div>
-        <div class="tool-arrow">Launch Tool &rarr;</div>
+        <span class="tool-tag">04 / Policy Exposure</span>
+        <div class="tool-title">287g Exposure Model</div>
+        <div class="tool-body">County-level fiscal and labor market exposure modeling for 287g policy adoption &mdash; enforcement costs, workforce disruption, and municipal revenue impact.</div>
+        <div class="tool-arrow">Open Portal &rarr;</div>
       </a>
+    </div>
+  </div>
+</section>
+
+<div class="band"></div>
+
+<!-- ABOUT -->
+<section class="about-sec" id="about">
+  <div class="si">
+    <div class="s-eyebrow rv">The Firm</div>
+    <h2 class="s-h2 rv d1">A data engine,<br/><em>run like a firm.</em></h2>
+    <div class="about-layout">
+      <div class="about-copy rv d2">
+        <p>Alt-30 is an Arizona strategic intelligence firm built around a single asset: <em>proprietary data infrastructure we constructed ourselves.</em></p>
+        <p>Our econometric models integrate five decades of appropriations, tax, and employment records across Arizona's 15 counties, 91 municipalities, and all 30 legislative districts &mdash; cross-referenced with federal Census, labor, and fiscal data. The name is the mandate: <strong>every one of Arizona's 30 districts, covered.</strong></p>
+        <p>A PhD economist stands behind every engagement. We do not lobby, we do not poll, and we do not advise on message. We supply the evidence layer beneath all three.</p>
+      </div>
+      <div class="creds rv d3">
+        <div class="cred"><div class="cred-lbl">Arizona Depth</div><div class="cred-txt">Every legislative district, county, and municipality in the state &mdash; tracked continuously, not assembled on request.</div></div>
+        <div class="cred"><div class="cred-lbl">Longitudinal Record</div><div class="cred-txt">Fiscal year 1967 to present. Pattern recognition requires history; five decades of it lives in our models.</div></div>
+        <div class="cred"><div class="cred-lbl">PhD Economist on Staff</div><div class="cred-txt">Econometric rigor on every deliverable. Not contracted out. On staff.</div></div>
+        <div class="cred"><div class="cred-lbl">Institutional Partnerships</div><div class="cred-txt">We work through confidential, retained relationships with firms, caucuses, and enterprises &mdash; not seat licenses.</div></div>
+        <div class="cred"><div class="cred-lbl">Deliverables That Travel</div><div class="cred-txt">Every brief is designed to be placed in front of a committee chair, a client, or a CFO without modification.</div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -720,13 +294,13 @@ footer{background:var(--obsidian);padding:2.5rem 4rem;display:flex;align-items:c
 <!-- CONTACT -->
 <section class="contact-sec" id="contact">
   <div class="si">
-    <div class="s-eyebrow rv">Contact Us</div>
-    <h2 class="s-h2 rv d1">Policy risk doesn't wait.<br/><em>Neither should you.</em></h2>
+    <div class="s-eyebrow rv">Begin the Conversation</div>
+    <h2 class="s-h2 rv d1">Your next argument<br/><em>deserves better evidence.</em></h2>
     <div class="contact-layout">
 
       <!-- Left: info -->
       <div class="contact-left rv d2">
-        <p class="s-p">We will put together a policy risk snapshot for your jurisdiction or sector before our first conversation. No sales pitch. No platform demo. Just the data and what it suggests.</p>
+        <p class="s-p">Request a complimentary Arizona District Brief for any legislative district, or open a conversation about an institutional partnership. We respond with data, not a pitch deck.</p>
         <a class="contact-email" href="mailto:morgan.harman@alt-30.com">morgan.harman@alt-30.com</a>
         <div class="contact-detail">
           <div class="cd">
@@ -734,16 +308,16 @@ footer{background:var(--obsidian);padding:2.5rem 4rem;display:flex;align-items:c
             <div class="cd-val">Within one business day</div>
           </div>
           <div class="cd">
-            <div class="cd-lbl">Entry Engagement</div>
-            <div class="cd-val">Policy risk snapshot delivered before our first call — no fee, no obligation</div>
+            <div class="cd-lbl">District Brief</div>
+            <div class="cd-val">A sample economic brief for one Arizona legislative district of your choice &mdash; no fee, no obligation</div>
           </div>
           <div class="cd">
-            <div class="cd-lbl">Procurement</div>
-            <div class="cd-val">Most entry engagements are structured for sole-source approval</div>
+            <div class="cd-lbl">Confidentiality</div>
+            <div class="cd-val">All inquiries and partnerships are held in strict confidence</div>
           </div>
           <div class="cd">
             <div class="cd-lbl">Location</div>
-            <div class="cd-val">Remote-first. Nationwide.</div>
+            <div class="cd-val">Phoenix, Arizona &middot; Serving the entire state</div>
           </div>
         </div>
       </div>
@@ -764,31 +338,30 @@ footer{background:var(--obsidian);padding:2.5rem 4rem;display:flex;align-items:c
             </div>
             <div class="cf-group">
               <label for="cf-email">Email address <span class="cf-req">*</span></label>
-              <input type="email" id="cf-email" name="email" placeholder="jane@agency.gov" required>
+              <input type="email" id="cf-email" name="email" placeholder="jane@yourfirm.com" required>
             </div>
             <div class="cf-group">
-              <label for="cf-org">Organization / Agency</label>
-              <input type="text" id="cf-org" name="organization" placeholder="State of Arizona">
+              <label for="cf-org">Firm / Organization</label>
+              <input type="text" id="cf-org" name="organization" placeholder="Your firm, caucus, or company">
             </div>
             <div class="cf-group">
-              <label for="cf-service">Area of interest</label>
+              <label for="cf-service">I represent&hellip;</label>
               <select id="cf-service" name="service">
-                <option value="" disabled selected>Select a practice area…</option>
-                <option value="Unemployment Insurance">Unemployment Insurance</option>
-                <option value="Immigration Policy / 287g">Immigration Policy / 287g</option>
-                <option value="Trade & Tariff Policy">Trade &amp; Tariff Policy</option>
-                <option value="AI & Labor Displacement">AI &amp; Labor Displacement</option>
-                <option value="Municipal Finance Benchmarks">Municipal Finance Benchmarks</option>
-                <option value="Sponsored Research">Sponsored Research</option>
+                <option value="" disabled selected>Select your organization type&hellip;</option>
+                <option value="Government Relations / Lobbying Firm">A government relations / lobbying firm</option>
+                <option value="Campaign / PAC / Legislative Caucus">A campaign, PAC, or legislative caucus</option>
+                <option value="Corporate Procurement / Health IT Vendor">A corporate procurement or Health IT team</option>
+                <option value="Arizona District Brief Request">Requesting an Arizona District Brief</option>
+                <option value="Institutional Partnership Inquiry">Exploring an institutional partnership</option>
                 <option value="Other">Other</option>
               </select>
             </div>
             <div class="cf-group">
-              <label for="cf-message">What decision are you facing?</label>
-              <textarea id="cf-message" name="message" placeholder="Briefly describe the risk or decision you need analyzed…"></textarea>
+              <label for="cf-message">What decision are you trying to influence?</label>
+              <textarea id="cf-message" name="message" placeholder="Briefly describe the committee, race, bid, or client question in front of you&hellip;"></textarea>
             </div>
             <button type="submit" class="cf-submit" id="cf-submit">
-              <span class="cf-btn-text">Send Message</span>
+              <span class="cf-btn-text">Send Inquiry</span>
               <span class="cf-spinner" id="cf-spinner"></span>
             </button>
             <div class="cf-msg" id="cf-error" role="alert">
@@ -801,8 +374,8 @@ footer{background:var(--obsidian);padding:2.5rem 4rem;display:flex;align-items:c
           <div class="cf-success-icon">
             <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <h3>Message received.</h3>
-          <p>Thanks for reaching out. We'll review your note and follow up within one business day — often with a policy risk snapshot already in hand.</p>
+          <h3>Inquiry received.</h3>
+          <p>Thank you. We will review your note and respond within one business day &mdash; often with a district brief already in hand.</p>
         </div>
       </div>
 
@@ -812,16 +385,19 @@ footer{background:var(--obsidian);padding:2.5rem 4rem;display:flex;align-items:c
 
 <!-- FOOTER -->
 <footer>
-  <div class="foot-wm">Alt-30 Consulting</div>
-  <ul class="foot-nav">
-    <li><a href="#positioning">How We Help</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#tools">Tools</a></li>
-    <li><a href="#research">Reports</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact Us</a></li>
-  </ul>
-  <div class="foot-copy">&copy; 2026 Alt-30 Consulting. All rights reserved.</div>
+  <div class="foot-top">
+    <div class="foot-wm">Alt-30 &middot; Strategic Intelligence</div>
+    <ul class="foot-nav">
+      <li><a href="government-relations.html">GR &amp; Lobbying</a></li>
+      <li><a href="campaigns.html">Campaigns &amp; Caucuses</a></li>
+      <li><a href="procurement.html">Procurement &amp; Vendors</a></li>
+      <li><a href="index.html#portals">Intelligence Portals</a></li>
+      <li><a href="index.html#compliance">Non-Partisan</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="foot-note"><strong>A note on objectivity:</strong> Alt-30 is a strict, non-partisan data provider. Our systems track empirical financial metrics, tax filings, and employment data without ideological bias. We take no positions on legislation, candidates, or ballot measures, hold no lobbying registrations, and serve institutional partners across the political spectrum without conflict of interest.</div>
+  <div class="foot-copy">&copy; 2026 Alt-30 LLC. All rights reserved.</div>
 </footer>
 
 <script>
@@ -885,13 +461,6 @@ footer{background:var(--obsidian);padding:2.5rem 4rem;display:flex;align-items:c
   });
 })();
 
-/* ── CURSOR ── */
-const cur=document.getElementById('cur');
-const ring=document.getElementById('cur-ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
-(function loop(){rx+=(mx-rx)*0.11;ry+=(my-ry)*0.11;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
-
 /* ── NAV ── */
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
@@ -913,155 +482,6 @@ const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')});
 },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
-
-/* ══ ANIMATED US MAP ══ */
-(function(){
-  const canvas = document.getElementById('map-canvas');
-  const ctx = canvas.getContext('2d');
-
-  function resize(){
-    const hero = canvas.parentElement;
-    canvas.width = hero.offsetWidth;
-    canvas.height = hero.offsetHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  // Simplified US state centroids [x%, y%] relative to canvas
-  const nodes = [
-    // West
-    {x:8,y:28,r:'WA'},{x:8,y:38,r:'OR'},{x:6,y:52,r:'CA'},{x:14,y:42,r:'ID'},
-    {x:18,y:32,r:'MT'},{x:16,y:55,r:'NV'},{x:20,y:62,r:'AZ'},{x:21,y:48,r:'UT'},
-    {x:24,y:40,r:'WY'},{x:27,y:52,r:'CO'},{x:28,y:64,r:'NM'},
-    // Plains / Midwest
-    {x:32,y:32,r:'ND'},{x:33,y:42,r:'SD'},{x:33,y:52,r:'NE'},{x:34,y:62,r:'KS'},
-    {x:37,y:32,r:'MN'},{x:39,y:42,r:'IA'},{x:39,y:52,r:'MO'},{x:38,y:62,r:'OK'},
-    {x:37,y:71,r:'TX'},{x:43,y:38,r:'WI'},{x:44,y:48,r:'IL'},{x:44,y:58,r:'AR'},
-    {x:44,y:67,r:'LA'},{x:47,y:42,r:'IN'},{x:48,y:52,r:'KY'},{x:49,y:60,r:'TN'},
-    {x:49,y:68,r:'MS'},{x:49,y:34,r:'MI'},{x:51,y:42,r:'OH'},{x:51,y:58,r:'AL'},
-    // Southeast
-    {x:53,y:66,r:'GA'},{x:55,y:74,r:'FL'},{x:53,y:50,r:'WV'},{x:54,y:55,r:'VA'},
-    {x:55,y:62,r:'SC'},{x:55,y:44,r:'PA'},{x:56,y:50,r:'MD'},{x:56,y:57,r:'NC'},
-    // Northeast
-    {x:57,y:36,r:'NY'},{x:59,y:30,r:'VT'},{x:60,y:27,r:'ME'},{x:60,y:34,r:'NH'},
-    {x:61,y:38,r:'MA'},{x:62,y:42,r:'RI'},{x:63,y:40,r:'CT'},{x:63,y:46,r:'NJ'},
-    {x:64,y:44,r:'DE'},
-    // Alaska & Hawaii
-    {x:10,y:82,r:'AK'},{x:22,y:84,r:'HI'},
-  ];
-
-  // Connection pairs (indices)
-  const edges = [
-    [0,1],[1,2],[1,3],[0,3],[3,4],[4,5],[5,6],[5,7],[6,7],[7,8],[8,9],[9,10],
-    [4,11],[11,12],[12,13],[13,14],[11,15],[15,16],[16,17],[17,18],[18,19],
-    [15,20],[20,21],[21,22],[22,23],[20,24],[24,25],[25,26],[26,27],[24,28],
-    [28,29],[29,30],[30,31],[29,32],[32,33],[33,34],[32,35],[35,36],[36,37],
-    [37,38],[35,39],[39,40],[40,41],[41,42],[42,43],[43,44],
-  ];
-
-  // Color palette inspired by the choropleth map
-  const nodeColors = [
-    '#C84B8A','#9B3B9B','#7B2D8C','#E87040','#D45C20',
-    '#8B1A8B','#B84070','#D4609A','#E8A030','#C85030',
-    '#A02870','#7020A0','#5018A0','#3A10B0','#B03878',
-    '#E06028','#C84048','#8828A8','#6018B0','#D87038',
-  ];
-
-  // Pulse animations
-  const pulses = [];
-  function spawnPulse(){
-    const edgeIdx = Math.floor(Math.random()*edges.length);
-    const [a,b] = edges[edgeIdx];
-    pulses.push({a,b,t:0,speed:0.004+Math.random()*0.006,color:nodeColors[Math.floor(Math.random()*nodeColors.length)]});
-  }
-  for(let i=0;i<8;i++) setTimeout(()=>spawnPulse(), i*400);
-
-  let frame=0;
-  function draw(){
-    const W=canvas.width, H=canvas.height;
-    ctx.clearRect(0,0,W,H);
-
-    // Map the node % coordinates to actual pixels
-    function px(n){ return {x:n.x/100*W, y:n.y/100*H} }
-
-    // Draw edges
-    edges.forEach(([a,b])=>{
-      const pa=px(nodes[a]), pb=px(nodes[b]);
-      ctx.beginPath();
-      ctx.moveTo(pa.x,pa.y);
-      ctx.lineTo(pb.x,pb.y);
-      ctx.strokeStyle='rgba(193,193,189,0.07)';
-      ctx.lineWidth=1;
-      ctx.stroke();
-    });
-
-    // Draw pulse animations along edges
-    pulses.forEach((p,i)=>{
-      p.t += p.speed;
-      if(p.t>1){
-        p.t=0;
-        // pick new edge
-        const edgeIdx=Math.floor(Math.random()*edges.length);
-        p.a=edges[edgeIdx][0];p.b=edges[edgeIdx][1];
-        p.color=nodeColors[Math.floor(Math.random()*nodeColors.length)];
-      }
-      const pa=px(nodes[p.a]), pb=px(nodes[p.b]);
-      const px2=pa.x+(pb.x-pa.x)*p.t;
-      const py2=pa.y+(pb.y-pa.y)*p.t;
-
-      // Glowing trail
-      const grad=ctx.createRadialGradient(px2,py2,0,px2,py2,12);
-      grad.addColorStop(0,p.color+'CC');
-      grad.addColorStop(0.4,p.color+'44');
-      grad.addColorStop(1,'transparent');
-      ctx.beginPath();
-      ctx.arc(px2,py2,12,0,Math.PI*2);
-      ctx.fillStyle=grad;
-      ctx.fill();
-
-      // Edge highlight behind pulse
-      ctx.beginPath();
-      ctx.moveTo(pa.x,pa.y);
-      ctx.lineTo(pb.x,pb.y);
-      ctx.strokeStyle=p.color+'30';
-      ctx.lineWidth=2;
-      ctx.stroke();
-    });
-
-    // Spawn new pulses occasionally
-    if(frame%90===0 && pulses.length<20) spawnPulse();
-
-    // Draw nodes
-    nodes.forEach((n,i)=>{
-      const p=px(n);
-      const col=nodeColors[i%nodeColors.length];
-      const pulse=(Math.sin(frame*0.04+i*0.7)*0.5+0.5);
-      const r=3+pulse*2;
-
-      // Outer glow
-      const grd=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,r*4);
-      grd.addColorStop(0,col+'60');
-      grd.addColorStop(1,'transparent');
-      ctx.beginPath();
-      ctx.arc(p.x,p.y,r*4,0,Math.PI*2);
-      ctx.fillStyle=grd;
-      ctx.fill();
-
-      // Node dot
-      ctx.beginPath();
-      ctx.arc(p.x,p.y,r,0,Math.PI*2);
-      ctx.fillStyle=col+'CC';
-      ctx.fill();
-    });
-
-    frame++;
-    requestAnimationFrame(draw);
-  }
-  draw();
-
-  // Spawn new pulses periodically
-  setInterval(spawnPulse,1200);
-})();
 </script>
 </body>
 </html>
