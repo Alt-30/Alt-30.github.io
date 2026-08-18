@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Alt-30 | Firm Overview</title>
+<meta name="description" content="Firm overview: Alt-30 is an economic consulting firm producing economic impact studies, fiscal analyses, revenue forecasts, and expert testimony across 50 states."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/alt30.css"/>
+<style>
+/* ── Prospectus components. Page-scoped; reuses the site palette + type. ── */
+.pv-cover{position:relative;min-height:82svh;display:flex;flex-direction:column;justify-content:center;padding:10rem 4rem 5rem;background:var(--obsidian);overflow:hidden}
+.pv-cover::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 70% at 80% 110%,rgba(89,0,28,0.30) 0%,transparent 60%)}
+.pv-cover-in{position:relative;z-index:2;max-width:1180px;margin:0 auto;width:100%}
+.pv-mark{font-family:var(--ff-display);font-size:clamp(3.4rem,8vw,7rem);font-weight:300;color:#F8F5F0;line-height:1;letter-spacing:-0.02em;display:flex;align-items:center;gap:1.5rem}
+.pv-mark span{color:var(--ruby3)}
+.pv-cover-rule{height:1px;background:rgba(193,193,189,0.22);margin:3rem 0 2.25rem}
+.pv-cover-meta{display:flex;flex-wrap:wrap;gap:3.5rem}
+.pv-cover-meta div{font-family:var(--ff-mono);font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(193,193,189,0.55)}
+.pv-cover-meta strong{display:block;font-family:var(--ff-sans);font-size:0.95rem;font-weight:400;letter-spacing:0;text-transform:none;color:#F8F5F0;margin-top:0.5rem}
+
+/* Contents */
+.pv-toc-sec{background:var(--cream);padding:6rem 4rem}
+.pv-toc{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:0 5rem}
+.pv-toc a{display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:baseline;padding:1.35rem 0;border-bottom:1px solid var(--rule);text-decoration:none;transition:padding 0.25s}
+.pv-toc a:hover{padding-left:0.6rem}
+.pv-toc-n{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.16em;color:var(--ruby2)}
+.pv-toc-t{font-family:var(--ff-display);font-size:1.35rem;font-weight:400;color:var(--obsidian);line-height:1.2}
+.pv-toc-a{font-family:var(--ff-mono);font-size:0.58rem;color:var(--ruby2)}
+
+/* Numbered section headers */
+.pv-head{display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:start;margin-bottom:4rem}
+.pv-num{font-family:var(--ff-display);font-size:clamp(3rem,6vw,5.5rem);font-weight:300;color:rgba(89,0,28,0.18);line-height:0.85}
+.pv-head .s-h2{margin-top:0.4rem}
+
+/* Bold lead-in points — the signature pattern of an offering memorandum */
+.pv-points{display:flex;flex-direction:column;gap:1.6rem;max-width:640px}
+.pv-point{font-size:0.9rem;color:var(--text-dim);line-height:1.9}
+.pv-point strong{font-family:var(--ff-mono);font-size:0.63rem;font-weight:400;letter-spacing:0.13em;text-transform:uppercase;color:var(--obsidian);margin-right:0.55rem}
+
+/* Four-pillar process row */
+.pv-pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:1rem}
+.pv-pillar{background:var(--surface);padding:2.5rem 1.9rem;position:relative}
+.pv-pillar::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ruby2);transform:scaleX(0);transform-origin:left;transition:transform 0.45s cubic-bezier(0.16,1,0.3,1)}
+.pv-pillar:hover::before{transform:scaleX(1)}
+.pv-pillar-n{font-family:var(--ff-mono);font-size:0.55rem;letter-spacing:0.18em;color:var(--ruby2);display:block;margin-bottom:1.25rem}
+.pv-pillar-t{font-family:var(--ff-display);font-size:1.3rem;font-weight:500;color:var(--obsidian);margin-bottom:0.7rem;line-height:1.25}
+.pv-pillar-b{font-size:0.82rem;color:var(--text-dim);line-height:1.85}
+
+/* Team */
+.pv-team{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.pv-member{background:var(--surface);padding:3rem 2.6rem;display:grid;grid-template-columns:88px 1fr;gap:2rem;align-items:start}
+.pv-photo{width:88px;height:88px;border:1px solid var(--rule);background:var(--cream);display:flex;align-items:center;justify-content:center;font-family:var(--ff-display);font-size:1.6rem;color:var(--ruby2)}
+.pv-name{font-family:var(--ff-display);font-size:1.45rem;font-weight:500;color:var(--obsidian);line-height:1.15}
+.pv-role{font-family:var(--ff-mono);font-size:0.56rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ruby2);margin:0.5rem 0 1.15rem}
+.pv-bio{font-size:0.84rem;color:var(--text-dim);line-height:1.85}
+.pv-creds{margin-top:1.2rem;padding-top:1.1rem;border-top:1px solid var(--rule);list-style:none;display:flex;flex-direction:column;gap:0.4rem}
+.pv-creds li{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.06em;color:var(--text-dim)}
+.pv-creds li::before{content:'\2014';color:var(--ruby2);margin-right:0.6rem}
+.pv-todo{background:rgba(89,0,28,0.05);border:1px dashed rgba(89,0,28,0.3);color:var(--ruby2);font-family:var(--ff-mono);font-size:0.58rem;letter-spacing:0.08em;padding:0.5rem 0.75rem;display:inline-block;margin-top:0.4rem}
+
+/* Market tiers */
+.pv-markets{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.pv-market{background:var(--surface);padding:2.4rem 2.2rem}
+.pv-market-t{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ruby2);margin-bottom:0.9rem}
+.pv-market-b{font-size:0.84rem;color:var(--text-dim);line-height:1.85}
+
+/* Key/value data table */
+.pv-table{border-top:1px solid var(--rule)}
+.pv-row{display:grid;grid-template-columns:1fr 1.4fr;gap:2rem;padding:1.15rem 0;border-bottom:1px solid var(--rule)}
+.pv-k{font-family:var(--ff-mono);font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ruby2)}
+.pv-v{font-size:0.88rem;color:var(--text-body);line-height:1.7}
+
+/* Back cover */
+.pv-back{background:var(--obsidian);padding:6rem 4rem}
+.pv-back-in{max-width:1180px;margin:0 auto}
+.pv-contacts{display:grid;grid-template-columns:repeat(2,1fr);gap:2.5rem;margin-top:3rem;padding-top:2.5rem;border-top:1px solid rgba(193,193,189,0.18)}
+.pv-contact-n{font-family:var(--ff-display);font-size:1.3rem;color:#F8F5F0}
+.pv-contact-r{font-family:var(--ff-mono);font-size:0.56rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--ruby3);margin:0.4rem 0 0.8rem}
+.pv-contact-d{font-size:0.85rem;color:rgba(193,193,189,0.65);line-height:1.8}
+.pv-contact-d a{color:rgba(193,193,189,0.85);text-decoration:none;border-bottom:1px solid rgba(193,193,189,0.25)}
+.pv-contact-d a:hover{color:#F8F5F0}
+
+@media(max-width:1080px){
+  .pv-cover{padding:8rem 1.5rem 4rem}
+  .pv-toc-sec,.pv-back{padding:4rem 1.5rem}
+  .pv-toc{grid-template-columns:1fr;gap:0}
+  .pv-pillars,.pv-team,.pv-markets,.pv-contacts{grid-template-columns:1fr}
+  .pv-head{grid-template-columns:1fr;gap:0.75rem;margin-bottom:2.5rem}
+  .pv-num{font-size:2.6rem}
+  .pv-row{grid-template-columns:1fr;gap:0.4rem}
+  .pv-member{grid-template-columns:1fr;gap:1.25rem}
+  .pv-cover-meta{gap:2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-wm" href="index.html"><em>&#9650;</em> Alt-30</a>
+  <ul class="nav-center">
+    <li><a href="government-relations.html">GR &amp; Lobbying</a></li>
+    <li><a href="campaigns.html">Campaigns</a></li>
+    <li><a href="procurement.html">Procurement</a></li>
+    <li><a href="municipalities.html">Municipalities</a></li>
+    <li><a href="firm-overview.html">Firm Overview</a></li>
+  </ul>
+  <a class="nav-cta" href="index.html#contact">Request an Analysis</a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<ul class="nav-drawer" id="nav-drawer">
+  <li><a href="government-relations.html">GR &amp; Lobbying</a></li>
+  <li><a href="campaigns.html">Campaigns &amp; Caucuses</a></li>
+  <li><a href="procurement.html">Procurement &amp; Vendors</a></li>
+  <li><a href="municipalities.html">Municipalities</a></li>
+  <li><a href="firm-overview.html">Firm Overview</a></li>
+  <li><a href="index.html#tools">Portals</a></li>
+  <li style="border:none"><a class="nav-cta" href="index.html#contact">Request an Analysis</a></li>
+</ul>
+
+<!-- COVER -->
+<header class="pv-cover">
+  <div class="pv-cover-in">
+    <div class="hero-kicker" style="animation:none;opacity:1">Firm Overview &nbsp;&mdash;&nbsp; <em>2026</em></div>
+    <div class="pv-mark"><span>&#9650;</span> Alt-30</div>
+    <div class="pv-cover-rule"></div>
+    <p class="hero-sub" style="animation:none;opacity:1;margin-bottom:0;max-width:640px">An economic consulting firm. We measure what public policy does to an economy &mdash; before it passes, and after.</p>
+    <div class="pv-cover-meta">
+      <div>Practice<strong>Economic Consulting</strong></div>
+      <div>Coverage<strong>50 States &middot; 500+ Municipalities</strong></div>
+      <div>Record<strong>FY 1967 &ndash; Present</strong></div>
+      <div>Headquarters<strong>Phoenix, Arizona</strong></div>
+    </div>
+  </div>
+</header>
+
+<!-- CONTENTS -->
+<section class="pv-toc-sec">
+  <div style="max-width:1180px;margin:0 auto 3rem">
+    <div class="s-eyebrow rv">Contents</div>
+  </div>
+  <div class="pv-toc">
+    <a href="#firm"><span class="pv-toc-n">01</span><span class="pv-toc-t">The Firm</span><span class="pv-toc-a">&rarr;</span></a>
+    <a href="#approach"><span class="pv-toc-n">02</span><span class="pv-toc-t">How We Work</span><span class="pv-toc-a">&rarr;</span></a>
+    <a href="#services"><span class="pv-toc-n">03</span><span class="pv-toc-t">Service Lines</span><span class="pv-toc-a">&rarr;</span></a>
+    <a href="#team"><span class="pv-toc-n">04</span><span class="pv-toc-t">Leadership</span><span class="pv-toc-a">&rarr;</span></a>
+    <a href="#coverage"><span class="pv-toc-n">05</span><span class="pv-toc-t">Coverage &amp; Markets</span><span class="pv-toc-a">&rarr;</span></a>
+    <a href="#clients"><span class="pv-toc-n">06</span><span class="pv-toc-t">Who We Serve</span><span class="pv-toc-a">&rarr;</span></a>
+    <a href="#opportunity"><span class="pv-toc-n">07</span><span class="pv-toc-t">The Opportunity</span><span class="pv-toc-a">&rarr;</span></a>
+    <a href="#engagement"><span class="pv-toc-n">08</span><span class="pv-toc-t">Engagement Terms</span><span class="pv-toc-a">&rarr;</span></a>
+  </div>
+</section>
+
+<!-- 01 THE FIRM -->
+<section class="position-sec" id="firm">
+  <div class="si">
+    <div class="pv-head rv">
+      <div class="pv-num">01</div>
+      <div>
+        <div class="s-eyebrow">The Firm</div>
+        <h2 class="s-h2">About the name,<br/><em>and the practice.</em></h2>
+      </div>
+    </div>
+    <div class="position-layout" style="margin-top:0">
+      <div class="position-pull rv d2">
+        <p>Hold <em>Alt</em> and type <em>30</em>. A keyboard returns <span style="color:var(--ruby2)">&#9650;</span> &mdash; the oldest notation in economics for a quantity that has moved.</p>
+        <p>That is the whole of the work. A tax cut moves a general fund. A plant closure moves a county payroll. A development moves a city revenue base for thirty years.</p>
+        <p><em>Every question a client brings us is finally a question about how much moved, in which direction, and for whom.</em></p>
+      </div>
+      <div class="pv-points rv d3">
+        <p class="pv-point"><strong>Alt-30 is an economic consulting firm</strong> producing the impact studies, fiscal analyses, revenue forecasts, and expert testimony that public and private decision-makers rely on when a policy, a project, or a budget is on the table.</p>
+        <p class="pv-point"><strong>The firm maintains its own records</strong> of appropriations, tax filings, and employment across fifty states and more than five hundred municipalities, back to fiscal year 1967, because measuring a change requires knowing what preceded it.</p>
+        <p class="pv-point"><strong>A PhD economist leads each engagement</strong> and presents the findings. We do not subcontract the analysis, and we do not send someone else to defend it.</p>
+        <p class="pv-point"><strong>Alt-30 began in Arizona</strong> and keeps unusual depth in that market. The method is identical in every state we cover, which is what lets one finding be compared against another.</p>
+        <p class="pv-point"><strong>We do not lobby, poll, or advise on message.</strong> We produce the number, disclose how it was derived, and defend it in the room.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band"></div>
+
+<!-- 02 HOW WE WORK -->
+<section class="practice-sec" id="approach">
+  <div class="si">
+    <div class="pv-head rv">
+      <div class="pv-num">02</div>
+      <div>
+        <div class="s-eyebrow">How We Work</div>
+        <h2 class="s-h2">Four stages,<br/><em>one standard of proof.</em></h2>
+      </div>
+    </div>
+    <p class="s-p rv d1" style="margin-bottom:2.5rem">An engagement is scoped and priced before work begins. What varies is the question; what does not vary is that every assumption is stated, every input is traceable, and the economist who built the model is the one who presents it.</p>
+    <div class="pv-pillars rv d2">
+      <div class="pv-pillar">
+        <span class="pv-pillar-n">01 / Define</span>
+        <div class="pv-pillar-t">Frame the Question</div>
+        <div class="pv-pillar-b">We establish what decision the analysis has to support, what would change the answer, and what standard of evidence the room will demand. Scope, deliverable, and fee are fixed here.</div>
+      </div>
+      <div class="pv-pillar">
+        <span class="pv-pillar-n">02 / Measure</span>
+        <div class="pv-pillar-t">Build the Model</div>
+        <div class="pv-pillar-b">Inputs are drawn from primary filings and never carried forward from an earlier study without re-verification. Multipliers and elasticities are chosen on the record and disclosed in the report.</div>
+      </div>
+      <div class="pv-pillar">
+        <span class="pv-pillar-n">03 / Deliver</span>
+        <div class="pv-pillar-t">Present the Finding</div>
+        <div class="pv-pillar-b">Findings arrive formatted for the venue that will receive them: a committee, a council, a board, or a newsroom. The economist who built the model takes the questions.</div>
+      </div>
+      <div class="pv-pillar">
+        <span class="pv-pillar-n">04 / Maintain</span>
+        <div class="pv-pillar-t">Keep It Current</div>
+        <div class="pv-pillar-b">Most studies are filed and immediately begin to age. Ours can be maintained as a living portal that updates as new filings post, so the finding is current the next time it is needed.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 SERVICE LINES -->
+<section class="svc-sec" id="services">
+  <div class="si">
+    <div class="pv-head rv">
+      <div class="pv-num">03</div>
+      <div>
+        <div class="s-eyebrow">Service Lines</div>
+        <h2 class="s-h2">Six services.<br/><em>Scoped and priced in advance.</em></h2>
+      </div>
+    </div>
+    <div class="svc-grid">
+      <div class="card rv">
+        <span class="card-n">01</span>
+        <div class="card-title">Economic Impact Analysis</div>
+        <div class="card-body">What a project, employer, or policy contributes to an economy: output, earnings, and employment, direct and indirect, with every multiplier and assumption stated on the page.</div>
+        <span class="card-tag">Core Service</span>
+      </div>
+      <div class="card rv d1">
+        <span class="card-n">02</span>
+        <div class="card-title">Fiscal Impact Analysis</div>
+        <div class="card-body">What a decision does to a public budget. Revenue and expenditure effects modeled by fund and by year, across the horizon a council or a legislature actually plans against.</div>
+        <span class="card-tag">Core Service</span>
+      </div>
+      <div class="card rv d2">
+        <span class="card-n">03</span>
+        <div class="card-title">Tax Policy Analysis</div>
+        <div class="card-body">Incidence, elasticity, and revenue consequence of a proposed change: who pays it, how behavior responds, and what the treasury collects once it does.</div>
+        <span class="card-tag">Core Service</span>
+      </div>
+      <div class="card rv d3">
+        <span class="card-n">04</span>
+        <div class="card-title">Revenue Forecasting</div>
+        <div class="card-body">Baseline and scenario forecasts for general funds, shared-revenue distributions, and dedicated streams &mdash; rebuilt as conditions change rather than once a year.</div>
+        <span class="card-tag">Recurring</span>
+      </div>
+      <div class="card rv d4">
+        <span class="card-n">05</span>
+        <div class="card-title">Expert Testimony &amp; Presentation</div>
+        <div class="card-body">Findings presented to a committee, a council, a board, or a newsroom by the economist who produced them, and defended under questioning.</div>
+        <span class="card-tag">Public Record</span>
+      </div>
+      <div class="card rv d5">
+        <span class="card-n">06</span>
+        <div class="card-title">Living Data Portals</div>
+        <div class="card-body">A maintained portal that updates as new filings post, so an analysis stays current after delivery. Access-controlled, white-labeled, and built for a client team to use directly.</div>
+        <span class="card-tag">What Sets Us Apart</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 LEADERSHIP -->
+<section class="about-sec" id="team">
+  <div class="si">
+    <div class="pv-head rv">
+      <div class="pv-num">04</div>
+      <div>
+        <div class="s-eyebrow">Leadership</div>
+        <h2 class="s-h2">The people who<br/><em>sign the analysis.</em></h2>
+      </div>
+    </div>
+    <p class="s-p rv d1" style="margin-bottom:2.5rem">An engagement is led by the economist whose name appears on it. The same person builds the model, writes the report, and answers for it in the hearing room.</p>
+    <div class="pv-team rv d2">
+      <div class="pv-member">
+        <div class="pv-photo">&#9650;</div>
+        <div>
+          <div class="pv-name">Morgan Harman</div>
+          <div class="pv-role">[Title &mdash; add]</div>
+          <div class="pv-bio">[Bio &mdash; add. Career history, prior firms, the kind of engagements led, and the areas of analysis owned.]</div>
+          <ul class="pv-creds">
+            <li>[Degree, institution]</li>
+            <li>[Degree, institution]</li>
+            <li>[Years of industry experience]</li>
+          </ul>
+          <div class="pv-todo">Placeholder &mdash; replace before publishing</div>
+        </div>
+      </div>
+      <div class="pv-member">
+        <div class="pv-photo">&#9650;</div>
+        <div>
+          <div class="pv-name">[Name]</div>
+          <div class="pv-role">[Title &mdash; add]</div>
+          <div class="pv-bio">[Bio &mdash; add.]</div>
+          <ul class="pv-creds">
+            <li>[Degree, institution]</li>
+            <li>[Degree, institution]</li>
+            <li>[Years of industry experience]</li>
+          </ul>
+          <div class="pv-todo">Placeholder &mdash; replace before publishing</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band"></div>
+
+<!-- 05 COVERAGE -->
+<section class="tools-sec" id="coverage">
+  <div class="si">
+    <div class="pv-head rv">
+      <div class="pv-num">05</div>
+      <div>
+        <div class="s-eyebrow">Coverage &amp; Markets</div>
+        <h2 class="s-h2">Public finance is local.<br/><em>The method is not.</em></h2>
+      </div>
+    </div>
+    <p class="s-p rv d1" style="margin-bottom:2.5rem">Every state writes its own budget, levies its own taxes, and shares revenue with its municipalities on its own formula. We hold the record for each and build to one methodology, which is what allows a finding in one jurisdiction to be set against a finding in another.</p>
+    <div class="pv-markets rv d2">
+      <div class="pv-market">
+        <div class="pv-market-t">Arizona &mdash; Home Market</div>
+        <div class="pv-market-b">Where the firm began and where our depth is greatest: every legislative district, all fifteen counties, and the ninety-one incorporated municipalities, with standing relationships at the statehouse and in town halls.</div>
+      </div>
+      <div class="pv-market">
+        <div class="pv-market-t">West &amp; Southwest</div>
+        <div class="pv-market-b">Secondary focus, where shared-revenue structures and growth dynamics closely resemble Arizona&rsquo;s and our comparison sets are strongest.</div>
+      </div>
+      <div class="pv-market">
+        <div class="pv-market-t">National Coverage</div>
+        <div class="pv-market-b">All fifty states and more than five hundred municipalities carried in the longitudinal record, back to fiscal year 1967, and maintained continuously rather than assembled per engagement.</div>
+      </div>
+      <div class="pv-market">
+        <div class="pv-market-t">Federal Data Integration</div>
+        <div class="pv-market-b">State and local records are cross-referenced against Census, Bureau of Labor Statistics, and federal fiscal releases, so a local finding can be placed in a national context on the same page.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 WHO WE SERVE -->
+<section class="practice-sec" id="clients">
+  <div class="si">
+    <div class="pv-head rv">
+      <div class="pv-num">06</div>
+      <div>
+        <div class="s-eyebrow">Who We Serve</div>
+        <h2 class="s-h2">Different clients.<br/><em>The same question.</em></h2>
+      </div>
+    </div>
+    <div class="practice-grid">
+      <a class="pa rv" href="government-relations.html" style="text-decoration:none;color:inherit;display:block">
+        <span class="pa-tag">01 / Practice</span>
+        <div class="pa-title">Government Relations &amp; Lobbying Firms</div>
+        <div class="pa-body">A position advanced on assertion gets corrected in public; a position carrying an impact study does not. We are the economics bench behind government relations practices, producing analysis a firm presents under its own name.</div>
+        <div class="pa-examples">
+          <span class="pa-ex">Committee Exhibits</span>
+          <span class="pa-ex">Position Review</span>
+          <span class="pa-ex">White-Label Briefs</span>
+        </div>
+      </a>
+      <a class="pa rv d1" href="campaigns.html" style="text-decoration:none;color:inherit;display:block">
+        <span class="pa-tag">02 / Practice</span>
+        <div class="pa-title">Campaigns, PACs &amp; Legislative Caucuses</div>
+        <div class="pa-body">Candidates are held to economic claims about the district they seek to represent, and rarely have staff able to verify them. We build the district profile and check the claim before it is published rather than after.</div>
+        <div class="pa-examples">
+          <span class="pa-ex">District Profiles</span>
+          <span class="pa-ex">Debate Preparation</span>
+          <span class="pa-ex">Claim Review</span>
+        </div>
+      </a>
+      <a class="pa rv d2" href="procurement.html" style="text-decoration:none;color:inherit;display:block">
+        <span class="pa-tag">03 / Practice</span>
+        <div class="pa-title">Corporate Procurement &amp; Health IT</div>
+        <div class="pa-body">Whether a solicitation is genuinely funded is a question of appropriations, not procurement language. We analyze agency budget conditions, obligation timelines, and the tax exposure that follows fiscal stress.</div>
+        <div class="pa-examples">
+          <span class="pa-ex">Bid / No-Bid Briefs</span>
+          <span class="pa-ex">Spend Forecasts</span>
+          <span class="pa-ex">Tax Exposure</span>
+        </div>
+      </a>
+      <a class="pa rv d3" href="municipalities.html" style="text-decoration:none;color:inherit;display:block">
+        <span class="pa-tag">04 / Practice</span>
+        <div class="pa-title">Municipalities &amp; Local Government</div>
+        <div class="pa-body">Most towns depend on shared revenue they neither levy nor can forecast, and cannot fund an economist to model it. We serve as fractional economic staff: distribution scenarios, revenue alternatives, and the analysis officials carry to the statehouse.</div>
+        <div class="pa-examples">
+          <span class="pa-ex">Fiscal Threat Modeling</span>
+          <span class="pa-ex">Revenue Design</span>
+          <span class="pa-ex">Legislative Defense</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 07 THE OPPORTUNITY -->
+<section class="ai-sec" id="opportunity">
+  <div class="ai-inner">
+    <div class="ai-left">
+      <div class="pv-num rv" style="color:rgba(248,245,240,0.14);margin-bottom:1.25rem">07</div>
+      <div class="s-eyebrow rv" style="color:var(--ruby3)">The Opportunity</div>
+      <h2 class="s-h2 rv d1" style="color:#F5F2EC">What an engagement<br/><em>actually buys.</em></h2>
+      <p class="ai-body rv d2">Economic consulting is bought at the moment a decision has to be defended. The value is not the report; it is walking into the room already knowing what the strongest objection is and having the answer in the document.</p>
+      <div style="margin-top:2.5rem" class="rv d3">
+        <a class="btn-ruby" href="index.html#contact">Request an Analysis</a>
+      </div>
+    </div>
+    <div class="ai-stats rv d2">
+      <div class="ai-stat">
+        <div class="ai-stat-val">1967</div>
+        <div class="ai-stat-desc">start of the longitudinal record, so a change can be measured against what actually preceded it rather than against last year alone</div>
+      </div>
+      <div class="ai-stat">
+        <div class="ai-stat-val">50</div>
+        <div class="ai-stat-desc">states held on one methodology, which is what allows a finding in one jurisdiction to be compared against another</div>
+      </div>
+      <div class="ai-stat">
+        <div class="ai-stat-val">0</div>
+        <div class="ai-stat-desc">lobbying registrations, advocacy positions, or political contributions made by the firm</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="svc-sec">
+  <div class="si">
+    <div class="pv-points rv" style="max-width:920px">
+      <p class="pv-point"><strong>Analysis that survives cross-examination.</strong> Assumptions, multipliers, and elasticities appear in the report rather than in a file we keep. A skeptic can disagree with an assumption and see exactly what changing it would do &mdash; which is why our findings are cited rather than disputed.</p>
+      <p class="pv-point"><strong>An economist, not an account team.</strong> The person who builds the model writes the report and presents it. There is no handoff between the analysis and its defense, and no one in the room who cannot answer a question about method.</p>
+      <p class="pv-point"><strong>Findings that do not expire on delivery.</strong> A conventional study is accurate on the day it is filed and decays from there. Delivered as a living portal, an Alt-30 analysis updates as new filings post, which matters when a bill returns in the next session.</p>
+      <p class="pv-point"><strong>Capability without headcount.</strong> A retained relationship gives a firm, caucus, or town the analytical function of a research department at a fraction of the cost of building one &mdash; and without carrying an analyst between sessions.</p>
+      <p class="pv-point"><strong>Independence you can hand to anyone.</strong> Because the firm holds no lobbying registrations and takes no position on legislation, our work can be brought into a client meeting, a committee hearing, or a newsroom without creating a conflict for whoever carries it.</p>
+      <p class="pv-point"><strong>Depth no national shop maintains.</strong> Most research firms model states. We model jurisdictions &mdash; the district, the county, the town &mdash; because that is the level at which a policy is actually felt and at which an argument is actually won.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 08 ENGAGEMENT TERMS -->
+<section class="position-sec" id="engagement">
+  <div class="si">
+    <div class="pv-head rv">
+      <div class="pv-num">08</div>
+      <div>
+        <div class="s-eyebrow">Engagement Terms</div>
+        <h2 class="s-h2">How the work<br/><em>is structured.</em></h2>
+      </div>
+    </div>
+    <div class="position-layout" style="margin-top:0;align-items:start">
+      <div class="rv d2">
+        <div class="pv-table">
+          <div class="pv-row"><div class="pv-k">Firm</div><div class="pv-v">Alt-30 LLC &mdash; economic consulting</div></div>
+          <div class="pv-row"><div class="pv-k">Headquarters</div><div class="pv-v">Phoenix, Arizona</div></div>
+          <div class="pv-row"><div class="pv-k">Coverage</div><div class="pv-v">50 states &middot; 500+ municipalities &middot; FY 1967 to present</div></div>
+          <div class="pv-row"><div class="pv-k">Engagement Types</div><div class="pv-v">Single study, session-length retainer, or standing advisory relationship</div></div>
+          <div class="pv-row"><div class="pv-k">Fee Basis</div><div class="pv-v">Fixed fee, scoped and agreed before work begins</div></div>
+          <div class="pv-row"><div class="pv-k">Deliverables</div><div class="pv-v">Written report with disclosed methodology; presentation by the lead economist; optional maintained data portal</div></div>
+          <div class="pv-row"><div class="pv-k">Attribution</div><div class="pv-v">Issued under Alt-30 or white-labeled to the client, at the client&rsquo;s election</div></div>
+          <div class="pv-row"><div class="pv-k">Confidentiality</div><div class="pv-v">Client relationships and work product held in strict confidence</div></div>
+          <div class="pv-row"><div class="pv-k">Conflicts</div><div class="pv-v">No lobbying registrations, advocacy positions, or firm political contributions</div></div>
+        </div>
+      </div>
+      <div class="pv-points rv d3">
+        <p class="pv-point"><strong>Scope precedes price.</strong> We define the question, the deliverable, and the fee before any analysis begins. Clients do not receive an invoice shaped by how long the work turned out to take.</p>
+        <p class="pv-point"><strong>A first engagement is usually small.</strong> Most relationships begin with a single brief on one jurisdiction or one bill, which is enough for a client to judge the standard of the work before committing further.</p>
+        <p class="pv-point"><strong>Retainers follow the calendar.</strong> Session-length and annual relationships are structured around the legislative and budget cycles a client actually operates on, with rapid-response capacity during session.</p>
+        <p class="pv-point"><strong>The method does not change with the client.</strong> We are engaged by organizations on opposite sides of the same question, and the analysis is built the same way for each.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BACK COVER -->
+<section class="pv-back">
+  <div class="pv-back-in">
+    <div class="pv-mark" style="font-size:clamp(2.4rem,5vw,4rem)"><span>&#9650;</span> Alt-30</div>
+    <p class="hero-sub" style="animation:none;opacity:1;margin:2rem 0 0;max-width:560px">Tell us the question in front of you. We will prepare a brief on the jurisdiction, agency, or bill you name before we speak.</p>
+    <div class="pv-contacts">
+      <div>
+        <div class="pv-contact-n">Morgan Harman</div>
+        <div class="pv-contact-r">[Title &mdash; add]</div>
+        <div class="pv-contact-d"><a href="mailto:morgan.harman@alt-30.com">morgan.harman@alt-30.com</a><br/>[Phone &mdash; add]</div>
+      </div>
+      <div>
+        <div class="pv-contact-n">General Inquiries</div>
+        <div class="pv-contact-r">Engagements &amp; Partnerships</div>
+        <div class="pv-contact-d"><a href="index.html#contact">alt-30.com/contact</a><br/>Phoenix, Arizona &middot; Serving 50 states</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="flex-direction:column;gap:1.75rem;align-items:flex-start">
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;width:100%">
+    <div class="foot-wm">&#9650; Alt-30 &middot; Economic Consulting</div>
+    <ul class="foot-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="firm-overview.html">Firm Overview</a></li>
+      <li><a href="government-relations.html">GR &amp; Lobbying</a></li>
+      <li><a href="campaigns.html">Campaigns</a></li>
+      <li><a href="procurement.html">Procurement</a></li>
+      <li><a href="municipalities.html">Municipalities</a></li>
+    </ul>
+  </div>
+  <div style="font-size:0.76rem;color:rgba(193,193,189,0.42);line-height:1.85;max-width:960px;border-top:1px solid rgba(255,255,255,0.07);padding-top:1.5rem"><span style="color:rgba(193,193,189,0.65);font-weight:500">A note on objectivity:</span> Alt-30 is a strict, non-partisan economic consulting firm. Our analyses track empirical financial metrics, tax filings, and employment data without ideological bias. We take no positions on legislation, candidates, or ballot measures, hold no lobbying registrations, and serve clients across the political spectrum without conflict of interest.</div>
+  <div class="foot-copy">&copy; 2026 Alt-30 LLC. All rights reserved.</div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+nav.classList.add('scrolled');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',true));
+const toggle=document.getElementById('nav-toggle');
+const drawer=document.getElementById('nav-drawer');
+toggle.addEventListener('click',()=>{
+  const open=drawer.classList.toggle('open');
+  toggle.classList.toggle('open',open);
+});
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  drawer.classList.remove('open');
+  toggle.classList.remove('open');
+}));
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')});
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
