@@ -3,827 +3,321 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Alt-30 | Your External Intelligence Team</title>
-<meta name="description" content="Alt-30 provides external intelligence for organizations navigating economic, workforce, and public-sector change. We monitor. We analyze. You decide."/>
+<title>Alt-30 | Clear Insights for Evolving Markets</title>
+<meta name="description" content="Alt-30 provides independent economic, workforce, and market intelligence to help organizations understand what is changing and what it means for them."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --obsidian:#0D1216;
-  --obsidian2:#1A2332;
-  --forest:#30332F;
-  --ruby:#59001C;
-  --ruby2:#6E0022;
-  --ruby3:#8C0028;
-  --mist:#C1C1BD;
-  --mist2:#E2E2DE;
-  --rose:#FFE6E6;
-  --rose2:#FFF0F0;
-  --cream:#F5F2EC;
-  --paper:#FAFAF8;
-  --surface:#FFFFFF;
-  --text-head:#0D1216;
-  --text-body:#3A3D3A;
-  --text-dim:#7A7D78;
-  --rule:rgba(13,18,22,0.08);
-  --rule2:rgba(13,18,22,0.05);
-  --ff-display:'Cormorant',Georgia,serif;
-  --ff-sans:'Jost',sans-serif;
-  --ff-mono:'IBM Plex Mono',monospace;
-}
-html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--text-body);font-family:var(--ff-sans);font-weight:300;line-height:1.7;overflow-x:hidden;cursor:none}
-
-/* CURSOR */
-#cur{position:fixed;width:7px;height:7px;background:var(--ruby2);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
-#cur-ring{position:fixed;width:30px;height:30px;border:1px solid rgba(89,0,28,0.35);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width 0.3s,height 0.3s,border-color 0.3s}
-body:has(a:hover) #cur-ring{width:50px;height:50px;border-color:rgba(110,0,34,0.6)}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:72px;transition:background 0.4s,box-shadow 0.4s}
-nav.scrolled{background:rgba(250,250,248,0.96);backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--rule),0 4px 24px rgba(13,18,22,0.06)}
-.nav-wm{font-family:var(--ff-display);font-size:1.25rem;font-weight:500;color:#F8F5F0;letter-spacing:0.04em;text-decoration:none;display:flex;align-items:baseline;gap:0.3rem;transition:color 0.4s}
-.nav-wm em{font-style:normal;color:var(--ruby3)}
-nav.scrolled .nav-wm{color:var(--obsidian)}
-.nav-center{display:flex;gap:2.5rem;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
-.nav-center a{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(248,245,240,0.75);text-decoration:none;transition:color 0.2s;white-space:nowrap}
-nav.scrolled .nav-center a{color:var(--text-dim)}
-.nav-center a:hover{color:var(--ruby2) !important}
-.nav-cta{font-family:var(--ff-mono);font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--surface);background:var(--ruby2);padding:0.65rem 1.75rem;text-decoration:none;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%);transition:background 0.25s;white-space:nowrap}
-.nav-cta:hover{background:var(--ruby3)}
-/* Mobile toggle */
-.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:transparent;border:none;cursor:pointer;padding:4px;z-index:600}
-.nav-toggle span{display:block;height:1px;background:#F8F5F0;transition:transform 0.3s,opacity 0.3s,background 0.4s}
-nav.scrolled .nav-toggle span{background:var(--obsidian)}
-.nav-toggle.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
-.nav-toggle.open span:nth-child(2){opacity:0}
-.nav-toggle.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-/* Mobile drawer */
-.nav-drawer{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(250,250,248,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--rule);z-index:499;padding:1.5rem 2rem 2rem;flex-direction:column;gap:0}
-.nav-drawer.open{display:flex}
-.nav-drawer li{list-style:none;border-bottom:1px solid var(--rule)}
-.nav-drawer li:first-child{border-top:1px solid var(--rule)}
-.nav-drawer a{display:block;font-family:var(--ff-mono);font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;padding:1rem 0;transition:color 0.2s}
-.nav-drawer a:hover{color:var(--ruby2)}
-.nav-drawer .nav-cta{display:inline-block;margin-top:1.5rem;clip-path:none}
-
-/* ══ HERO ══ */
-.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:0 4rem;overflow:hidden;background:var(--obsidian)}
-
-/* Map canvas fills the hero */
-#map-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:1}
-
-/* Dark overlay gradient so text is readable */
-.hero-overlay{
-  position:absolute;inset:0;
-  background:
-    linear-gradient(90deg, rgba(13,18,22,0.92) 0%, rgba(13,18,22,0.75) 45%, rgba(13,18,22,0.3) 100%),
-    linear-gradient(180deg, rgba(13,18,22,0.4) 0%, transparent 30%, transparent 70%, rgba(13,18,22,0.6) 100%);
-}
-
-.hero-inner{position:relative;z-index:2;max-width:840px}
-.hero-kicker{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.24em;text-transform:uppercase;color:rgba(193,193,189,0.7);margin-bottom:2.5rem;display:flex;align-items:center;gap:1.25rem;opacity:0;animation:up 0.9s cubic-bezier(0.16,1,0.3,1) 0.15s forwards}
-.hero-kicker::before{content:'';width:26px;height:1px;background:var(--ruby3);flex-shrink:0}
-.hero-kicker em{color:var(--ruby3);font-style:normal}
-.hero-h1{font-family:var(--ff-display);font-size:clamp(3.2rem,6.5vw,6.4rem);font-weight:300;line-height:1.04;color:#F8F5F0;letter-spacing:-0.02em;margin-bottom:2.5rem;opacity:0;animation:up 1s cubic-bezier(0.16,1,0.3,1) 0.3s forwards}
-.hero-h1 .l2{display:block;padding-left:2.5rem;font-style:italic;font-weight:400;color:var(--mist2)}
-.hero-h1 .l3{display:block;padding-left:5rem;color:var(--ruby3)}
-.hero-sub{font-size:0.97rem;color:rgba(193,193,189,0.78);line-height:1.95;max-width:500px;margin-bottom:3.5rem;opacity:0;animation:up 1s cubic-bezier(0.16,1,0.3,1) 0.5s forwards}
-.hero-btns{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;opacity:0;animation:up 1s cubic-bezier(0.16,1,0.3,1) 0.65s forwards}
-
-/* Risk pills floating bottom right */
-.hero-risk-pills{
-  position:absolute;bottom:4rem;right:4rem;z-index:3;
-  display:flex;flex-direction:column;gap:0.6rem;align-items:flex-end;
-  opacity:0;animation:fadeIn 1.2s ease 1.2s forwards;
-}
-.risk-pill{
-  font-family:var(--ff-mono);font-size:0.55rem;
-  letter-spacing:0.14em;text-transform:uppercase;
-  background:rgba(13,18,22,0.7);
-  border:1px solid rgba(140,0,40,0.35);
-  color:rgba(193,193,189,0.8);
-  padding:0.4rem 1rem;
-  backdrop-filter:blur(8px);
-  display:flex;align-items:center;gap:0.6rem;
-  transition:border-color 0.3s,color 0.3s;
-}
-.risk-pill:hover{border-color:var(--ruby3);color:var(--mist2)}
-.risk-pill-dot{width:5px;height:5px;border-radius:50%;background:var(--ruby3);animation:dotPulse 2s ease-in-out infinite}
-.risk-pill:nth-child(2) .risk-pill-dot{animation-delay:0.4s}
-.risk-pill:nth-child(3) .risk-pill-dot{animation-delay:0.8s}
-.risk-pill:nth-child(4) .risk-pill-dot{animation-delay:1.2s}
-@keyframes dotPulse{0%,100%{opacity:0.4;transform:scale(0.8)}50%{opacity:1;transform:scale(1.2)}}
-
-.hero-scroll{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;opacity:0;animation:fadeIn 1s ease 1.4s forwards}
-.hero-scroll span{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(193,193,189,0.35)}
-.scroll-bar{width:1px;height:42px;background:linear-gradient(var(--ruby3),transparent);animation:scrollAnim 2.2s ease-in-out infinite}
-@keyframes scrollAnim{0%,100%{opacity:0.2;transform:scaleY(0.5);transform-origin:top}50%{opacity:0.7;transform:scaleY(1);transform-origin:top}}
-
-/* Buttons */
-.btn-ruby{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--surface);background:var(--ruby2);padding:1.1rem 2.4rem;text-decoration:none;display:inline-block;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%);transition:background 0.25s}
-.btn-ruby:hover{background:var(--ruby3)}
-.btn-ghost-light{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(193,193,189,0.8);border-bottom:1px solid rgba(193,193,189,0.25);padding-bottom:0.2rem;text-decoration:none;transition:color 0.25s,border-color 0.25s}
-.btn-ghost-light:hover{color:#F8F5F0;border-color:rgba(193,193,189,0.6)}
-.btn-outline-ruby{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ruby2);border:1px solid rgba(89,0,28,0.3);padding:1.1rem 2.4rem;text-decoration:none;display:inline-block;transition:border-color 0.25s,color 0.25s,background 0.25s}
-.btn-outline-ruby:hover{border-color:var(--ruby2);background:rgba(89,0,28,0.04)}
-.btn-link-ruby{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ruby2);border-bottom:1px solid rgba(89,0,28,0.25);padding-bottom:0.2rem;text-decoration:none;transition:color 0.25s,border-color 0.25s}
-.btn-link-ruby:hover{color:var(--ruby3);border-color:var(--ruby2)}
-
-/* TICKER */
-.ticker{border-bottom:1px solid var(--rule);background:var(--obsidian2);padding:0.85rem 0;overflow:hidden}
-.ticker-track{display:flex;width:max-content;animation:tick 36s linear infinite}
-.ti{font-family:var(--ff-mono);font-size:0.56rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(193,193,189,0.4);white-space:nowrap;padding:0 2.5rem;border-right:1px solid rgba(255,255,255,0.05)}
-.ti.hi{color:rgba(140,0,40,0.85)}
-@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-
-
-/* SECTION BASE */
-section{padding:9rem 4rem;position:relative}
-.si{max-width:1180px;margin:0 auto}
-.s-eyebrow{font-family:var(--ff-mono);font-size:0.56rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--ruby2);margin-bottom:1rem;display:flex;align-items:center;gap:1rem}
-.s-eyebrow::before{content:'';width:18px;height:1px;background:var(--ruby2);flex-shrink:0}
-.s-h2{font-family:var(--ff-display);font-size:clamp(2.2rem,4vw,3.8rem);font-weight:300;color:var(--obsidian);line-height:1.1;letter-spacing:-0.01em}
-.s-h2 em{font-style:italic;font-weight:400;color:var(--ruby2)}
-.s-p{font-size:0.92rem;color:var(--text-dim);line-height:1.95;max-width:580px}
-
-/* REVEAL */
-.rv{opacity:0;transform:translateY(24px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
-.rv.on{opacity:1;transform:translateY(0)}
-.d1{transition-delay:0.1s}.d2{transition-delay:0.2s}.d3{transition-delay:0.3s}
-.d4{transition-delay:0.4s}.d5{transition-delay:0.5s}.d6{transition-delay:0.6s}
-
-/* ══ POSITIONING STATEMENT ══ */
-.position-sec{background:var(--paper)}
-.position-layout{display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center;margin-top:5rem}
-.position-pull{
-  font-family:var(--ff-display);font-size:1.7rem;
-  font-weight:300;color:var(--obsidian);line-height:1.6;
-}
-.position-pull em{font-style:italic;color:var(--ruby2)}
-.position-pull p+p{margin-top:1.5rem}
-.position-points{display:flex;flex-direction:column;gap:0}
-.pp{padding:1.6rem 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:start}
-.pp:first-child{border-top:1px solid var(--rule)}
-.pp-icon{font-family:var(--ff-mono);font-size:0.55rem;letter-spacing:0.12em;color:var(--ruby2);padding-top:0.1rem;white-space:nowrap}
-.pp-text{font-size:0.88rem;color:var(--text-dim);line-height:1.8}
-.pp-text strong{display:block;font-family:var(--ff-sans);font-weight:500;color:var(--obsidian);font-size:0.92rem;margin-bottom:0.2rem}
-
-/* ══ PRACTICE AREAS ══ */
-.practice-sec{background:var(--cream)}
-.practice-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem}
-/* Big area cards */
-.practice-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
-.pa{
-  background:var(--surface);padding:3.5rem 3rem;
-  position:relative;overflow:hidden;transition:background 0.3s;
-}
-.pa:hover{background:var(--rose2)}
-.pa::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ruby2);transform:scaleX(0);transform-origin:left;transition:transform 0.45s cubic-bezier(0.16,1,0.3,1)}
-.pa:hover::before{transform:scaleX(1)}
-.pa-tag{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ruby2);margin-bottom:1.75rem;display:block}
-.pa-title{font-family:var(--ff-display);font-size:1.8rem;font-weight:400;color:var(--obsidian);line-height:1.2;margin-bottom:1rem}
-.pa-body{font-size:0.85rem;color:var(--text-dim);line-height:1.9;margin-bottom:1.75rem}
-.pa-examples{display:flex;flex-wrap:wrap;gap:0.5rem}
-.pa-ex{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.1em;text-transform:uppercase;background:rgba(89,0,28,0.06);color:var(--ruby2);padding:0.3rem 0.75rem;border:1px solid rgba(89,0,28,0.12)}
-/* Full-width bottom card */
-.pa-wide{grid-column:span 2;border-top:1px solid var(--rule)}
-
-/* ══ SERVICES ══ */
-.svc-sec{background:var(--paper)}
-.svc-anchor{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem}
-.svc-motto{
-  font-family:var(--ff-display);font-size:1.5rem;
-  font-weight:300;color:var(--obsidian);line-height:1.6;
-  border-left:2px solid var(--ruby2);padding-left:2rem;
-  margin-top:2rem;
-}
-.svc-motto em{font-style:italic;color:var(--ruby2)}
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--rule)}
-.card{padding:2.75rem 2.25rem;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);position:relative;overflow:hidden;background:var(--surface);transition:background 0.3s}
-.card:nth-child(3n){border-right:none}
-.card:nth-child(n+4){border-bottom:none}
-.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ruby2);transform:scaleX(0);transform-origin:left;transition:transform 0.45s cubic-bezier(0.16,1,0.3,1)}
-.card:hover{background:var(--rose2)}
-.card:hover::before{transform:scaleX(1)}
-.card-n{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.2em;color:var(--ruby2);margin-bottom:1.75rem;display:block}
-.card-title{font-family:var(--ff-display);font-size:1.3rem;font-weight:500;color:var(--obsidian);margin-bottom:0.9rem;line-height:1.3}
-.card-body{font-size:0.82rem;color:var(--text-dim);line-height:1.85}
-.card-tag{display:inline-block;margin-top:1.75rem;font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ruby2);border:1px solid rgba(89,0,28,0.2);padding:0.28rem 0.8rem}
-
-/* ══ AI RISK CALLOUT ══ */
-.ai-sec{
-  background:var(--obsidian);
-  padding:7rem 4rem;
-  position:relative;overflow:hidden;
-}
-.ai-sec::before{
-  content:'DATA';
-  position:absolute;right:-2rem;top:50%;transform:translateY(-50%);
-  font-family:var(--ff-display);font-size:16rem;font-weight:300;font-style:italic;
-  color:rgba(255,255,255,0.02);pointer-events:none;white-space:nowrap;
-}
-.ai-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
-.ai-left .s-eyebrow{color:var(--ruby3)}
-.ai-left .s-h2{color:#F5F2EC}
-.ai-left .s-h2 em{color:var(--ruby3)}
-.ai-body{font-size:0.95rem;color:rgba(193,193,189,0.65);line-height:1.95;margin-top:1.5rem;max-width:480px}
-.ai-stats{display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,0.04)}
-.ai-stat{background:rgba(255,255,255,0.02);padding:1.75rem 2rem;display:grid;grid-template-columns:80px 1fr;gap:1.5rem;align-items:baseline;transition:background 0.3s}
-.ai-stat:hover{background:rgba(89,0,28,0.12)}
-.ai-stat-val{font-family:var(--ff-display);font-size:2.2rem;font-weight:300;color:var(--ruby3);line-height:1}
-.ai-stat-desc{font-size:0.82rem;color:rgba(193,193,189,0.6);line-height:1.75}
-
-/* ══ ABOUT ══ */
-.about-sec{background:var(--cream);border-top:1px solid var(--rule)}
-.about-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:7rem;align-items:start;margin-top:5rem}
-.about-copy{font-family:var(--ff-display);font-size:1.2rem;font-weight:300;color:var(--text-body);line-height:1.9}
-.about-copy em{font-style:italic;color:var(--obsidian);font-weight:400}
-.about-copy strong{font-style:italic;color:var(--ruby2);font-weight:300}
-.about-copy p+p{margin-top:1.5rem}
-.creds{display:flex;flex-direction:column}
-.cred{padding:1.7rem 0;border-bottom:1px solid var(--rule)}
-.cred:first-child{border-top:1px solid var(--rule)}
-.cred-lbl{font-family:var(--ff-mono);font-size:0.54rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ruby2);margin-bottom:0.55rem}
-.cred-txt{font-size:0.82rem;color:var(--text-dim);line-height:1.8}
-
-/* ══ POLIMETRICS ══ */
-.pm-sec{padding:8rem 4rem;background:var(--forest);position:relative;overflow:hidden}
-.pm-sec::before{content:'POLIMETRICS';position:absolute;right:-1rem;top:50%;transform:translateY(-50%) rotate(90deg);font-family:var(--ff-display);font-size:10rem;font-weight:300;font-style:italic;color:rgba(255,255,255,0.03);white-space:nowrap;pointer-events:none}
-.pm-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
-.pm-eyebrow{font-family:var(--ff-mono);font-size:0.56rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--ruby3);margin-bottom:1rem;display:flex;align-items:center;gap:1rem}
-.pm-eyebrow::before{content:'';width:18px;height:1px;background:var(--ruby3);flex-shrink:0}
-.pm-title{font-family:var(--ff-display);font-size:clamp(2.2rem,4vw,3.4rem);font-weight:300;color:var(--mist2);line-height:1.15;margin-bottom:1.5rem}
-.pm-title em{font-style:italic;color:var(--mist)}
-.pm-p{font-size:0.92rem;color:rgba(193,193,189,0.55);line-height:1.95;margin-bottom:2.5rem}
-.pm-articles{display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,0.04)}
-.pm-a{background:rgba(255,255,255,0.02);padding:1.5rem 1.75rem;display:grid;grid-template-columns:52px 1fr;gap:1.25rem;align-items:start;transition:background 0.3s;cursor:default}
-.pm-a:hover{background:rgba(89,0,28,0.2)}
-.pm-atype{font-family:var(--ff-mono);font-size:0.5rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ruby3);padding-top:0.1rem}
-.pm-atitle{font-family:var(--ff-display);font-size:1rem;color:rgba(193,193,189,0.75);line-height:1.5}
-
-/* ══ CONTACT ══ */
-.contact-sec{background:var(--paper);padding:9rem 4rem}
-.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:start;margin-top:5rem}
-.contact-left .contact-email{font-family:var(--ff-display);font-size:1.3rem;font-style:italic;font-weight:300;color:var(--ruby2);text-decoration:none;display:inline-flex;align-items:center;gap:0.6rem;border-bottom:1px solid rgba(89,0,28,0.2);padding-bottom:0.25rem;margin-top:2rem;transition:color 0.25s,border-color 0.25s}
-.contact-left .contact-email:hover{color:var(--ruby3);border-color:rgba(89,0,28,0.5)}
-.contact-detail{margin-top:2.5rem;display:flex;flex-direction:column;gap:0}
-.cd{padding:1.25rem 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:baseline}
-.cd:first-child{border-top:1px solid var(--rule)}
-.cd-lbl{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ruby2)}
-.cd-val{font-size:0.85rem;color:var(--text-dim);line-height:1.7}
-/* Form */
-.cf{display:flex;flex-direction:column;gap:1.25rem}
-.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
-.cf-group{display:flex;flex-direction:column;gap:0.45rem}
-.cf-group label{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-dim)}
-.cf-group input,.cf-group select,.cf-group textarea{
-  font-family:var(--ff-sans);font-size:0.88rem;font-weight:300;
-  background:var(--surface);color:var(--text-body);
-  border:1px solid var(--rule);padding:0.85rem 1rem;
-  outline:none;transition:border-color 0.2s,box-shadow 0.2s;
-  width:100%;
-}
-.cf-group input:focus,.cf-group select:focus,.cf-group textarea:focus{border-color:rgba(89,0,28,0.35);box-shadow:0 0 0 3px rgba(89,0,28,0.06)}
-.cf-group textarea{resize:vertical;min-height:120px}
-.cf-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A7D78' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem}
-.cf-req{color:var(--ruby2)}
-.cf-submit{font-family:var(--ff-mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--surface);background:var(--ruby2);border:none;padding:1.1rem 2.4rem;cursor:pointer;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%);transition:background 0.25s;display:inline-flex;align-items:center;gap:0.75rem;align-self:flex-start}
-.cf-submit:hover{background:var(--ruby3)}
-.cf-submit:disabled{opacity:0.5;cursor:not-allowed}
-.cf-spinner{display:none;width:14px;height:14px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:cfSpin 0.7s linear infinite}
-@keyframes cfSpin{to{transform:rotate(360deg)}}
-.cf-msg{display:none;align-items:center;gap:0.75rem;font-family:var(--ff-mono);font-size:0.56rem;letter-spacing:0.1em;padding:0.85rem 1rem;border:1px solid}
-.cf-msg.show{display:flex}
-.cf-msg.error{color:var(--ruby2);border-color:rgba(89,0,28,0.25);background:rgba(89,0,28,0.04)}
-.cf-success{display:none;padding:3rem 0}
-.cf-success.show{display:block}
-.cf-success-icon{width:48px;height:48px;border:1px solid rgba(89,0,28,0.25);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem}
-.cf-success-icon svg{width:22px;height:22px;stroke:var(--ruby2);stroke-width:2;fill:none}
-.cf-success h3{font-family:var(--ff-display);font-size:1.6rem;font-weight:300;color:var(--obsidian);margin-bottom:0.75rem}
-.cf-success p{font-size:0.88rem;color:var(--text-dim);line-height:1.8}
-
-/* BAND DIVIDER */
-.band{height:4px;background:linear-gradient(90deg,transparent,var(--ruby2),transparent);opacity:0.2}
-
-/* FOOTER */
-footer{background:var(--obsidian);padding:2.5rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
-.foot-wm{font-family:var(--ff-display);font-size:1rem;font-weight:400;color:rgba(193,193,189,0.6);letter-spacing:0.06em}
-.foot-nav{display:flex;gap:2.5rem;list-style:none}
-.foot-nav a{font-family:var(--ff-mono);font-size:0.54rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(193,193,189,0.3);text-decoration:none;transition:color 0.2s}
-.foot-nav a:hover{color:rgba(193,193,189,0.7)}
-.foot-copy{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.1em;color:rgba(193,193,189,0.22)}
-
-/* ══ TOOLS ══ */
-.tools-sec{background:var(--cream)}
-.tools-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem}
-.tool-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
-.tool-card{
-  background:var(--surface);padding:3rem 2.75rem;
-  position:relative;overflow:hidden;transition:background 0.3s;
-  text-decoration:none;display:block;color:inherit;
-}
-.tool-card:hover{background:var(--rose2)}
-.tool-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ruby2);transform:scaleX(0);transform-origin:left;transition:transform 0.45s cubic-bezier(0.16,1,0.3,1)}
-.tool-card:hover::before{transform:scaleX(1)}
-.tool-tag{font-family:var(--ff-mono);font-size:0.52rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ruby2);margin-bottom:1.5rem;display:block}
-.tool-title{font-family:var(--ff-display);font-size:1.6rem;font-weight:400;color:var(--obsidian);line-height:1.2;margin-bottom:0.9rem}
-.tool-body{font-size:0.85rem;color:var(--text-dim);line-height:1.9;margin-bottom:1.75rem}
-.tool-arrow{font-family:var(--ff-mono);font-size:0.54rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ruby2);display:flex;align-items:center;gap:0.5rem;transition:gap 0.25s}
-.tool-card:hover .tool-arrow{gap:0.9rem}
-
-@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-
-@media(max-width:960px){
-  nav{padding:0 1.5rem}
-  .nav-center,.nav-cta{display:none}
-  .nav-toggle{display:flex}
-  .nav-wm{color:var(--obsidian) !important}
-  section{padding:6rem 1.5rem}
-  .hero{padding:0 1.5rem}
-  .hero-h1 .l2{padding-left:1rem}
-  .hero-h1 .l3{padding-left:2rem}
-  .hero-risk-pills{display:none}
-  .position-layout,.practice-intro,.about-layout,.pm-inner,.ai-inner,.svc-anchor,.contact-layout,.tools-intro{grid-template-columns:1fr;gap:3rem}
-  .practice-grid,.tool-grid{grid-template-columns:1fr}
-  .pa-wide{grid-column:span 1}
-  .svc-grid{grid-template-columns:1fr 1fr}
-  .card:nth-child(3n){border-right:1px solid var(--rule)}
-  .card:nth-child(2n){border-right:none}
-  footer{flex-direction:column;padding:2rem 1.5rem}
-  .pm-sec,.ai-sec,.contact-sec{padding:6rem 1.5rem}
-  .pm-sec::before,.ai-sec::before{display:none}
-  .cf-row{grid-template-columns:1fr}
-}
-@media(max-width:580px){
-  .svc-grid{grid-template-columns:1fr}
-  .card:nth-child(n){border-right:none;border-bottom:1px solid var(--rule)}
-  .card:last-child{border-bottom:none}
-  .foot-nav{flex-wrap:wrap;gap:1.25rem}
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/alt30.css"/>
 </head>
 <body>
 
-<div id="cur"></div>
-<div id="cur-ring"></div>
-
-<!-- NAV -->
-<nav id="nav">
-  <a class="nav-wm" href="index.html"><em>&#9650;</em> Alt-30</a>
-  <ul class="nav-center">
-    <li><a href="workforce-intelligence.html">Workforce</a></li>
-    <li><a href="municipal-intelligence.html">Municipal</a></li>
-    <li><a href="custom-intelligence.html">Custom</a></li>
-    <li><a href="#engagement">How We Work</a></li>
-    <li><a href="firm-overview.html">Firm Overview</a></li>
-  </ul>
-  <a class="nav-cta" href="#contact">Ask a Question</a>
-  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </button>
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="nav-wm" href="index.html"><span>&#9650;</span>Alt-30</a>
+    <ul class="nav-links">
+      <li><a href="workforce-intelligence.html">Workforce</a></li>
+      <li><a href="municipal-intelligence.html">Municipal</a></li>
+      <li><a href="custom-intelligence.html">Custom Research</a></li>
+      <li><a href="index.html#engagement">How We Work</a></li>
+      <li><a href="firm-overview.html">Firm Overview</a></li>
+    </ul>
+    <a class="nav-cta" href="index.html#contact">Tell us what you need to know</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
 </nav>
-<!-- Mobile drawer -->
 <ul class="nav-drawer" id="nav-drawer">
   <li><a href="workforce-intelligence.html">Workforce Intelligence</a></li>
   <li><a href="municipal-intelligence.html">Municipal Intelligence</a></li>
   <li><a href="custom-intelligence.html">Custom Intelligence</a></li>
-  <li><a href="#engagement">How We Work</a></li>
+  <li><a href="index.html#engagement">How We Work</a></li>
   <li><a href="firm-overview.html">Firm Overview</a></li>
-  <li><a href="#tools">Intelligence Products</a></li>
-  <li style="border:none"><a class="nav-cta" href="#contact">Tell Us What You Need to Know</a></li>
+  <li><a href="index.html#contact">Tell us what you need to know</a></li>
 </ul>
 
 <!-- HERO -->
-<section class="hero" id="home">
-  <canvas id="map-canvas"></canvas>
-  <div class="hero-overlay"></div>
-
-  <div class="hero-inner">
-    <div class="hero-kicker">External Intelligence &nbsp;&mdash;&nbsp; <em>Economic &middot; Workforce &middot; Public Sector</em></div>
-    <h1 class="hero-h1">
-      Your External
-      <em class="l2">Intelligence</em>
-      <span class="l3">Team.</span>
-    </h1>
-    <p class="hero-sub">We monitor the markets, workforce, economic conditions, and public-sector changes that matter to your organization &mdash; and turn them into actionable intelligence.</p>
-    <div class="hero-btns">
-      <a class="btn-ruby" href="#contact">Tell Us What You Need to Know</a>
-      <a class="btn-ghost-light" href="#engagement">How We Work &rarr;</a>
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow">Alt-30</div>
+    <h1 class="h1">Clear Insights for Evolving Markets</h1>
+    <p class="sub">Alt-30 provides independent economic, workforce, and market intelligence to help organizations understand what&rsquo;s changing and what it means for them.</p>
+    <div class="actions center" style="justify-content:center">
+      <a class="btn" href="#contact">Tell us what you need to know</a>
+      <a class="link" href="#engagement">How we work</a>
+    </div>
+    <div class="hero-visual rv">
+      <svg viewBox="0 0 820 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#0071e3" stop-opacity="0.14"/>
+            <stop offset="1" stop-color="#0071e3" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <g stroke="#1d1d1f" stroke-opacity="0.08" stroke-width="1">
+          <line x1="0" y1="60" x2="820" y2="60"/>
+          <line x1="0" y1="120" x2="820" y2="120"/>
+          <line x1="0" y1="180" x2="820" y2="180"/>
+          <line x1="0" y1="240" x2="820" y2="240"/>
+        </g>
+        <path d="M0,214 C90,208 140,196 210,190 S320,178 380,160 S470,118 540,104 S650,74 720,50 L820,28 L820,260 L0,260 Z" fill="url(#area)"/>
+        <path d="M0,214 C90,208 140,196 210,190 S320,178 380,160 S470,118 540,104 S650,74 720,50 L820,28" fill="none" stroke="#1d1d1f" stroke-width="2" stroke-linecap="round"/>
+        <path d="M720,50 L732,64 L708,64 Z" fill="#0071e3"/>
+        <circle cx="380" cy="160" r="4" fill="#1d1d1f"/>
+        <circle cx="540" cy="104" r="4" fill="#1d1d1f"/>
+      </svg>
     </div>
   </div>
-
-  <div class="hero-risk-pills">
-    <div class="risk-pill"><div class="risk-pill-dot"></div>Workforce Intelligence</div>
-    <div class="risk-pill"><div class="risk-pill-dot"></div>Municipal Intelligence</div>
-    <div class="risk-pill"><div class="risk-pill-dot"></div>Custom Intelligence</div>
-    <div class="risk-pill"><div class="risk-pill-dot"></div>Policy &amp; Regulatory Monitoring</div>
-  </div>
-
-  <div class="hero-scroll"><span>Scroll</span><div class="scroll-bar"></div></div>
-</section>
-
-<!-- TICKER -->
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
-    <span class="ti hi">We Monitor. We Analyze. You Decide.</span>
-    <span class="ti">Continuous Market Monitoring</span>
-    <span class="ti hi">Custom Economic Research</span>
-    <span class="ti">Workforce Intelligence</span>
-    <span class="ti hi">Competitive &amp; Market Analysis</span>
-    <span class="ti">Policy &amp; Regulatory Monitoring</span>
-    <span class="ti hi">Executive-Ready Reports</span>
-    <span class="ti">On-Demand Research</span>
-    <span class="ti hi">50 States &middot; 500+ Municipalities</span>
-    <span class="ti">Record to FY 1967</span>
-    <span class="ti hi">We Monitor. We Analyze. You Decide.</span>
-    <span class="ti">Continuous Market Monitoring</span>
-    <span class="ti hi">Custom Economic Research</span>
-    <span class="ti">Workforce Intelligence</span>
-    <span class="ti hi">Competitive &amp; Market Analysis</span>
-    <span class="ti">Policy &amp; Regulatory Monitoring</span>
-    <span class="ti hi">Executive-Ready Reports</span>
-    <span class="ti">On-Demand Research</span>
-    <span class="ti hi">50 States &middot; 500+ Municipalities</span>
-    <span class="ti">Record to FY 1967</span>
-  </div>
-</div>
+</header>
 
 <!-- WHAT YOU GET -->
-<section class="position-sec" id="what-you-get">
-  <div class="si">
-    <div class="s-eyebrow rv">What Clients Get</div>
-    <h2 class="s-h2 rv d1">We Monitor. We Analyze.<br/><em>You Decide.</em></h2>
-    <div class="position-layout">
-      <div class="position-pull rv d2">
-        <p>Most organizations have questions about the economy, the labor market, or the public sector that no one inside has time to answer properly. The usual fix is to hire an analyst, and the usual result is that the analyst is consumed by everything except the question.</p>
-        <p><em>Alt-30 is that function, kept outside the building.</em></p>
-        <p>We watch the conditions that affect your organization, we do the analysis when something moves, and we put it in front of you in a form you can act on. You keep the decision.</p>
-      </div>
-      <div class="position-points rv d3">
-        <div class="pp">
-          <div class="pp-icon">01</div>
-          <div class="pp-text"><strong>Continuous Market Monitoring</strong>Standing coverage of the economic conditions, industries, and geographies your organization depends on, reported as they move rather than when someone remembers to look.</div>
-        </div>
-        <div class="pp">
-          <div class="pp-icon">02</div>
-          <div class="pp-text"><strong>Custom Economic Research</strong>A defined question, investigated properly and answered in writing, when the topic is too specific for anything off the shelf.</div>
-        </div>
-        <div class="pp">
-          <div class="pp-icon">03</div>
-          <div class="pp-text"><strong>Workforce Intelligence</strong>Employment, wages, occupations, and labor-force movement resolved to the places you hire, sell, or govern.</div>
-        </div>
-        <div class="pp">
-          <div class="pp-icon">04</div>
-          <div class="pp-text"><strong>Competitive &amp; Market Analysis</strong>How a market, a region, or a competitor set is changing, and what that implies for the decision in front of you.</div>
-        </div>
-        <div class="pp">
-          <div class="pp-icon">05</div>
-          <div class="pp-text"><strong>Policy &amp; Regulatory Monitoring</strong>The legislative, budgetary, and regulatory changes that reach your organization, tracked before they become news and explained in terms of what they cost.</div>
-        </div>
-        <div class="pp">
-          <div class="pp-icon">06</div>
-          <div class="pp-text"><strong>Executive-Ready Reports</strong>Findings written for the person who has to decide, with the source and the assumption on the page, and nothing that requires a second meeting to interpret.</div>
-        </div>
-        <div class="pp">
-          <div class="pp-icon">07</div>
-          <div class="pp-text"><strong>On-Demand Research</strong>A question sent on Tuesday, answered by someone who already knows your organization and already has the data open.</div>
-        </div>
-      </div>
+<section class="section" id="what-you-get">
+  <div class="container">
+    <div class="center narrow rv">
+      <h2 class="h2">We monitor. We analyze.<br/>You decide.</h2>
+      <p class="sub">Most organizations have questions about the economy, the labor market, or the public sector that no one inside has time to answer properly. Alt-30 is that function, kept outside the building.</p>
+    </div>
+    <div class="features rv d1">
+      <div class="feature"><div class="feature-glyph">&#9650;</div><div><div class="feature-title">Continuous market monitoring</div><div class="feature-body">Standing coverage of the conditions, industries, and geographies your organization depends on, reported as they move.</div></div></div>
+      <div class="feature"><div class="feature-glyph">&#9650;</div><div><div class="feature-title">Custom economic research</div><div class="feature-body">A defined question, investigated properly and answered in writing, when the topic is too specific for anything off the shelf.</div></div></div>
+      <div class="feature"><div class="feature-glyph">&#9650;</div><div><div class="feature-title">Workforce intelligence</div><div class="feature-body">Employment, wages, occupations, and labor-force movement resolved to the places you hire, sell, or govern.</div></div></div>
+      <div class="feature"><div class="feature-glyph">&#9650;</div><div><div class="feature-title">Competitive and market analysis</div><div class="feature-body">How a market, a region, or a competitor set is changing, and what it implies for the decision in front of you.</div></div></div>
+      <div class="feature"><div class="feature-glyph">&#9650;</div><div><div class="feature-title">Policy and regulatory monitoring</div><div class="feature-body">The legislative, budgetary, and regulatory changes that reach your organization, tracked before they become news and explained in terms of what they cost.</div></div></div>
+      <div class="feature"><div class="feature-glyph">&#9650;</div><div><div class="feature-title">Executive-ready reports</div><div class="feature-body">Findings written for the person who has to decide, with the source and the assumption on the page.</div></div></div>
+      <div class="feature"><div class="feature-glyph">&#9650;</div><div><div class="feature-title">On-demand research</div><div class="feature-body">A question sent on Tuesday, answered by someone who already knows your organization and already has the data open.</div></div></div>
     </div>
   </div>
 </section>
-
-<div class="band"></div>
 
 <!-- THREE APPLICATIONS -->
-<section class="practice-sec" id="applications">
-  <div class="si">
-    <div class="practice-intro">
-      <div>
-        <div class="s-eyebrow rv">Three Applications</div>
-        <h2 class="s-h2 rv d1">Where the intelligence<br/><em>gets used.</em></h2>
-      </div>
-      <p class="s-p rv d2">The same function serves three kinds of need. Two are standing programs of monitoring and reporting. The third is a scoped research engagement for a question that does not fit either.</p>
+<section class="section alt" id="applications">
+  <div class="container">
+    <div class="center narrow rv">
+      <div class="eyebrow">Three applications</div>
+      <h2 class="h2">Where the intelligence gets used.</h2>
+      <p class="sub">Two are standing programs of monitoring and reporting. The third is a scoped research engagement for a question that fits neither.</p>
     </div>
-    <div class="practice-grid">
-      <a class="pa rv" href="workforce-intelligence.html" style="text-decoration:none;color:inherit;display:block">
-        <span class="pa-tag">01 / Workforce Intelligence</span>
-        <div class="pa-title">Know where the labor market is moving before your competitors do.</div>
-        <div class="pa-body">Monthly and quarterly intelligence for staffing firms, workforce organizations, economic-development groups, and major employers &mdash; resolved to the geographies you actually operate in.</div>
-        <div class="pa-examples">
-          <span class="pa-ex">Employment</span>
-          <span class="pa-ex">Unemployment</span>
-          <span class="pa-ex">Wages</span>
-          <span class="pa-ex">Occupations</span>
-          <span class="pa-ex">Labor Force</span>
-          <span class="pa-ex">Industry Shifts</span>
-          <span class="pa-ex">Demographics</span>
-          <span class="pa-ex">Geographic Differences</span>
-        </div>
+    <div class="grid grid-3 rv d1" style="margin-top:3.5rem">
+      <a class="tile large" href="workforce-intelligence.html">
+        <div class="tile-label">Workforce Intelligence</div>
+        <div class="tile-title">Know where the labor market is moving before your competitors do.</div>
+        <div class="tile-body">Monthly and quarterly intelligence for staffing firms, workforce organizations, economic-development groups, and major employers.</div>
+        <div class="chips"><span class="chip">Employment</span><span class="chip">Wages</span><span class="chip">Occupations</span><span class="chip">Industry shifts</span><span class="chip">Demographics</span></div>
+        <span class="link">Learn more</span>
       </a>
-      <a class="pa rv d1" href="municipal-intelligence.html" style="text-decoration:none;color:inherit;display:block">
-        <span class="pa-tag">02 / Municipal Intelligence</span>
-        <div class="pa-title">Give leadership a continuously updated view of your community&rsquo;s economic and fiscal environment.</div>
-        <div class="pa-body">One maintained picture for a council, a manager, and a finance director &mdash; including the Economic Resilience Index and the peer communities you are measured against.</div>
-        <div class="pa-examples">
-          <span class="pa-ex">Revenue</span>
-          <span class="pa-ex">State-Shared Revenues</span>
-          <span class="pa-ex">Workforce</span>
-          <span class="pa-ex">Population</span>
-          <span class="pa-ex">Development</span>
-          <span class="pa-ex">Housing</span>
-          <span class="pa-ex">Tax Base</span>
-          <span class="pa-ex">Peer Communities</span>
-          <span class="pa-ex">Fiscal Resilience</span>
-        </div>
+      <a class="tile large" href="municipal-intelligence.html">
+        <div class="tile-label">Municipal Intelligence</div>
+        <div class="tile-title">A continuously updated view of your community&rsquo;s economic and fiscal environment.</div>
+        <div class="tile-body">One maintained picture for a council, a manager, and a finance director, including the Economic Resilience Index and the peer communities you are measured against.</div>
+        <div class="chips"><span class="chip">Revenue</span><span class="chip">Shared revenues</span><span class="chip">Tax base</span><span class="chip">Housing</span><span class="chip">Peers</span></div>
+        <span class="link">Learn more</span>
       </a>
-      <a class="pa pa-wide rv d2" href="custom-intelligence.html" style="text-decoration:none;color:inherit;display:block">
-        <span class="pa-tag">03 / Custom Intelligence</span>
-        <div class="pa-title">Need to understand something your internal team doesn&rsquo;t have time to investigate? We&rsquo;ll research it.</div>
-        <div class="pa-body">A defined question, a fixed fee, and a deliverable built for the decision it has to support. This is where the deeper analytical work sits &mdash; the studies that take weeks rather than hours and that an internal team would never get to.</div>
-        <div class="pa-examples">
-          <span class="pa-ex">Market Expansion Analysis</span>
-          <span class="pa-ex">Economic Impact Analysis</span>
-          <span class="pa-ex">Workforce Studies</span>
-          <span class="pa-ex">Policy Impact Research</span>
-          <span class="pa-ex">Competitor &amp; Market Research</span>
-          <span class="pa-ex">Custom Dashboards</span>
-          <span class="pa-ex">Executive Research Briefs</span>
-        </div>
+      <a class="tile large" href="custom-intelligence.html">
+        <div class="tile-label">Custom Intelligence</div>
+        <div class="tile-title">Something your team doesn&rsquo;t have time to investigate? We&rsquo;ll research it.</div>
+        <div class="tile-body">A defined question, a fixed fee, and a deliverable built for the decision it has to support. This is where the deeper analytical work sits.</div>
+        <div class="chips"><span class="chip">Market expansion</span><span class="chip">Economic impact</span><span class="chip">Policy impact</span><span class="chip">Dashboards</span></div>
+        <span class="link">Learn more</span>
       </a>
     </div>
   </div>
 </section>
 
-<div class="band"></div>
-
-<!-- ENGAGEMENT TYPES -->
-<section class="svc-sec" id="engagement">
-  <div class="si">
-    <div class="svc-anchor">
-      <div>
-        <div class="s-eyebrow rv">How We Work</div>
-        <h2 class="s-h2 rv d1">Three ways<br/><em>to engage us.</em></h2>
-        <div class="svc-motto rv d2">
-          Need an insights analyst,<br/>
-          <em>but not a full-time employee?</em>
-        </div>
-      </div>
-      <p class="s-p rv d3">Alt-30 provides the research capacity, analytical expertise, and ongoing monitoring without adding another position to your organization. Every engagement is scoped and priced before work begins, and every one of them is led by the analyst who does the work.</p>
+<!-- HOW WE WORK -->
+<section class="section dark" id="engagement">
+  <div class="container">
+    <div class="center narrow rv">
+      <div class="eyebrow">How we work</div>
+      <h2 class="h2">Need an insights analyst, but not a full-time employee?</h2>
+      <p class="sub">Alt-30 provides the research capacity, analytical expertise, and ongoing monitoring without adding another position to your organization. Every engagement is scoped and priced before work begins.</p>
     </div>
-    <div class="svc-grid">
-      <div class="card rv">
-        <span class="card-n">01</span>
-        <div class="card-title">Intelligence Retainer</div>
-        <div class="card-body">Continuous monitoring plus recurring reports. We watch the conditions that matter to your organization and deliver on a monthly or quarterly cadence, with the capacity to answer a question between reports.</div>
-        <span class="card-tag">Continuous</span>
+    <div class="grid grid-3 rv d1" style="margin-top:3.5rem">
+      <div class="tile">
+        <div class="tile-label">Intelligence Retainer</div>
+        <div class="tile-title">Continuous monitoring and recurring reports.</div>
+        <div class="tile-body">We watch the conditions that matter to your organization and deliver on a monthly or quarterly cadence, with the capacity to answer a question between reports.</div>
       </div>
-      <div class="card rv d1">
-        <span class="card-n">02</span>
-        <div class="card-title">Research Projects</div>
-        <div class="card-body">A specific question requiring deeper analysis than monitoring provides. Scoped as a project with a defined deliverable and a fixed fee, and delivered by the analyst who framed it.</div>
-        <span class="card-tag">Project</span>
+      <div class="tile">
+        <div class="tile-label">Research Projects</div>
+        <div class="tile-title">Specific questions requiring deeper analysis.</div>
+        <div class="tile-body">Scoped as a project with a defined deliverable and a fixed fee, and delivered by the analyst who framed it.</div>
       </div>
-      <div class="card rv d2">
-        <span class="card-n">03</span>
-        <div class="card-title">Fractional Intelligence</div>
-        <div class="card-body">An external analyst and research function for organizations that do not need a full-time employee. A standing relationship, a known point of contact, and someone who already knows your organization when the question arrives.</div>
-        <span class="card-tag">Standing</span>
+      <div class="tile">
+        <div class="tile-label">Fractional Intelligence</div>
+        <div class="tile-title">An external analyst function for organizations that don&rsquo;t need a full-time hire.</div>
+        <div class="tile-body">A standing relationship, a known point of contact, and someone who already knows your organization when the question arrives.</div>
       </div>
+    </div>
+    <div class="center rv d2" style="margin-top:3rem">
+      <a class="btn" href="#contact">Tell us what you need to know</a>
     </div>
   </div>
 </section>
 
 <!-- WHY ALT-30 -->
-<section class="ai-sec" id="why">
-  <div class="ai-inner">
-    <div class="ai-left">
-      <div class="s-eyebrow rv" style="color:var(--ruby3)">Why Alt-30</div>
-      <h2 class="s-h2 rv d1" style="color:#F5F2EC">Specialists in the change<br/><em>your organization is navigating.</em></h2>
-      <p class="ai-body rv d2">Alt-30 provides external intelligence for organizations navigating economic, workforce, and public-sector change. That is a narrower claim than most research firms make, and it is the point. We combine economic data, workforce data, public finance, and government with a working knowledge of local markets &mdash; which is a different thing from a dashboard vendor with a data feed, and a harder thing to replace.</p>
-      <div style="margin-top:2.5rem" class="rv d3">
-        <a class="btn-ruby" href="#contact">Tell Us What You Need to Know</a>
-      </div>
+<section class="section" id="why">
+  <div class="container">
+    <div class="center narrow rv">
+      <div class="eyebrow">Why Alt-30</div>
+      <h2 class="h2">Specialists in the change your organization is navigating.</h2>
+      <p class="sub">We combine economic data, workforce data, public finance, and government with a working knowledge of local markets. That is a narrower claim than most research firms make, and it is the point. It is a different thing from a dashboard with a data feed, and a harder thing to replace.</p>
     </div>
-    <div class="ai-stats rv d2">
-      <div class="ai-stat">
-        <div class="ai-stat-val">50</div>
-        <div class="ai-stat-desc">states covered on one methodology, so a finding in one place can be set against a finding in another</div>
-      </div>
-      <div class="ai-stat">
-        <div class="ai-stat-val">500<em style="font-size:1.2rem">+</em></div>
-        <div class="ai-stat-desc">municipalities under continuous fiscal and economic monitoring, with peer sets built from the same record</div>
-      </div>
-      <div class="ai-stat">
-        <div class="ai-stat-val">1967</div>
-        <div class="ai-stat-desc">the start of the longitudinal record, so a change is measured against what actually preceded it rather than last year alone</div>
-      </div>
-      <div class="ai-stat">
-        <div class="ai-stat-val">0</div>
-        <div class="ai-stat-desc">lobbying registrations, advocacy positions, or political contributions made by the firm</div>
-      </div>
+    <div class="stats rv d1">
+      <div class="stat"><div class="stat-val">50</div><div class="stat-desc">states covered on one methodology, so a finding in one place can be set against a finding in another.</div></div>
+      <div class="stat"><div class="stat-val">500+</div><div class="stat-desc">municipalities under continuous fiscal and economic monitoring, with peer sets built from the same record.</div></div>
+      <div class="stat"><div class="stat-val">1967</div><div class="stat-desc">the start of the longitudinal record, so a change is measured against what actually preceded it.</div></div>
+      <div class="stat"><div class="stat-val">0</div><div class="stat-desc">lobbying registrations, advocacy positions, or political contributions made by the firm.</div></div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about-sec" id="about">
-  <div class="si">
-    <div class="s-eyebrow rv">The Firm</div>
-    <h2 class="s-h2 rv d1">About the name,<br/><em>and the firm.</em></h2>
-    <div class="about-layout">
-      <div class="about-copy rv d2">
-        <p>Hold <em>Alt</em> and type <em>30</em>. A keyboard returns <strong>&#9650;</strong> &mdash; the oldest notation in economics for a quantity that has moved.</p>
+<!-- THE FIRM -->
+<section class="section alt" id="about">
+  <div class="container">
+    <div class="split">
+      <div class="rv">
+        <div class="eyebrow">The firm</div>
+        <h2 class="h2">About the name, and the firm.</h2>
+      </div>
+      <div class="prose rv d1">
+        <p>Hold <strong>Alt</strong> and type <strong>30</strong>. A keyboard returns <strong style="color:var(--accent)">&#9650;</strong>, the oldest notation in economics for a quantity that has moved.</p>
         <p>That is what an intelligence function exists to catch. A shift in the labor market. A change in a shared-revenue formula. A competitor entering a region. A budget line that quietly disappeared. Each is a question of how much moved, in which direction, and what it means for the organization watching.</p>
-        <p>Alt-30 is built to be that function for organizations that cannot justify staffing it. We maintain longitudinal records of appropriations, tax filings, and employment across fifty states and more than five hundred municipalities, back to fiscal year 1967, because noticing a change requires knowing what came before it. The firm began in Arizona and keeps unusual depth there; <strong>the method is identical in every state we cover.</strong></p>
+        <p>Alt-30 is built to be that function for organizations that cannot justify staffing it. We maintain longitudinal records of appropriations, tax filings, and employment across fifty states and more than five hundred municipalities, back to fiscal year 1967, because noticing a change requires knowing what came before it. The firm began in Arizona and keeps unusual depth there. <strong>The method is identical in every state we cover.</strong></p>
         <p>A PhD economist leads each engagement. We do not lobby, we do not poll, and we do not advise on message. <strong>We tell you what is happening, and we show our work.</strong></p>
       </div>
-      <div class="creds rv d3">
-        <div class="cred"><div class="cred-lbl">Domain Specialization</div><div class="cred-txt">Economic data, workforce, public finance, government, and local markets &mdash; a combination most research vendors do not carry and a dashboard cannot replace.</div></div>
-        <div class="cred"><div class="cred-lbl">National Coverage</div><div class="cred-txt">Fifty states and more than five hundred municipalities, tracked continuously rather than assembled per engagement.</div></div>
-        <div class="cred"><div class="cred-lbl">Longitudinal Record</div><div class="cred-txt">Fiscal year 1967 to the present. Recognizing a pattern requires history; five decades of it sit beneath our monitoring.</div></div>
-        <div class="cred"><div class="cred-lbl">Economist on Staff</div><div class="cred-txt">A PhD economist leads the work and presents it. Not subcontracted for the engagement.</div></div>
-        <div class="cred"><div class="cred-lbl">Independence</div><div class="cred-txt">No lobbying registrations, no advocacy positions, no political contributions. Our work can be handed to anyone without creating a conflict.</div></div>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- POLIMETRICS -->
-<section class="pm-sec" id="research">
-  <div class="pm-inner">
-    <div class="rv">
-      <div class="pm-eyebrow">Research Arm</div>
-      <div class="pm-title">Poli<em>Metrics</em></div>
-      <p class="pm-p">PoliMetrics is the firm&rsquo;s research arm. It publishes independent analysis of state fiscal policy, shared-revenue formulas, labor economics, and policy diffusion across jurisdictions &mdash; the same body of work that underpins client monitoring, released for policymakers, staff, and the institutions they serve.</p>
-      <a class="btn-ruby" href="#">Read PoliMetrics</a>
+<!-- PRODUCTS -->
+<section class="section" id="tools">
+  <div class="container">
+    <div class="center narrow rv">
+      <div class="eyebrow">Intelligence products</div>
+      <h2 class="h2">Some of what the function produces.</h2>
+      <p class="sub">These are open to the public and built on the same records that underpin client monitoring. Retained clients receive dedicated, access-controlled versions configured to their own geographies and peer sets.</p>
     </div>
-    <div class="pm-articles rv d2">
-      <div class="pm-a"><div class="pm-atype">Shared Revenue</div><div class="pm-atitle">Income Tax Cuts and Municipal Exposure: Which Towns Carry the Risk in Shared-Revenue States</div></div>
-      <div class="pm-a"><div class="pm-atype">Workforce</div><div class="pm-atitle">Where the Labor Market Moved First: Regional Employment Shifts Ahead of the National Series</div></div>
-      <div class="pm-a"><div class="pm-atype">Municipal</div><div class="pm-atitle">Sales Taxes, Lodging Taxes, and Franchise Fees: Revenue Options for Towns Without a Property Levy</div></div>
-      <div class="pm-a"><div class="pm-atype">Budget</div><div class="pm-atitle">Reading Agency Spend Cycles: What Appropriations History Says About Next Year&rsquo;s Procurement</div></div>
+    <div class="grid grid-2 rv d1" style="margin-top:3.5rem">
+      <a class="tile" href="https://polimetrics.shinyapps.io/Municipal_Benchmarks/" target="_blank" rel="noopener">
+        <div class="tile-label">Municipal Intelligence</div>
+        <div class="tile-title">Economic Resilience Index and Municipal Benchmarks</div>
+        <div class="tile-body">Any covered municipality&rsquo;s fiscal position and resilience set against five hundred peers, drawn from Census of Governments records from 1967 to present.</div>
+        <span class="link">Open</span>
+      </a>
+      <a class="tile" href="census-portal.html" target="_blank" rel="noopener">
+        <div class="tile-label">Workforce Intelligence</div>
+        <div class="tile-title">Regional Economic Profiles</div>
+        <div class="tile-body">District, county, and metro profiles on demand for any state: population, income, employment, and housing.</div>
+        <span class="link">Open</span>
+      </a>
+      <a class="tile" href="https://alt30.shinyapps.io/state-ui-report-card/" target="_blank" rel="noopener">
+        <div class="tile-label">Workforce Intelligence</div>
+        <div class="tile-title">State UI Report Card</div>
+        <div class="tile-body">Solvency, benefit adequacy, and administrative performance of state unemployment systems, graded on one method across all states.</div>
+        <span class="link">Open</span>
+      </a>
+      <a class="tile" href="https://polimetrics.shinyapps.io/287g_Risk_Calculator/" target="_blank" rel="noopener">
+        <div class="tile-label">Policy Monitoring</div>
+        <div class="tile-title">287(g) Exposure Model</div>
+        <div class="tile-body">County-level fiscal and labor market exposure from 287(g) policy adoption: enforcement cost, workforce disruption, and municipal revenue impact.</div>
+        <span class="link">Open</span>
+      </a>
     </div>
+    <p class="body center rv d2" style="margin-top:2.5rem;max-width:640px;margin-left:auto;margin-right:auto">Research is published independently through <strong>PoliMetrics</strong>, the firm&rsquo;s research arm, covering state fiscal policy, shared-revenue formulas, labor economics, and policy diffusion.</p>
   </div>
 </section>
-
-<!-- INTELLIGENCE PRODUCTS -->
-<section class="tools-sec" id="tools">
-  <div class="si">
-    <div class="tools-intro">
-      <div>
-        <div class="s-eyebrow rv">Intelligence Products</div>
-        <h2 class="s-h2 rv d1">Some of what<br/><em>the function produces.</em></h2>
-      </div>
-      <p class="s-p rv d2">The products below are open to the public and built on the same records that underpin client monitoring. Retained clients receive dedicated, access-controlled instances configured to their own geographies, industries, and peer sets.</p>
-    </div>
-    <div class="tool-grid">
-      <a class="tool-card rv" href="https://polimetrics.shinyapps.io/Municipal_Benchmarks/" target="_blank" rel="noopener">
-        <span class="tool-tag">01 / Municipal Intelligence</span>
-        <div class="tool-title">Economic Resilience Index &amp; Municipal Benchmarks</div>
-        <div class="tool-body">Any covered municipality&rsquo;s fiscal position and resilience set against five hundred peers &mdash; revenue, expenditure, reserves, and debt &mdash; drawn from Census of Governments records from 1967 to present.</div>
-        <div class="tool-arrow">Open &rarr;</div>
-      </a>
-      <a class="tool-card rv d1" href="census-portal.html" target="_blank" rel="noopener">
-        <span class="tool-tag">02 / Workforce Intelligence</span>
-        <div class="tool-title">Regional Economic Profiles</div>
-        <div class="tool-body">District, county, and metro profiles on demand for any state: population, income, employment, and housing &mdash; the baseline every workforce report starts from.</div>
-        <div class="tool-arrow">Open &rarr;</div>
-      </a>
-      <a class="tool-card rv d2" href="https://alt30.shinyapps.io/state-ui-report-card/" target="_blank" rel="noopener">
-        <span class="tool-tag">03 / Workforce Intelligence</span>
-        <div class="tool-title">State UI Report Card</div>
-        <div class="tool-body">Solvency, benefit adequacy, and administrative performance of state unemployment systems &mdash; the workforce risk picture behind labor and tax policy.</div>
-        <div class="tool-arrow">Open &rarr;</div>
-      </a>
-      <a class="tool-card rv d3" href="https://polimetrics.shinyapps.io/287g_Risk_Calculator/" target="_blank" rel="noopener">
-        <span class="tool-tag">04 / Policy Monitoring</span>
-        <div class="tool-title">287(g) Exposure Model</div>
-        <div class="tool-body">County-level fiscal and labor market exposure from 287(g) policy adoption: enforcement cost, workforce disruption, and municipal revenue impact.</div>
-        <div class="tool-arrow">Open &rarr;</div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<div class="band"></div>
 
 <!-- CONTACT -->
-<section class="contact-sec" id="contact">
-  <div class="si">
-    <div class="s-eyebrow rv">Start Here</div>
-    <h2 class="s-h2 rv d1">Tell us what you<br/><em>need to know.</em></h2>
-    <div class="contact-layout">
-
-      <!-- Left: info -->
-      <div class="contact-left rv d2">
-        <p class="s-p">You have a question your organization needs answered. Describe it, and we will tell you plainly whether it is something we can investigate, what the work would involve, and what it would cost. If the honest answer is that you do not need us, we will say so.</p>
-        <a class="contact-email" href="mailto:morgan.harman@alt-30.com">morgan.harman@alt-30.com</a>
-        <div class="contact-detail">
-          <div class="cd">
-            <div class="cd-lbl">Response</div>
-            <div class="cd-val">Within one business day</div>
+<section class="section alt" id="contact">
+  <div class="container">
+    <div class="center narrow rv">
+      <div class="eyebrow">Start here</div>
+      <h2 class="h2">Tell us what you need to know.</h2>
+      <p class="sub">Describe the question your organization needs answered. We will tell you plainly whether it is something we can investigate, what the work would involve, and what it would cost.</p>
+    </div>
+    <div class="contact-wrap rv d1">
+      <div id="cf-fields">
+        <form class="cf" id="contact-form" novalidate>
+          <div class="cf-row">
+            <div class="cf-group">
+              <label for="cf-first">First name <span class="cf-req">*</span></label>
+              <input type="text" id="cf-first" name="firstName" required>
+            </div>
+            <div class="cf-group">
+              <label for="cf-last">Last name <span class="cf-req">*</span></label>
+              <input type="text" id="cf-last" name="lastName" required>
+            </div>
           </div>
-          <div class="cd">
-            <div class="cd-lbl">Scoping Call</div>
-            <div class="cd-val">A conversation with the analyst who would do the work, at no cost and without obligation</div>
+          <div class="cf-group">
+            <label for="cf-email">Email <span class="cf-req">*</span></label>
+            <input type="email" id="cf-email" name="email" required>
           </div>
-          <div class="cd">
-            <div class="cd-lbl">Confidentiality</div>
-            <div class="cd-val">Inquiries and client relationships are held in strict confidence</div>
+          <div class="cf-group">
+            <label for="cf-org">Organization</label>
+            <input type="text" id="cf-org" name="organization">
           </div>
-          <div class="cd">
-            <div class="cd-lbl">Coverage</div>
-            <div class="cd-val">All fifty states &middot; Headquartered in Phoenix, Arizona</div>
+          <div class="cf-group">
+            <label for="cf-service">I&rsquo;m interested in</label>
+            <select id="cf-service" name="service">
+              <option value="" disabled selected>Select an application</option>
+              <option value="Workforce Intelligence">Workforce Intelligence</option>
+              <option value="Municipal Intelligence">Municipal Intelligence</option>
+              <option value="Custom Intelligence">Custom Intelligence, a specific research question</option>
+              <option value="Intelligence Retainer">An intelligence retainer</option>
+              <option value="Fractional Intelligence">Fractional Intelligence, an external analyst function</option>
+              <option value="Not sure yet">Not sure yet. I have a question.</option>
+            </select>
           </div>
-        </div>
+          <div class="cf-group">
+            <label for="cf-message">What do you need to know?</label>
+            <textarea id="cf-message" name="message" placeholder="The market, workforce, policy, or budget question your organization needs answered."></textarea>
+          </div>
+          <button type="submit" class="btn cf-submit" id="cf-submit">
+            <span class="cf-btn-text">Send</span>
+            <span class="cf-spinner" id="cf-spinner"></span>
+          </button>
+          <div class="cf-msg" id="cf-error" role="alert"><span id="cf-error-text">Something went wrong. Please email us directly.</span></div>
+        </form>
       </div>
-
-      <!-- Right: form -->
-      <div class="rv d3">
-        <div id="cf-fields">
-          <form class="cf" id="contact-form" novalidate>
-            <div class="cf-row">
-              <div class="cf-group">
-                <label for="cf-first">First name <span class="cf-req">*</span></label>
-                <input type="text" id="cf-first" name="firstName" placeholder="Jane" required>
-              </div>
-              <div class="cf-group">
-                <label for="cf-last">Last name <span class="cf-req">*</span></label>
-                <input type="text" id="cf-last" name="lastName" placeholder="Smith" required>
-              </div>
-            </div>
-            <div class="cf-group">
-              <label for="cf-email">Email address <span class="cf-req">*</span></label>
-              <input type="email" id="cf-email" name="email" placeholder="jane@yourorganization.com" required>
-            </div>
-            <div class="cf-group">
-              <label for="cf-org">Organization</label>
-              <input type="text" id="cf-org" name="organization" placeholder="Your company, agency, town, or association">
-            </div>
-            <div class="cf-group">
-              <label for="cf-service">I&rsquo;m interested in&hellip;</label>
-              <select id="cf-service" name="service">
-                <option value="" disabled selected>Select an application…</option>
-                <option value="Workforce Intelligence">Workforce Intelligence</option>
-                <option value="Municipal Intelligence">Municipal Intelligence</option>
-                <option value="Custom Intelligence">Custom Intelligence / a specific research question</option>
-                <option value="Intelligence Retainer">An intelligence retainer</option>
-                <option value="Fractional Intelligence">Fractional Intelligence &mdash; an external analyst function</option>
-                <option value="Not sure yet">Not sure yet &mdash; I have a question</option>
-              </select>
-            </div>
-            <div class="cf-group">
-              <label for="cf-message">What do you need to know?</label>
-              <textarea id="cf-message" name="message" placeholder="The market, workforce, policy, or budget question your organization needs answered…"></textarea>
-            </div>
-            <button type="submit" class="cf-submit" id="cf-submit">
-              <span class="cf-btn-text">Send</span>
-              <span class="cf-spinner" id="cf-spinner"></span>
-            </button>
-            <div class="cf-msg" id="cf-error" role="alert">
-              <span id="cf-error-text">Something went wrong. Please email us directly.</span>
-            </div>
-          </form>
-        </div>
-
-        <div class="cf-success" id="cf-success">
-          <div class="cf-success-icon">
-            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <h3>Received.</h3>
-          <p>Thank you. We will read your question and respond within one business day with a plain answer on whether and how we can help.</p>
-        </div>
+      <div class="cf-success" id="cf-success">
+        <div class="cf-success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h3>Received.</h3>
+        <p>Thank you. We will read your question and respond within one business day with a plain answer on whether and how we can help.</p>
       </div>
-
+      <dl class="contact-meta">
+        <div><dt>Response</dt><dd>Within one business day.</dd></div>
+        <div><dt>Scoping call</dt><dd>A conversation with the analyst who would do the work, at no cost and without obligation.</dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:morgan.harman@alt-30.com">morgan.harman@alt-30.com</a></dd></div>
+      </dl>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer style="flex-direction:column;gap:1.75rem;align-items:flex-start">
-  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;width:100%">
-    <div class="foot-wm">&#9650; Alt-30 &middot; External Intelligence</div>
-    <ul class="foot-nav">
-      <li><a href="workforce-intelligence.html">Workforce</a></li>
-      <li><a href="municipal-intelligence.html">Municipal</a></li>
-      <li><a href="custom-intelligence.html">Custom Research</a></li>
-      <li><a href="#engagement">How We Work</a></li>
-      <li><a href="firm-overview.html">Firm Overview</a></li>
-      <li><a href="#tools">Products</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-wm"><span>&#9650;</span>Alt-30</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="workforce-intelligence.html">Workforce</a></li>
+        <li><a href="municipal-intelligence.html">Municipal</a></li>
+        <li><a href="custom-intelligence.html">Custom Research</a></li>
+        <li><a href="index.html#engagement">How We Work</a></li>
+        <li><a href="firm-overview.html">Firm Overview</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <p class="footer-note"><strong>A note on independence.</strong> Alt-30 is a non-partisan research firm. Our monitoring and analysis rest on empirical financial, tax, and employment data, with sources and assumptions disclosed in the report itself. We take no positions on legislation, candidates, or ballot measures, hold no lobbying registrations, and serve clients across the political spectrum without conflict of interest.</p>
+    <p class="footer-copy">Copyright &copy; 2026 Alt-30 LLC. All rights reserved.</p>
   </div>
-  <div style="font-size:0.76rem;color:rgba(193,193,189,0.42);line-height:1.85;max-width:960px;border-top:1px solid rgba(255,255,255,0.07);padding-top:1.5rem"><span style="color:rgba(193,193,189,0.65);font-weight:500">A note on objectivity:</span> Alt-30 is a non-partisan research firm. Our monitoring and analysis rest on empirical financial metrics, tax filings, and employment data, with sources and assumptions disclosed in the report itself. We take no positions on legislation, candidates, or ballot measures, hold no lobbying registrations, make no political contributions as a firm, and serve clients across the political spectrum without conflict of interest.</div>
-  <div class="foot-copy">&copy; 2026 Alt-30 LLC. All rights reserved.</div>
 </footer>
 
 <script>
+const toggle=document.getElementById('nav-toggle');
+const drawer=document.getElementById('nav-drawer');
+toggle.addEventListener('click',()=>{const o=drawer.classList.toggle('open');toggle.classList.toggle('open',o);});
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{drawer.classList.remove('open');toggle.classList.remove('open');}));
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 /* ── CONTACT FORM ── */
 (function(){
   const APPS_SCRIPT_URL='https://script.google.com/macros/s/AKfycbwF1hswKl3gROtjpL53K29DRb92i0aMXeNE6-gEvNq9irBMr8YiFyyBbVUU3CSn2MBc/exec';
@@ -882,184 +376,6 @@ footer{background:var(--obsidian);padding:2.5rem 4rem;display:flex;align-items:c
       spinner.style.display='none';
     }
   });
-})();
-
-/* ── CURSOR ── */
-const cur=document.getElementById('cur');
-const ring=document.getElementById('cur-ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
-(function loop(){rx+=(mx-rx)*0.11;ry+=(my-ry)*0.11;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
-
-/* ── NAV ── */
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
-
-/* ── MOBILE NAV ── */
-const toggle=document.getElementById('nav-toggle');
-const drawer=document.getElementById('nav-drawer');
-toggle.addEventListener('click',()=>{
-  const open=drawer.classList.toggle('open');
-  toggle.classList.toggle('open',open);
-});
-drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-  drawer.classList.remove('open');
-  toggle.classList.remove('open');
-}));
-
-/* ── REVEAL ── */
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')});
-},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
-
-/* ══ ANIMATED US MAP ══ */
-(function(){
-  const canvas = document.getElementById('map-canvas');
-  const ctx = canvas.getContext('2d');
-
-  function resize(){
-    const hero = canvas.parentElement;
-    canvas.width = hero.offsetWidth;
-    canvas.height = hero.offsetHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  // Simplified US state centroids [x%, y%] relative to canvas
-  const nodes = [
-    // West
-    {x:8,y:28,r:'WA'},{x:8,y:38,r:'OR'},{x:6,y:52,r:'CA'},{x:14,y:42,r:'ID'},
-    {x:18,y:32,r:'MT'},{x:16,y:55,r:'NV'},{x:20,y:62,r:'AZ'},{x:21,y:48,r:'UT'},
-    {x:24,y:40,r:'WY'},{x:27,y:52,r:'CO'},{x:28,y:64,r:'NM'},
-    // Plains / Midwest
-    {x:32,y:32,r:'ND'},{x:33,y:42,r:'SD'},{x:33,y:52,r:'NE'},{x:34,y:62,r:'KS'},
-    {x:37,y:32,r:'MN'},{x:39,y:42,r:'IA'},{x:39,y:52,r:'MO'},{x:38,y:62,r:'OK'},
-    {x:37,y:71,r:'TX'},{x:43,y:38,r:'WI'},{x:44,y:48,r:'IL'},{x:44,y:58,r:'AR'},
-    {x:44,y:67,r:'LA'},{x:47,y:42,r:'IN'},{x:48,y:52,r:'KY'},{x:49,y:60,r:'TN'},
-    {x:49,y:68,r:'MS'},{x:49,y:34,r:'MI'},{x:51,y:42,r:'OH'},{x:51,y:58,r:'AL'},
-    // Southeast
-    {x:53,y:66,r:'GA'},{x:55,y:74,r:'FL'},{x:53,y:50,r:'WV'},{x:54,y:55,r:'VA'},
-    {x:55,y:62,r:'SC'},{x:55,y:44,r:'PA'},{x:56,y:50,r:'MD'},{x:56,y:57,r:'NC'},
-    // Northeast
-    {x:57,y:36,r:'NY'},{x:59,y:30,r:'VT'},{x:60,y:27,r:'ME'},{x:60,y:34,r:'NH'},
-    {x:61,y:38,r:'MA'},{x:62,y:42,r:'RI'},{x:63,y:40,r:'CT'},{x:63,y:46,r:'NJ'},
-    {x:64,y:44,r:'DE'},
-    // Alaska & Hawaii
-    {x:10,y:82,r:'AK'},{x:22,y:84,r:'HI'},
-  ];
-
-  // Connection pairs (indices)
-  const edges = [
-    [0,1],[1,2],[1,3],[0,3],[3,4],[4,5],[5,6],[5,7],[6,7],[7,8],[8,9],[9,10],
-    [4,11],[11,12],[12,13],[13,14],[11,15],[15,16],[16,17],[17,18],[18,19],
-    [15,20],[20,21],[21,22],[22,23],[20,24],[24,25],[25,26],[26,27],[24,28],
-    [28,29],[29,30],[30,31],[29,32],[32,33],[33,34],[32,35],[35,36],[36,37],
-    [37,38],[35,39],[39,40],[40,41],[41,42],[42,43],[43,44],
-  ];
-
-  // Color palette inspired by the choropleth map
-  const nodeColors = [
-    '#C84B8A','#9B3B9B','#7B2D8C','#E87040','#D45C20',
-    '#8B1A8B','#B84070','#D4609A','#E8A030','#C85030',
-    '#A02870','#7020A0','#5018A0','#3A10B0','#B03878',
-    '#E06028','#C84048','#8828A8','#6018B0','#D87038',
-  ];
-
-  // Pulse animations
-  const pulses = [];
-  function spawnPulse(){
-    const edgeIdx = Math.floor(Math.random()*edges.length);
-    const [a,b] = edges[edgeIdx];
-    pulses.push({a,b,t:0,speed:0.004+Math.random()*0.006,color:nodeColors[Math.floor(Math.random()*nodeColors.length)]});
-  }
-  for(let i=0;i<8;i++) setTimeout(()=>spawnPulse(), i*400);
-
-  let frame=0;
-  function draw(){
-    const W=canvas.width, H=canvas.height;
-    ctx.clearRect(0,0,W,H);
-
-    // Map the node % coordinates to actual pixels
-    function px(n){ return {x:n.x/100*W, y:n.y/100*H} }
-
-    // Draw edges
-    edges.forEach(([a,b])=>{
-      const pa=px(nodes[a]), pb=px(nodes[b]);
-      ctx.beginPath();
-      ctx.moveTo(pa.x,pa.y);
-      ctx.lineTo(pb.x,pb.y);
-      ctx.strokeStyle='rgba(193,193,189,0.07)';
-      ctx.lineWidth=1;
-      ctx.stroke();
-    });
-
-    // Draw pulse animations along edges
-    pulses.forEach((p,i)=>{
-      p.t += p.speed;
-      if(p.t>1){
-        p.t=0;
-        // pick new edge
-        const edgeIdx=Math.floor(Math.random()*edges.length);
-        p.a=edges[edgeIdx][0];p.b=edges[edgeIdx][1];
-        p.color=nodeColors[Math.floor(Math.random()*nodeColors.length)];
-      }
-      const pa=px(nodes[p.a]), pb=px(nodes[p.b]);
-      const px2=pa.x+(pb.x-pa.x)*p.t;
-      const py2=pa.y+(pb.y-pa.y)*p.t;
-
-      // Glowing trail
-      const grad=ctx.createRadialGradient(px2,py2,0,px2,py2,12);
-      grad.addColorStop(0,p.color+'CC');
-      grad.addColorStop(0.4,p.color+'44');
-      grad.addColorStop(1,'transparent');
-      ctx.beginPath();
-      ctx.arc(px2,py2,12,0,Math.PI*2);
-      ctx.fillStyle=grad;
-      ctx.fill();
-
-      // Edge highlight behind pulse
-      ctx.beginPath();
-      ctx.moveTo(pa.x,pa.y);
-      ctx.lineTo(pb.x,pb.y);
-      ctx.strokeStyle=p.color+'30';
-      ctx.lineWidth=2;
-      ctx.stroke();
-    });
-
-    // Spawn new pulses occasionally
-    if(frame%90===0 && pulses.length<20) spawnPulse();
-
-    // Draw nodes
-    nodes.forEach((n,i)=>{
-      const p=px(n);
-      const col=nodeColors[i%nodeColors.length];
-      const pulse=(Math.sin(frame*0.04+i*0.7)*0.5+0.5);
-      const r=3+pulse*2;
-
-      // Outer glow
-      const grd=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,r*4);
-      grd.addColorStop(0,col+'60');
-      grd.addColorStop(1,'transparent');
-      ctx.beginPath();
-      ctx.arc(p.x,p.y,r*4,0,Math.PI*2);
-      ctx.fillStyle=grd;
-      ctx.fill();
-
-      // Node dot
-      ctx.beginPath();
-      ctx.arc(p.x,p.y,r,0,Math.PI*2);
-      ctx.fillStyle=col+'CC';
-      ctx.fill();
-    });
-
-    frame++;
-    requestAnimationFrame(draw);
-  }
-  draw();
-
-  // Spawn new pulses periodically
-  setInterval(spawnPulse,1200);
 })();
 </script>
 </body>
