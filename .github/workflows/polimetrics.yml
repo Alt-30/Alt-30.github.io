@@ -1,0 +1,31 @@
+name: Sync PoliMetrics feed
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"   # every six hours
+  workflow_dispatch:          # run on demand from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch feed
+        run: python scripts/fetch-polimetrics.py
+      - name: Commit if changed
+        run: |
+          git config user.name "polimetrics-sync"
+          git config user.email "actions@users.noreply.github.com"
+          git add assets/data/polimetrics.json
+          if git diff --cached --quiet; then
+            echo "Feed unchanged"
+          else
+            git commit -m "Sync PoliMetrics feed"
+            git push
+          fi
