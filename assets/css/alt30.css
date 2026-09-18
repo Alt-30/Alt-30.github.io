@@ -124,6 +124,12 @@ a.tile:hover{text-decoration:none;transform:translateY(-3px);box-shadow:0 18px 4
 .section:not(.alt):not(.dark) .chip{background:#fff}
 .dark .chip{background:#2c2c2e;color:var(--on-dark-2)}
 
+.tile.wide{grid-column:1/-1;display:grid;grid-template-columns:1.15fr 1fr;gap:2.5rem 3.5rem;align-items:center;padding:3rem 3rem}
+.tile.wide .tile-text{display:flex;flex-direction:column;gap:0.75rem}
+.tile.wide .tile-title{font-size:clamp(1.5rem,2.6vw,2rem)}
+.tile.wide .spark{height:150px;margin:0}
+@media(max-width:920px){.tile.wide{grid-template-columns:1fr;padding:2rem 1.6rem}.tile.wide .spark{height:100px}}
+
 /* Feature list (small items) */
 .features{display:grid;grid-template-columns:repeat(2,1fr);gap:2.25rem 3rem;margin-top:3.5rem}
 .feature{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start}
