@@ -36,7 +36,8 @@
 </ul>
 
 <!-- PAGE HERO -->
-<header class="page-hero">
+<header class="page-hero has-ambient">
+  <canvas class="ambient" data-tone="light" aria-hidden="true"></canvas>
   <div class="container">
     <div class="eyebrow">Custom Intelligence</div>
     <h1 class="h1">Something your team doesn&rsquo;t have time to investigate? We&rsquo;ll research it.</h1>
@@ -111,7 +112,8 @@
 </section>
 
 <!-- WHO THIS IS FOR -->
-<section class="section dark">
+<section class="section dark has-ambient">
+  <canvas class="ambient" data-tone="dark" aria-hidden="true"></canvas>
   <div class="container">
     <div class="center narrow rv">
       <div class="eyebrow">Who brings us these questions</div>
@@ -157,6 +159,7 @@
   </div>
 </footer>
 
+<script src="assets/js/motion.js"></script>
 <script>
 const toggle=document.getElementById('nav-toggle');
 const drawer=document.getElementById('nav-drawer');

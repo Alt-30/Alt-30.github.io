@@ -36,7 +36,8 @@
 </ul>
 
 <!-- HERO -->
-<header class="hero">
+<header class="hero has-ambient">
+  <canvas class="ambient" data-tone="light" aria-hidden="true"></canvas>
   <div class="container">
     <div class="eyebrow">Alt-30</div>
     <h1 class="h1">Clear Insights for Evolving Markets</h1>
@@ -59,11 +60,11 @@
           <line x1="0" y1="180" x2="820" y2="180"/>
           <line x1="0" y1="240" x2="820" y2="240"/>
         </g>
-        <path d="M0,214 C90,208 140,196 210,190 S320,178 380,160 S470,118 540,104 S650,74 720,50 L820,28 L820,260 L0,260 Z" fill="url(#area)"/>
-        <path d="M0,214 C90,208 140,196 210,190 S320,178 380,160 S470,118 540,104 S650,74 720,50 L820,28" fill="none" stroke="#1d1d1f" stroke-width="2" stroke-linecap="round"/>
-        <path d="M720,50 L732,64 L708,64 Z" fill="#0071e3"/>
-        <circle cx="380" cy="160" r="4" fill="#1d1d1f"/>
-        <circle cx="540" cy="104" r="4" fill="#1d1d1f"/>
+        <path d="M0,214 C90,208 140,196 210,190 S320,178 380,160 S470,118 540,104 S650,74 720,50 L820,28 L820,260 L0,260 Z" fill="url(#area)" class="hv-area"/>
+        <path d="M0,214 C90,208 140,196 210,190 S320,178 380,160 S470,118 540,104 S650,74 720,50 L820,28" fill="none" stroke="#1d1d1f" stroke-width="2" stroke-linecap="round" class="hv-line"/>
+        <path d="M720,50 L732,64 L708,64 Z" fill="#0071e3" class="hv-mark"/>
+        <circle cx="380" cy="160" r="4" fill="#1d1d1f" class="hv-dot"/>
+        <circle cx="540" cy="104" r="4" fill="#1d1d1f" class="hv-dot"/>
       </svg>
     </div>
   </div>
@@ -101,6 +102,7 @@
         <div class="tile-label">Workforce Intelligence</div>
         <div class="tile-title">Know where the labor market is moving before your competitors do.</div>
         <div class="tile-body">Monthly and quarterly intelligence for staffing firms, workforce organizations, economic-development groups, and major employers.</div>
+                <svg class="spark" viewBox="0 0 300 56" aria-hidden="true"><path class="sp-area" d="M0,44 C40,42 70,38 105,34 S170,26 205,20 S260,12 300,6 L300,56 L0,56 Z"/><path class="sp-line" d="M0,44 C40,42 70,38 105,34 S170,26 205,20 S260,12 300,6"/></svg>
         <div class="chips"><span class="chip">Employment</span><span class="chip">Wages</span><span class="chip">Occupations</span><span class="chip">Industry shifts</span><span class="chip">Demographics</span></div>
         <span class="link">Learn more</span>
       </a>
@@ -108,6 +110,7 @@
         <div class="tile-label">Municipal Intelligence</div>
         <div class="tile-title">A continuously updated view of your community&rsquo;s economic and fiscal environment.</div>
         <div class="tile-body">One maintained picture for a council, a manager, and a finance director, including the Economic Resilience Index and the peer communities you are measured against.</div>
+                <svg class="spark" viewBox="0 0 300 56" aria-hidden="true"><rect class="sp-bar" x="6" y="30" width="26" height="26" rx="3"/><rect class="sp-bar" x="44" y="22" width="26" height="34" rx="3"/><rect class="sp-bar" x="82" y="26" width="26" height="30" rx="3"/><rect class="sp-bar" x="120" y="16" width="26" height="40" rx="3"/><rect class="sp-bar" x="158" y="20" width="26" height="36" rx="3"/><rect class="sp-bar" x="196" y="10" width="26" height="46" rx="3"/><rect class="sp-bar" x="234" y="14" width="26" height="42" rx="3"/><rect class="sp-bar" x="272" y="4" width="26" height="52" rx="3"/></svg>
         <div class="chips"><span class="chip">Revenue</span><span class="chip">Shared revenues</span><span class="chip">Tax base</span><span class="chip">Housing</span><span class="chip">Peers</span></div>
         <span class="link">Learn more</span>
       </a>
@@ -115,6 +118,7 @@
         <div class="tile-label">Custom Intelligence</div>
         <div class="tile-title">Something your team doesn&rsquo;t have time to investigate? We&rsquo;ll research it.</div>
         <div class="tile-body">A defined question, a fixed fee, and a deliverable built for the decision it has to support. This is where the deeper analytical work sits.</div>
+                <svg class="spark" viewBox="0 0 300 56" aria-hidden="true"><circle class="sp-dot" cx="22" cy="40" r="5"/><circle class="sp-dot" cx="76" cy="30" r="5"/><circle class="sp-dot" cx="130" cy="36" r="5"/><circle class="sp-dot" cx="184" cy="18" r="5"/><circle class="sp-dot" cx="238" cy="24" r="5"/><circle class="sp-dot" cx="286" cy="8" r="5"/></svg>
         <div class="chips"><span class="chip">Market expansion</span><span class="chip">Economic impact</span><span class="chip">Policy impact</span><span class="chip">Dashboards</span></div>
         <span class="link">Learn more</span>
       </a>
@@ -123,7 +127,8 @@
 </section>
 
 <!-- HOW WE WORK -->
-<section class="section dark" id="engagement">
+<section class="section dark has-ambient" id="engagement">
+  <canvas class="ambient" data-tone="dark" aria-hidden="true"></canvas>
   <div class="container">
     <div class="center narrow rv">
       <div class="eyebrow">How we work</div>
@@ -330,6 +335,7 @@
   </div>
 </footer>
 
+<script src="assets/js/motion.js"></script>
 <script>
 const toggle=document.getElementById('nav-toggle');
 const drawer=document.getElementById('nav-drawer');
