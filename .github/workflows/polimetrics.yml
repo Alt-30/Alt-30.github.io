@@ -2,18 +2,18 @@ name: Sync PoliMetrics feed
 
 on:
   schedule:
-    - cron: "17 */6 * * *"   # every six hours
-  workflow_dispatch:          # run on demand from the Actions tab
+    - cron: "0 14 * * 1"    # Mondays, 14:00 UTC (7:00 am Arizona)
+  workflow_dispatch:         # run on demand from the Actions tab after publishing
 
 permissions:
   contents: write
 
 jobs:
   sync:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - name: Fetch feed

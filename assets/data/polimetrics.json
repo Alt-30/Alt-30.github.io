@@ -1,9 +1,14 @@
 {
   "publication": "PoliMetrics",
   "tagline": "Evidence over Ideology. Data-driven insights on current policy issues.",
-  "url": "https://polimetrics.substack.com",
-  "updated": "2026-09-17T22:02:53Z",
   "posts": [
+    {
+      "title": "Minnesota's Unemployment Claims Are Shifting Toward AI-Exposed Jobs",
+      "link": "https://polimetrics.substack.com/p/minnesotas-unemployment-claims-are",
+      "date": "2026-09-18",
+      "excerpt": "Claims from the occupations where people use AI most turned upward after ChatGPT",
+      "image": "https://substackcdn.com/image/fetch/$s_!NtE7!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F763c980e-59be-420f-b341-25bd9e2fc086_1176x1308.png"
+    },
     {
       "title": "The PoliMetrics Archive",
       "link": "https://polimetrics.substack.com/p/the-polimetrics-archive",
@@ -80,13 +85,8 @@
       "date": "2026-08-14",
       "excerpt": "County bulletins show declines of 38 to 50% regardless of local labor market conditions",
       "image": "https://substackcdn.com/image/fetch/$s_!ml0h!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffeb2db34-8eec-4520-8fe7-110bead9719f_1220x734.png"
-    },
-    {
-      "title": "Arizona Cut Its SNAP Caseload in Half. Fiscal incentives in the Big Beautiful Bill explain why.",
-      "link": "https://polimetrics.substack.com/p/arizona-cut-its-snap-caseload-in",
-      "date": "2026-08-10",
-      "excerpt": "What the H.R. 1 cost shift prices, and what states can do about it before September 30",
-      "image": "https://substackcdn.com/image/fetch/$s_!eQKa!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb0093a7e-0982-4a40-98cd-c39e5a86db5d_1220x896.png"
     }
-  ]
+  ],
+  "url": "https://polimetrics.substack.com",
+  "updated": "2026-09-19T20:39:57Z"
 }
